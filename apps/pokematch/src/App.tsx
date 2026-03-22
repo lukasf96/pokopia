@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react'
-import { Box, Button, Container, Typography } from '@mui/material'
 import { useStore } from './store'
 import { allPokemon, standardPokemon } from './pokemon'
 import Layout from './Layout'
@@ -9,7 +8,7 @@ import PokedexPage from './PokedexPage'
 type Page = 'matcher' | 'pokedex'
 
 export default function App() {
-  const { mode, setMode, includeEvents, unlockedIds } = useStore()
+  const { mode, includeEvents, unlockedIds } = useStore()
   const [page, setPage] = useState<Page>('matcher')
 
   const activePokemon = useMemo(() => {
@@ -33,25 +32,7 @@ export default function App() {
       {page === 'matcher' && <MatcherPage activePokemon={activePokemon} />}
 
       {page === 'pokedex' && (
-        <Container maxWidth="lg" sx={{ py: 3 }}>
-          {mode === 'standard' ? (
-            <Box sx={{ py: 6, textAlign: 'center' }}>
-              <Typography color="text.secondary" mb={1}>
-                Pokédex selection is only available in <strong>Custom</strong> mode.
-              </Typography>
-              <Button
-                variant="contained"
-                size="small"
-                onClick={() => setMode('custom')}
-                sx={{ mt: 1 }}
-              >
-                Switch to Custom mode
-              </Button>
-            </Box>
-          ) : (
-            <PokedexPage pokemon={includeEvents ? allPokemon : standardPokemon} />
-          )}
-        </Container>
+        <PokedexPage pokemon={includeEvents ? allPokemon : standardPokemon} />
       )}
     </Layout>
   )
