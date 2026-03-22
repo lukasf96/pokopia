@@ -117,8 +117,8 @@ function HabitatRow({ habitat, pokemon }: { habitat: Habitat; pokemon: Pokemon[]
               sx={{
                 height: 20,
                 fontSize: 10,
-                bgcolor: isEvent(p) ? '#f3e5f5' : undefined,
-                color: isEvent(p) ? '#7b1fa2' : undefined,
+                bgcolor: isEvent(p) ? 'secondary.light' : undefined,
+                color: isEvent(p) ? 'secondary.dark' : undefined,
               }}
             />
           ))}
@@ -156,16 +156,23 @@ function FavoriteRow({
                 width: 80,
                 height: 6,
                 borderRadius: 3,
-                bgcolor: '#e0e0e0',
+                bgcolor: 'action.hover',
                 overflow: 'hidden',
               }}
             >
-              <Box sx={{ width: `${pct}%`, height: '100%', bgcolor: '#9c27b0', borderRadius: 3 }} />
+              <Box
+                sx={{
+                  width: `${pct}%`,
+                  height: '100%',
+                  bgcolor: 'secondary.main',
+                  borderRadius: 3,
+                }}
+              />
             </Box>
             <Typography variant="body2" color="text.secondary" sx={{ fontSize: 12, minWidth: 24, textAlign: 'right' }}>
               {pokemon.length}
             </Typography>
-            <ExpandIcon open={open} color="#666" />
+            <ExpandIcon open={open} color="text.secondary" />
           </Stack>
         </Box>
       </Box>
@@ -183,8 +190,8 @@ function FavoriteRow({
                 sx={{
                   height: 20,
                   fontSize: 10,
-                  bgcolor: isEvent(p) ? '#f3e5f5' : undefined,
-                  color: isEvent(p) ? '#7b1fa2' : undefined,
+                  bgcolor: isEvent(p) ? 'secondary.light' : undefined,
+                  color: isEvent(p) ? 'secondary.dark' : undefined,
                 }}
               />
             ))}

@@ -30,7 +30,7 @@ export function HabitatSection({ habitatGroup: hg }: HabitatSectionProps) {
       aria-labelledby={summaryId}
       sx={{
         borderColor: colors.border,
-        borderRadius: '8px !important',
+        borderRadius: '10px !important',
         '&:before': { display: 'none' },
       }}
     >

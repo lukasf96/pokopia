@@ -124,8 +124,8 @@ function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
                   sx={{
                     height: 16,
                     fontSize: 9,
-                    bgcolor: '#f3e5f5',
-                    color: '#7b1fa2',
+                    bgcolor: 'secondary.light',
+                    color: 'secondary.dark',
                     ml: 0.5,
                   }}
                 />

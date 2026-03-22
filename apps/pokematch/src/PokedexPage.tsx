@@ -435,7 +435,7 @@ const PokemonCard = memo(function PokemonCard({
         overflow: "hidden",
         cursor: interactive ? "pointer" : "default",
         opacity: unlocked ? 1 : 0.45,
-        borderColor: unlocked ? colors.border : "#e0e0e0",
+        borderColor: unlocked ? colors.border : "divider",
         transition: "opacity 0.15s, border-color 0.15s, box-shadow 0.15s",
         "&:hover": interactive
           ? {
@@ -448,7 +448,7 @@ const PokemonCard = memo(function PokemonCard({
     >
       <Box
         sx={{
-          bgcolor: unlocked ? colors.bg : "#f5f5f5",
+          bgcolor: unlocked ? colors.bg : "grey.100",
           px: 1.5,
           py: 0.75,
           display: "flex",
@@ -480,8 +480,8 @@ const PokemonCard = memo(function PokemonCard({
               sx={{
                 height: 14,
                 fontSize: 9,
-                bgcolor: "#f3e5f5",
-                color: "#7b1fa2",
+                bgcolor: "secondary.light",
+                color: "secondary.dark",
                 flexShrink: 0,
               }}
             />
@@ -494,7 +494,7 @@ const PokemonCard = memo(function PokemonCard({
             />
           ) : (
             <CheckBoxOutlineBlankIcon
-              sx={{ fontSize: 18, color: "#bdbdbd", flexShrink: 0 }}
+              sx={{ fontSize: 18, color: "text.disabled", flexShrink: 0 }}
             />
           ))}
       </Box>
@@ -520,7 +520,7 @@ const PokemonCard = memo(function PokemonCard({
               key={fav}
               label={fav}
               size="small"
-              sx={{ height: 16, fontSize: 9, bgcolor: "#f5f5f5" }}
+              sx={{ height: 16, fontSize: 9, bgcolor: "grey.100" }}
             />
           ))}
         </Box>

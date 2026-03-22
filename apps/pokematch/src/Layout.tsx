@@ -23,12 +23,14 @@ export default function Layout({
   const setMode = useStore((s) => s.setMode)
 
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: '#fafafa' }}>
+    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
       {/* Header */}
       <Box
         sx={{
-          bgcolor: 'white',
-          borderBottom: '1px solid #e0e0e0',
+          bgcolor: 'background.paper',
+          borderBottom: 1,
+          borderColor: 'divider',
+          boxShadow: '0 1px 0 0 rgb(15 23 42 / 0.04)',
           px: 3,
           py: 1.5,
           display: 'flex',
@@ -76,7 +78,7 @@ export default function Layout({
       </Box>
 
       {/* Page nav */}
-      <Box sx={{ bgcolor: 'white', borderBottom: '1px solid #e0e0e0', px: 3 }}>
+      <Box sx={{ bgcolor: 'background.paper', borderBottom: 1, borderColor: 'divider', px: 3 }}>
         <Stack direction="row" spacing={3}>
           <NavLink active={page === 'matcher'} onClick={() => onPageChange('matcher')}>
             Match-Maker
@@ -124,7 +126,8 @@ function NavLink({
         fontSize: 14,
         fontWeight: active ? 600 : 400,
         color: active ? 'text.primary' : 'text.secondary',
-        borderBottom: active ? '2px solid #1976d2' : '2px solid transparent',
+        borderBottom: '2px solid',
+        borderBottomColor: active ? 'primary.main' : 'transparent',
         display: 'flex',
         alignItems: 'center',
         transition: 'color 0.15s',
