@@ -45,12 +45,10 @@ const allIds = [
 
 interface AppState {
   mode: AppMode
-  includeEvents: boolean
   // Set of pokemon IDs the player has unlocked (only relevant in custom mode)
   unlockedIds: Set<string>
 
   setMode: (mode: AppMode) => void
-  setIncludeEvents: (v: boolean) => void
   togglePokemon: (id: string) => void
   unlockAll: () => void
   lockAll: () => void
@@ -59,7 +57,6 @@ interface AppState {
 // Zustand persist doesn't handle Set natively — store as array and convert
 interface PersistedState {
   mode: AppMode
-  includeEvents: boolean
   unlockedIds: string[]
 }
 
@@ -67,11 +64,9 @@ export const useStore = create<AppState>()(
   persist(
     (set) => ({
       mode: 'standard',
-      includeEvents: true,
       unlockedIds: new Set(allIds),
 
       setMode: (mode) => set({ mode }),
-      setIncludeEvents: (includeEvents) => set({ includeEvents }),
 
       togglePokemon: (id) =>
         set((state) => {

@@ -1,15 +1,6 @@
-import {
-  Box,
-  Chip,
-  FormControlLabel,
-  Stack,
-  Switch,
-  ToggleButton,
-  ToggleButtonGroup,
-  Typography,
-} from '@mui/material'
+import { Box, Chip, Stack, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
 import { useStore } from './store'
-import { allPokemon, eventPokemon } from './pokemon'
+import { allPokemon } from './pokemon'
 
 type Page = 'matcher' | 'overview' | 'pokedex'
 
@@ -30,8 +21,6 @@ export default function Layout({
 }: Props) {
   const mode = useStore((s) => s.mode)
   const setMode = useStore((s) => s.setMode)
-  const includeEvents = useStore((s) => s.includeEvents)
-  const setIncludeEvents = useStore((s) => s.setIncludeEvents)
 
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: '#fafafa' }}>
@@ -83,33 +72,6 @@ export default function Layout({
               )}
             </ToggleButton>
           </ToggleButtonGroup>
-
-          <FormControlLabel
-            control={
-              <Switch
-                checked={includeEvents}
-                onChange={(e) => setIncludeEvents(e.target.checked)}
-                size="small"
-              />
-            }
-            label={
-              <Stack direction="row" spacing={0.75} alignItems="center">
-                <Typography variant="body2">Events</Typography>
-                <Chip
-                  label={eventPokemon.length}
-                  size="small"
-                  sx={{
-                    height: 18,
-                    fontSize: 11,
-                    bgcolor: includeEvents ? '#f3e5f5' : '#f5f5f5',
-                    color: includeEvents ? '#7b1fa2' : 'text.disabled',
-                  }}
-                />
-              </Stack>
-            }
-            sx={{ mr: 0 }}
-          />
-
         </Stack>
       </Box>
 

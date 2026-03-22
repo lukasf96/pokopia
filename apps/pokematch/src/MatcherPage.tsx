@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { allPokemon, standardPokemon } from './pokemon'
+import { allPokemon } from './pokemon'
 import { Container, Stack, Typography } from '@mui/material'
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined'
 import { computeHabitatGroups } from './matching'
@@ -8,14 +8,12 @@ import { useStore } from './store'
 
 export default function MatcherPage() {
   const mode = useStore((s) => s.mode)
-  const includeEvents = useStore((s) => s.includeEvents)
   const unlockedIds = useStore((s) => s.unlockedIds)
 
   const activePokemon = useMemo(() => {
-    const base = includeEvents ? allPokemon : standardPokemon
-    if (mode !== 'custom') return base
-    return base.filter((p) => unlockedIds.has(p.id))
-  }, [mode, includeEvents, unlockedIds])
+    if (mode !== 'custom') return allPokemon
+    return allPokemon.filter((p) => unlockedIds.has(p.id))
+  }, [mode, unlockedIds])
 
   const habitatGroups = useMemo(() => computeHabitatGroups(activePokemon), [activePokemon])
 
