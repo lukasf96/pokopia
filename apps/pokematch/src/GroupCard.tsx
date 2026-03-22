@@ -1,34 +1,53 @@
-import { Box, Chip, Divider, Paper, Stack, Typography } from '@mui/material'
+import { memo, useMemo } from 'react'
+import { Box, Chip, Divider, Paper, Stack, Typography, useTheme } from '@mui/material'
 import type { Pokemon, Habitat } from './types'
 import { habitatColors } from './habitatColors'
 import { groupScore } from './matching'
 
-export default function GroupCard({
-  group,
-  groupNumber,
-  habitat,
-}: {
+interface GroupCardProps {
   group: Pokemon[]
   groupNumber: number
   habitat: Habitat
-}) {
-  const colors = habitatColors[habitat]
-  const score = groupScore(group)
-  const allFavs = group.flatMap((p) => p.favorites)
-  const favCounts = allFavs.reduce<Record<string, number>>((acc, f) => {
-    acc[f] = (acc[f] ?? 0) + 1
-    return acc
-  }, {})
-  const sharedFavs = Object.entries(favCounts)
-    .filter(([, count]) => count >= 2)
-    .sort((a, b) => b[1] - a[1])
+}
 
-  const isEvent = (p: Pokemon) => p.id.startsWith('e')
+function isEventPokemon(p: Pokemon): boolean {
+  return p.id.startsWith('e')
+}
+
+function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
+  const theme = useTheme()
+  const colors = habitatColors[habitat]
+
+  const { favCounts, sharedFavs, score } = useMemo(() => {
+    const allFavs = group.flatMap((p) => p.favorites)
+    const counts = allFavs.reduce<Record<string, number>>((acc, f) => {
+      acc[f] = (acc[f] ?? 0) + 1
+      return acc
+    }, {})
+    const shared = Object.entries(counts)
+      .filter(([, count]) => count >= 2)
+      .sort((a, b) => b[1] - a[1])
+    return {
+      favCounts: counts,
+      sharedFavs: shared,
+      score: groupScore(group),
+    }
+  }, [group])
+
+  const dividerColor = theme.palette.divider
 
   return (
     <Paper
       variant="outlined"
-      sx={{ borderColor: colors.border, borderRadius: 2, overflow: 'hidden' }}
+      sx={{
+        borderColor: colors.border,
+        borderRadius: 2,
+        overflow: 'hidden',
+        transition: theme.transitions.create(['box-shadow'], { duration: theme.transitions.duration.shortest }),
+        '&:hover': {
+          boxShadow: theme.shadows[2],
+        },
+      }}
     >
       <Box
         sx={{
@@ -38,19 +57,21 @@ export default function GroupCard({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: 1,
         }}
       >
         <Typography variant="subtitle2" fontWeight={700} color={colors.text}>
           Group {groupNumber}
         </Typography>
-        <Stack direction="row" spacing={1} alignItems="center">
+        <Stack direction="row" spacing={1} alignItems="center" flexWrap="wrap" useFlexGap>
           {sharedFavs.slice(0, 3).map(([fav, count]) => (
             <Chip
               key={fav}
               label={`${fav} ×${count}`}
               size="small"
               sx={{
-                bgcolor: 'white',
+                bgcolor: 'background.paper',
                 fontSize: 11,
                 height: 20,
                 color: colors.text,
@@ -61,36 +82,52 @@ export default function GroupCard({
           <Chip
             label={`score ${score}`}
             size="small"
-            sx={{ bgcolor: colors.border, color: 'white', fontSize: 11, height: 20 }}
+            sx={{
+              bgcolor: colors.border,
+              color: 'common.white',
+              fontSize: 11,
+              height: 20,
+            }}
           />
         </Stack>
       </Box>
 
       <Divider />
 
-      <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+        }}
+      >
         {group.map((pokemon, pi) => (
           <Box
             key={pokemon.id}
             sx={{
               flex: '1 1 220px',
               p: 1.5,
-              borderRight: pi < group.length - 1 ? '1px solid #f0f0f0' : 'none',
+              borderRight: pi < group.length - 1 ? `1px solid ${dividerColor}` : 'none',
               minWidth: 0,
             }}
           >
-            <Stack direction="row" spacing={1} alignItems="baseline" mb={0.5}>
-              <Typography variant="body2" color="text.disabled" sx={{ fontSize: 11, minWidth: 32 }}>
+            <Stack direction="row" spacing={1} alignItems="baseline" mb={0.5} flexWrap="wrap">
+              <Typography variant="caption" color="text.disabled" sx={{ minWidth: 32 }}>
                 #{pokemon.dexNumber}
               </Typography>
-              <Typography variant="body2" fontWeight={600} noWrap>
+              <Typography variant="body2" fontWeight={600} noWrap sx={{ flex: '1 1 auto', minWidth: 0 }}>
                 {pokemon.name}
               </Typography>
-              {isEvent(pokemon) && (
+              {isEventPokemon(pokemon) && (
                 <Chip
                   label="Event"
                   size="small"
-                  sx={{ height: 16, fontSize: 9, bgcolor: '#f3e5f5', color: '#7b1fa2', ml: 0.5 }}
+                  sx={{
+                    height: 16,
+                    fontSize: 9,
+                    bgcolor: '#f3e5f5',
+                    color: '#7b1fa2',
+                    ml: 0.5,
+                  }}
                 />
               )}
             </Stack>
@@ -105,7 +142,7 @@ export default function GroupCard({
                     sx={{
                       height: 18,
                       fontSize: 10,
-                      bgcolor: isShared ? colors.bg : '#f5f5f5',
+                      bgcolor: isShared ? colors.bg : 'action.hover',
                       color: isShared ? colors.text : 'text.secondary',
                       fontWeight: isShared ? 600 : 400,
                       border: isShared ? `1px solid ${colors.border}` : 'none',
@@ -120,3 +157,5 @@ export default function GroupCard({
     </Paper>
   )
 }
+
+export default memo(GroupCardComponent)
