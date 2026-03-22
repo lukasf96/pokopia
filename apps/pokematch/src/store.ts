@@ -21,7 +21,6 @@ interface AppState {
   togglePokemon: (id: string) => void
   unlockAll: () => void
   lockAll: () => void
-  resetToDefault: () => void
 }
 
 // Zustand persist doesn't handle Set natively — store as array and convert
@@ -54,9 +53,6 @@ export const useStore = create<AppState>()(
 
       unlockAll: () => set({ unlockedIds: new Set(allIds) }),
       lockAll: () => set({ unlockedIds: new Set() }),
-
-      resetToDefault: () =>
-        set({ mode: 'standard', includeEvents: true, unlockedIds: new Set(allIds) }),
     }),
     {
       name: 'pokopia-pokematch',
