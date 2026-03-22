@@ -1,3 +1,4 @@
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Accordion,
   AccordionDetails,
@@ -5,33 +6,34 @@ import {
   Chip,
   Stack,
   Typography,
-} from '@mui/material'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { habitatColors, habitatEmoji } from '../habitatColors'
-import type { PokemonGroup } from '../types'
-import GroupCard from '../GroupCard'
+} from "@mui/material";
+import GroupCard from "../GroupCard";
+import { habitatColors, habitatEmoji } from "../habitatColors";
+import type { PokemonGroup } from "../types";
 
 interface HabitatSectionProps {
-  habitatGroup: PokemonGroup
+  habitatGroup: PokemonGroup;
 }
 
 function groupStableKey(group: { id: string }[]): string {
-  return group.map((p) => p.id).join('|')
+  return group.map((p) => p.id).join("|");
 }
 
 export function HabitatSection({ habitatGroup: hg }: HabitatSectionProps) {
-  const colors = habitatColors[hg.habitat]
-  const summaryId = `habitat-${hg.habitat}-summary`
+  const colors = habitatColors[hg.habitat];
+  const summaryId = `habitat-${hg.habitat}-summary`;
 
   return (
     <Accordion
       defaultExpanded
-      variant="outlined"
+      elevation={0}
       aria-labelledby={summaryId}
       sx={{
+        // Theme already sets a 1px border on Accordion; Paper `outlined` stacked a second
+        // border on top and made corners look wrong. Clip children to the same radius.
         borderColor: colors.border,
-        borderRadius: '10px !important',
-        '&:before': { display: 'none' },
+        overflow: 'hidden',
+        borderRadius: 1,
       }}
     >
       <AccordionSummary
@@ -39,13 +41,21 @@ export function HabitatSection({ habitatGroup: hg }: HabitatSectionProps) {
         expandIcon={<ExpandMoreIcon aria-hidden />}
         sx={{
           bgcolor: colors.bg,
-          borderRadius: 'inherit',
           minHeight: 48,
-          '&.Mui-expanded': { borderBottomLeftRadius: 0, borderBottomRightRadius: 0 },
         }}
       >
-        <Stack direction="row" spacing={1.5} alignItems="center" flexWrap="wrap" useFlexGap>
-          <Typography component="span" sx={{ fontSize: 20, lineHeight: 1 }} aria-hidden>
+        <Stack
+          direction="row"
+          spacing={1.5}
+          alignItems="center"
+          flexWrap="wrap"
+          useFlexGap
+        >
+          <Typography
+            component="span"
+            sx={{ fontSize: 20, lineHeight: 1 }}
+            aria-hidden
+          >
             {habitatEmoji[hg.habitat]}
           </Typography>
           <Typography component="span" fontWeight={700} color={colors.text}>
@@ -57,7 +67,7 @@ export function HabitatSection({ habitatGroup: hg }: HabitatSectionProps) {
             sx={{
               height: 20,
               fontSize: 11,
-              bgcolor: 'background.paper',
+              bgcolor: "background.paper",
               color: colors.text,
               border: `1px solid ${colors.border}`,
             }}
@@ -65,7 +75,12 @@ export function HabitatSection({ habitatGroup: hg }: HabitatSectionProps) {
           <Chip
             label={`${hg.groups.length} groups`}
             size="small"
-            sx={{ height: 20, fontSize: 11, bgcolor: colors.border, color: 'common.white' }}
+            sx={{
+              height: 20,
+              fontSize: 11,
+              bgcolor: colors.border,
+              color: "common.white",
+            }}
           />
         </Stack>
       </AccordionSummary>
@@ -82,5 +97,5 @@ export function HabitatSection({ habitatGroup: hg }: HabitatSectionProps) {
         </Stack>
       </AccordionDetails>
     </Accordion>
-  )
+  );
 }
