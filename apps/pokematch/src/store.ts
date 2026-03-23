@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist, type StateStorage } from 'zustand/middleware'
 import rawData from './pokedex.json'
-import type { Pokemon } from './types'
+import type { Habitat, Pokemon } from './types'
 
 /** Debounce localStorage writes — full-state JSON on each toggle was blocking the main thread. */
 function createDebouncedJsonStorage(delayMs: number): StateStorage {
@@ -47,17 +47,37 @@ interface AppState {
   mode: AppMode
   // Set of pokemon IDs the player has unlocked (only relevant in custom mode)
   unlockedIds: Set<string>
+  customGroups: string[][]
 
   setMode: (mode: AppMode) => void
   togglePokemon: (id: string) => void
   unlockAll: () => void
   lockAll: () => void
+  addCustomGroup: () => void
+  deleteCustomGroup: (groupIndex: number) => void
+  addPokemonToCustomGroup: (groupIndex: number, pokemonId: string) => void
+  removePokemonFromCustomGroup: (groupIndex: number, pokemonId: string) => void
 }
 
 // Zustand persist doesn't handle Set natively — store as array and convert
 interface PersistedState {
   mode: AppMode
   unlockedIds: string[]
+  customGroups?: string[][]
+  customHabitatGroups?: Record<Habitat, string[][]>
+}
+
+function flattenLegacyCustomHabitatGroups(
+  customHabitatGroups?: Record<Habitat, string[][]>,
+): string[][] {
+  if (!customHabitatGroups) return []
+  const habitatOrder: Habitat[] = ['Bright', 'Cool', 'Dark', 'Dry', 'Humid', 'Warm']
+  const groups: string[][] = []
+  for (const habitat of habitatOrder) {
+    const habitatGroups = customHabitatGroups[habitat] ?? []
+    for (const group of habitatGroups) groups.push(group)
+  }
+  return groups
 }
 
 export const useStore = create<AppState>()(
@@ -65,6 +85,7 @@ export const useStore = create<AppState>()(
     (set) => ({
       mode: 'standard',
       unlockedIds: new Set(allIds),
+      customGroups: [],
 
       setMode: (mode) => set({ mode }),
 
@@ -81,6 +102,32 @@ export const useStore = create<AppState>()(
 
       unlockAll: () => set({ unlockedIds: new Set(allIds) }),
       lockAll: () => set({ unlockedIds: new Set() }),
+      addCustomGroup: () =>
+        set((state) => ({
+          customGroups: [...state.customGroups, []],
+        })),
+      deleteCustomGroup: (groupIndex) =>
+        set((state) => ({
+          customGroups: state.customGroups.filter((_, index) => index !== groupIndex),
+        })),
+      addPokemonToCustomGroup: (groupIndex, pokemonId) =>
+        set((state) => {
+          const isAlreadyAssigned = state.customGroups.some((group) => group.includes(pokemonId))
+          if (isAlreadyAssigned) return {}
+          return {
+            customGroups: state.customGroups.map((group, index) => {
+              if (index !== groupIndex) return group
+              if (group.length >= 4) return group
+              return [...group, pokemonId]
+            }),
+          }
+        }),
+      removePokemonFromCustomGroup: (groupIndex, pokemonId) =>
+        set((state) => ({
+          customGroups: state.customGroups.map((group, index) =>
+            index === groupIndex ? group.filter((id) => id !== pokemonId) : group,
+          ),
+        })),
     }),
     {
       name: 'pokopia-pokematch',
@@ -95,6 +142,8 @@ export const useStore = create<AppState>()(
             state: {
               ...parsed.state,
               unlockedIds: new Set(parsed.state.unlockedIds ?? allIds),
+              customGroups:
+                parsed.state.customGroups ?? flattenLegacyCustomHabitatGroups(parsed.state.customHabitatGroups),
             },
           }
         },

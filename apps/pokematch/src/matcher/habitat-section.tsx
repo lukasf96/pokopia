@@ -9,19 +9,27 @@ import {
 } from "@mui/material";
 import GroupCard from "../GroupCard";
 import { habitatColors, habitatEmoji } from "../habitatColors";
-import type { PokemonGroup } from "../types";
+import type { Habitat, Pokemon } from "../types";
 
 interface HabitatSectionProps {
-  habitatGroup: PokemonGroup;
+  habitat: Habitat;
+  pokemon: Pokemon[];
+  autoGroups: Pokemon[][];
 }
 
 function groupStableKey(group: { id: string }[]): string {
   return group.map((p) => p.id).join("|");
 }
 
-export function HabitatSection({ habitatGroup: hg }: HabitatSectionProps) {
-  const colors = habitatColors[hg.habitat];
-  const summaryId = `habitat-${hg.habitat}-summary`;
+export function HabitatSection({
+  habitat,
+  pokemon,
+  autoGroups,
+}: HabitatSectionProps) {
+  const colors = habitatColors[habitat];
+  const summaryId = `habitat-${habitat}-summary`;
+
+  if (pokemon.length === 0) return null;
 
   return (
     <Accordion
@@ -56,13 +64,13 @@ export function HabitatSection({ habitatGroup: hg }: HabitatSectionProps) {
             sx={{ fontSize: 20, lineHeight: 1 }}
             aria-hidden
           >
-            {habitatEmoji[hg.habitat]}
+            {habitatEmoji[habitat]}
           </Typography>
           <Typography component="span" fontWeight={700} color={colors.text}>
-            {hg.habitat}
+            {habitat}
           </Typography>
           <Chip
-            label={`${hg.pokemon.length} Pokémon`}
+            label={`${pokemon.length} Pokémon`}
             size="small"
             sx={{
               height: 20,
@@ -73,7 +81,7 @@ export function HabitatSection({ habitatGroup: hg }: HabitatSectionProps) {
             }}
           />
           <Chip
-            label={`${hg.groups.length} groups`}
+            label={`${autoGroups.length} groups`}
             size="small"
             sx={{
               height: 20,
@@ -86,14 +94,19 @@ export function HabitatSection({ habitatGroup: hg }: HabitatSectionProps) {
       </AccordionSummary>
       <AccordionDetails sx={{ p: 2 }}>
         <Stack spacing={2}>
-          {hg.groups.map((group, gi) => (
+          {autoGroups.map((group, gi) => (
             <GroupCard
               key={groupStableKey(group)}
               group={group}
               groupNumber={gi + 1}
-              habitat={hg.habitat}
+              habitat={habitat}
             />
           ))}
+          {autoGroups.length === 0 && (
+            <Typography variant="body2" color="text.secondary">
+              No auto-matched groups left for this habitat.
+            </Typography>
+          )}
         </Stack>
       </AccordionDetails>
     </Accordion>

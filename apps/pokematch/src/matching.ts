@@ -9,6 +9,10 @@ function sharedFavorites(a: Pokemon, b: Pokemon): number {
   return a.favorites.filter((f) => setB.has(f)).length
 }
 
+function candidateScore(group: Pokemon[], candidate: Pokemon): number {
+  return group.reduce((sum, p) => sum + sharedFavorites(p, candidate), 0)
+}
+
 /**
  * Score a candidate group by summing all pairwise shared favorites.
  */
@@ -40,7 +44,7 @@ function buildGroups(pokemon: Pokemon[]): Pokemon[][] {
 
       for (let i = 0; i < remaining.length; i++) {
         const candidate = remaining[i]
-        const score = group.reduce((sum, p) => sum + sharedFavorites(p, candidate), 0)
+        const score = candidateScore(group, candidate)
         if (score > bestScore) {
           bestScore = score
           bestIdx = i
@@ -76,6 +80,17 @@ export function computeHabitatGroups(pokemon: Pokemon[]): PokemonGroup[] {
   result.sort((a, b) => a.habitat.localeCompare(b.habitat))
 
   return result
+}
+
+export function suggestNextPokemon(group: Pokemon[], candidates: Pokemon[], limit = 4): Pokemon[] {
+  if (group.length === 0) return []
+  return [...candidates]
+    .sort((a, b) => {
+      const scoreDiff = candidateScore(group, b) - candidateScore(group, a)
+      if (scoreDiff !== 0) return scoreDiff
+      return a.name.localeCompare(b.name)
+    })
+    .slice(0, limit)
 }
 
 export { groupScore }
