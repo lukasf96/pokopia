@@ -1,4 +1,16 @@
 import {
+  AutoFixHighOutlined,
+  CatchingPokemonOutlined,
+  ChevronRight,
+  DarkModeOutlined,
+  DashboardOutlined,
+  LightModeOutlined,
+  PaletteOutlined,
+  SettingsBrightnessOutlined,
+  SettingsOutlined,
+  TranslateOutlined,
+} from "@mui/icons-material";
+import {
   Box,
   Chip,
   IconButton,
@@ -7,18 +19,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import {
-  AutoFixHighOutlined,
-  CatchingPokemonOutlined,
-  ChevronRight,
-  DashboardOutlined,
-  DarkModeOutlined,
-  LightModeOutlined,
-  PaletteOutlined,
-  SettingsBrightnessOutlined,
-  SettingsOutlined,
-  TranslateOutlined,
-} from "@mui/icons-material";
 import { useState } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { appRoutes } from "./router/routes";
@@ -41,7 +41,9 @@ export default function Layout({ children }: LayoutProps) {
   const [settingsAnchorEl, setSettingsAnchorEl] = useState<null | HTMLElement>(
     null,
   );
-  const [nestedAnchorEl, setNestedAnchorEl] = useState<null | HTMLElement>(null);
+  const [nestedAnchorEl, setNestedAnchorEl] = useState<null | HTMLElement>(
+    null,
+  );
   const [activeNestedMenu, setActiveNestedMenu] = useState<
     "language" | "theme" | null
   >(null);
@@ -205,19 +207,19 @@ export default function Layout({ children }: LayoutProps) {
               selected={nameLanguage === "en"}
               onClick={() => handleLanguageChange("en")}
             >
-              Language: EN
+              EN
             </MenuItem>
             <MenuItem
               selected={nameLanguage === "de"}
               onClick={() => handleLanguageChange("de")}
             >
-              Language: DE
+              DE
             </MenuItem>
             <MenuItem
               selected={nameLanguage === "fr"}
               onClick={() => handleLanguageChange("fr")}
             >
-              Language: FR
+              FR
             </MenuItem>
           </>
         )}
@@ -228,21 +230,21 @@ export default function Layout({ children }: LayoutProps) {
               onClick={() => handleThemeModeChange("system")}
             >
               <SettingsBrightnessOutlined sx={{ mr: 1 }} fontSize="small" />
-              Theme: System
+              System
             </MenuItem>
             <MenuItem
               selected={themeMode === "light"}
               onClick={() => handleThemeModeChange("light")}
             >
               <LightModeOutlined sx={{ mr: 1 }} fontSize="small" />
-              Theme: Light
+              Light
             </MenuItem>
             <MenuItem
               selected={themeMode === "dark"}
               onClick={() => handleThemeModeChange("dark")}
             >
               <DarkModeOutlined sx={{ mr: 1 }} fontSize="small" />
-              Theme: Dark
+              Dark
             </MenuItem>
           </>
         )}
@@ -290,7 +292,12 @@ function NavItem({
     >
       <Box
         component="span"
-        sx={{ display: "inline-flex", alignItems: "center", mr: 0.75, fontSize: 16 }}
+        sx={{
+          display: "inline-flex",
+          alignItems: "center",
+          mr: 0.75,
+          fontSize: 16,
+        }}
       >
         {icon}
       </Box>
