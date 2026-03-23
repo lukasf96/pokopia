@@ -8,7 +8,10 @@ import {
   Typography,
 } from "@mui/material";
 import {
+  AutoFixHighOutlined,
+  CatchingPokemonOutlined,
   ChevronRight,
+  DashboardOutlined,
   DarkModeOutlined,
   LightModeOutlined,
   SettingsBrightnessOutlined,
@@ -103,13 +106,25 @@ export default function Layout({ children }: LayoutProps) {
           alignItems="center"
           sx={{ minWidth: 0, overflowX: "auto", pb: 0.25, ml: "auto" }}
         >
-          <NavItem active={isMatchMakerActive} to={appRoutes.matchmaker}>
+          <NavItem
+            active={isMatchMakerActive}
+            to={appRoutes.matchmaker}
+            icon={<AutoFixHighOutlined fontSize="inherit" />}
+          >
             Match-Maker
           </NavItem>
-          <NavItem active={isOverviewActive} to={appRoutes.overview}>
+          <NavItem
+            active={isOverviewActive}
+            to={appRoutes.overview}
+            icon={<DashboardOutlined fontSize="inherit" />}
+          >
             Overview
           </NavItem>
-          <NavItem active={isPokedexActive} to={appRoutes.pokedex}>
+          <NavItem
+            active={isPokedexActive}
+            to={appRoutes.pokedex}
+            icon={<CatchingPokemonOutlined fontSize="inherit" />}
+          >
             Pokédex
             <Chip
               label={`${unlockedCount}/${TOTAL_POKEMON}`}
@@ -240,10 +255,12 @@ export default function Layout({ children }: LayoutProps) {
 function NavItem({
   active,
   to,
+  icon,
   children,
 }: {
   active: boolean;
   to: string;
+  icon: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
@@ -270,6 +287,12 @@ function NavItem({
         },
       }}
     >
+      <Box
+        component="span"
+        sx={{ display: "inline-flex", alignItems: "center", mr: 0.75, fontSize: 16 }}
+      >
+        {icon}
+      </Box>
       {children}
     </Box>
   );
