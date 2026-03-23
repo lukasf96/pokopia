@@ -7,7 +7,14 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { SettingsOutlined } from "@mui/icons-material";
+import {
+  ChevronRight,
+  DarkModeOutlined,
+  LightModeOutlined,
+  SettingsBrightnessOutlined,
+  SettingsOutlined,
+  TranslateOutlined,
+} from "@mui/icons-material";
 import { useState } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { appRoutes } from "./router/routes";
@@ -23,15 +30,22 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const unlockedCount = useStore((s) => s.unlockedIds.size);
   const nameLanguage = useStore((s) => s.nameLanguage);
+  const themeMode = useStore((s) => s.themeMode);
   const setNameLanguage = useStore((s) => s.setNameLanguage);
+  const setThemeMode = useStore((s) => s.setThemeMode);
   const { pathname } = useLocation();
   const [settingsAnchorEl, setSettingsAnchorEl] = useState<null | HTMLElement>(
     null,
   );
+  const [nestedAnchorEl, setNestedAnchorEl] = useState<null | HTMLElement>(null);
+  const [activeNestedMenu, setActiveNestedMenu] = useState<
+    "language" | "theme" | null
+  >(null);
   const isMatchMakerActive = pathname === appRoutes.matchmaker;
   const isOverviewActive = pathname === appRoutes.overview;
   const isPokedexActive = pathname === appRoutes.pokedex;
   const isSettingsOpen = Boolean(settingsAnchorEl);
+  const isNestedOpen = Boolean(nestedAnchorEl && activeNestedMenu);
 
   function openSettingsMenu(event: React.MouseEvent<HTMLElement>) {
     setSettingsAnchorEl(event.currentTarget);
@@ -39,10 +53,25 @@ export default function Layout({ children }: LayoutProps) {
 
   function closeSettingsMenu() {
     setSettingsAnchorEl(null);
+    setNestedAnchorEl(null);
+    setActiveNestedMenu(null);
+  }
+
+  function openNestedMenu(
+    event: React.MouseEvent<HTMLElement>,
+    menu: "language" | "theme",
+  ) {
+    setNestedAnchorEl(event.currentTarget);
+    setActiveNestedMenu(menu);
   }
 
   function handleLanguageChange(language: "en" | "de" | "fr") {
     setNameLanguage(language);
+    closeSettingsMenu();
+  }
+
+  function handleThemeModeChange(mode: "system" | "light" | "dark") {
+    setThemeMode(mode);
     closeSettingsMenu();
   }
 
@@ -116,23 +145,91 @@ export default function Layout({ children }: LayoutProps) {
         }}
       >
         <MenuItem
-          selected={nameLanguage === "en"}
-          onClick={() => handleLanguageChange("en")}
+          onClick={(event) => openNestedMenu(event, "language")}
+          selected={activeNestedMenu === "language" && isNestedOpen}
+          sx={{ display: "flex", justifyContent: "space-between", gap: 1.5 }}
         >
-          Language: EN
+          <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}>
+            <TranslateOutlined fontSize="small" />
+            Language
+          </Box>
+          <ChevronRight fontSize="small" />
         </MenuItem>
         <MenuItem
-          selected={nameLanguage === "de"}
-          onClick={() => handleLanguageChange("de")}
+          onClick={(event) => openNestedMenu(event, "theme")}
+          selected={activeNestedMenu === "theme" && isNestedOpen}
+          sx={{ display: "flex", justifyContent: "space-between", gap: 1.5 }}
         >
-          Language: DE
+          <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}>
+            <SettingsOutlined fontSize="small" />
+            Theme
+          </Box>
+          <ChevronRight fontSize="small" />
         </MenuItem>
-        <MenuItem
-          selected={nameLanguage === "fr"}
-          onClick={() => handleLanguageChange("fr")}
-        >
-          Language: FR
-        </MenuItem>
+      </Menu>
+      <Menu
+        id="layout-settings-nested-menu"
+        anchorEl={nestedAnchorEl}
+        open={isNestedOpen}
+        onClose={() => {
+          setNestedAnchorEl(null);
+          setActiveNestedMenu(null);
+        }}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        transformOrigin={{ vertical: "top", horizontal: "left" }}
+        slotProps={{
+          paper: {
+            sx: { minWidth: 160 },
+          },
+        }}
+      >
+        {activeNestedMenu === "language" && (
+          <>
+            <MenuItem
+              selected={nameLanguage === "en"}
+              onClick={() => handleLanguageChange("en")}
+            >
+              Language: EN
+            </MenuItem>
+            <MenuItem
+              selected={nameLanguage === "de"}
+              onClick={() => handleLanguageChange("de")}
+            >
+              Language: DE
+            </MenuItem>
+            <MenuItem
+              selected={nameLanguage === "fr"}
+              onClick={() => handleLanguageChange("fr")}
+            >
+              Language: FR
+            </MenuItem>
+          </>
+        )}
+        {activeNestedMenu === "theme" && (
+          <>
+            <MenuItem
+              selected={themeMode === "system"}
+              onClick={() => handleThemeModeChange("system")}
+            >
+              <SettingsBrightnessOutlined sx={{ mr: 1 }} fontSize="small" />
+              Theme: System
+            </MenuItem>
+            <MenuItem
+              selected={themeMode === "light"}
+              onClick={() => handleThemeModeChange("light")}
+            >
+              <LightModeOutlined sx={{ mr: 1 }} fontSize="small" />
+              Theme: Light
+            </MenuItem>
+            <MenuItem
+              selected={themeMode === "dark"}
+              onClick={() => handleThemeModeChange("dark")}
+            >
+              <DarkModeOutlined sx={{ mr: 1 }} fontSize="small" />
+              Theme: Dark
+            </MenuItem>
+          </>
+        )}
       </Menu>
 
       {children}

@@ -1,13 +1,33 @@
-import { alpha, createTheme } from '@mui/material/styles'
+import { alpha, createTheme, type PaletteMode } from '@mui/material/styles'
 
 /** Shadcn-inspired: crisp borders, soft elevation, pill chips — with a vivid primary palette. */
-const borderSubtle = 'hsl(240 6% 90%)'
-const surfaceMuted = 'hsl(250 42% 98%)'
+function getThemeTokens(mode: PaletteMode) {
+  const isDark = mode === 'dark'
+  const borderSubtle = isDark ? 'hsl(240 6% 26%)' : 'hsl(240 6% 90%)'
+  const surfaceMuted = isDark ? 'hsl(240 10% 8%)' : 'hsl(250 42% 98%)'
 
-export const appTheme = createTheme({
-  cssVariables: true,
-  palette: {
-    mode: 'light',
+  return {
+    isDark,
+    borderSubtle,
+    surfaceMuted,
+    backgroundPaper: isDark ? 'hsl(240 10% 12%)' : '#ffffff',
+    divider: isDark ? alpha('#e2e8f0', 0.16) : alpha('#0f172a', 0.08),
+    textPrimary: isDark ? 'hsl(210 20% 96%)' : 'hsl(240 10% 10%)',
+    textSecondary: isDark ? 'hsl(215 14% 72%)' : 'hsl(240 4% 46%)',
+    textDisabled: isDark ? 'hsl(215 14% 55%)' : 'hsl(240 4% 64%)',
+    actionHover: isDark ? alpha('#818cf8', 0.14) : alpha('#4f46e5', 0.06),
+    actionSelected: isDark ? alpha('#818cf8', 0.2) : alpha('#4f46e5', 0.1),
+    shadowColor: isDark ? '2 6 23' : '15 23 42',
+  }
+}
+
+export function createAppTheme(mode: PaletteMode) {
+  const tokens = getThemeTokens(mode)
+
+  return createTheme({
+    cssVariables: true,
+    palette: {
+      mode,
     primary: {
       main: '#4f46e5',
       light: '#818cf8',
@@ -44,20 +64,20 @@ export const appTheme = createTheme({
       dark: '#0e7490',
       contrastText: '#ffffff',
     },
-    background: {
-      default: surfaceMuted,
-      paper: '#ffffff',
-    },
-    divider: alpha('#0f172a', 0.08),
-    text: {
-      primary: 'hsl(240 10% 10%)',
-      secondary: 'hsl(240 4% 46%)',
-      disabled: 'hsl(240 4% 64%)',
-    },
-    action: {
-      hover: alpha('#4f46e5', 0.06),
-      selected: alpha('#4f46e5', 0.1),
-    },
+      background: {
+        default: tokens.surfaceMuted,
+        paper: tokens.backgroundPaper,
+      },
+      divider: tokens.divider,
+      text: {
+        primary: tokens.textPrimary,
+        secondary: tokens.textSecondary,
+        disabled: tokens.textDisabled,
+      },
+      action: {
+        hover: tokens.actionHover,
+        selected: tokens.actionSelected,
+      },
     grey: {
       50: '#fafafa',
       100: '#f4f4f5',
@@ -71,37 +91,37 @@ export const appTheme = createTheme({
       900: '#18181b',
     },
   },
-  shape: {
-    borderRadius: 10,
-  },
-  shadows: [
-    'none',
-    '0 1px 2px 0 rgb(15 23 42 / 0.05)',
-    '0 1px 3px 0 rgb(15 23 42 / 0.08), 0 1px 2px -1px rgb(15 23 42 / 0.08)',
-    '0 4px 6px -1px rgb(15 23 42 / 0.08), 0 2px 4px -2px rgb(15 23 42 / 0.06)',
-    '0 10px 15px -3px rgb(15 23 42 / 0.08), 0 4px 6px -4px rgb(15 23 42 / 0.05)',
-    '0 20px 25px -5px rgb(15 23 42 / 0.08), 0 8px 10px -6px rgb(15 23 42 / 0.05)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.2)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.22)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.24)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.26)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.28)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.3)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.32)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.34)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.36)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.38)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.4)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.42)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.44)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.46)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.48)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.5)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.52)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.54)',
-    '0 25px 50px -12px rgb(15 23 42 / 0.56)',
-  ],
-  typography: {
+    shape: {
+      borderRadius: 10,
+    },
+    shadows: [
+      'none',
+      `0 1px 2px 0 rgb(${tokens.shadowColor} / 0.05)`,
+      `0 1px 3px 0 rgb(${tokens.shadowColor} / 0.08), 0 1px 2px -1px rgb(${tokens.shadowColor} / 0.08)`,
+      `0 4px 6px -1px rgb(${tokens.shadowColor} / 0.08), 0 2px 4px -2px rgb(${tokens.shadowColor} / 0.06)`,
+      `0 10px 15px -3px rgb(${tokens.shadowColor} / 0.08), 0 4px 6px -4px rgb(${tokens.shadowColor} / 0.05)`,
+      `0 20px 25px -5px rgb(${tokens.shadowColor} / 0.08), 0 8px 10px -6px rgb(${tokens.shadowColor} / 0.05)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.2)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.22)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.24)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.26)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.28)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.3)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.32)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.34)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.36)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.38)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.4)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.42)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.44)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.46)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.48)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.5)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.52)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.54)`,
+      `0 25px 50px -12px rgb(${tokens.shadowColor} / 0.56)`,
+    ],
+    typography: {
     fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
     button: {
@@ -125,22 +145,22 @@ export const appTheme = createTheme({
       letterSpacing: '-0.02em',
     },
   },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          backgroundColor: surfaceMuted,
-          WebkitFontSmoothing: 'antialiased',
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          body: {
+            backgroundColor: tokens.surfaceMuted,
+            WebkitFontSmoothing: 'antialiased',
+          },
         },
       },
-    },
     MuiPaper: {
       styleOverrides: {
         root: {
           backgroundImage: 'none',
         },
         outlined: {
-          borderColor: borderSubtle,
+          borderColor: tokens.borderSubtle,
         },
       },
     },
@@ -168,13 +188,13 @@ export const appTheme = createTheme({
         root: {
           textTransform: 'none',
           fontWeight: 600,
-          border: `1px solid ${borderSubtle}`,
+          border: `1px solid ${tokens.borderSubtle}`,
           '&.Mui-selected': {
-            backgroundColor: alpha('#4f46e5', 0.12),
-            color: '#4338ca',
+            backgroundColor: alpha('#4f46e5', tokens.isDark ? 0.3 : 0.12),
+            color: tokens.isDark ? '#a5b4fc' : '#4338ca',
             borderColor: alpha('#4f46e5', 0.35),
             '&:hover': {
-              backgroundColor: alpha('#4f46e5', 0.16),
+              backgroundColor: alpha('#4f46e5', tokens.isDark ? 0.36 : 0.16),
             },
           },
         },
@@ -191,7 +211,7 @@ export const appTheme = createTheme({
     MuiAccordion: {
       styleOverrides: {
         root: {
-          border: `1px solid ${borderSubtle}`,
+          border: `1px solid ${tokens.borderSubtle}`,
           borderRadius: 10,
           '&:before': {
             display: 'none',
@@ -204,7 +224,7 @@ export const appTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 10,
-          backgroundColor: '#ffffff',
+          backgroundColor: tokens.backgroundPaper,
         },
       },
     },
@@ -216,9 +236,10 @@ export const appTheme = createTheme({
     MuiDivider: {
       styleOverrides: {
         root: {
-          borderColor: alpha('#0f172a', 0.08),
+          borderColor: tokens.divider,
         },
       },
     },
   },
-})
+  })
+}

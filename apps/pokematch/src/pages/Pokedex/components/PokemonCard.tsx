@@ -1,10 +1,19 @@
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
-import { Box, Chip, Divider, Paper, Stack, Typography } from "@mui/material";
-import { memo } from "react";
+import {
+  Box,
+  Chip,
+  Divider,
+  Paper,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
+import { alpha } from "@mui/material/styles";
+import { memo, useMemo } from "react";
 import { PokemonSpriteAvatar } from "../../../components/pokemon-sprite-avatar/PokemonSpriteAvatar";
-import { habitatColors, habitatIcons } from "../../../services/habitatColors";
+import { getHabitatColors, habitatIcons } from "../../../services/habitatColors";
 import { getPokemonDisplayName } from "../../../services/pokemon-localization";
 import { useStore } from "../../../store/store";
 import type { Habitat, Pokemon } from "../../../types/types";
@@ -24,12 +33,27 @@ export const PokemonCard = memo(function PokemonCard({
   showEventBadge,
   unlocked,
 }: PokemonCardProps) {
+  const theme = useTheme();
+  const habitatColors = useMemo(() => getHabitatColors(theme), [theme]);
   const colors = habitatColors[pokemon.idealHabitat as Habitat];
   const HabitatIcon = habitatIcons[pokemon.idealHabitat as Habitat];
   const isEvent = pokemon.id.startsWith("e");
   const isNotHabitable = pokemon.isHabitable === false;
   const nameLanguage = useStore((state) => state.nameLanguage);
   const pokemonDisplayName = getPokemonDisplayName(pokemon, nameLanguage);
+  const isDark = theme.palette.mode === "dark";
+  const metaChipStyles = {
+    height: 14,
+    fontSize: 9,
+    flexShrink: 0,
+  };
+  const favoriteChipStyles = {
+    height: 16,
+    fontSize: 9,
+    bgcolor: isDark ? alpha(theme.palette.common.white, 0.1) : "grey.100",
+    color: isDark ? "grey.100" : "text.primary",
+    border: `1px solid ${isDark ? alpha(theme.palette.common.white, 0.18) : theme.palette.divider}`,
+  };
 
   return (
     <Paper
@@ -84,11 +108,9 @@ export const PokemonCard = memo(function PokemonCard({
               label="Event"
               size="small"
               sx={{
-                height: 14,
-                fontSize: 9,
-                bgcolor: "secondary.light",
-                color: "secondary.dark",
-                flexShrink: 0,
+                ...metaChipStyles,
+                bgcolor: isDark ? "secondary.dark" : "secondary.light",
+                color: isDark ? "secondary.contrastText" : "secondary.dark",
               }}
             />
           )}
@@ -134,11 +156,9 @@ export const PokemonCard = memo(function PokemonCard({
               label="Not habitable"
               size="small"
               sx={{
-                height: 14,
-                fontSize: 9,
-                bgcolor: "warning.light",
-                color: "warning.dark",
-                flexShrink: 0,
+                ...metaChipStyles,
+                bgcolor: isDark ? "warning.dark" : "warning.light",
+                color: isDark ? "warning.contrastText" : "warning.dark",
               }}
             />
           )}
@@ -149,7 +169,7 @@ export const PokemonCard = memo(function PokemonCard({
               key={fav}
               label={fav}
               size="small"
-              sx={{ height: 16, fontSize: 9, bgcolor: "grey.100" }}
+              sx={favoriteChipStyles}
             />
           ))}
         </Box>

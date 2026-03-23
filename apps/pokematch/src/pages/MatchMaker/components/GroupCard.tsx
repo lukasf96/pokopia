@@ -17,7 +17,7 @@ import {
   getGroupConflicts,
   getGroupHabitats,
 } from "../../../services/habitat-conflicts";
-import { habitatColors, habitatIcons } from "../../../services/habitatColors";
+import { getHabitatColors, habitatIcons } from "../../../services/habitatColors";
 import { groupScore } from "../../../services/matching.service";
 import { getPokemonDisplayName } from "../../../services/pokemon-localization";
 import { useStore } from "../../../store/store";
@@ -106,6 +106,7 @@ function GroupCardComponent({
   groupAction,
 }: GroupCardProps) {
   const theme = useTheme();
+  const habitatColors = useMemo(() => getHabitatColors(theme), [theme]);
   const colors = habitatColors[habitat];
 
   const { favCounts, score, habitats, conflicts } = useMemo(() => {
@@ -267,6 +268,8 @@ function HabitatChip({
   habitat: Habitat;
   variant: "group" | "pokemon";
 }) {
+  const theme = useTheme();
+  const habitatColors = useMemo(() => getHabitatColors(theme), [theme]);
   const HabitatIcon = habitatIcons[habitat];
   const isGroup = variant === "group";
 

@@ -8,9 +8,10 @@ import {
   Paper,
   Stack,
   Typography,
+  useTheme,
 } from "@mui/material";
-import { useState } from "react";
-import { habitatColors, habitatIcons } from "../../../services/habitatColors";
+import { useMemo, useState } from "react";
+import { getHabitatColors, habitatIcons } from "../../../services/habitatColors";
 import type { Habitat, Pokemon } from "../../../types/types";
 import { PokemonChip } from "./PokemonChip";
 
@@ -43,7 +44,9 @@ interface HabitatRowProps {
 }
 
 function HabitatRow({ habitat, pokemon }: HabitatRowProps) {
+  const theme = useTheme();
   const [open, setOpen] = useState(false);
+  const habitatColors = useMemo(() => getHabitatColors(theme), [theme]);
   const colors = habitatColors[habitat];
   const HabitatIcon = habitatIcons[habitat];
 

@@ -1,1 +1,1 @@
-export { appTheme } from './theme'
+export { createAppTheme } from './theme'
