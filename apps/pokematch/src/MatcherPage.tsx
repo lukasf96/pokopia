@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { allPokemon } from './pokemon'
+import { habitablePokemon } from './pokemon'
 import { Container, Stack, Typography } from '@mui/material'
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined'
 import { computeAutoGroups, suggestNextPokemon } from './matching'
@@ -18,8 +18,8 @@ export default function MatcherPage() {
   const removePokemonFromCustomGroup = useStore((s) => s.removePokemonFromCustomGroup)
 
   const activePokemon = useMemo(() => {
-    if (mode !== 'custom') return allPokemon
-    return allPokemon.filter((p) => unlockedIds.has(p.id))
+    if (mode !== 'custom') return habitablePokemon
+    return habitablePokemon.filter((p) => unlockedIds.has(p.id))
   }, [mode, unlockedIds])
 
   const pokemonById = useMemo(

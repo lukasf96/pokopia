@@ -8,4 +8,5 @@ export interface Pokemon {
   idealHabitat: Habitat
   favorites: string[]
   favoriteFlavor?: string
+  isHabitable?: boolean
 }

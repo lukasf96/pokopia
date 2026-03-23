@@ -425,6 +425,7 @@ const PokemonCard = memo(function PokemonCard({
   const unlocked = useStore((s) => s.unlockedIds.has(pokemon.id));
   const colors = habitatColors[pokemon.idealHabitat as Habitat];
   const isEvent = pokemon.id.startsWith("e");
+  const isNotHabitable = pokemon.isHabitable === false;
 
   return (
     <Paper
@@ -482,6 +483,19 @@ const PokemonCard = memo(function PokemonCard({
                 fontSize: 9,
                 bgcolor: "secondary.light",
                 color: "secondary.dark",
+                flexShrink: 0,
+              }}
+            />
+          )}
+          {isNotHabitable && (
+            <Chip
+              label="Not habitable"
+              size="small"
+              sx={{
+                height: 14,
+                fontSize: 9,
+                bgcolor: "warning.light",
+                color: "warning.dark",
                 flexShrink: 0,
               }}
             />

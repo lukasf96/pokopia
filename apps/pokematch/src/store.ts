@@ -1,7 +1,6 @@
 import { create } from 'zustand'
 import { persist, type StateStorage } from 'zustand/middleware'
-import rawData from './pokedex.json'
-import type { Pokemon } from './types'
+import { allPokemon } from './pokemon'
 
 /** Debounce localStorage writes — full-state JSON on each toggle was blocking the main thread. */
 function createDebouncedJsonStorage(delayMs: number): StateStorage {
@@ -38,10 +37,7 @@ const debouncedPersistStorage = createDebouncedJsonStorage(320)
 
 export type AppMode = 'standard' | 'custom'
 
-const allIds = [
-  ...(rawData.standard as Pokemon[]),
-  ...(rawData.event as Pokemon[]),
-].map((p) => p.id)
+const allIds = allPokemon.map((pokemon) => pokemon.id)
 
 interface AppState {
   mode: AppMode
