@@ -2,8 +2,7 @@ import { Box, Container, Grid } from "@mui/material";
 import { useMemo } from "react";
 import { allPokemon } from "../../services/pokemon";
 import type { Habitat, Pokemon } from "../../types/types";
-import { FavoriteFlavorDistribution } from "./components/FavoriteFlavorDistribution";
-import { FavoritesDistribution } from "./components/FavoritesDistribution";
+import { DistributionSection } from "./components/DistributionSection";
 import { IdealHabitats } from "./components/IdealHabitats";
 
 const isEvent = (pokemon: Pokemon) => pokemon.id.startsWith("e");
@@ -81,14 +80,16 @@ export default function OverviewPage() {
             />
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
-            <FavoritesDistribution
-              favorites={favorites}
+            <DistributionSection
+              title="Favorites Distribution"
+              items={favorites}
               totalPokemon={allPokemon.length}
             />
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
-            <FavoriteFlavorDistribution
-              flavors={flavors}
+            <DistributionSection
+              title="Favorite Flavor Distribution"
+              items={flavors}
               totalPokemon={allPokemon.length}
             />
           </Grid>

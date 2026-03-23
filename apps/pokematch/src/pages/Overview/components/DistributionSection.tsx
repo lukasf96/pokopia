@@ -12,8 +12,9 @@ import { useState } from "react";
 import type { Pokemon } from "../../../types/types";
 import { PokemonChip } from "./PokemonChip";
 
-interface FavoriteFlavorDistributionProps {
-  flavors: ReadonlyArray<readonly [string, Pokemon[]]>;
+interface DistributionSectionProps {
+  title: string;
+  items: ReadonlyArray<readonly [string, Pokemon[]]>;
   totalPokemon: number;
 }
 
@@ -36,13 +37,13 @@ function ExpandIcon({ open, color }: ExpandIconProps) {
   );
 }
 
-interface FlavorRowProps {
+interface DistributionRowProps {
   label: string;
   pokemon: Pokemon[];
   totalPokemon: number;
 }
 
-function FlavorRow({ label, pokemon, totalPokemon }: FlavorRowProps) {
+function DistributionRow({ label, pokemon, totalPokemon }: DistributionRowProps) {
   const [open, setOpen] = useState(false);
   const percentage = Math.round((pokemon.length / totalPokemon) * 100);
 
@@ -108,20 +109,21 @@ function FlavorRow({ label, pokemon, totalPokemon }: FlavorRowProps) {
   );
 }
 
-export function FavoriteFlavorDistribution({
-  flavors,
+export function DistributionSection({
+  title,
+  items,
   totalPokemon,
-}: FavoriteFlavorDistributionProps) {
+}: DistributionSectionProps) {
   return (
     <>
       <Typography variant="subtitle1" fontWeight={700} mb={1.5}>
-        Favorite Flavor Distribution
+        {title}
       </Typography>
       <Stack spacing={0.75}>
-        {flavors.map(([flavor, pokemon]) => (
-          <FlavorRow
-            key={flavor}
-            label={flavor}
+        {items.map(([label, pokemon]) => (
+          <DistributionRow
+            key={label}
+            label={label}
             pokemon={pokemon}
             totalPokemon={totalPokemon}
           />
