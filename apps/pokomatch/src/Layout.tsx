@@ -126,15 +126,15 @@ export default function Layout({ children }: LayoutProps) {
 
         <Stack
           direction="row"
-          spacing={1}
+          spacing={0.75}
           alignItems="center"
           sx={{
             minWidth: 0,
             width: { xs: "100%", sm: "auto" },
-            overflowX: { xs: "visible", sm: "auto" },
+            overflowX: "auto",
             pb: { xs: 0, sm: 0.25 },
             ml: { xs: 0, sm: "auto" },
-            flexWrap: { xs: "wrap", sm: "nowrap" },
+            flexWrap: "nowrap",
             rowGap: 0.75,
             columnGap: 0.5,
             justifyContent: { xs: "center", sm: "flex-start" },
@@ -197,47 +197,47 @@ export default function Layout({ children }: LayoutProps) {
           ? [
               <MenuItem
                 key="root-language"
-              onClick={() => setSettingsView("language")}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 1.5,
-              }}
-            >
-              <Box
-                sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+                onClick={() => setSettingsView("language")}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: 1.5,
+                }}
               >
-                <TranslateOutlined fontSize="small" />
-                <Box>
-                  <Typography variant="body2">Language</Typography>
-                  <Typography variant="caption" color="text.secondary">
-                    {selectedLanguageLabel}
-                  </Typography>
+                <Box
+                  sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+                >
+                  <TranslateOutlined fontSize="small" />
+                  <Box>
+                    <Typography variant="body2">Language</Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      {selectedLanguageLabel}
+                    </Typography>
+                  </Box>
                 </Box>
-              </Box>
-              <ChevronRight fontSize="small" color="action" />
+                <ChevronRight fontSize="small" color="action" />
               </MenuItem>,
               <MenuItem
                 key="root-theme"
-              onClick={() => setSettingsView("theme")}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 1.5,
-              }}
-            >
-              <Box
-                sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+                onClick={() => setSettingsView("theme")}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: 1.5,
+                }}
               >
-                <PaletteOutlined fontSize="small" />
-                <Box>
-                  <Typography variant="body2">Theme</Typography>
-                  <Typography variant="caption" color="text.secondary">
-                    {selectedThemeLabel}
-                  </Typography>
+                <Box
+                  sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+                >
+                  <PaletteOutlined fontSize="small" />
+                  <Box>
+                    <Typography variant="body2">Theme</Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      {selectedThemeLabel}
+                    </Typography>
+                  </Box>
                 </Box>
-              </Box>
-              <ChevronRight fontSize="small" color="action" />
+                <ChevronRight fontSize="small" color="action" />
               </MenuItem>,
             ]
           : null}
@@ -248,53 +248,53 @@ export default function Layout({ children }: LayoutProps) {
                 onClick={() => setSettingsView("root")}
                 sx={{ mb: 0.5 }}
               >
-              <ArrowBackOutlined sx={{ mr: 1 }} fontSize="small" />
-              Back
+                <ArrowBackOutlined sx={{ mr: 1 }} fontSize="small" />
+                Back
               </MenuItem>,
               <MenuItem
                 key="language-en"
-              selected={nameLanguage === "en"}
-              onClick={() => handleLanguageChange("en")}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 1.5,
-              }}
-            >
-              English
-              {nameLanguage === "en" ? (
-                <Check fontSize="small" color="primary" />
-              ) : null}
+                selected={nameLanguage === "en"}
+                onClick={() => handleLanguageChange("en")}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: 1.5,
+                }}
+              >
+                English
+                {nameLanguage === "en" ? (
+                  <Check fontSize="small" color="primary" />
+                ) : null}
               </MenuItem>,
               <MenuItem
                 key="language-de"
-              selected={nameLanguage === "de"}
-              onClick={() => handleLanguageChange("de")}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 1.5,
-              }}
-            >
-              Deutsch
-              {nameLanguage === "de" ? (
-                <Check fontSize="small" color="primary" />
-              ) : null}
+                selected={nameLanguage === "de"}
+                onClick={() => handleLanguageChange("de")}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: 1.5,
+                }}
+              >
+                Deutsch
+                {nameLanguage === "de" ? (
+                  <Check fontSize="small" color="primary" />
+                ) : null}
               </MenuItem>,
               <MenuItem
                 key="language-fr"
-              selected={nameLanguage === "fr"}
-              onClick={() => handleLanguageChange("fr")}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 1.5,
-              }}
-            >
-              Français
-              {nameLanguage === "fr" ? (
-                <Check fontSize="small" color="primary" />
-              ) : null}
+                selected={nameLanguage === "fr"}
+                onClick={() => handleLanguageChange("fr")}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: 1.5,
+                }}
+              >
+                Français
+                {nameLanguage === "fr" ? (
+                  <Check fontSize="small" color="primary" />
+                ) : null}
               </MenuItem>,
             ]
           : null}
@@ -305,68 +305,68 @@ export default function Layout({ children }: LayoutProps) {
                 onClick={() => setSettingsView("root")}
                 sx={{ mb: 0.5 }}
               >
-              <ArrowBackOutlined sx={{ mr: 1 }} fontSize="small" />
-              Back
+                <ArrowBackOutlined sx={{ mr: 1 }} fontSize="small" />
+                Back
               </MenuItem>,
               <MenuItem
                 key="theme-system"
-              selected={themeMode === "system"}
-              onClick={() => handleThemeModeChange("system")}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 1.5,
-              }}
-            >
-              <Box
-                sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+                selected={themeMode === "system"}
+                onClick={() => handleThemeModeChange("system")}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: 1.5,
+                }}
               >
-                <SettingsBrightnessOutlined fontSize="small" />
-                System
-              </Box>
-              {themeMode === "system" ? (
-                <Check fontSize="small" color="primary" />
-              ) : null}
+                <Box
+                  sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+                >
+                  <SettingsBrightnessOutlined fontSize="small" />
+                  System
+                </Box>
+                {themeMode === "system" ? (
+                  <Check fontSize="small" color="primary" />
+                ) : null}
               </MenuItem>,
               <MenuItem
                 key="theme-light"
-              selected={themeMode === "light"}
-              onClick={() => handleThemeModeChange("light")}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 1.5,
-              }}
-            >
-              <Box
-                sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+                selected={themeMode === "light"}
+                onClick={() => handleThemeModeChange("light")}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: 1.5,
+                }}
               >
-                <LightModeOutlined fontSize="small" />
-                Light
-              </Box>
-              {themeMode === "light" ? (
-                <Check fontSize="small" color="primary" />
-              ) : null}
+                <Box
+                  sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+                >
+                  <LightModeOutlined fontSize="small" />
+                  Light
+                </Box>
+                {themeMode === "light" ? (
+                  <Check fontSize="small" color="primary" />
+                ) : null}
               </MenuItem>,
               <MenuItem
                 key="theme-dark"
-              selected={themeMode === "dark"}
-              onClick={() => handleThemeModeChange("dark")}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 1.5,
-              }}
-            >
-              <Box
-                sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+                selected={themeMode === "dark"}
+                onClick={() => handleThemeModeChange("dark")}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: 1.5,
+                }}
               >
-                <DarkModeOutlined fontSize="small" />
-                Dark
-              </Box>
-              {themeMode === "dark" ? (
-                <Check fontSize="small" color="primary" />
-              ) : null}
+                <Box
+                  sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+                >
+                  <DarkModeOutlined fontSize="small" />
+                  Dark
+                </Box>
+                {themeMode === "dark" ? (
+                  <Check fontSize="small" color="primary" />
+                ) : null}
               </MenuItem>,
             ]
           : null}
