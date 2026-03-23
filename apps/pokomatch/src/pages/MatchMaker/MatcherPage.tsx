@@ -1,8 +1,10 @@
+import AutoFixHighOutlinedIcon from "@mui/icons-material/AutoFixHighOutlined";
+import CatchingPokemonOutlinedIcon from "@mui/icons-material/CatchingPokemonOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
-import { Container, Link, Paper, Stack, Typography } from "@mui/material";
+import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
+import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
+import { Box, Container, Paper, Stack, Typography } from "@mui/material";
 import { useCallback, useDeferredValue, useMemo, useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { appRoutes } from "../../router/routes";
 import {
   computeAutoGroups,
   type SuggestedPokemon,
@@ -160,37 +162,114 @@ export default function MatcherPage() {
               less time second-guessing and more time enjoying Pokopia.
               Everything below updates as your Pokédex or groups change.
             </Typography>
-            <Stack
-              component="ul"
-              spacing={0.75}
+            <Box
               sx={{
-                m: 0,
-                pl: 2.25,
-                color: "text.secondary",
-                typography: "body2",
+                display: "grid",
+                gridTemplateColumns: {
+                  xs: "1fr",
+                  sm: "repeat(2, minmax(0, 1fr))",
+                },
+                gap: 1,
               }}
             >
-              <Typography component="li" variant="body2" color="text.secondary">
-                <strong>My Groups</strong> — Shape your own households; we
-                suggest habitat-safe picks that boost shared favorites.
-              </Typography>
-              <Typography component="li" variant="body2" color="text.secondary">
-                <strong>Suggested groups</strong> — Fresh ideas for whoever is
-                still looking for a home.
-              </Typography>
-            </Stack>
-            <Typography variant="body2" color="text.secondary" component="p">
-              Only Pokémon you have unlocked in the{" "}
-              <Link
-                component={RouterLink}
-                to={appRoutes.pokedex}
-                underline="hover"
+              <Paper
+                variant="outlined"
+                sx={{
+                  p: 1.25,
+                  borderRadius: 1.5,
+                  bgcolor: "background.paper",
+                  borderColor: "divider",
+                }}
               >
-                Pokédex
-              </Link>{" "}
-              appear here—tune unlocks there so the app matches your current
-              save.
-            </Typography>
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <AutoFixHighOutlinedIcon
+                    fontSize="small"
+                    sx={{ color: "primary.main" }}
+                  />
+                  <Stack spacing={0.25}>
+                    <Typography variant="body2" fontWeight={700}>
+                      Automated matching
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Finds strong groups quickly using habitat fit and shared
+                      likes.
+                    </Typography>
+                  </Stack>
+                </Stack>
+              </Paper>
+              <Paper
+                variant="outlined"
+                sx={{
+                  p: 1.25,
+                  borderRadius: 1.5,
+                  bgcolor: "background.paper",
+                  borderColor: "divider",
+                }}
+              >
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <SaveOutlinedIcon
+                    fontSize="small"
+                    sx={{ color: "primary.main" }}
+                  />
+                  <Stack spacing={0.25}>
+                    <Typography variant="body2" fontWeight={700}>
+                      In-browser persistence
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Your selections, groups and preferencesstay saved.
+                    </Typography>
+                  </Stack>
+                </Stack>
+              </Paper>
+              <Paper
+                variant="outlined"
+                sx={{
+                  p: 1.25,
+                  borderRadius: 1.5,
+                  bgcolor: "background.paper",
+                  borderColor: "divider",
+                }}
+              >
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <CatchingPokemonOutlinedIcon
+                    fontSize="small"
+                    sx={{ color: "primary.main" }}
+                  />
+                  <Stack spacing={0.25}>
+                    <Typography variant="body2" fontWeight={700}>
+                      Pokédex controls
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Lock or unlock who is available for matching.
+                    </Typography>
+                  </Stack>
+                </Stack>
+              </Paper>
+              <Paper
+                variant="outlined"
+                sx={{
+                  p: 1.25,
+                  borderRadius: 1.5,
+                  bgcolor: "background.paper",
+                  borderColor: "divider",
+                }}
+              >
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <TipsAndUpdatesOutlinedIcon
+                    fontSize="small"
+                    sx={{ color: "primary.main" }}
+                  />
+                  <Stack spacing={0.25}>
+                    <Typography variant="body2" fontWeight={700}>
+                      Smart suggestions
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Get next-pick hints to quickly form groups.
+                    </Typography>
+                  </Stack>
+                </Stack>
+              </Paper>
+            </Box>
           </Stack>
         </Paper>
 
