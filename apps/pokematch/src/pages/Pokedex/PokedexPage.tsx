@@ -17,7 +17,7 @@ import {
   Typography,
 } from "@mui/material";
 import { memo, useMemo, useState } from "react";
-import { habitatColors, habitatEmoji } from "../../services/habitatColors";
+import { habitatColors, habitatIcons } from "../../services/habitatColors";
 import {
   allPokemon,
   eventPokemon,
@@ -112,11 +112,7 @@ export default function PokedexPage() {
         >
           <ToggleButton value="all">All</ToggleButton>
           {habitats.map((h) => (
-            <ToggleButton key={h} value={h}>
-              <Tooltip title={h}>
-                <span>{habitatEmoji[h]}</span>
-              </Tooltip>
-            </ToggleButton>
+            <HabitatToggleButton key={h} habitat={h} />
           ))}
         </ToggleButtonGroup>
 
@@ -374,6 +370,23 @@ function PokedexSectionHeader({
   );
 }
 
+function HabitatToggleButton({ habitat }: { habitat: Habitat }) {
+  const HabitatIcon = habitatIcons[habitat];
+
+  return (
+    <ToggleButton value={habitat}>
+      <Tooltip title={habitat}>
+        <Box
+          component="span"
+          sx={{ display: "inline-flex", alignItems: "center" }}
+        >
+          <HabitatIcon sx={{ fontSize: 16 }} />
+        </Box>
+      </Tooltip>
+    </ToggleButton>
+  );
+}
+
 function PokedexGrid({
   pokemon,
   interactive,
@@ -433,6 +446,7 @@ const PokemonCard = memo(function PokemonCard({
   unlocked: boolean;
 }) {
   const colors = habitatColors[pokemon.idealHabitat as Habitat];
+  const HabitatIcon = habitatIcons[pokemon.idealHabitat as Habitat];
   const isEvent = pokemon.id.startsWith("e");
   const isNotHabitable = pokemon.isHabitable === false;
 
@@ -526,9 +540,7 @@ const PokemonCard = memo(function PokemonCard({
 
       <Box sx={{ px: 1.5, py: 0.75 }}>
         <Stack direction="row" spacing={0.5} alignItems="center" mb={0.5}>
-          <Typography sx={{ fontSize: 12 }}>
-            {habitatEmoji[pokemon.idealHabitat as Habitat]}
-          </Typography>
+          <HabitatIcon sx={{ fontSize: 12, color: "text.secondary" }} />
           <Typography
             variant="body2"
             sx={{ fontSize: 11 }}

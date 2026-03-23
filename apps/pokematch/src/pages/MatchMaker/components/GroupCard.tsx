@@ -12,7 +12,7 @@ import {
   getGroupConflicts,
   getGroupHabitats,
 } from "../../../services/habitat-conflicts";
-import { habitatColors } from "../../../services/habitatColors";
+import { habitatColors, habitatIcons } from "../../../services/habitatColors";
 import { groupScore } from "../../../services/matching.service";
 import type { Habitat, Pokemon } from "../../../types/types";
 
@@ -88,18 +88,10 @@ function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
           useFlexGap
         >
           {habitats.map((groupHabitat) => (
-            <Chip
+            <HabitatChip
               key={`habitat-${groupHabitat}`}
-              label={groupHabitat}
-              size="small"
-              variant="outlined"
-              sx={{
-                height: 20,
-                fontSize: 10,
-                bgcolor: "background.paper",
-                color: habitatColors[groupHabitat].text,
-                borderColor: habitatColors[groupHabitat].border,
-              }}
+              habitat={groupHabitat}
+              variant="group"
             />
           ))}
           {conflicts.length > 0 && (
@@ -193,18 +185,7 @@ function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
               )}
             </Stack>
             <Box sx={{ mb: 0.5 }}>
-              <Chip
-                label={`${pokemon.idealHabitat}`}
-                size="small"
-                variant="outlined"
-                sx={{
-                  height: 18,
-                  fontSize: 10,
-                  bgcolor: "transparent",
-                  color: "text.secondary",
-                  borderColor: habitatColors[pokemon.idealHabitat].border,
-                }}
-              />
+              <HabitatChip habitat={pokemon.idealHabitat} variant="pokemon" />
             </Box>
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
               {pokemon.favorites.map((fav) => {
@@ -230,6 +211,38 @@ function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
         ))}
       </Box>
     </Paper>
+  );
+}
+
+function HabitatChip({
+  habitat,
+  variant,
+}: {
+  habitat: Habitat;
+  variant: "group" | "pokemon";
+}) {
+  const HabitatIcon = habitatIcons[habitat];
+  const isGroup = variant === "group";
+
+  return (
+    <Chip
+      icon={<HabitatIcon />}
+      label={habitat}
+      size="small"
+      variant="outlined"
+      sx={{
+        height: isGroup ? 20 : 18,
+        fontSize: 10,
+        bgcolor: "background.paper",
+        color: habitatColors[habitat].text,
+        borderColor: habitatColors[habitat].border,
+        "& .MuiChip-icon": {
+          color: habitatColors[habitat].text,
+          ml: 0.5,
+          fontSize: 14,
+        },
+      }}
+    />
   );
 }
 

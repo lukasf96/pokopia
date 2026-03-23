@@ -7,7 +7,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { habitatColors, habitatEmoji } from "../../../services/habitatColors";
+import { habitatColors, habitatIcons } from "../../../services/habitatColors";
 import type { Habitat, Pokemon } from "../../../types/types";
 import GroupCard from "./GroupCard";
 
@@ -27,6 +27,7 @@ export function HabitatSection({
   autoGroups,
 }: HabitatSectionProps) {
   const colors = habitatColors[habitat];
+  const HabitatIcon = habitatIcons[habitat];
   const summaryId = `habitat-${habitat}-summary`;
 
   if (pokemon.length === 0) return null;
@@ -59,13 +60,7 @@ export function HabitatSection({
           flexWrap="wrap"
           useFlexGap
         >
-          <Typography
-            component="span"
-            sx={{ fontSize: 20, lineHeight: 1 }}
-            aria-hidden
-          >
-            {habitatEmoji[habitat]}
-          </Typography>
+          <HabitatIcon sx={{ fontSize: 20, color: colors.text }} aria-hidden />
           <Typography component="span" fontWeight={700} color={colors.text}>
             {habitat}
           </Typography>

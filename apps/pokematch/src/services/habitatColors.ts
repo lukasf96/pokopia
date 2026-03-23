@@ -1,4 +1,11 @@
 import type { Habitat } from "../types/types";
+import AcUnitIcon from "@mui/icons-material/AcUnit";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LandscapeIcon from "@mui/icons-material/Landscape";
+import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
+import WaterDropIcon from "@mui/icons-material/WaterDrop";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import type { SvgIconComponent } from "@mui/icons-material";
 
 export const habitatColors: Record<
   Habitat,
@@ -12,11 +19,11 @@ export const habitatColors: Record<
   Warm: { bg: "#fff3e0", text: "#e65100", border: "#f57c00" },
 };
 
-export const habitatEmoji: Record<Habitat, string> = {
-  Bright: "☀️",
-  Cool: "❄️",
-  Dark: "🌑",
-  Dry: "🏜️",
-  Humid: "🌿",
-  Warm: "🔥",
+export const habitatIcons: Record<Habitat, SvgIconComponent> = {
+  Bright: WbSunnyIcon,
+  Cool: AcUnitIcon,
+  Dark: DarkModeIcon,
+  Dry: LandscapeIcon,
+  Humid: WaterDropIcon,
+  Warm: LocalFireDepartmentIcon,
 };

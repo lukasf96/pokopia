@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useMemo, useState } from "react";
-import { habitatColors, habitatEmoji } from "../../../services/habitatColors";
+import { habitatColors, habitatIcons } from "../../../services/habitatColors";
 import type { Habitat, Pokemon } from "../../../types/types";
 
 interface Props {
@@ -92,6 +92,7 @@ function HabitatRow({
 }) {
   const [open, setOpen] = useState(false);
   const colors = habitatColors[habitat];
+  const HabitatIcon = habitatIcons[habitat];
 
   return (
     <Paper
@@ -112,7 +113,7 @@ function HabitatRow({
         }}
       >
         <Stack direction="row" spacing={1} alignItems="center">
-          <Typography sx={{ fontSize: 18 }}>{habitatEmoji[habitat]}</Typography>
+          <HabitatIcon sx={{ fontSize: 18, color: colors.text }} />
           <Typography variant="body2" fontWeight={600} color={colors.text}>
             {habitat}
           </Typography>
