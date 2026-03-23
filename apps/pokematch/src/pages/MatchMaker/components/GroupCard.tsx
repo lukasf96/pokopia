@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Box,
   Chip,
   Divider,
@@ -7,13 +8,14 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { memo, useMemo } from "react";
+import { memo, useMemo, useState } from "react";
 import {
   getGroupConflicts,
   getGroupHabitats,
 } from "../../../services/habitat-conflicts";
 import { habitatColors, habitatIcons } from "../../../services/habitatColors";
 import { groupScore } from "../../../services/matching.service";
+import { getPokemonSpriteUrl } from "../../../services/pokemon-sprites";
 import type { Habitat, Pokemon } from "../../../types/types";
 
 interface GroupCardProps {
@@ -24,6 +26,67 @@ interface GroupCardProps {
 
 function isEventPokemon(p: Pokemon): boolean {
   return p.id.startsWith("e");
+}
+
+function PokemonIdentity({ pokemon }: { pokemon: Pokemon }) {
+  const spriteUrl = useMemo(() => getPokemonSpriteUrl(pokemon.id), [pokemon.id]);
+  const [hasSpriteError, setHasSpriteError] = useState(false);
+  const shouldShowSprite = spriteUrl !== null && !hasSpriteError;
+
+  return (
+    <Stack
+      direction="row"
+      spacing={1}
+      alignItems="center"
+      mb={0.5}
+      flexWrap="wrap"
+      minWidth={0}
+    >
+      <Avatar
+        src={shouldShowSprite ? spriteUrl : undefined}
+        imgProps={{
+          loading: "lazy",
+          width: 40,
+          height: 40,
+          onError: () => setHasSpriteError(true),
+        }}
+        alt={pokemon.name}
+        variant="rounded"
+        sx={{
+          width: 24,
+          height: 24,
+          bgcolor: "transparent",
+          border: "1px solid",
+          borderColor: "divider",
+          flexShrink: 0,
+        }}
+      />
+      <Typography variant="caption" color="text.disabled" sx={{ minWidth: 32 }}>
+        #{pokemon.dexNumber}
+      </Typography>
+      <Typography
+        variant="body2"
+        fontWeight={600}
+        noWrap
+        sx={{ flex: "1 1 auto", minWidth: 0 }}
+      >
+        {pokemon.name}
+      </Typography>
+      {isEventPokemon(pokemon) && (
+        <Chip
+          label="Event"
+          size="small"
+          sx={{
+            height: 16,
+            fontSize: 9,
+            bgcolor: "secondary.light",
+            color: "secondary.dark",
+            ml: 0.5,
+          }}
+        />
+      )}
+    </Stack>
+  );
 }
 
 function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
@@ -148,42 +211,7 @@ function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
               minWidth: 0,
             }}
           >
-            <Stack
-              direction="row"
-              spacing={1}
-              alignItems="baseline"
-              mb={0.5}
-              flexWrap="wrap"
-            >
-              <Typography
-                variant="caption"
-                color="text.disabled"
-                sx={{ minWidth: 32 }}
-              >
-                #{pokemon.dexNumber}
-              </Typography>
-              <Typography
-                variant="body2"
-                fontWeight={600}
-                noWrap
-                sx={{ flex: "1 1 auto", minWidth: 0 }}
-              >
-                {pokemon.name}
-              </Typography>
-              {isEventPokemon(pokemon) && (
-                <Chip
-                  label="Event"
-                  size="small"
-                  sx={{
-                    height: 16,
-                    fontSize: 9,
-                    bgcolor: "secondary.light",
-                    color: "secondary.dark",
-                    ml: 0.5,
-                  }}
-                />
-              )}
-            </Stack>
+            <PokemonIdentity pokemon={pokemon} />
             <Box sx={{ mb: 0.5 }}>
               <HabitatChip habitat={pokemon.idealHabitat} variant="pokemon" />
             </Box>

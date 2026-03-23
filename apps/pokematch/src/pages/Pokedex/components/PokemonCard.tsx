@@ -1,9 +1,10 @@
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
-import { Box, Chip, Divider, Paper, Stack, Typography } from "@mui/material";
-import { memo } from "react";
+import { Avatar, Box, Chip, Divider, Paper, Stack, Typography } from "@mui/material";
+import { memo, useMemo, useState } from "react";
 import { habitatColors, habitatIcons } from "../../../services/habitatColors";
+import { getPokemonSpriteUrl } from "../../../services/pokemon-sprites";
 import type { Habitat, Pokemon } from "../../../types/types";
 
 interface PokemonCardProps {
@@ -25,6 +26,9 @@ export const PokemonCard = memo(function PokemonCard({
   const HabitatIcon = habitatIcons[pokemon.idealHabitat as Habitat];
   const isEvent = pokemon.id.startsWith("e");
   const isNotHabitable = pokemon.isHabitable === false;
+  const spriteUrl = useMemo(() => getPokemonSpriteUrl(pokemon.id), [pokemon.id]);
+  const [hasSpriteError, setHasSpriteError] = useState(false);
+  const shouldShowSprite = spriteUrl !== null && !hasSpriteError;
 
   return (
     <Paper
@@ -58,6 +62,25 @@ export const PokemonCard = memo(function PokemonCard({
         }}
       >
         <Stack direction="row" spacing={0.75} alignItems="center" minWidth={0}>
+          <Avatar
+            src={shouldShowSprite ? spriteUrl : undefined}
+            imgProps={{
+              loading: "lazy",
+              width: 40,
+              height: 40,
+              onError: () => setHasSpriteError(true),
+            }}
+            alt={pokemon.name}
+            variant="rounded"
+            sx={{
+              width: 24,
+              height: 24,
+              bgcolor: "transparent",
+              border: "1px solid",
+              borderColor: "divider",
+              flexShrink: 0,
+            }}
+          />
           <Typography
             variant="body2"
             color="text.disabled"
