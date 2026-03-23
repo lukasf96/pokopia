@@ -93,32 +93,52 @@ export default function Layout({ children }: LayoutProps) {
           borderBottom: 1,
           borderColor: "divider",
           boxShadow: "0 1px 0 0 rgb(15 23 42 / 0.04)",
-          px: 3,
-          py: 1.5,
+          px: { xs: 1.5, sm: 3 },
+          py: { xs: 1, sm: 1.5 },
           display: "flex",
-          alignItems: "center",
+          flexDirection: { xs: "column", sm: "row" },
+          alignItems: { xs: "stretch", sm: "center" },
           justifyContent: "space-between",
-          flexWrap: "nowrap",
-          gap: 1.5,
+          gap: { xs: 1, sm: 1.5 },
         }}
       >
         <Box
-          component="img"
-          src="/logo/logo.png"
-          alt="PokoMatch logo"
+          component={RouterLink}
+          to={appRoutes.matchmaker}
           sx={{
-            height: { xs: 32, sm: 40 },
-            width: "auto",
             display: "block",
+            lineHeight: 0,
             flexShrink: 0,
+            alignSelf: { xs: "center", sm: "flex-start" },
           }}
-        />
+        >
+          <Box
+            component="img"
+            src="/logo/logo.png"
+            alt="PokoMatch logo"
+            sx={{
+              height: { xs: 32, sm: 40 },
+              width: "auto",
+              display: "block",
+            }}
+          />
+        </Box>
 
         <Stack
           direction="row"
           spacing={1}
           alignItems="center"
-          sx={{ minWidth: 0, overflowX: "auto", pb: 0.25, ml: "auto" }}
+          sx={{
+            minWidth: 0,
+            width: { xs: "100%", sm: "auto" },
+            overflowX: { xs: "visible", sm: "auto" },
+            pb: { xs: 0, sm: 0.25 },
+            ml: { xs: 0, sm: "auto" },
+            flexWrap: { xs: "wrap", sm: "nowrap" },
+            rowGap: 0.75,
+            columnGap: 0.5,
+            justifyContent: { xs: "center", sm: "flex-start" },
+          }}
         >
           <NavItem
             active={isMatchMakerActive}
@@ -153,7 +173,7 @@ export default function Layout({ children }: LayoutProps) {
             aria-controls={isSettingsOpen ? "layout-settings-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={isSettingsOpen ? "true" : undefined}
-            sx={{ ml: 0.5 }}
+            sx={{ ml: { xs: 0, sm: 0.5 } }}
           >
             <SettingsOutlined fontSize="small" />
           </IconButton>
@@ -375,9 +395,9 @@ function NavItem({
       sx={{
         textDecoration: "none",
         cursor: "pointer",
-        py: 0.5,
-        px: 1,
-        fontSize: 13,
+        py: { xs: 0.75, sm: 0.5 },
+        px: { xs: 1.25, sm: 1 },
+        fontSize: { xs: 12, sm: 13 },
         fontWeight: active ? 600 : 500,
         color: active ? "text.primary" : "text.secondary",
         borderRadius: 1,
