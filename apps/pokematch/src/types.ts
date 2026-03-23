@@ -9,9 +9,3 @@ export interface Pokemon {
   favorites: string[]
   favoriteFlavor?: string
 }
-
-export interface PokemonGroup {
-  habitat: Habitat
-  pokemon: Pokemon[]
-  groups: Pokemon[][]
-}

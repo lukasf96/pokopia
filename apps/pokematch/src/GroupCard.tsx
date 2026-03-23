@@ -3,6 +3,7 @@ import { Box, Chip, Divider, Paper, Stack, Typography, useTheme } from '@mui/mat
 import type { Pokemon, Habitat } from './types'
 import { habitatColors } from './habitatColors'
 import { groupScore } from './matching'
+import { getGroupConflicts, getGroupHabitats } from './habitat-conflicts'
 
 interface GroupCardProps {
   group: Pokemon[]
@@ -18,7 +19,7 @@ function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
   const theme = useTheme()
   const colors = habitatColors[habitat]
 
-  const { favCounts, sharedFavs, score } = useMemo(() => {
+  const { favCounts, sharedFavs, score, habitats, conflicts } = useMemo(() => {
     const allFavs = group.flatMap((p) => p.favorites)
     const counts = allFavs.reduce<Record<string, number>>((acc, f) => {
       acc[f] = (acc[f] ?? 0) + 1
@@ -31,6 +32,8 @@ function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
       favCounts: counts,
       sharedFavs: shared,
       score: groupScore(group),
+      habitats: getGroupHabitats(group),
+      conflicts: getGroupConflicts(group),
     }
   }, [group])
 
@@ -65,6 +68,22 @@ function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
           Group {groupNumber}
         </Typography>
         <Stack direction="row" spacing={1} alignItems="center" flexWrap="wrap" useFlexGap>
+          {habitats.map((groupHabitat) => (
+            <Chip
+              key={`habitat-${groupHabitat}`}
+              label={groupHabitat}
+              size="small"
+              variant="outlined"
+              sx={{
+                height: 20,
+                fontSize: 10,
+                bgcolor: 'background.paper',
+                color: habitatColors[groupHabitat].text,
+                borderColor: habitatColors[groupHabitat].border,
+                borderStyle: 'dashed',
+              }}
+            />
+          ))}
           {sharedFavs.slice(0, 3).map(([fav, count]) => (
             <Chip
               key={fav}
@@ -89,9 +108,19 @@ function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
               height: 20,
             }}
           />
+          <Chip
+            label={
+              conflicts.length === 0
+                ? 'habitat-compatible'
+                : `conflict: ${conflicts.map(([left, right]) => `${left}/${right}`).join(', ')}`
+            }
+            size="small"
+            color={conflicts.length === 0 ? 'success' : 'error'}
+            variant={conflicts.length === 0 ? 'outlined' : 'filled'}
+            sx={{ fontSize: 11, height: 20 }}
+          />
         </Stack>
       </Box>
-
       <Divider />
 
       <Box
@@ -131,6 +160,21 @@ function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
                 />
               )}
             </Stack>
+            <Box sx={{ mb: 0.5 }}>
+              <Chip
+                label={`Ideal habitat: ${pokemon.idealHabitat}`}
+                size="small"
+                variant="outlined"
+                sx={{
+                  height: 18,
+                  fontSize: 10,
+                  bgcolor: 'transparent',
+                  color: 'text.secondary',
+                  borderColor: habitatColors[pokemon.idealHabitat].border,
+                  borderStyle: 'dashed',
+                }}
+              />
+            </Box>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {pokemon.favorites.map((fav) => {
                 const isShared = (favCounts[fav] ?? 0) >= 2

@@ -2,13 +2,11 @@ import { useMemo } from 'react'
 import { allPokemon } from './pokemon'
 import { Container, Stack, Typography } from '@mui/material'
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined'
-import { computeHabitatGroups, suggestNextPokemon } from './matching'
-import { HabitatSection } from './matcher/habitat-section'
+import { computeAutoGroups, suggestNextPokemon } from './matching'
 import { CustomGroupsSection } from './matcher/custom-groups-section'
+import { AutoGroupsSection } from './matcher/auto-groups-section'
 import { useStore } from './store'
-import type { Habitat, Pokemon } from './types'
-
-const habitatOrder: Habitat[] = ['Bright', 'Cool', 'Dark', 'Dry', 'Humid', 'Warm']
+import type { Pokemon } from './types'
 
 export default function MatcherPage() {
   const mode = useStore((s) => s.mode)
@@ -53,29 +51,7 @@ export default function MatcherPage() {
     () => activePokemon.filter((pokemon) => !customAssignedIds.has(pokemon.id)),
     [activePokemon, customAssignedIds],
   )
-  const autoHabitatGroups = useMemo(() => computeHabitatGroups(autoPokemon), [autoPokemon])
-  const autoByHabitat = useMemo(
-    () =>
-      autoHabitatGroups.reduce<Record<Habitat, Pokemon[][]>>(
-        (acc, group) => {
-          acc[group.habitat] = group.groups
-          return acc
-        },
-        { Bright: [], Cool: [], Dark: [], Dry: [], Humid: [], Warm: [] },
-      ),
-    [autoHabitatGroups],
-  )
-  const activeByHabitat = useMemo(
-    () =>
-      activePokemon.reduce<Record<Habitat, Pokemon[]>>(
-        (acc, pokemon) => {
-          acc[pokemon.idealHabitat].push(pokemon)
-          return acc
-        },
-        { Bright: [], Cool: [], Dark: [], Dry: [], Humid: [], Warm: [] },
-      ),
-    [activePokemon],
-  )
+  const autoGroups = useMemo(() => computeAutoGroups(autoPokemon), [autoPokemon])
 
   if (activePokemon.length === 0) {
     return (
@@ -98,11 +74,11 @@ export default function MatcherPage() {
       <Stack spacing={2.5}>
         <Stack spacing={0.5}>
           <Typography variant="h6" component="h1" fontWeight={700}>
-            Habitat groups
+            Match groups
           </Typography>
           <Typography variant="body2" color="text.secondary" maxWidth="sm">
-            Pokémon are grouped by ideal habitat. Each group of up to four is chosen to maximize
-            shared favorite activities between members.
+            Auto groups maximize shared favorite activities while enforcing habitat conflicts
+            (Bright/Dark, Humid/Dry, Warm/Cool).
           </Typography>
         </Stack>
 
@@ -125,14 +101,7 @@ export default function MatcherPage() {
             onRemovePokemon={removePokemonFromCustomGroup}
           />
 
-          {habitatOrder.map((habitat) => (
-            <HabitatSection
-              key={habitat}
-              habitat={habitat}
-              pokemon={activeByHabitat[habitat]}
-              autoGroups={autoByHabitat[habitat] ?? []}
-            />
-          ))}
+          <AutoGroupsSection groups={autoGroups} />
         </Stack>
       </Stack>
     </Container>

@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist, type StateStorage } from 'zustand/middleware'
 import rawData from './pokedex.json'
-import type { Habitat, Pokemon } from './types'
+import type { Pokemon } from './types'
 
 /** Debounce localStorage writes — full-state JSON on each toggle was blocking the main thread. */
 function createDebouncedJsonStorage(delayMs: number): StateStorage {
@@ -64,20 +64,6 @@ interface PersistedState {
   mode: AppMode
   unlockedIds: string[]
   customGroups?: string[][]
-  customHabitatGroups?: Record<Habitat, string[][]>
-}
-
-function flattenLegacyCustomHabitatGroups(
-  customHabitatGroups?: Record<Habitat, string[][]>,
-): string[][] {
-  if (!customHabitatGroups) return []
-  const habitatOrder: Habitat[] = ['Bright', 'Cool', 'Dark', 'Dry', 'Humid', 'Warm']
-  const groups: string[][] = []
-  for (const habitat of habitatOrder) {
-    const habitatGroups = customHabitatGroups[habitat] ?? []
-    for (const group of habitatGroups) groups.push(group)
-  }
-  return groups
 }
 
 export const useStore = create<AppState>()(
@@ -142,8 +128,7 @@ export const useStore = create<AppState>()(
             state: {
               ...parsed.state,
               unlockedIds: new Set(parsed.state.unlockedIds ?? allIds),
-              customGroups:
-                parsed.state.customGroups ?? flattenLegacyCustomHabitatGroups(parsed.state.customHabitatGroups),
+              customGroups: parsed.state.customGroups ?? [],
             },
           }
         },

@@ -1,4 +1,5 @@
-import type { Pokemon, PokemonGroup, Habitat } from './types'
+import { canJoinGroup } from './habitat-conflicts'
+import type { Pokemon } from './types'
 
 /**
  * Score how well two pokemon match based on shared favorites.
@@ -27,10 +28,10 @@ function groupScore(group: Pokemon[]): number {
 }
 
 /**
- * Greedily build groups of up to 4 from a list of pokemon sharing the same habitat.
- * Tries to maximize shared favorites within each group.
+ * Greedily build groups of up to 4 from all available pokemon.
+ * Tries to maximize shared favorites while enforcing habitat conflicts.
  */
-function buildGroups(pokemon: Pokemon[]): Pokemon[][] {
+export function computeAutoGroups(pokemon: Pokemon[]): Pokemon[][] {
   const remaining = [...pokemon]
   const groups: Pokemon[][] = []
 
@@ -39,11 +40,13 @@ function buildGroups(pokemon: Pokemon[]): Pokemon[][] {
 
     while (group.length < 4 && remaining.length > 0) {
       // Find the remaining pokemon that best improves the current group
-      let bestIdx = 0
+      // without violating habitat conflict constraints.
+      let bestIdx = -1
       let bestScore = -1
 
       for (let i = 0; i < remaining.length; i++) {
         const candidate = remaining[i]
+        if (!canJoinGroup(group, candidate)) continue
         const score = candidateScore(group, candidate)
         if (score > bestScore) {
           bestScore = score
@@ -51,6 +54,7 @@ function buildGroups(pokemon: Pokemon[]): Pokemon[][] {
         }
       }
 
+      if (bestIdx < 0) break
       group.push(remaining.splice(bestIdx, 1)[0])
     }
 
@@ -60,31 +64,10 @@ function buildGroups(pokemon: Pokemon[]): Pokemon[][] {
   return groups
 }
 
-export function computeHabitatGroups(pokemon: Pokemon[]): PokemonGroup[] {
-  const byHabitat = new Map<Habitat, Pokemon[]>()
-
-  for (const p of pokemon) {
-    const habitat = p.idealHabitat as Habitat
-    if (!byHabitat.has(habitat)) byHabitat.set(habitat, [])
-    byHabitat.get(habitat)!.push(p)
-  }
-
-  const result: PokemonGroup[] = []
-
-  for (const [habitat, members] of byHabitat.entries()) {
-    const groups = buildGroups(members)
-    result.push({ habitat, pokemon: members, groups })
-  }
-
-  // Sort habitats alphabetically for consistent display
-  result.sort((a, b) => a.habitat.localeCompare(b.habitat))
-
-  return result
-}
-
 export function suggestNextPokemon(group: Pokemon[], candidates: Pokemon[], limit = 4): Pokemon[] {
   if (group.length === 0) return []
   return [...candidates]
+    .filter((candidate) => canJoinGroup(group, candidate))
     .sort((a, b) => {
       const scoreDiff = candidateScore(group, b) - candidateScore(group, a)
       if (scoreDiff !== 0) return scoreDiff
