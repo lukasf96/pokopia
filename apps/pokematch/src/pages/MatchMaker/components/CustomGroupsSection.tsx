@@ -117,49 +117,56 @@ export function CustomGroupsSection({
                   groupNumber={gi + 1}
                   habitat={getDisplayHabitat(group)}
                   onRemovePokemon={(pokemonId) => onRemovePokemon(gi, pokemonId)}
+                  footerContent={
+                    group.length < 4 ? (
+                      <Stack spacing={1}>
+                        <Typography variant="caption" color="text.secondary">
+                          Add Pokemon to Group {gi + 1}
+                        </Typography>
+
+                        <Autocomplete
+                          options={groupAvailablePokemon}
+                          disabled={groupAvailablePokemon.length === 0}
+                          getOptionLabel={(option) =>
+                            `${getPokemonDisplayName(option, nameLanguage)} (#${option.dexNumber})`
+                          }
+                          renderInput={(params) => (
+                            <TextField {...params} size="small" label="Choose Pokemon" />
+                          )}
+                          onChange={(_, value) => {
+                            if (value) onAddPokemon(gi, value.id);
+                          }}
+                        />
+
+                        {group.length > 0 && groupSuggestions.length > 0 && (
+                          <Stack spacing={0.5}>
+                            <Typography variant="caption" color="text.secondary">
+                              Suggested next:
+                            </Typography>
+                            <Stack direction="row" spacing={0.75} flexWrap="wrap" useFlexGap>
+                              {groupSuggestions.map((suggestion) => (
+                                <Chip
+                                  key={`suggest-${gi}-${suggestion.pokemon.id}`}
+                                  label={`${getPokemonDisplayName(
+                                    suggestion.pokemon,
+                                    nameLanguage,
+                                  )} (+${suggestion.score})`}
+                                  size="small"
+                                  onClick={() => onAddPokemon(gi, suggestion.pokemon.id)}
+                                />
+                              ))}
+                            </Stack>
+                          </Stack>
+                        )}
+                      </Stack>
+                    ) : null
+                  }
                   groupAction={{
                     ariaLabel: `Delete my group ${gi + 1}`,
                     onClick: () => onDeleteGroup(gi),
                     kind: "remove",
                   }}
                 />
-
-                {group.length < 4 && (
-                  <Autocomplete
-                    options={groupAvailablePokemon}
-                    disabled={groupAvailablePokemon.length === 0}
-                    getOptionLabel={(option) =>
-                      `${getPokemonDisplayName(option, nameLanguage)} (#${option.dexNumber})`
-                    }
-                    renderInput={(params) => (
-                      <TextField {...params} size="small" label="Add Pokemon" />
-                    )}
-                    onChange={(_, value) => {
-                      if (value) onAddPokemon(gi, value.id);
-                    }}
-                  />
-                )}
-
-                {group.length > 0 && group.length < 4 && groupSuggestions.length > 0 && (
-                  <Stack spacing={0.5}>
-                    <Typography variant="caption" color="text.secondary">
-                      Suggested next:
-                    </Typography>
-                    <Stack direction="row" spacing={0.75} flexWrap="wrap" useFlexGap>
-                      {groupSuggestions.map((suggestion) => (
-                        <Chip
-                          key={`suggest-${gi}-${suggestion.pokemon.id}`}
-                          label={`${getPokemonDisplayName(
-                            suggestion.pokemon,
-                            nameLanguage,
-                          )} (+${suggestion.score})`}
-                          size="small"
-                          onClick={() => onAddPokemon(gi, suggestion.pokemon.id)}
-                        />
-                      ))}
-                    </Stack>
-                  </Stack>
-                )}
               </Stack>
             );
           })}

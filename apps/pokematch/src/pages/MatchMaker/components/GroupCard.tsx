@@ -11,7 +11,7 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { memo, useMemo } from "react";
+import { memo, type ReactNode, useMemo } from "react";
 import { PokemonSpriteAvatar } from "../../../components/pokemon-sprite-avatar/PokemonSpriteAvatar";
 import {
   getGroupConflicts,
@@ -28,6 +28,7 @@ interface GroupCardProps {
   groupNumber: number;
   habitat: Habitat;
   onRemovePokemon?: (pokemonId: string) => void;
+  footerContent?: ReactNode;
   groupAction?: {
     ariaLabel: string;
     onClick: () => void;
@@ -101,6 +102,7 @@ function GroupCardComponent({
   groupNumber,
   habitat,
   onRemovePokemon,
+  footerContent,
   groupAction,
 }: GroupCardProps) {
   const theme = useTheme();
@@ -246,6 +248,14 @@ function GroupCardComponent({
           </Box>
         ))}
       </Box>
+      {footerContent && (
+        <>
+          <Divider />
+          <Box sx={{ px: 1.5, py: 1.25, bgcolor: "action.hover" }}>
+            {footerContent}
+          </Box>
+        </>
+      )}
     </Paper>
   );
 }
