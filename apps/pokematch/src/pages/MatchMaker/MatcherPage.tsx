@@ -1,6 +1,6 @@
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import { Container, Stack, Typography } from "@mui/material";
-import { useMemo } from "react";
+import { useDeferredValue, useMemo } from "react";
 import {
   computeAutoGroups,
   suggestNextPokemon,
@@ -56,9 +56,10 @@ export default function MatcherPage() {
     () => activePokemon.filter((pokemon) => !customAssignedIds.has(pokemon.id)),
     [activePokemon, customAssignedIds],
   );
+  const deferredAutoPokemon = useDeferredValue(autoPokemon);
   const autoGroups = useMemo(
-    () => computeAutoGroups(autoPokemon),
-    [autoPokemon],
+    () => computeAutoGroups(deferredAutoPokemon),
+    [deferredAutoPokemon],
   );
 
   const availablePokemon = useMemo(
