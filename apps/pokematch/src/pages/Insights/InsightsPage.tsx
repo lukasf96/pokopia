@@ -22,7 +22,7 @@ function sortByDexOrder(a: Pokemon, b: Pokemon): number {
   return a.name.localeCompare(b.name);
 }
 
-export default function OverviewPage() {
+export default function InsightsPage() {
   const habitats = useMemo(() => {
     const habitatMap = allPokemon.reduce<Record<string, Pokemon[]>>(
       (acc, pokemon) => {

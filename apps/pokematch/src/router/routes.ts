@@ -1,5 +1,5 @@
 export const appRoutes = {
   matchmaker: "/matchmaker",
-  overview: "/overview",
+  insights: "/insights",
   pokedex: "/pokedex",
 } as const;

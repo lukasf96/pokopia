@@ -45,7 +45,7 @@ export default function Layout({ children }: LayoutProps) {
     "language" | "theme" | null
   >(null);
   const isMatchMakerActive = pathname === appRoutes.matchmaker;
-  const isOverviewActive = pathname === appRoutes.overview;
+  const isInsightsActive = pathname === appRoutes.insights;
   const isPokedexActive = pathname === appRoutes.pokedex;
   const isSettingsOpen = Boolean(settingsAnchorEl);
   const isNestedOpen = Boolean(nestedAnchorEl && activeNestedMenu);
@@ -114,11 +114,11 @@ export default function Layout({ children }: LayoutProps) {
             Match-Maker
           </NavItem>
           <NavItem
-            active={isOverviewActive}
-            to={appRoutes.overview}
+            active={isInsightsActive}
+            to={appRoutes.insights}
             icon={<DashboardOutlined fontSize="inherit" />}
           >
-            Overview
+            Insights
           </NavItem>
           <NavItem
             active={isPokedexActive}
