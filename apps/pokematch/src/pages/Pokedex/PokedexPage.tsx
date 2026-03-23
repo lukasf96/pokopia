@@ -32,6 +32,7 @@ export default function PokedexPage() {
   const togglePokemon = useStore((s) => s.togglePokemon);
   const unlockAll = useStore((s) => s.unlockAll);
   const lockAll = useStore((s) => s.lockAll);
+  const unlockedIds = useStore((s) => s.unlockedIds);
 
   const [search, setSearch] = useState("");
   const [habitatFilter, setHabitatFilter] = useState<Habitat | "all">("all");
@@ -159,6 +160,7 @@ export default function PokedexPage() {
           baseFilteredStandard={baseFilteredStandard}
           baseFilteredEvent={baseFilteredEvent}
           effectiveStatusFilter={effectiveStatusFilter}
+          unlockedIds={unlockedIds}
         />
       </Stack>
 
@@ -168,6 +170,7 @@ export default function PokedexPage() {
           baseFilteredEvent={baseFilteredEvent}
           interactive
           onToggle={togglePokemon}
+          unlockedIds={unlockedIds}
         />
       ) : (
         <PokedexSectionsStatusFiltered
@@ -176,6 +179,7 @@ export default function PokedexPage() {
           status={effectiveStatusFilter}
           interactive
           onToggle={togglePokemon}
+          unlockedIds={unlockedIds}
         />
       )}
     </Container>
@@ -187,11 +191,13 @@ function PokedexShowingCount({
   baseFilteredStandard,
   baseFilteredEvent,
   effectiveStatusFilter,
+  unlockedIds,
 }: {
   totalCount: number;
   baseFilteredStandard: Pokemon[];
   baseFilteredEvent: Pokemon[];
   effectiveStatusFilter: Filter;
+  unlockedIds: Set<string>;
 }) {
   if (effectiveStatusFilter === "all") {
     const n = baseFilteredStandard.length + baseFilteredEvent.length;
@@ -208,6 +214,7 @@ function PokedexShowingCount({
       baseFilteredStandard={baseFilteredStandard}
       baseFilteredEvent={baseFilteredEvent}
       status={effectiveStatusFilter}
+      unlockedIds={unlockedIds}
     />
   );
 }
@@ -217,30 +224,24 @@ function PokedexShowingCountWithStatus({
   baseFilteredStandard,
   baseFilteredEvent,
   status,
+  unlockedIds,
 }: {
   totalCount: number;
   baseFilteredStandard: Pokemon[];
   baseFilteredEvent: Pokemon[];
   status: "unlocked" | "locked";
+  unlockedIds: Set<string>;
 }) {
-  const showing = useStore(
-    (s) => {
-      // Avoid allocating filtered arrays on every toggle.
-      let n = 0;
-
-      for (const p of baseFilteredStandard) {
-        const isUnlocked = s.unlockedIds.has(p.id);
-        if (status === "unlocked" ? isUnlocked : !isUnlocked) n += 1;
-      }
-
-      for (const p of baseFilteredEvent) {
-        const isUnlocked = s.unlockedIds.has(p.id);
-        if (status === "unlocked" ? isUnlocked : !isUnlocked) n += 1;
-      }
-
-      return n;
-    },
-  );
+  // Avoid allocating filtered arrays on every toggle.
+  let showing = 0;
+  for (const p of baseFilteredStandard) {
+    const isUnlocked = unlockedIds.has(p.id);
+    if (status === "unlocked" ? isUnlocked : !isUnlocked) showing += 1;
+  }
+  for (const p of baseFilteredEvent) {
+    const isUnlocked = unlockedIds.has(p.id);
+    if (status === "unlocked" ? isUnlocked : !isUnlocked) showing += 1;
+  }
 
   return (
     <Typography variant="body2" color="text.secondary">
@@ -254,11 +255,13 @@ function PokedexSections({
   baseFilteredEvent,
   interactive,
   onToggle,
+  unlockedIds,
 }: {
   baseFilteredStandard: Pokemon[];
   baseFilteredEvent: Pokemon[];
   interactive: boolean;
   onToggle: (id: string) => void;
+  unlockedIds: Set<string>;
 }) {
   return (
     <Stack spacing={3}>
@@ -272,6 +275,7 @@ function PokedexSections({
           interactive={interactive}
           onToggle={onToggle}
           showEventBadge
+          unlockedIds={unlockedIds}
         />
       </Box>
 
@@ -287,6 +291,7 @@ function PokedexSections({
           interactive={interactive}
           onToggle={onToggle}
           showEventBadge={false}
+          unlockedIds={unlockedIds}
         />
       </Box>
     </Stack>
@@ -299,14 +304,15 @@ function PokedexSectionsStatusFiltered({
   status,
   interactive,
   onToggle,
+  unlockedIds,
 }: {
   baseFilteredStandard: Pokemon[];
   baseFilteredEvent: Pokemon[];
   status: "unlocked" | "locked";
   interactive: boolean;
   onToggle: (id: string) => void;
+  unlockedIds: Set<string>;
 }) {
-  const unlockedIds = useStore((s) => s.unlockedIds);
   const filteredStandard = useMemo(
     () => {
       const result: Pokemon[] = [];
@@ -344,6 +350,7 @@ function PokedexSectionsStatusFiltered({
       baseFilteredEvent={filteredEvent}
       interactive={interactive}
       onToggle={onToggle}
+      unlockedIds={unlockedIds}
     />
   );
 }
@@ -372,14 +379,14 @@ function PokedexGrid({
   interactive,
   onToggle,
   showEventBadge,
+  unlockedIds,
 }: {
   pokemon: Pokemon[];
   interactive: boolean;
   onToggle: (id: string) => void;
   showEventBadge: boolean;
+  unlockedIds: Set<string>;
 }) {
-  const unlockedIds = useStore((s) => s.unlockedIds);
-
   return (
     <>
       <Box
