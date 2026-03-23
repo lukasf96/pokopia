@@ -1,9 +1,9 @@
 import { Box, Chip, Stack, Typography } from "@mui/material";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { allPokemon } from "./services/pokemon";
+import { useStore } from "./store/store";
 
 interface Props {
-  unlockedCount: number;
   matchMakerPath: string;
   overviewPath: string;
   pokedexPath: string;
@@ -11,12 +11,14 @@ interface Props {
 }
 
 export default function Layout({
-  unlockedCount,
   matchMakerPath,
   overviewPath,
   pokedexPath,
   children,
 }: Props) {
+  const unlockedCount = useStore((s) =>
+    allPokemon.reduce((acc, p) => acc + (s.unlockedIds.has(p.id) ? 1 : 0), 0),
+  );
   const { pathname } = useLocation();
   const isMatchMakerActive = pathname === matchMakerPath;
   const isOverviewActive = pathname === overviewPath;
