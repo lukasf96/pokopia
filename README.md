@@ -1,7 +1,6 @@
 # pokopia
 
-## Pokemon sprite assets
+## Credits
 
-`pokematch` vendors Pokemon sprite images from `PokeAPI/sprites`
-
-- Source: [PokeAPI/sprites](https://github.com/PokeAPI/sprites)
+- Pokemon data and localized species names: [PokeAPI](https://pokeapi.co/)
+- Sprite repository source: [PokeAPI/sprites](https://github.com/PokeAPI/sprites)
