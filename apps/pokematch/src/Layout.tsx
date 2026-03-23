@@ -1,12 +1,14 @@
 import {
   Box,
   Chip,
-  FormControl,
+  IconButton,
+  Menu,
   MenuItem,
-  Select,
   Stack,
   Typography,
 } from "@mui/material";
+import { SettingsOutlined } from "@mui/icons-material";
+import { useState } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { appRoutes } from "./router/routes";
 import { allPokemon } from "./services/pokemon";
@@ -23,9 +25,26 @@ export default function Layout({ children }: LayoutProps) {
   const nameLanguage = useStore((s) => s.nameLanguage);
   const setNameLanguage = useStore((s) => s.setNameLanguage);
   const { pathname } = useLocation();
+  const [settingsAnchorEl, setSettingsAnchorEl] = useState<null | HTMLElement>(
+    null,
+  );
   const isMatchMakerActive = pathname === appRoutes.matchmaker;
   const isOverviewActive = pathname === appRoutes.overview;
   const isPokedexActive = pathname === appRoutes.pokedex;
+  const isSettingsOpen = Boolean(settingsAnchorEl);
+
+  function openSettingsMenu(event: React.MouseEvent<HTMLElement>) {
+    setSettingsAnchorEl(event.currentTarget);
+  }
+
+  function closeSettingsMenu() {
+    setSettingsAnchorEl(null);
+  }
+
+  function handleLanguageChange(language: "en" | "de" | "fr") {
+    setNameLanguage(language);
+    closeSettingsMenu();
+  }
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
@@ -41,53 +60,20 @@ export default function Layout({ children }: LayoutProps) {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          flexWrap: "wrap",
+          flexWrap: "nowrap",
           gap: 1.5,
         }}
       >
-        <Box>
-          <Typography variant="h5" fontWeight={700} letterSpacing={-0.5}>
-            Pokopia Match-Maker
-          </Typography>
-        </Box>
+        <Typography variant="h5" fontWeight={700} letterSpacing={-0.5}>
+          Pokopia Match-Maker
+        </Typography>
 
         <Stack
           direction="row"
-          spacing={2}
+          spacing={1}
           alignItems="center"
-          flexWrap="wrap"
-          useFlexGap
+          sx={{ minWidth: 0, overflowX: "auto", pb: 0.25, ml: "auto" }}
         >
-          <Typography variant="body2" color="text.secondary">
-            Name language
-          </Typography>
-          <FormControl size="small" sx={{ minWidth: 90 }}>
-            <Select
-              value={nameLanguage}
-              onChange={(event) =>
-                setNameLanguage(event.target.value as "en" | "de" | "fr")
-              }
-              displayEmpty
-              sx={{ fontSize: 12, height: 30 }}
-            >
-              <MenuItem value="en">EN</MenuItem>
-              <MenuItem value="de">DE</MenuItem>
-              <MenuItem value="fr">FR</MenuItem>
-            </Select>
-          </FormControl>
-        </Stack>
-      </Box>
-
-      {/* Page nav */}
-      <Box
-        sx={{
-          bgcolor: "background.paper",
-          borderBottom: 1,
-          borderColor: "divider",
-          px: 3,
-        }}
-      >
-        <Stack direction="row" spacing={3}>
           <NavItem active={isMatchMakerActive} to={appRoutes.matchmaker}>
             Match-Maker
           </NavItem>
@@ -102,8 +88,52 @@ export default function Layout({ children }: LayoutProps) {
               sx={{ ml: 0.75, height: 16, fontSize: 10 }}
             />
           </NavItem>
+          <IconButton
+            size="small"
+            onClick={openSettingsMenu}
+            aria-label="Open settings"
+            aria-controls={isSettingsOpen ? "layout-settings-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={isSettingsOpen ? "true" : undefined}
+            sx={{ ml: 0.5 }}
+          >
+            <SettingsOutlined fontSize="small" />
+          </IconButton>
         </Stack>
       </Box>
+
+      <Menu
+        id="layout-settings-menu"
+        anchorEl={settingsAnchorEl}
+        open={isSettingsOpen}
+        onClose={closeSettingsMenu}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        transformOrigin={{ vertical: "top", horizontal: "right" }}
+        slotProps={{
+          paper: {
+            sx: { mt: 0.5, minWidth: 160 },
+          },
+        }}
+      >
+        <MenuItem
+          selected={nameLanguage === "en"}
+          onClick={() => handleLanguageChange("en")}
+        >
+          Language: EN
+        </MenuItem>
+        <MenuItem
+          selected={nameLanguage === "de"}
+          onClick={() => handleLanguageChange("de")}
+        >
+          Language: DE
+        </MenuItem>
+        <MenuItem
+          selected={nameLanguage === "fr"}
+          onClick={() => handleLanguageChange("fr")}
+        >
+          Language: FR
+        </MenuItem>
+      </Menu>
 
       {children}
     </Box>
@@ -125,20 +155,22 @@ function NavItem({
       to={to}
       sx={{
         textDecoration: "none",
-        background: "none",
-        border: "none",
         cursor: "pointer",
-        py: 1.25,
-        px: 0,
-        fontSize: 14,
-        fontWeight: active ? 600 : 400,
+        py: 0.5,
+        px: 1,
+        fontSize: 13,
+        fontWeight: active ? 600 : 500,
         color: active ? "text.primary" : "text.secondary",
-        borderBottom: "2px solid",
-        borderBottomColor: active ? "primary.main" : "transparent",
+        borderRadius: 1,
+        bgcolor: active ? "action.selected" : "transparent",
         display: "flex",
         alignItems: "center",
-        transition: "color 0.15s",
-        "&:hover": { color: "text.primary" },
+        transition: "background-color 0.15s ease, color 0.15s ease",
+        whiteSpace: "nowrap",
+        "&:hover": {
+          color: "text.primary",
+          bgcolor: active ? "action.selected" : "action.hover",
+        },
       }}
     >
       {children}
