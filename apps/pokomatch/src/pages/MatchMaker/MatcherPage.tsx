@@ -1,6 +1,8 @@
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
-import { Container, Stack, Typography } from "@mui/material";
+import { Container, Link, Paper, Stack, Typography } from "@mui/material";
 import { useCallback, useDeferredValue, useMemo, useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { appRoutes } from "../../router/routes";
 import {
   computeAutoGroups,
   type SuggestedPokemon,
@@ -129,15 +131,68 @@ export default function MatcherPage() {
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 2, sm: 3 } }}>
       <Stack spacing={2.5}>
-        <Stack spacing={0.5}>
-          <Typography variant="h6" component="h1" fontWeight={700}>
-            Match-Maker
-          </Typography>
-          <Typography variant="body2" color="text.secondary" maxWidth="sm">
-            Suggested groups maximize shared favorite activities while
-            respecting ideal habitats.
-          </Typography>
-        </Stack>
+        <Typography variant="h6" component="h1" fontWeight={700}>
+          Match-Maker
+        </Typography>
+
+        <Paper
+          variant="outlined"
+          sx={{
+            p: { xs: 1.75, sm: 2 },
+            borderRadius: 2,
+            bgcolor: "action.hover",
+            borderColor: "divider",
+          }}
+        >
+          <Stack spacing={1.5}>
+            <Typography variant="subtitle1" fontWeight={700} component="p">
+              Roommates who actually click - in Pokopia
+            </Typography>
+            <Typography variant="body2" color="text.secondary" component="p">
+              Building a happy world in Pokémon Pokopia means filling every
+              habitat with the right roommates. With a huge Pokédex and picky
+              ideal habitats, it is tough to spot who belongs together - let
+              alone a full house of four who share the same likes.
+            </Typography>
+            <Typography variant="body2" color="text.secondary" component="p">
+              PokoMatch is your shortcut: we respect who can room together, then
+              steer you toward groups with overlapping favorites - so you spend
+              less time second-guessing and more time enjoying Pokopia.
+              Everything below updates as your Pokédex or groups change.
+            </Typography>
+            <Stack
+              component="ul"
+              spacing={0.75}
+              sx={{
+                m: 0,
+                pl: 2.25,
+                color: "text.secondary",
+                typography: "body2",
+              }}
+            >
+              <Typography component="li" variant="body2" color="text.secondary">
+                <strong>My Groups</strong> — Shape your own households; we
+                suggest habitat-safe picks that boost shared favorites.
+              </Typography>
+              <Typography component="li" variant="body2" color="text.secondary">
+                <strong>Suggested groups</strong> — Fresh ideas for whoever is
+                still looking for a home.
+              </Typography>
+            </Stack>
+            <Typography variant="body2" color="text.secondary" component="p">
+              Only Pokémon you have unlocked in the{" "}
+              <Link
+                component={RouterLink}
+                to={appRoutes.pokedex}
+                underline="hover"
+              >
+                Pokédex
+              </Link>{" "}
+              appear here—tune unlocks there so the app matches your current
+              save.
+            </Typography>
+          </Stack>
+        </Paper>
 
         <Stack spacing={1.5}>
           <CustomGroupsSection
