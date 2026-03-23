@@ -1,9 +1,11 @@
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AddIcon from "@mui/icons-material/Add";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Chip,
+  IconButton,
   Stack,
   Typography,
 } from "@mui/material";
@@ -12,6 +14,7 @@ import GroupCard from "./GroupCard";
 
 interface AutoGroupsSectionProps {
   groups: Pokemon[][];
+  onQuickAddGroup: (group: Pokemon[]) => void;
 }
 
 function groupStableKey(group: { id: string }[]): string {
@@ -42,7 +45,10 @@ function getDisplayHabitat(group: Pokemon[]): Habitat {
   );
 }
 
-export function AutoGroupsSection({ groups }: AutoGroupsSectionProps) {
+export function AutoGroupsSection({
+  groups,
+  onQuickAddGroup,
+}: AutoGroupsSectionProps) {
   return (
     <Accordion
       defaultExpanded
@@ -58,7 +64,7 @@ export function AutoGroupsSection({ groups }: AutoGroupsSectionProps) {
           useFlexGap
         >
           <Typography component="span" fontWeight={700}>
-            Auto groups
+            Suggested groups
           </Typography>
           <Chip label={`${groups.length} groups`} size="small" />
         </Stack>
@@ -66,16 +72,29 @@ export function AutoGroupsSection({ groups }: AutoGroupsSectionProps) {
       <AccordionDetails sx={{ p: 2 }}>
         <Stack spacing={2}>
           {groups.map((group, index) => (
-            <GroupCard
-              key={groupStableKey(group)}
-              group={group}
-              groupNumber={index + 1}
-              habitat={getDisplayHabitat(group)}
-            />
+            <Stack key={groupStableKey(group)} spacing={1}>
+              <Stack direction="row" alignItems="center" spacing={0.5}>
+                <Typography variant="caption" color="text.secondary">
+                  Suggested Group {index + 1}
+                </Typography>
+                <IconButton
+                  size="small"
+                  aria-label={`Quick add suggested group ${index + 1}`}
+                  onClick={() => onQuickAddGroup(group)}
+                >
+                  <AddIcon fontSize="small" />
+                </IconButton>
+              </Stack>
+              <GroupCard
+                group={group}
+                groupNumber={index + 1}
+                habitat={getDisplayHabitat(group)}
+              />
+            </Stack>
           ))}
           {groups.length === 0 && (
             <Typography variant="body2" color="text.secondary">
-              No auto-matched groups left.
+              No suggested groups left from the remaining pool.
             </Typography>
           )}
         </Stack>

@@ -1,8 +1,9 @@
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import { Container, Stack, Typography } from "@mui/material";
-import { useDeferredValue, useMemo } from "react";
+import { useCallback, useDeferredValue, useMemo, useState } from "react";
 import {
   computeAutoGroups,
+  type SuggestedPokemon,
   suggestNextPokemon,
 } from "../../services/matching.service";
 import { habitablePokemon } from "../../services/pokemon";
@@ -11,10 +12,20 @@ import type { Pokemon } from "../../types/types";
 import { AutoGroupsSection } from "./components/AutoGroupsSection";
 import { CustomGroupsSection } from "./components/CustomGroupsSection";
 
+function groupKeyFromPokemon(group: Pokemon[]): string {
+  return group
+    .map((pokemon) => pokemon.id)
+    .sort()
+    .join("|");
+}
+
 export default function MatcherPage() {
   const unlockedIds = useStore((s) => s.unlockedIds);
   const customGroups = useStore((s) => s.customGroups);
   const addCustomGroup = useStore((s) => s.addCustomGroup);
+  const addSuggestedGroupToCustomGroups = useStore(
+    (s) => s.addSuggestedGroupToCustomGroups,
+  );
   const deleteCustomGroup = useStore((s) => s.deleteCustomGroup);
   const addPokemonToCustomGroup = useStore((s) => s.addPokemonToCustomGroup);
   const removePokemonFromCustomGroup = useStore(
@@ -61,13 +72,19 @@ export default function MatcherPage() {
     () => computeAutoGroups(deferredAutoPokemon),
     [deferredAutoPokemon],
   );
+  const [frozenSuggestedGroups, setFrozenSuggestedGroups] = useState<
+    Pokemon[][] | null
+  >(null);
+  const [adoptedSuggestedGroupKeys, setAdoptedSuggestedGroupKeys] = useState<
+    Set<string>
+  >(() => new Set());
 
   const availablePokemon = useMemo(
     () => activePokemon.filter((p) => !customAssignedIds.has(p.id)),
     [activePokemon, customAssignedIds],
   );
 
-  const suggestions = useMemo(
+  const suggestions = useMemo<SuggestedPokemon[][]>(
     () =>
       resolvedCustomGroups.map((group) =>
         suggestNextPokemon(
@@ -79,6 +96,18 @@ export default function MatcherPage() {
       ),
     [resolvedCustomGroups, availablePokemon],
   );
+
+  const resetSuggestedFreeze = useCallback(() => {
+    setFrozenSuggestedGroups(null);
+    setAdoptedSuggestedGroupKeys(new Set());
+  }, []);
+
+  const displayedSuggestedGroups = useMemo(() => {
+    if (!frozenSuggestedGroups) return autoGroups;
+    return frozenSuggestedGroups.filter(
+      (group) => !adoptedSuggestedGroupKeys.has(groupKeyFromPokemon(group)),
+    );
+  }, [autoGroups, frozenSuggestedGroups, adoptedSuggestedGroupKeys]);
 
   if (activePokemon.length === 0) {
     return (
@@ -105,7 +134,7 @@ export default function MatcherPage() {
             Match groups
           </Typography>
           <Typography variant="body2" color="text.secondary" maxWidth="sm">
-            Auto groups maximize shared favorite activities while enforcing
+            Suggested groups maximize shared favorite activities while enforcing
             habitat conflicts (Bright/Dark, Humid/Dry, Warm/Cool).
           </Typography>
         </Stack>
@@ -115,13 +144,40 @@ export default function MatcherPage() {
             customGroups={resolvedCustomGroups}
             suggestions={suggestions}
             availablePokemon={availablePokemon}
-            onAddGroup={addCustomGroup}
-            onDeleteGroup={deleteCustomGroup}
-            onAddPokemon={addPokemonToCustomGroup}
-            onRemovePokemon={removePokemonFromCustomGroup}
+            onAddGroup={() => {
+              resetSuggestedFreeze();
+              addCustomGroup();
+            }}
+            onDeleteGroup={(groupIndex) => {
+              resetSuggestedFreeze();
+              deleteCustomGroup(groupIndex);
+            }}
+            onAddPokemon={(groupIndex, pokemonId) => {
+              resetSuggestedFreeze();
+              addPokemonToCustomGroup(groupIndex, pokemonId);
+            }}
+            onRemovePokemon={(groupIndex, pokemonId) => {
+              resetSuggestedFreeze();
+              removePokemonFromCustomGroup(groupIndex, pokemonId);
+            }}
           />
 
-          <AutoGroupsSection groups={autoGroups} />
+          <AutoGroupsSection
+            groups={displayedSuggestedGroups}
+            onQuickAddGroup={(group) => {
+              if (!frozenSuggestedGroups) {
+                setFrozenSuggestedGroups(autoGroups);
+              }
+              setAdoptedSuggestedGroupKeys((prev) => {
+                const next = new Set(prev);
+                next.add(groupKeyFromPokemon(group));
+                return next;
+              });
+              addSuggestedGroupToCustomGroups(
+                group.map((pokemon) => pokemon.id),
+              );
+            }}
+          />
         </Stack>
       </Stack>
     </Container>

@@ -48,6 +48,7 @@ interface AppState {
   unlockAll: () => void;
   lockAll: () => void;
   addCustomGroup: () => void;
+  addSuggestedGroupToCustomGroups: (pokemonIds: string[]) => void;
   deleteCustomGroup: (groupIndex: number) => void;
   addPokemonToCustomGroup: (groupIndex: number, pokemonId: string) => void;
   removePokemonFromCustomGroup: (groupIndex: number, pokemonId: string) => void;
@@ -85,6 +86,17 @@ export const useStore = create<AppState>()(
         set((state) => ({
           customGroups: [...state.customGroups, []],
         })),
+      addSuggestedGroupToCustomGroups: (pokemonIds) =>
+        set((state) => {
+          const assignedIds = new Set(state.customGroups.flat());
+          const nextGroup = pokemonIds
+            .filter((pokemonId) => !assignedIds.has(pokemonId))
+            .slice(0, 4);
+          if (nextGroup.length === 0) return {};
+          return {
+            customGroups: [...state.customGroups, nextGroup],
+          };
+        }),
       deleteCustomGroup: (groupIndex) =>
         set((state) => ({
           customGroups: state.customGroups.filter(

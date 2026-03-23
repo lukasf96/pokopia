@@ -14,6 +14,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import type { SuggestedPokemon } from "../../../services/matching.service";
 import { getPokemonDisplayName } from "../../../services/pokemon-localization";
 import { useStore } from "../../../store/store";
 import type { Habitat, Pokemon } from "../../../types/types";
@@ -21,7 +22,7 @@ import GroupCard from "./GroupCard";
 
 interface CustomGroupsSectionProps {
   customGroups: Pokemon[][];
-  suggestions: Pokemon[][];
+  suggestions: SuggestedPokemon[][];
   availablePokemon: Pokemon[];
   onAddGroup: () => void;
   onDeleteGroup: (groupIndex: number) => void;
@@ -83,7 +84,7 @@ export function CustomGroupsSection({
           useFlexGap
         >
           <Typography component="span" fontWeight={700}>
-            Custom groups
+            My groups
           </Typography>
           <Chip label={`${customGroups.length} groups`} size="small" />
         </Stack>
@@ -97,12 +98,12 @@ export function CustomGroupsSection({
             startIcon={<AddIcon />}
             sx={{ alignSelf: { xs: "stretch", sm: "flex-start" } }}
           >
-            Add custom group
+            Add empty group
           </Button>
 
           {customGroups.length === 0 && (
             <Typography variant="body2" color="text.secondary">
-              Create a custom group and mix any habitats.
+              Build your own groups from Pokemon you already caught in-game.
             </Typography>
           )}
 
@@ -129,10 +130,10 @@ export function CustomGroupsSection({
                     alignItems="center"
                   >
                     <Typography variant="caption" color="text.secondary">
-                      Custom Group {gi + 1}
+                      My Group {gi + 1}
                     </Typography>
                     <IconButton
-                      aria-label={`Delete custom group ${gi + 1}`}
+                      aria-label={`Delete my group ${gi + 1}`}
                       size="small"
                       onClick={() => onDeleteGroup(gi)}
                     >
@@ -145,26 +146,29 @@ export function CustomGroupsSection({
                       group={group}
                       groupNumber={gi + 1}
                       habitat={getDisplayHabitat(group)}
+                      onRemovePokemon={(pokemonId) => onRemovePokemon(gi, pokemonId)}
                     />
                   )}
 
-                  <Autocomplete
-                    options={groupAvailablePokemon}
-                    disabled={
-                      group.length >= 4 || groupAvailablePokemon.length === 0
-                    }
-                    getOptionLabel={(option) =>
-                      `${getPokemonDisplayName(option, nameLanguage)} (#${option.dexNumber})`
-                    }
-                    renderInput={(params) => (
-                      <TextField {...params} size="small" label="Add Pokemon" />
-                    )}
-                    onChange={(_, value) => {
-                      if (value) onAddPokemon(gi, value.id);
-                    }}
-                  />
+                  {group.length < 4 && (
+                    <Autocomplete
+                      options={groupAvailablePokemon}
+                      disabled={groupAvailablePokemon.length === 0}
+                      getOptionLabel={(option) =>
+                        `${getPokemonDisplayName(option, nameLanguage)} (#${option.dexNumber})`
+                      }
+                      renderInput={(params) => (
+                        <TextField {...params} size="small" label="Add Pokemon" />
+                      )}
+                      onChange={(_, value) => {
+                        if (value) onAddPokemon(gi, value.id);
+                      }}
+                    />
+                  )}
 
-                  {group.length > 0 && groupSuggestions.length > 0 && (
+                  {group.length > 0 &&
+                    group.length < 4 &&
+                    groupSuggestions.length > 0 && (
                     <Stack spacing={0.5}>
                       <Typography variant="caption" color="text.secondary">
                         Suggested next:
@@ -177,32 +181,18 @@ export function CustomGroupsSection({
                       >
                         {groupSuggestions.map((suggestion) => (
                           <Chip
-                            key={`suggest-${gi}-${suggestion.id}`}
-                            label={getPokemonDisplayName(suggestion, nameLanguage)}
+                            key={`suggest-${gi}-${suggestion.pokemon.id}`}
+                            label={`${getPokemonDisplayName(
+                              suggestion.pokemon,
+                              nameLanguage,
+                            )} (+${suggestion.score})`}
                             size="small"
-                            onClick={() => onAddPokemon(gi, suggestion.id)}
+                            onClick={() =>
+                              onAddPokemon(gi, suggestion.pokemon.id)
+                            }
                           />
                         ))}
                       </Stack>
-                    </Stack>
-                  )}
-
-                  {group.length > 0 && (
-                    <Stack
-                      direction="row"
-                      spacing={0.75}
-                      flexWrap="wrap"
-                      useFlexGap
-                    >
-                      {group.map((member) => (
-                        <Chip
-                          key={`member-${gi}-${member.id}`}
-                          label={`Remove ${getPokemonDisplayName(member, nameLanguage)}`}
-                          size="small"
-                          variant="outlined"
-                          onDelete={() => onRemovePokemon(gi, member.id)}
-                        />
-                      ))}
                     </Stack>
                   )}
                 </Stack>

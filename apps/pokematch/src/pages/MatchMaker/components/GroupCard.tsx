@@ -2,11 +2,13 @@ import {
   Box,
   Chip,
   Divider,
+  IconButton,
   Paper,
   Stack,
   Typography,
   useTheme,
 } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import { memo, useMemo } from "react";
 import { PokemonSpriteAvatar } from "../../../components/pokemon-sprite-avatar/PokemonSpriteAvatar";
 import {
@@ -14,8 +16,8 @@ import {
   getGroupHabitats,
 } from "../../../services/habitat-conflicts";
 import { habitatColors, habitatIcons } from "../../../services/habitatColors";
-import { getPokemonDisplayName } from "../../../services/pokemon-localization";
 import { groupScore } from "../../../services/matching.service";
+import { getPokemonDisplayName } from "../../../services/pokemon-localization";
 import { useStore } from "../../../store/store";
 import type { Habitat, Pokemon } from "../../../types/types";
 
@@ -23,13 +25,20 @@ interface GroupCardProps {
   group: Pokemon[];
   groupNumber: number;
   habitat: Habitat;
+  onRemovePokemon?: (pokemonId: string) => void;
 }
 
 function isEventPokemon(p: Pokemon): boolean {
   return p.id.startsWith("e");
 }
 
-function PokemonIdentity({ pokemon }: { pokemon: Pokemon }) {
+function PokemonIdentity({
+  pokemon,
+  onRemovePokemon,
+}: {
+  pokemon: Pokemon;
+  onRemovePokemon?: (pokemonId: string) => void;
+}) {
   const nameLanguage = useStore((state) => state.nameLanguage);
   const pokemonDisplayName = getPokemonDisplayName(pokemon, nameLanguage);
 
@@ -67,11 +76,25 @@ function PokemonIdentity({ pokemon }: { pokemon: Pokemon }) {
           }}
         />
       )}
+      {onRemovePokemon && (
+        <IconButton
+          size="small"
+          aria-label={`Remove ${pokemonDisplayName}`}
+          onClick={() => onRemovePokemon(pokemon.id)}
+        >
+          <CloseIcon fontSize="small" />
+        </IconButton>
+      )}
     </Stack>
   );
 }
 
-function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
+function GroupCardComponent({
+  group,
+  groupNumber,
+  habitat,
+  onRemovePokemon,
+}: GroupCardProps) {
   const theme = useTheme();
   const colors = habitatColors[habitat];
 
@@ -175,7 +198,7 @@ function GroupCardComponent({ group, groupNumber, habitat }: GroupCardProps) {
               minWidth: 0,
             }}
           >
-            <PokemonIdentity pokemon={pokemon} />
+            <PokemonIdentity pokemon={pokemon} onRemovePokemon={onRemovePokemon} />
             <Box sx={{ mb: 0.5 }}>
               <HabitatChip habitat={pokemon.idealHabitat} variant="pokemon" />
             </Box>
