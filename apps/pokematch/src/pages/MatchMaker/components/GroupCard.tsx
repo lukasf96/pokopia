@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Chip,
   Divider,
@@ -8,14 +7,14 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { memo, useMemo, useState } from "react";
+import { memo, useMemo } from "react";
+import { PokemonSpriteAvatar } from "../../../components/pokemon-sprite-avatar/PokemonSpriteAvatar";
 import {
   getGroupConflicts,
   getGroupHabitats,
 } from "../../../services/habitat-conflicts";
 import { habitatColors, habitatIcons } from "../../../services/habitatColors";
 import { groupScore } from "../../../services/matching.service";
-import { getPokemonSpriteUrl } from "../../../services/pokemon-sprites";
 import type { Habitat, Pokemon } from "../../../types/types";
 
 interface GroupCardProps {
@@ -29,10 +28,6 @@ function isEventPokemon(p: Pokemon): boolean {
 }
 
 function PokemonIdentity({ pokemon }: { pokemon: Pokemon }) {
-  const spriteUrl = useMemo(() => getPokemonSpriteUrl(pokemon.id), [pokemon.id]);
-  const [hasSpriteError, setHasSpriteError] = useState(false);
-  const shouldShowSprite = spriteUrl !== null && !hasSpriteError;
-
   return (
     <Stack
       direction="row"
@@ -42,26 +37,7 @@ function PokemonIdentity({ pokemon }: { pokemon: Pokemon }) {
       flexWrap="wrap"
       minWidth={0}
     >
-      <Avatar
-        src={shouldShowSprite ? spriteUrl : undefined}
-        imgProps={{
-          loading: "lazy",
-          width: 40,
-          height: 40,
-          onError: () => setHasSpriteError(true),
-        }}
-        alt={pokemon.name}
-        variant="rounded"
-        sx={{
-          width: 24,
-          height: 24,
-          p: 0.25,
-          bgcolor: "transparent",
-          border: "1px solid",
-          borderColor: "divider",
-          flexShrink: 0,
-        }}
-      />
+      <PokemonSpriteAvatar pokemon={pokemon} />
       <Typography variant="caption" color="text.disabled" sx={{ minWidth: 32 }}>
         #{pokemon.dexNumber}
       </Typography>

@@ -1,4 +1,4 @@
-import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, stat } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import process from "node:process";
@@ -10,12 +10,6 @@ const spritesRepoDir = path.join(tempDir, "sprites");
 const sourceSpritesDir = path.join(spritesRepoDir, "sprites", "pokemon");
 const outputSpritesDir = path.join(appRoot, "public", "sprites", "pokemon");
 const pokedexPath = path.join(appRoot, "src", "assets", "pokedex.json");
-const outputMapPath = path.join(
-  appRoot,
-  "src",
-  "assets",
-  "pokemon-sprite-id-map.json",
-);
 
 const nameAliasMap = new Map([
   ["professor tangrowth", "tangrowth"],
@@ -87,14 +81,10 @@ async function fetchNationalId(pokemonApiName) {
 
 async function run() {
   await ensureSpritesRepo();
-  await mkdir(outputSpritesDir, { recursive: true });
-
   const pokedexJson = JSON.parse(await readFile(pokedexPath, "utf8"));
   const allPokemon = [...pokedexJson.standard, ...pokedexJson.event];
 
-  const spriteIdByPokemonId = {};
   const cachedNationalIdByApiName = new Map();
-  const usedNationalIds = new Set();
 
   for (const pokemon of allPokemon) {
     const pokemonApiName = toPokemonApiName(pokemon.name);
@@ -106,18 +96,16 @@ async function run() {
       cachedNationalIdByApiName.set(pokemonApiName, nationalId);
     }
 
-    const nationalId = cachedNationalIdByApiName.get(pokemonApiName);
-    spriteIdByPokemonId[pokemon.id] = nationalId;
-    usedNationalIds.add(nationalId);
   }
 
   await rm(outputSpritesDir, { recursive: true, force: true });
   await mkdir(outputSpritesDir, { recursive: true });
+  for (const pokemon of allPokemon) {
+    const pokemonApiName = toPokemonApiName(pokemon.name);
+    const nationalId = cachedNationalIdByApiName.get(pokemonApiName);
+    const sourcePath = path.join(sourceSpritesDir, `${nationalId}.png`);
+    const targetPath = path.join(outputSpritesDir, `${pokemon.id}.png`);
 
-  for (const nationalId of usedNationalIds) {
-    const fileName = `${nationalId}.png`;
-    const sourcePath = path.join(sourceSpritesDir, fileName);
-    const targetPath = path.join(outputSpritesDir, fileName);
     await sharp(sourcePath)
       .trim()
       .resize({
@@ -132,10 +120,7 @@ async function run() {
       .toFile(targetPath);
   }
 
-  await writeFile(outputMapPath, `${JSON.stringify(spriteIdByPokemonId, null, 2)}\n`);
-  console.log(
-    `Vendored ${String(usedNationalIds.size)} sprite files and wrote ${outputMapPath}.`,
-  );
+  console.log(`Vendored ${String(allPokemon.length)} sprite files to ${outputSpritesDir}.`);
 }
 
 run().catch((error) => {
