@@ -1,13 +1,13 @@
 import {
+  ArrowBackOutlined,
   AutoFixHighOutlined,
-  Check,
   CatchingPokemonOutlined,
+  Check,
   ChevronRight,
   DarkModeOutlined,
   DashboardOutlined,
   LightModeOutlined,
   PaletteOutlined,
-  ArrowBackOutlined,
   SettingsBrightnessOutlined,
   SettingsOutlined,
   TranslateOutlined,
@@ -43,9 +43,9 @@ export default function Layout({ children }: LayoutProps) {
   const [settingsAnchorEl, setSettingsAnchorEl] = useState<null | HTMLElement>(
     null,
   );
-  const [settingsView, setSettingsView] = useState<"root" | "language" | "theme">(
-    "root",
-  );
+  const [settingsView, setSettingsView] = useState<
+    "root" | "language" | "theme"
+  >("root");
   const isMatchMakerActive = pathname === appRoutes.matchmaker;
   const isInsightsActive = pathname === appRoutes.insights;
   const isPokedexActive = pathname === appRoutes.pokedex;
@@ -72,9 +72,17 @@ export default function Layout({ children }: LayoutProps) {
   }
 
   const selectedLanguageLabel =
-    nameLanguage === "en" ? "English" : nameLanguage === "de" ? "Deutsch" : "Français";
+    nameLanguage === "en"
+      ? "English"
+      : nameLanguage === "de"
+        ? "Deutsch"
+        : "Français";
   const selectedThemeLabel =
-    themeMode === "system" ? "System" : themeMode === "light" ? "Light" : "Dark";
+    themeMode === "system"
+      ? "System"
+      : themeMode === "light"
+        ? "Light"
+        : "Dark";
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
@@ -94,9 +102,17 @@ export default function Layout({ children }: LayoutProps) {
           gap: 1.5,
         }}
       >
-        <Typography variant="h5" fontWeight={700} letterSpacing={-0.5}>
-          Pokopia Match-Maker
-        </Typography>
+        <Box
+          component="img"
+          src="/logo/logo.png"
+          alt="PokoMatch logo"
+          sx={{
+            height: { xs: 32, sm: 40 },
+            width: "auto",
+            display: "block",
+            flexShrink: 0,
+          }}
+        />
 
         <Stack
           direction="row"
@@ -161,9 +177,15 @@ export default function Layout({ children }: LayoutProps) {
           <>
             <MenuItem
               onClick={() => setSettingsView("language")}
-              sx={{ display: "flex", justifyContent: "space-between", gap: 1.5 }}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 1.5,
+              }}
             >
-              <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}>
+              <Box
+                sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+              >
                 <TranslateOutlined fontSize="small" />
                 <Box>
                   <Typography variant="body2">Language</Typography>
@@ -176,9 +198,15 @@ export default function Layout({ children }: LayoutProps) {
             </MenuItem>
             <MenuItem
               onClick={() => setSettingsView("theme")}
-              sx={{ display: "flex", justifyContent: "space-between", gap: 1.5 }}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 1.5,
+              }}
             >
-              <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}>
+              <Box
+                sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+              >
                 <PaletteOutlined fontSize="small" />
                 <Box>
                   <Typography variant="body2">Theme</Typography>
@@ -193,54 +221,72 @@ export default function Layout({ children }: LayoutProps) {
         )}
         {settingsView === "language" && (
           <>
-            <MenuItem
-              onClick={() => setSettingsView("root")}
-              sx={{ mb: 0.5 }}
-            >
+            <MenuItem onClick={() => setSettingsView("root")} sx={{ mb: 0.5 }}>
               <ArrowBackOutlined sx={{ mr: 1 }} fontSize="small" />
               Back
             </MenuItem>
             <MenuItem
               selected={nameLanguage === "en"}
               onClick={() => handleLanguageChange("en")}
-              sx={{ display: "flex", justifyContent: "space-between", gap: 1.5 }}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 1.5,
+              }}
             >
               English
-              {nameLanguage === "en" ? <Check fontSize="small" color="primary" /> : null}
+              {nameLanguage === "en" ? (
+                <Check fontSize="small" color="primary" />
+              ) : null}
             </MenuItem>
             <MenuItem
               selected={nameLanguage === "de"}
               onClick={() => handleLanguageChange("de")}
-              sx={{ display: "flex", justifyContent: "space-between", gap: 1.5 }}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 1.5,
+              }}
             >
               Deutsch
-              {nameLanguage === "de" ? <Check fontSize="small" color="primary" /> : null}
+              {nameLanguage === "de" ? (
+                <Check fontSize="small" color="primary" />
+              ) : null}
             </MenuItem>
             <MenuItem
               selected={nameLanguage === "fr"}
               onClick={() => handleLanguageChange("fr")}
-              sx={{ display: "flex", justifyContent: "space-between", gap: 1.5 }}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 1.5,
+              }}
             >
               Français
-              {nameLanguage === "fr" ? <Check fontSize="small" color="primary" /> : null}
+              {nameLanguage === "fr" ? (
+                <Check fontSize="small" color="primary" />
+              ) : null}
             </MenuItem>
           </>
         )}
         {settingsView === "theme" && (
           <>
-            <MenuItem
-              onClick={() => setSettingsView("root")}
-              sx={{ mb: 0.5 }}
-            >
+            <MenuItem onClick={() => setSettingsView("root")} sx={{ mb: 0.5 }}>
               <ArrowBackOutlined sx={{ mr: 1 }} fontSize="small" />
               Back
             </MenuItem>
             <MenuItem
               selected={themeMode === "system"}
               onClick={() => handleThemeModeChange("system")}
-              sx={{ display: "flex", justifyContent: "space-between", gap: 1.5 }}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 1.5,
+              }}
             >
-              <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}>
+              <Box
+                sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+              >
                 <SettingsBrightnessOutlined fontSize="small" />
                 System
               </Box>
@@ -251,24 +297,40 @@ export default function Layout({ children }: LayoutProps) {
             <MenuItem
               selected={themeMode === "light"}
               onClick={() => handleThemeModeChange("light")}
-              sx={{ display: "flex", justifyContent: "space-between", gap: 1.5 }}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 1.5,
+              }}
             >
-              <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}>
+              <Box
+                sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+              >
                 <LightModeOutlined fontSize="small" />
                 Light
               </Box>
-              {themeMode === "light" ? <Check fontSize="small" color="primary" /> : null}
+              {themeMode === "light" ? (
+                <Check fontSize="small" color="primary" />
+              ) : null}
             </MenuItem>
             <MenuItem
               selected={themeMode === "dark"}
               onClick={() => handleThemeModeChange("dark")}
-              sx={{ display: "flex", justifyContent: "space-between", gap: 1.5 }}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 1.5,
+              }}
             >
-              <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}>
+              <Box
+                sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+              >
                 <DarkModeOutlined fontSize="small" />
                 Dark
               </Box>
-              {themeMode === "dark" ? <Check fontSize="small" color="primary" /> : null}
+              {themeMode === "dark" ? (
+                <Check fontSize="small" color="primary" />
+              ) : null}
             </MenuItem>
           </>
         )}
