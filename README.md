@@ -8,7 +8,7 @@ Web companion for planning Pokémon habitats in _Pokémon Pokopia_: it groups Po
 - **Insights** — Read-only views over the full dataset: how Pokémon spread across **ideal habitats** and **favorite** tags.
 - **Pokédex** — Browse and search everyone in the data, filter by habitat, and **lock or unlock** species so only your roster is used when matching.
 - Pokemon name localization support for multiples languages (e.g. EN / DE / FR)
-- Data is persisted locally in the brwoser
+- Data is persisted locally in the browser
 
 ## How matching works
 
