@@ -75,6 +75,7 @@ export const PokemonCard = memo(function PokemonCard({
             sx={{
               width: 24,
               height: 24,
+              p: 0.25,
               bgcolor: "transparent",
               border: "1px solid",
               borderColor: "divider",

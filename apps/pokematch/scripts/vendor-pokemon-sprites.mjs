@@ -1,7 +1,8 @@
-import { cp, mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import process from "node:process";
+import sharp from "sharp";
 
 const appRoot = process.cwd();
 const tempDir = path.join(os.tmpdir(), "pokopia-pokeapi-sprites");
@@ -31,6 +32,8 @@ const nameAliasMap = new Map([
   ["toxtricity amped form", "toxtricity-amped"],
   ["toxtricity low key form", "toxtricity-low-key"],
 ]);
+
+const NORMALIZED_SPRITE_SIZE = 64;
 
 function normalizePokemonName(name) {
   return name
@@ -115,7 +118,18 @@ async function run() {
     const fileName = `${nationalId}.png`;
     const sourcePath = path.join(sourceSpritesDir, fileName);
     const targetPath = path.join(outputSpritesDir, fileName);
-    await cp(sourcePath, targetPath);
+    await sharp(sourcePath)
+      .trim()
+      .resize({
+        width: NORMALIZED_SPRITE_SIZE,
+        height: NORMALIZED_SPRITE_SIZE,
+        fit: "contain",
+        kernel: sharp.kernel.nearest,
+        withoutEnlargement: false,
+        background: { r: 0, g: 0, b: 0, alpha: 0 },
+      })
+      .png()
+      .toFile(targetPath);
   }
 
   await writeFile(outputMapPath, `${JSON.stringify(spriteIdByPokemonId, null, 2)}\n`);
