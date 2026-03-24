@@ -48,11 +48,8 @@ export const PokemonSpriteAvatar = memo(function PokemonSpriteAvatar({
           theme.palette.mode === "dark"
             ? alpha(theme.palette.common.white, 0.12)
             : theme.palette.divider,
-        borderRadius: 2,
-        boxShadow: (theme) =>
-          theme.palette.mode === "dark"
-            ? `0 2px 6px ${alpha(theme.palette.common.black, 0.45)}`
-            : `0 1px 3px ${alpha(theme.palette.common.black, 0.1)}`,
+        borderRadius: "5px",
+        boxShadow: "none",
         "& img": {
           objectFit: "contain",
         },

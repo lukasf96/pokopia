@@ -47,8 +47,15 @@ function PokemonIdentity({
   pokemon: Pokemon;
   onRemovePokemon?: (pokemonId: string) => void;
 }) {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
   const nameLanguage = useStore((state) => state.nameLanguage);
   const pokemonDisplayName = getPokemonDisplayName(pokemon, nameLanguage);
+  const eventChipStyles = {
+    height: 14,
+    fontSize: 9,
+    flexShrink: 0,
+  };
 
   return (
     <Stack
@@ -56,43 +63,62 @@ function PokemonIdentity({
       spacing={1.25}
       alignItems="center"
       mb={0.75}
-      flexWrap="wrap"
       minWidth={0}
     >
-      <PokemonSpriteAvatar pokemon={pokemon} size={48} padding={0.5} />
-      <Typography
-        variant="caption"
-        color="text.disabled"
-        sx={{ minWidth: 36, fontSize: 11, fontWeight: 600 }}
+      <PokemonSpriteAvatar pokemon={pokemon} size={56} padding={0.75} />
+      <Stack
+        direction="column"
+        spacing={0.25}
+        alignItems="flex-start"
+        justifyContent="center"
+        minWidth={0}
+        sx={{ flex: 1 }}
       >
-        #{pokemon.dexNumber}
-      </Typography>
-      <Typography
-        variant="body2"
-        fontWeight={700}
-        noWrap
-        sx={{ flex: "1 1 auto", minWidth: 0, fontSize: 13 }}
-      >
-        {pokemonDisplayName}
-      </Typography>
-      {isEventPokemon(pokemon) && (
-        <Chip
-          label="Event"
-          size="small"
-          sx={{
-            height: 16,
-            fontSize: 9,
-            bgcolor: "secondary.light",
-            color: "secondary.dark",
-            ml: 0.5,
-          }}
-        />
-      )}
+        <Typography
+          variant="body2"
+          color="text.disabled"
+          sx={{ fontSize: 12, fontWeight: 500, lineHeight: 1.2 }}
+        >
+          #{pokemon.dexNumber}
+        </Typography>
+        <Stack
+          direction="row"
+          spacing={0.5}
+          alignItems="center"
+          flexWrap="wrap"
+          useFlexGap
+          minWidth={0}
+        >
+          <Typography
+            variant="body2"
+            fontWeight={700}
+            sx={{
+              fontSize: 13,
+              lineHeight: 1.3,
+              color: "text.primary",
+            }}
+          >
+            {pokemonDisplayName}
+          </Typography>
+          {isEventPokemon(pokemon) && (
+            <Chip
+              label="Event"
+              size="small"
+              sx={{
+                ...eventChipStyles,
+                bgcolor: isDark ? "secondary.dark" : "secondary.light",
+                color: isDark ? "secondary.contrastText" : "secondary.dark",
+              }}
+            />
+          )}
+        </Stack>
+      </Stack>
       {onRemovePokemon && (
         <IconButton
           size="small"
           aria-label={`Remove ${pokemonDisplayName}`}
           onClick={() => onRemovePokemon(pokemon.id)}
+          sx={{ flexShrink: 0, ml: -0.5 }}
         >
           <CloseIcon fontSize="small" />
         </IconButton>
