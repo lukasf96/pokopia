@@ -1,3 +1,8 @@
+import AddIcon from "@mui/icons-material/Add";
+import CloseIcon from "@mui/icons-material/Close";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import {
   Box,
   Chip,
@@ -8,17 +13,21 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import CloseIcon from "@mui/icons-material/Close";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { alpha } from "@mui/material/styles";
 import { memo, type ReactNode, useMemo } from "react";
 import { PokemonSpriteAvatar } from "../../../components/pokemon-sprite-avatar/PokemonSpriteAvatar";
 import {
   getGroupConflicts,
   getGroupHabitats,
 } from "../../../services/habitat-conflicts";
-import { getHabitatColors, habitatIcons } from "../../../services/habitatColors";
-import { groupScore } from "../../../services/matching.service";
+import {
+  getHabitatColors,
+  habitatIcons,
+} from "../../../services/habitatColors";
+import {
+  groupScore,
+  groupScoreUpperBound,
+} from "../../../services/matching.service";
 import { getPokemonDisplayName } from "../../../services/pokemon-localization";
 import { useStore } from "../../../store/store";
 import type { Habitat, Pokemon } from "../../../types/types";
@@ -40,6 +49,163 @@ function isEventPokemon(p: Pokemon): boolean {
   return p.id.startsWith("e");
 }
 
+interface HabitatAccentColors {
+  bg: string;
+  text: string;
+  border: string;
+}
+
+function favoritesEveryoneLikes(group: Pokemon[]): Set<string> {
+  if (group.length < 2) return new Set();
+  let intersection = new Set(group[0].favorites);
+  for (let i = 1; i < group.length; i++) {
+    const next = new Set(group[i].favorites);
+    intersection = new Set([...intersection].filter((f) => next.has(f)));
+  }
+  return intersection;
+}
+
+function MemberFavoritesList({
+  favorites,
+  favCounts,
+  universalFavorites,
+  accent,
+}: {
+  favorites: string[];
+  favCounts: Record<string, number>;
+  universalFavorites: Set<string>;
+  accent: HabitatAccentColors;
+}) {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+
+  const sorted = useMemo(() => {
+    const copy = [...favorites];
+    copy.sort((a, b) => {
+      const ua = universalFavorites.has(a) ? 1 : 0;
+      const ub = universalFavorites.has(b) ? 1 : 0;
+      if (ub !== ua) return ub - ua;
+      const sa = (favCounts[a] ?? 0) >= 2 ? 1 : 0;
+      const sb = (favCounts[b] ?? 0) >= 2 ? 1 : 0;
+      if (sb !== sa) return sb - sa;
+      return a.localeCompare(b, undefined, { sensitivity: "base" });
+    });
+    return copy;
+  }, [favorites, favCounts, universalFavorites]);
+
+  if (favorites.length === 0) {
+    return (
+      <Typography
+        variant="caption"
+        color="text.disabled"
+        sx={{ fontStyle: "italic" }}
+      >
+        No favorites listed
+      </Typography>
+    );
+  }
+
+  return (
+    <Stack spacing={0.75}>
+      <Typography
+        variant="caption"
+        color="text.secondary"
+        sx={{
+          fontSize: 10,
+          fontWeight: 700,
+          letterSpacing: "0.04em",
+          textTransform: "uppercase",
+        }}
+      >
+        Favorites
+      </Typography>
+      <Box
+        sx={{
+          p: 1,
+          borderRadius: 1,
+          border: "1px solid",
+          borderColor: isDark
+            ? alpha(accent.border, 0.35)
+            : alpha(accent.border, 0.22),
+          bgcolor: isDark
+            ? alpha(accent.border, 0.12)
+            : alpha(accent.border, 0.06),
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 0.75,
+        }}
+      >
+        {sorted.map((fav) => {
+          const isUniversal = universalFavorites.has(fav);
+          const isShared = (favCounts[fav] ?? 0) >= 2;
+
+          const sharedSx = {
+            height: 22,
+            fontSize: 11,
+            fontWeight: 600,
+            borderRadius: "6px",
+            bgcolor: isDark
+              ? alpha(accent.bg, 0.55)
+              : alpha("#ffffff", 0.85),
+            color: accent.text,
+            border: "1px solid",
+            borderColor: alpha(accent.border, isDark ? 0.85 : 0.55),
+            "& .MuiChip-icon": {
+              color: accent.border,
+              ml: 0.35,
+            },
+          } as const;
+
+          const soloSx = {
+            height: 22,
+            fontSize: 11,
+            fontWeight: 500,
+            borderRadius: "6px",
+            bgcolor: isDark
+              ? alpha(theme.palette.common.black, 0.22)
+              : alpha(theme.palette.common.black, 0.04),
+            color: "text.secondary",
+            border: "1px solid",
+            borderColor: isDark
+              ? alpha(theme.palette.divider, 0.6)
+              : theme.palette.divider,
+            "& .MuiChip-icon": {
+              ml: 0.35,
+            },
+          } as const;
+
+          return (
+            <Chip
+              key={fav}
+              label={fav}
+              size="small"
+              title={
+                isUniversal
+                  ? "Every Pokémon in this group has this favorite"
+                  : undefined
+              }
+              icon={
+                isUniversal ? (
+                  <AutoAwesomeIcon
+                    sx={{ fontSize: 14, width: 14, height: 14 }}
+                    aria-hidden
+                  />
+                ) : isShared ? (
+                  <FavoriteIcon
+                    sx={{ fontSize: 14, width: 14, height: 14 }}
+                    aria-hidden
+                  />
+                ) : undefined
+              }
+              sx={isUniversal || isShared ? sharedSx : soloSx}
+            />
+          );
+        })}
+      </Box>
+    </Stack>
+  );
+}
+
 function PokemonIdentity({
   pokemon,
   onRemovePokemon,
@@ -47,48 +213,79 @@ function PokemonIdentity({
   pokemon: Pokemon;
   onRemovePokemon?: (pokemonId: string) => void;
 }) {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
   const nameLanguage = useStore((state) => state.nameLanguage);
   const pokemonDisplayName = getPokemonDisplayName(pokemon, nameLanguage);
+  const eventChipStyles = {
+    height: 14,
+    fontSize: 9,
+    flexShrink: 0,
+  };
 
   return (
     <Stack
       direction="row"
-      spacing={1}
+      spacing={1.25}
       alignItems="center"
-      mb={0.5}
-      flexWrap="wrap"
+      mb={0.75}
       minWidth={0}
     >
-      <PokemonSpriteAvatar pokemon={pokemon} />
-      <Typography variant="caption" color="text.disabled" sx={{ minWidth: 32 }}>
-        #{pokemon.dexNumber}
-      </Typography>
-      <Typography
-        variant="body2"
-        fontWeight={600}
-        noWrap
-        sx={{ flex: "1 1 auto", minWidth: 0 }}
+      <PokemonSpriteAvatar pokemon={pokemon} size={56} padding={0.75} />
+      <Stack
+        direction="column"
+        spacing={0.5}
+        alignItems="flex-start"
+        justifyContent="center"
+        minWidth={0}
+        sx={{ flex: 1 }}
       >
-        {pokemonDisplayName}
-      </Typography>
-      {isEventPokemon(pokemon) && (
-        <Chip
-          label="Event"
-          size="small"
-          sx={{
-            height: 16,
-            fontSize: 9,
-            bgcolor: "secondary.light",
-            color: "secondary.dark",
-            ml: 0.5,
-          }}
-        />
-      )}
+        <Typography
+          variant="body2"
+          color="text.disabled"
+          sx={{ fontSize: 12, fontWeight: 500, lineHeight: 1.2 }}
+        >
+          #{pokemon.dexNumber}
+        </Typography>
+        <Stack
+          direction="row"
+          spacing={0.5}
+          alignItems="center"
+          flexWrap="wrap"
+          useFlexGap
+          minWidth={0}
+        >
+          <Typography
+            variant="body2"
+            fontWeight={700}
+            sx={{
+              fontSize: 13,
+              lineHeight: 1.3,
+              color: "text.primary",
+            }}
+          >
+            {pokemonDisplayName}
+          </Typography>
+          {isEventPokemon(pokemon) && (
+            <Chip
+              label="Event"
+              size="small"
+              sx={{
+                ...eventChipStyles,
+                bgcolor: isDark ? "secondary.dark" : "secondary.light",
+                color: isDark ? "secondary.contrastText" : "secondary.dark",
+              }}
+            />
+          )}
+        </Stack>
+        <HabitatChip habitat={pokemon.idealHabitat} variant="pokemon" />
+      </Stack>
       {onRemovePokemon && (
         <IconButton
           size="small"
           aria-label={`Remove ${pokemonDisplayName}`}
           onClick={() => onRemovePokemon(pokemon.id)}
+          sx={{ flexShrink: 0, ml: -0.5 }}
         >
           <CloseIcon fontSize="small" />
         </IconButton>
@@ -109,19 +306,29 @@ function GroupCardComponent({
   const habitatColors = useMemo(() => getHabitatColors(theme), [theme]);
   const colors = habitatColors[habitat];
 
-  const { favCounts, score, habitats, conflicts } = useMemo(() => {
-    const allFavs = group.flatMap((p) => p.favorites);
-    const counts = allFavs.reduce<Record<string, number>>((acc, f) => {
-      acc[f] = (acc[f] ?? 0) + 1;
-      return acc;
-    }, {});
-    return {
-      favCounts: counts,
-      score: groupScore(group),
-      habitats: getGroupHabitats(group),
-      conflicts: getGroupConflicts(group),
-    };
-  }, [group]);
+  const { favCounts, score, scoreCap, scorePercent, habitats, conflicts } =
+    useMemo(() => {
+      const allFavs = group.flatMap((p) => p.favorites);
+      const counts = allFavs.reduce<Record<string, number>>((acc, f) => {
+        acc[f] = (acc[f] ?? 0) + 1;
+        return acc;
+      }, {});
+      const rawScore = groupScore(group);
+      const cap = groupScoreUpperBound(group);
+      return {
+        favCounts: counts,
+        score: rawScore,
+        scoreCap: cap,
+        scorePercent: cap > 0 ? Math.round((100 * rawScore) / cap) : 0,
+        habitats: getGroupHabitats(group),
+        conflicts: getGroupConflicts(group),
+      };
+    }, [group]);
+
+  const universalFavorites = useMemo(
+    () => favoritesEveryoneLikes(group),
+    [group],
+  );
 
   const dividerColor = theme.palette.divider;
 
@@ -179,13 +386,22 @@ function GroupCardComponent({
             />
           )}
           <Chip
-            label={`Score ${score}`}
+            label={
+              scoreCap > 0
+                ? `Score ${score}/${scoreCap} · ${scorePercent}%`
+                : `Score ${score}`
+            }
+            title={
+              scoreCap > 0
+                ? "Total shared favorites summed over every pair in this group."
+                : "Favorite overlap (no pairs or empty lists)"
+            }
             size="small"
             sx={{
               bgcolor: colors.border,
               color: "common.white",
               fontSize: 11,
-              height: 20,
+              height: 22,
             }}
           />
           {groupAction && (
@@ -215,37 +431,23 @@ function GroupCardComponent({
           <Box
             key={pokemon.id}
             sx={{
-              flex: "1 1 220px",
-              p: 1.5,
+              flex: "1 1 260px",
+              p: 1.75,
               borderRight:
                 pi < group.length - 1 ? `1px solid ${dividerColor}` : "none",
               minWidth: 0,
             }}
           >
-            <PokemonIdentity pokemon={pokemon} onRemovePokemon={onRemovePokemon} />
-            <Box sx={{ mb: 0.5 }}>
-              <HabitatChip habitat={pokemon.idealHabitat} variant="pokemon" />
-            </Box>
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-              {pokemon.favorites.map((fav) => {
-                const isShared = (favCounts[fav] ?? 0) >= 2;
-                return (
-                  <Chip
-                    key={fav}
-                    label={fav}
-                    size="small"
-                    sx={{
-                      height: 18,
-                      fontSize: 10,
-                      bgcolor: isShared ? colors.bg : "action.hover",
-                      color: isShared ? colors.text : "text.secondary",
-                      fontWeight: isShared ? 600 : 400,
-                      border: isShared ? `1px solid ${colors.border}` : "none",
-                    }}
-                  />
-                );
-              })}
-            </Box>
+            <PokemonIdentity
+              pokemon={pokemon}
+              onRemovePokemon={onRemovePokemon}
+            />
+            <MemberFavoritesList
+              favorites={pokemon.favorites}
+              favCounts={favCounts}
+              universalFavorites={universalFavorites}
+              accent={colors}
+            />
           </Box>
         ))}
       </Box>

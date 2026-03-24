@@ -13,7 +13,10 @@ import {
 import { alpha } from "@mui/material/styles";
 import { memo, useMemo } from "react";
 import { PokemonSpriteAvatar } from "../../../components/pokemon-sprite-avatar/PokemonSpriteAvatar";
-import { getHabitatColors, habitatIcons } from "../../../services/habitatColors";
+import {
+  getHabitatColors,
+  habitatIcons,
+} from "../../../services/habitatColors";
 import { getPokemonDisplayName } from "../../../services/pokemon-localization";
 import { useStore } from "../../../store/store";
 import type { Habitat, Pokemon } from "../../../types/types";
@@ -60,7 +63,7 @@ export const PokemonCard = memo(function PokemonCard({
       variant="outlined"
       onClick={interactive ? () => onToggle(pokemon.id) : undefined}
       sx={{
-        borderRadius: 1.5,
+        borderRadius: 1,
         overflow: "hidden",
         cursor: interactive ? "pointer" : "default",
         opacity: unlocked ? 1 : 0.45,
@@ -79,74 +82,116 @@ export const PokemonCard = memo(function PokemonCard({
         sx={{
           bgcolor: unlocked ? colors.bg : "grey.100",
           px: 1.5,
-          py: 0.75,
+          py: 1,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          gap: 1,
           transition: "background-color 0.15s",
         }}
       >
-        <Stack direction="row" spacing={0.75} alignItems="center" minWidth={0}>
-          <PokemonSpriteAvatar pokemon={pokemon} />
-          <Typography
-            variant="body2"
-            color="text.disabled"
-            sx={{ fontSize: 11, flexShrink: 0 }}
+        <Stack
+          direction="row"
+          spacing={1.25}
+          alignItems="center"
+          minWidth={0}
+          sx={{ flex: 1 }}
+        >
+          <PokemonSpriteAvatar pokemon={pokemon} size={56} padding={0.75} />
+          <Stack
+            direction="column"
+            spacing={0.25}
+            alignItems="flex-start"
+            justifyContent="center"
+            minWidth={0}
+            sx={{ flex: 1 }}
           >
-            #{pokemon.dexNumber}
-          </Typography>
-          <Typography
-            variant="body2"
-            fontWeight={600}
-            noWrap
-            color={unlocked ? colors.text : "text.secondary"}
-          >
-            {pokemonDisplayName}
-          </Typography>
-          {showEventBadge && isEvent && (
-            <Chip
-              label="Event"
-              size="small"
-              sx={{
-                ...metaChipStyles,
-                bgcolor: isDark ? "secondary.dark" : "secondary.light",
-                color: isDark ? "secondary.contrastText" : "secondary.dark",
-              }}
-            />
-          )}
+            <Typography
+              variant="body2"
+              color="text.disabled"
+              sx={{ fontSize: 12, fontWeight: 500, lineHeight: 1.2 }}
+            >
+              #{pokemon.dexNumber}
+            </Typography>
+            <Stack
+              direction="row"
+              spacing={0.5}
+              alignItems="center"
+              flexWrap="wrap"
+              useFlexGap
+              minWidth={0}
+            >
+              <Typography
+                variant="body2"
+                fontWeight={700}
+                sx={{
+                  fontSize: 13,
+                  lineHeight: 1.3,
+                  color: unlocked ? colors.text : "text.secondary",
+                }}
+              >
+                {pokemonDisplayName}
+              </Typography>
+              {showEventBadge && isEvent && (
+                <Chip
+                  label="Event"
+                  size="small"
+                  sx={{
+                    ...metaChipStyles,
+                    bgcolor: isDark ? "secondary.dark" : "secondary.light",
+                    color: isDark ? "secondary.contrastText" : "secondary.dark",
+                  }}
+                />
+              )}
+            </Stack>
+          </Stack>
         </Stack>
         {interactive &&
           (unlocked ? (
-            <CheckBoxIcon sx={{ fontSize: 18, color: colors.text, flexShrink: 0 }} />
+            <CheckBoxIcon
+              sx={{ fontSize: 22, color: colors.text, flexShrink: 0 }}
+            />
           ) : (
             <CheckBoxOutlineBlankIcon
-              sx={{ fontSize: 18, color: "text.disabled", flexShrink: 0 }}
+              sx={{ fontSize: 22, color: "text.disabled", flexShrink: 0 }}
             />
           ))}
       </Box>
 
       <Divider />
 
-      <Box sx={{ px: 1.5, py: 0.75 }}>
+      <Box sx={{ px: 1.5, py: 1 }}>
         <Stack
           direction="row"
           spacing={0.5}
           alignItems="center"
           useFlexGap
-          mb={0.5}
+          mb={0.75}
           sx={{ flexWrap: "wrap" }}
         >
-          <HabitatIcon sx={{ fontSize: 12, color: "text.secondary" }} />
-          <Typography variant="body2" sx={{ fontSize: 11 }} color="text.secondary">
+          <HabitatIcon sx={{ fontSize: 14, color: "text.secondary" }} />
+          <Typography
+            variant="body2"
+            sx={{ fontSize: 12 }}
+            color="text.secondary"
+          >
             {pokemon.idealHabitat}
           </Typography>
           {pokemon.favoriteFlavor && (
             <>
-              <Typography variant="body2" sx={{ fontSize: 11 }} color="text.secondary">
+              <Typography
+                variant="body2"
+                sx={{ fontSize: 12 }}
+                color="text.secondary"
+              >
                 •
               </Typography>
-              <RestaurantIcon sx={{ fontSize: 12, color: "text.secondary" }} />
-              <Typography variant="body2" sx={{ fontSize: 11 }} color="text.secondary">
+              <RestaurantIcon sx={{ fontSize: 14, color: "text.secondary" }} />
+              <Typography
+                variant="body2"
+                sx={{ fontSize: 12 }}
+                color="text.secondary"
+              >
                 {pokemon.favoriteFlavor}
               </Typography>
             </>
@@ -165,12 +210,7 @@ export const PokemonCard = memo(function PokemonCard({
         </Stack>
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.4 }}>
           {pokemon.favorites.map((fav) => (
-            <Chip
-              key={fav}
-              label={fav}
-              size="small"
-              sx={favoriteChipStyles}
-            />
+            <Chip key={fav} label={fav} size="small" sx={favoriteChipStyles} />
           ))}
         </Box>
       </Box>
