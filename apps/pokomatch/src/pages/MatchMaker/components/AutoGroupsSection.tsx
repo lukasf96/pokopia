@@ -13,7 +13,8 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import type { Habitat, Pokemon } from "../../../types/types";
+import type { Pokemon } from "../../../types/types";
+import { getDisplayHabitat, groupStableKey } from "../group-helpers";
 import GroupCard from "./GroupCard";
 
 interface AutoGroupsSectionProps {
@@ -21,34 +22,6 @@ interface AutoGroupsSectionProps {
   preferEvolutionLines: boolean;
   onPreferEvolutionLinesChange: (value: boolean) => void;
   onQuickAddGroup: (group: Pokemon[]) => void;
-}
-
-function groupStableKey(group: { id: string }[]): string {
-  return group.map((p) => p.id).join("|");
-}
-
-function getDisplayHabitat(group: Pokemon[]): Habitat {
-  if (group.length === 0) return "Cool";
-  const counts = group.reduce<Record<Habitat, number>>(
-    (acc, pokemon) => {
-      acc[pokemon.idealHabitat] += 1;
-      return acc;
-    },
-    { Bright: 0, Cool: 0, Dark: 0, Dry: 0, Humid: 0, Warm: 0 },
-  );
-  const habitatOrder: Habitat[] = [
-    "Bright",
-    "Cool",
-    "Dark",
-    "Dry",
-    "Humid",
-    "Warm",
-  ];
-  return habitatOrder.reduce(
-    (bestHabitat, habitat) =>
-      counts[habitat] > counts[bestHabitat] ? habitat : bestHabitat,
-    habitatOrder[0],
-  );
 }
 
 export function AutoGroupsSection({
