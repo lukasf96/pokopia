@@ -67,6 +67,8 @@ export function LayoutSettingsMenu() {
         ? "Light"
         : "Dark";
 
+  const menuItemBody2 = { typography: "body2" } as const;
+
   return (
     <>
       <IconButton
@@ -100,6 +102,7 @@ export function LayoutSettingsMenu() {
                 key="root-language"
                 onClick={() => setSettingsView("language")}
                 sx={{
+                  ...menuItemBody2,
                   display: "flex",
                   justifyContent: "space-between",
                   gap: 1.5,
@@ -122,6 +125,7 @@ export function LayoutSettingsMenu() {
                 key="root-theme"
                 onClick={() => setSettingsView("theme")}
                 sx={{
+                  ...menuItemBody2,
                   display: "flex",
                   justifyContent: "space-between",
                   gap: 1.5,
@@ -144,6 +148,7 @@ export function LayoutSettingsMenu() {
                 key="root-info"
                 onClick={openInfoDialog}
                 sx={{
+                  ...menuItemBody2,
                   display: "flex",
                   justifyContent: "space-between",
                   gap: 1.5,
@@ -165,7 +170,7 @@ export function LayoutSettingsMenu() {
               <MenuItem
                 key="language-back"
                 onClick={() => setSettingsView("root")}
-                sx={{ mb: 0.5 }}
+                sx={{ ...menuItemBody2, mb: 0.5 }}
               >
                 <ArrowBackOutlined sx={{ mr: 1 }} fontSize="small" />
                 Back
@@ -175,6 +180,7 @@ export function LayoutSettingsMenu() {
                 selected={nameLanguage === "en"}
                 onClick={() => handleLanguageChange("en")}
                 sx={{
+                  ...menuItemBody2,
                   display: "flex",
                   justifyContent: "space-between",
                   gap: 1.5,
@@ -190,6 +196,7 @@ export function LayoutSettingsMenu() {
                 selected={nameLanguage === "de"}
                 onClick={() => handleLanguageChange("de")}
                 sx={{
+                  ...menuItemBody2,
                   display: "flex",
                   justifyContent: "space-between",
                   gap: 1.5,
@@ -205,6 +212,7 @@ export function LayoutSettingsMenu() {
                 selected={nameLanguage === "fr"}
                 onClick={() => handleLanguageChange("fr")}
                 sx={{
+                  ...menuItemBody2,
                   display: "flex",
                   justifyContent: "space-between",
                   gap: 1.5,
@@ -222,7 +230,7 @@ export function LayoutSettingsMenu() {
               <MenuItem
                 key="theme-back"
                 onClick={() => setSettingsView("root")}
-                sx={{ mb: 0.5 }}
+                sx={{ ...menuItemBody2, mb: 0.5 }}
               >
                 <ArrowBackOutlined sx={{ mr: 1 }} fontSize="small" />
                 Back
@@ -232,6 +240,7 @@ export function LayoutSettingsMenu() {
                 selected={themeMode === "system"}
                 onClick={() => handleThemeModeChange("system")}
                 sx={{
+                  ...menuItemBody2,
                   display: "flex",
                   justifyContent: "space-between",
                   gap: 1.5,
@@ -252,6 +261,7 @@ export function LayoutSettingsMenu() {
                 selected={themeMode === "light"}
                 onClick={() => handleThemeModeChange("light")}
                 sx={{
+                  ...menuItemBody2,
                   display: "flex",
                   justifyContent: "space-between",
                   gap: 1.5,
@@ -272,6 +282,7 @@ export function LayoutSettingsMenu() {
                 selected={themeMode === "dark"}
                 onClick={() => handleThemeModeChange("dark")}
                 sx={{
+                  ...menuItemBody2,
                   display: "flex",
                   justifyContent: "space-between",
                   gap: 1.5,
