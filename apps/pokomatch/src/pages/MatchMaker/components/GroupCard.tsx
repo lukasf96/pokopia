@@ -29,6 +29,7 @@ import {
   groupScoreUpperBound,
 } from "../../../services/matching.service";
 import { getPokemonDisplayName } from "../../../services/pokemon-localization";
+import { isEventDexPokemon } from "../../../services/pokemon";
 import { useStore } from "../../../store/store";
 import type { Habitat, Pokemon } from "../../../types/types";
 
@@ -43,10 +44,6 @@ interface GroupCardProps {
     onClick: () => void;
     kind: "add" | "remove";
   };
-}
-
-function isEventPokemon(p: Pokemon): boolean {
-  return p.id.startsWith("e");
 }
 
 interface HabitatAccentColors {
@@ -264,7 +261,7 @@ function PokemonIdentity({
           >
             {pokemonDisplayName}
           </Typography>
-          {isEventPokemon(pokemon) && (
+          {isEventDexPokemon(pokemon) && (
             <Chip
               label="Event"
               size="small"
