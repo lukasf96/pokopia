@@ -1,3 +1,7 @@
+import AddIcon from "@mui/icons-material/Add";
+import CloseIcon from "@mui/icons-material/Close";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import {
   Box,
   Chip,
@@ -8,10 +12,6 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import CloseIcon from "@mui/icons-material/Close";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { alpha } from "@mui/material/styles";
 import { memo, type ReactNode, useMemo } from "react";
 import { PokemonSpriteAvatar } from "../../../components/pokemon-sprite-avatar/PokemonSpriteAvatar";
@@ -19,8 +19,14 @@ import {
   getGroupConflicts,
   getGroupHabitats,
 } from "../../../services/habitat-conflicts";
-import { getHabitatColors, habitatIcons } from "../../../services/habitatColors";
-import { groupScore } from "../../../services/matching.service";
+import {
+  getHabitatColors,
+  habitatIcons,
+} from "../../../services/habitatColors";
+import {
+  groupScore,
+  groupScoreUpperBound,
+} from "../../../services/matching.service";
 import { getPokemonDisplayName } from "../../../services/pokemon-localization";
 import { useStore } from "../../../store/store";
 import type { Habitat, Pokemon } from "../../../types/types";
@@ -73,7 +79,11 @@ function MemberFavoritesList({
 
   if (favorites.length === 0) {
     return (
-      <Typography variant="caption" color="text.disabled" sx={{ fontStyle: "italic" }}>
+      <Typography
+        variant="caption"
+        color="text.disabled"
+        sx={{ fontStyle: "italic" }}
+      >
         No favorites listed
       </Typography>
     );
@@ -84,7 +94,12 @@ function MemberFavoritesList({
       <Typography
         variant="caption"
         color="text.secondary"
-        sx={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase" }}
+        sx={{
+          fontSize: 10,
+          fontWeight: 700,
+          letterSpacing: "0.04em",
+          textTransform: "uppercase",
+        }}
       >
         Favorites
       </Typography>
@@ -93,8 +108,12 @@ function MemberFavoritesList({
           p: 1,
           borderRadius: 1,
           border: "1px solid",
-          borderColor: isDark ? alpha(accent.border, 0.35) : alpha(accent.border, 0.22),
-          bgcolor: isDark ? alpha(accent.border, 0.12) : alpha(accent.border, 0.06),
+          borderColor: isDark
+            ? alpha(accent.border, 0.35)
+            : alpha(accent.border, 0.22),
+          bgcolor: isDark
+            ? alpha(accent.border, 0.12)
+            : alpha(accent.border, 0.06),
           display: "flex",
           flexWrap: "wrap",
           gap: 0.75,
@@ -109,7 +128,10 @@ function MemberFavoritesList({
               size="small"
               icon={
                 isShared ? (
-                  <FavoriteIcon sx={{ fontSize: 14, width: 14, height: 14 }} aria-hidden />
+                  <FavoriteIcon
+                    sx={{ fontSize: 14, width: 14, height: 14 }}
+                    aria-hidden
+                  />
                 ) : undefined
               }
               sx={{
@@ -244,19 +266,24 @@ function GroupCardComponent({
   const habitatColors = useMemo(() => getHabitatColors(theme), [theme]);
   const colors = habitatColors[habitat];
 
-  const { favCounts, score, habitats, conflicts } = useMemo(() => {
-    const allFavs = group.flatMap((p) => p.favorites);
-    const counts = allFavs.reduce<Record<string, number>>((acc, f) => {
-      acc[f] = (acc[f] ?? 0) + 1;
-      return acc;
-    }, {});
-    return {
-      favCounts: counts,
-      score: groupScore(group),
-      habitats: getGroupHabitats(group),
-      conflicts: getGroupConflicts(group),
-    };
-  }, [group]);
+  const { favCounts, score, scoreCap, scorePercent, habitats, conflicts } =
+    useMemo(() => {
+      const allFavs = group.flatMap((p) => p.favorites);
+      const counts = allFavs.reduce<Record<string, number>>((acc, f) => {
+        acc[f] = (acc[f] ?? 0) + 1;
+        return acc;
+      }, {});
+      const rawScore = groupScore(group);
+      const cap = groupScoreUpperBound(group);
+      return {
+        favCounts: counts,
+        score: rawScore,
+        scoreCap: cap,
+        scorePercent: cap > 0 ? Math.round((100 * rawScore) / cap) : 0,
+        habitats: getGroupHabitats(group),
+        conflicts: getGroupConflicts(group),
+      };
+    }, [group]);
 
   const dividerColor = theme.palette.divider;
 
@@ -314,13 +341,22 @@ function GroupCardComponent({
             />
           )}
           <Chip
-            label={`Score ${score}`}
+            label={
+              scoreCap > 0
+                ? `Score ${score}/${scoreCap} · ${scorePercent}%`
+                : `Score ${score}`
+            }
+            title={
+              scoreCap > 0
+                ? "Total shared favorites summed over every pair in this group."
+                : "Favorite overlap (no pairs or empty lists)"
+            }
             size="small"
             sx={{
               bgcolor: colors.border,
               color: "common.white",
               fontSize: 11,
-              height: 20,
+              height: 22,
             }}
           />
           {groupAction && (
@@ -357,7 +393,10 @@ function GroupCardComponent({
               minWidth: 0,
             }}
           >
-            <PokemonIdentity pokemon={pokemon} onRemovePokemon={onRemovePokemon} />
+            <PokemonIdentity
+              pokemon={pokemon}
+              onRemovePokemon={onRemovePokemon}
+            />
             <MemberFavoritesList
               favorites={pokemon.favorites}
               favCounts={favCounts}

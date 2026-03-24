@@ -433,6 +433,11 @@ export function suggestNextPokemon(
     .slice(0, limit);
 }
 
+/**
+ * Favorite overlap for the whole group: for every **unordered pair** of Pokémon, add how many
+ * favorite flavors they **share**, then sum. With 4 members there are 6 pairs—so if each pair
+ * shared 5 identical favorites, the score would be 6 × 5 = **30** (not 5 × 4 = 20).
+ */
 export function groupScore(group: Pokemon[]): number {
   if (group.length === 0) return 0;
   buildHabitatArrays(group);
@@ -443,4 +448,18 @@ export function groupScore(group: Pokemon[]): number {
   for (let i = 0; i < n; i++)
     for (let j = i + 1; j < n; j++) score += aff[i * n + j];
   return score;
+}
+
+/**
+ * Loose upper bound for {@link groupScore}: for each pair, the overlap cannot exceed
+ * min(|favorites A|, |favorites B|). Summing that gives a ceiling users can compare against
+ * (100% ≈ every pair overlaps as much as list sizes allow).
+ */
+export function groupScoreUpperBound(group: Pokemon[]): number {
+  const n = group.length;
+  let sum = 0;
+  for (let i = 0; i < n; i++)
+    for (let j = i + 1; j < n; j++)
+      sum += Math.min(group[i].favorites.length, group[j].favorites.length);
+  return sum;
 }
