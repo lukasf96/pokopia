@@ -18,6 +18,8 @@ interface LayoutInfoDialogProps {
 const REPOSITORY_URL = "https://github.com/lukasf96/pokopia";
 const POKE_API_URL = "https://pokeapi.co/";
 const POKE_API_SPRITES_URL = "https://github.com/PokeAPI/sprites";
+const SEREBII_URL = "https://www.serebii.net/";
+
 
 export function LayoutInfoDialog({ isOpen, onClose }: LayoutInfoDialogProps) {
   return (
@@ -46,6 +48,12 @@ export function LayoutInfoDialog({ isOpen, onClose }: LayoutInfoDialogProps) {
           <br></br>
           <Typography variant="subtitle2" sx={{ mt: 0.5 }}>
             Credits / Special thanks to:
+          </Typography>
+          <Typography variant="body2">
+            Pokopia specific Pokemon data:{" "}
+            <Link href={SEREBII_URL} target="_blank" rel="noreferrer">
+              Serebii.net
+            </Link>
           </Typography>
           <Typography variant="body2">
             Pokemon data and localized species names:{" "}
