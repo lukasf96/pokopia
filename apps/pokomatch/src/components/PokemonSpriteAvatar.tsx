@@ -1,8 +1,8 @@
 import { Avatar } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import { memo, useMemo, useState } from "react";
-import { getPokemonSpriteUrl } from "../../services/pokemon-sprites";
-import type { Pokemon } from "../../types/types";
+import { getPokemonSpriteUrl } from "../services/pokemon-sprites";
+import type { Pokemon } from "../types/types";
 
 interface PokemonSpriteAvatarProps {
   pokemon: Pokemon;

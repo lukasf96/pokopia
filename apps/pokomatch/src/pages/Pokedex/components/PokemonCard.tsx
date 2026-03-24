@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import { memo, useMemo } from "react";
-import { PokemonSpriteAvatar } from "../../../components/pokemon-sprite-avatar/PokemonSpriteAvatar";
+import { PokemonSpriteAvatar } from "../../../components/PokemonSpriteAvatar";
 import {
   getHabitatColors,
   habitatIcons,

@@ -1,7 +1,7 @@
 import AddIcon from "@mui/icons-material/Add";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CloseIcon from "@mui/icons-material/Close";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import {
   Box,
@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import { memo, type ReactNode, useMemo } from "react";
-import { PokemonSpriteAvatar } from "../../../components/pokemon-sprite-avatar/PokemonSpriteAvatar";
+import { PokemonSpriteAvatar } from "../../../components/PokemonSpriteAvatar";
 import {
   getGroupConflicts,
   getGroupHabitats,
@@ -144,9 +144,7 @@ function MemberFavoritesList({
             fontSize: 11,
             fontWeight: 600,
             borderRadius: "6px",
-            bgcolor: isDark
-              ? alpha(accent.bg, 0.55)
-              : alpha("#ffffff", 0.85),
+            bgcolor: isDark ? alpha(accent.bg, 0.55) : alpha("#ffffff", 0.85),
             color: accent.text,
             border: "1px solid",
             borderColor: alpha(accent.border, isDark ? 0.85 : 0.55),
