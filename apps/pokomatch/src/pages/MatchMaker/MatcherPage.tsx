@@ -4,7 +4,14 @@ import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
 import { Box, Container, Paper, Stack, Typography } from "@mui/material";
-import { useCallback, useDeferredValue, useMemo, useState } from "react";
+import {
+  useCallback,
+  useDeferredValue,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   computeAutoGroups,
   type SuggestedPokemon,
@@ -34,6 +41,10 @@ export default function MatcherPage() {
   const addPokemonToCustomGroup = useStore((s) => s.addPokemonToCustomGroup);
   const removePokemonFromCustomGroup = useStore(
     (s) => s.removePokemonFromCustomGroup,
+  );
+  const preferEvolutionLines = useStore((s) => s.preferEvolutionLinesInMatching);
+  const setPreferEvolutionLines = useStore(
+    (s) => s.setPreferEvolutionLinesInMatching,
   );
 
   const activePokemon = useMemo(() => {
@@ -73,8 +84,11 @@ export default function MatcherPage() {
   );
   const deferredAutoPokemon = useDeferredValue(autoPokemon);
   const autoGroups = useMemo(
-    () => computeAutoGroups(deferredAutoPokemon),
-    [deferredAutoPokemon],
+    () =>
+      computeAutoGroups(deferredAutoPokemon, {
+        preferEvolutionLines,
+      }),
+    [deferredAutoPokemon, preferEvolutionLines],
   );
   const [frozenSuggestedGroups, setFrozenSuggestedGroups] = useState<
     Pokemon[][] | null
@@ -105,6 +119,13 @@ export default function MatcherPage() {
     setFrozenSuggestedGroups(null);
     setAdoptedSuggestedGroupKeys(new Set());
   }, []);
+
+  const previousPreferEvolutionLines = useRef(preferEvolutionLines);
+  useEffect(() => {
+    if (previousPreferEvolutionLines.current === preferEvolutionLines) return;
+    previousPreferEvolutionLines.current = preferEvolutionLines;
+    resetSuggestedFreeze();
+  }, [preferEvolutionLines, resetSuggestedFreeze]);
 
   const displayedSuggestedGroups = useMemo(() => {
     if (!frozenSuggestedGroups) return autoGroups;
@@ -298,6 +319,8 @@ export default function MatcherPage() {
 
           <AutoGroupsSection
             groups={displayedSuggestedGroups}
+            preferEvolutionLines={preferEvolutionLines}
+            onPreferEvolutionLinesChange={setPreferEvolutionLines}
             onQuickAddGroup={(group) => {
               if (!frozenSuggestedGroups) {
                 setFrozenSuggestedGroups(autoGroups);

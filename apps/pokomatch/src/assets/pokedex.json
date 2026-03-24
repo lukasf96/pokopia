@@ -18,7 +18,8 @@
       "localizedNames": {
         "de": "Bisasam",
         "fr": "Bulbizarre"
-      }
+      },
+      "evolutionLinePeerIds": ["002", "003"]
     },
     {
       "id": "002",
@@ -37,7 +38,8 @@
       "localizedNames": {
         "de": "Bisaknosp",
         "fr": "Herbizarre"
-      }
+      },
+      "evolutionLinePeerIds": ["001", "003"]
     },
     {
       "id": "003",
@@ -56,7 +58,8 @@
       "localizedNames": {
         "de": "Bisaflor",
         "fr": "Florizarre"
-      }
+      },
+      "evolutionLinePeerIds": ["001", "002"]
     },
     {
       "id": "004",
@@ -75,7 +78,8 @@
       "localizedNames": {
         "de": "Glumanda",
         "fr": "Salamèche"
-      }
+      },
+      "evolutionLinePeerIds": ["005", "006"]
     },
     {
       "id": "005",
@@ -94,7 +98,8 @@
       "localizedNames": {
         "de": "Glutexo",
         "fr": "Reptincel"
-      }
+      },
+      "evolutionLinePeerIds": ["004", "006"]
     },
     {
       "id": "006",
@@ -113,7 +118,8 @@
       "localizedNames": {
         "de": "Glurak",
         "fr": "Dracaufeu"
-      }
+      },
+      "evolutionLinePeerIds": ["004", "005"]
     },
     {
       "id": "007",
@@ -132,7 +138,8 @@
       "localizedNames": {
         "de": "Schiggy",
         "fr": "Carapuce"
-      }
+      },
+      "evolutionLinePeerIds": ["008", "009"]
     },
     {
       "id": "008",
@@ -151,7 +158,8 @@
       "localizedNames": {
         "de": "Schillok",
         "fr": "Carabaffe"
-      }
+      },
+      "evolutionLinePeerIds": ["007", "009"]
     },
     {
       "id": "009",
@@ -170,7 +178,8 @@
       "localizedNames": {
         "de": "Turtok",
         "fr": "Tortank"
-      }
+      },
+      "evolutionLinePeerIds": ["007", "008"]
     },
     {
       "id": "010",
@@ -189,7 +198,8 @@
       "localizedNames": {
         "de": "Taubsi",
         "fr": "Roucool"
-      }
+      },
+      "evolutionLinePeerIds": ["011", "012"]
     },
     {
       "id": "011",
@@ -208,7 +218,8 @@
       "localizedNames": {
         "de": "Tauboga",
         "fr": "Roucoups"
-      }
+      },
+      "evolutionLinePeerIds": ["010", "012"]
     },
     {
       "id": "012",
@@ -227,7 +238,8 @@
       "localizedNames": {
         "de": "Tauboss",
         "fr": "Roucarnage"
-      }
+      },
+      "evolutionLinePeerIds": ["010", "011"]
     },
     {
       "id": "013",
@@ -246,7 +258,8 @@
       "localizedNames": {
         "de": "Myrapla",
         "fr": "Mystherbe"
-      }
+      },
+      "evolutionLinePeerIds": ["014", "015", "016"]
     },
     {
       "id": "014",
@@ -265,7 +278,8 @@
       "localizedNames": {
         "de": "Duflor",
         "fr": "Ortide"
-      }
+      },
+      "evolutionLinePeerIds": ["013", "015", "016"]
     },
     {
       "id": "015",
@@ -284,7 +298,8 @@
       "localizedNames": {
         "de": "Giflor",
         "fr": "Rafflesia"
-      }
+      },
+      "evolutionLinePeerIds": ["013", "014", "016"]
     },
     {
       "id": "016",
@@ -303,7 +318,8 @@
       "localizedNames": {
         "de": "Blubella",
         "fr": "Joliflor"
-      }
+      },
+      "evolutionLinePeerIds": ["013", "014", "015"]
     },
     {
       "id": "017",
@@ -322,7 +338,8 @@
       "localizedNames": {
         "de": "Paras",
         "fr": "Paras"
-      }
+      },
+      "evolutionLinePeerIds": ["018"]
     },
     {
       "id": "018",
@@ -341,7 +358,8 @@
       "localizedNames": {
         "de": "Parasek",
         "fr": "Parasect"
-      }
+      },
+      "evolutionLinePeerIds": ["017"]
     },
     {
       "id": "019",
@@ -360,7 +378,8 @@
       "localizedNames": {
         "de": "Bluzuk",
         "fr": "Mimitoss"
-      }
+      },
+      "evolutionLinePeerIds": ["020"]
     },
     {
       "id": "020",
@@ -379,7 +398,8 @@
       "localizedNames": {
         "de": "Omot",
         "fr": "Aéromite"
-      }
+      },
+      "evolutionLinePeerIds": ["019"]
     },
     {
       "id": "021",
@@ -398,7 +418,8 @@
       "localizedNames": {
         "de": "Knofensa",
         "fr": "Chétiflor"
-      }
+      },
+      "evolutionLinePeerIds": ["022", "023"]
     },
     {
       "id": "022",
@@ -417,7 +438,8 @@
       "localizedNames": {
         "de": "Ultrigaria",
         "fr": "Boustiflor"
-      }
+      },
+      "evolutionLinePeerIds": ["021", "023"]
     },
     {
       "id": "023",
@@ -436,7 +458,8 @@
       "localizedNames": {
         "de": "Sarzenia",
         "fr": "Empiflor"
-      }
+      },
+      "evolutionLinePeerIds": ["021", "022"]
     },
     {
       "id": "024",
@@ -455,7 +478,8 @@
       "localizedNames": {
         "de": "Flegmon",
         "fr": "Ramoloss"
-      }
+      },
+      "evolutionLinePeerIds": ["025", "026"]
     },
     {
       "id": "025",
@@ -474,7 +498,8 @@
       "localizedNames": {
         "de": "Lahmus",
         "fr": "Flagadoss"
-      }
+      },
+      "evolutionLinePeerIds": ["024", "026"]
     },
     {
       "id": "026",
@@ -493,7 +518,8 @@
       "localizedNames": {
         "de": "Laschoking",
         "fr": "Roigada"
-      }
+      },
+      "evolutionLinePeerIds": ["024", "025"]
     },
     {
       "id": "027",
@@ -512,7 +538,8 @@
       "localizedNames": {
         "de": "Magnetilo",
         "fr": "Magnéti"
-      }
+      },
+      "evolutionLinePeerIds": ["028", "029"]
     },
     {
       "id": "028",
@@ -531,7 +558,8 @@
       "localizedNames": {
         "de": "Magneton",
         "fr": "Magnéton"
-      }
+      },
+      "evolutionLinePeerIds": ["027", "029"]
     },
     {
       "id": "029",
@@ -550,7 +578,8 @@
       "localizedNames": {
         "de": "Magnezone",
         "fr": "Magnézone"
-      }
+      },
+      "evolutionLinePeerIds": ["027", "028"]
     },
     {
       "id": "030",
@@ -569,7 +598,8 @@
       "localizedNames": {
         "de": "Onix",
         "fr": "Onix"
-      }
+      },
+      "evolutionLinePeerIds": ["031"]
     },
     {
       "id": "031",
@@ -588,7 +618,8 @@
       "localizedNames": {
         "de": "Stahlos",
         "fr": "Steelix"
-      }
+      },
+      "evolutionLinePeerIds": ["030"]
     },
     {
       "id": "032",
@@ -607,7 +638,8 @@
       "localizedNames": {
         "de": "Tragosso",
         "fr": "Osselait"
-      }
+      },
+      "evolutionLinePeerIds": ["033"]
     },
     {
       "id": "033",
@@ -626,7 +658,8 @@
       "localizedNames": {
         "de": "Knogga",
         "fr": "Ossatueur"
-      }
+      },
+      "evolutionLinePeerIds": ["032"]
     },
     {
       "id": "034",
@@ -645,7 +678,8 @@
       "localizedNames": {
         "de": "Rabauz",
         "fr": "Debugant"
-      }
+      },
+      "evolutionLinePeerIds": ["035", "036", "037"]
     },
     {
       "id": "035",
@@ -664,7 +698,8 @@
       "localizedNames": {
         "de": "Kicklee",
         "fr": "Kicklee"
-      }
+      },
+      "evolutionLinePeerIds": ["034", "036", "037"]
     },
     {
       "id": "036",
@@ -683,7 +718,8 @@
       "localizedNames": {
         "de": "Nockchan",
         "fr": "Tygnon"
-      }
+      },
+      "evolutionLinePeerIds": ["034", "035", "037"]
     },
     {
       "id": "037",
@@ -702,7 +738,8 @@
       "localizedNames": {
         "de": "Kapoera",
         "fr": "Kapoera"
-      }
+      },
+      "evolutionLinePeerIds": ["034", "035", "036"]
     },
     {
       "id": "038",
@@ -721,7 +758,8 @@
       "localizedNames": {
         "de": "Smogon",
         "fr": "Smogo"
-      }
+      },
+      "evolutionLinePeerIds": ["039"]
     },
     {
       "id": "039",
@@ -740,7 +778,8 @@
       "localizedNames": {
         "de": "Smogmog",
         "fr": "Smogogo"
-      }
+      },
+      "evolutionLinePeerIds": ["038"]
     },
     {
       "id": "040",
@@ -759,7 +798,8 @@
       "localizedNames": {
         "de": "Tangela",
         "fr": "Saquedeneu"
-      }
+      },
+      "evolutionLinePeerIds": ["041a", "041b"]
     },
     {
       "id": "041a",
@@ -779,7 +819,8 @@
       "localizedNames": {
         "de": "Tangoloss",
         "fr": "Bouldeneu"
-      }
+      },
+      "evolutionLinePeerIds": ["040", "041b"]
     },
     {
       "id": "041b",
@@ -798,7 +839,8 @@
       "localizedNames": {
         "de": "Tangoloss",
         "fr": "Bouldeneu"
-      }
+      },
+      "evolutionLinePeerIds": ["040", "041a"]
     },
     {
       "id": "042",
@@ -817,7 +859,8 @@
       "localizedNames": {
         "de": "Sichlor",
         "fr": "Insécateur"
-      }
+      },
+      "evolutionLinePeerIds": ["043"]
     },
     {
       "id": "043",
@@ -836,7 +879,8 @@
       "localizedNames": {
         "de": "Scherox",
         "fr": "Cizayox"
-      }
+      },
+      "evolutionLinePeerIds": ["042"]
     },
     {
       "id": "044",
@@ -855,7 +899,8 @@
       "localizedNames": {
         "de": "Pinsir",
         "fr": "Scarabrute"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "045",
@@ -874,7 +919,8 @@
       "localizedNames": {
         "de": "Karpador",
         "fr": "Magicarpe"
-      }
+      },
+      "evolutionLinePeerIds": ["046"]
     },
     {
       "id": "046",
@@ -893,7 +939,8 @@
       "localizedNames": {
         "de": "Garados",
         "fr": "Léviator"
-      }
+      },
+      "evolutionLinePeerIds": ["045"]
     },
     {
       "id": "047",
@@ -906,7 +953,8 @@
       "localizedNames": {
         "de": "Ditto",
         "fr": "Métamorph"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "048",
@@ -925,7 +973,8 @@
       "localizedNames": {
         "de": "Hoothoot",
         "fr": "Hoothoot"
-      }
+      },
+      "evolutionLinePeerIds": ["049"]
     },
     {
       "id": "049",
@@ -944,7 +993,8 @@
       "localizedNames": {
         "de": "Noctuh",
         "fr": "Noarfang"
-      }
+      },
+      "evolutionLinePeerIds": ["048"]
     },
     {
       "id": "050",
@@ -963,7 +1013,8 @@
       "localizedNames": {
         "de": "Skaraborn",
         "fr": "Scarhino"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "051",
@@ -982,7 +1033,8 @@
       "localizedNames": {
         "de": "Volbeat",
         "fr": "Muciole"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "052",
@@ -1001,7 +1053,8 @@
       "localizedNames": {
         "de": "Illumise",
         "fr": "Lumivole"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "053",
@@ -1020,7 +1073,8 @@
       "localizedNames": {
         "de": "Schluppuck",
         "fr": "Gloupti"
-      }
+      },
+      "evolutionLinePeerIds": ["054"]
     },
     {
       "id": "054",
@@ -1039,7 +1093,8 @@
       "localizedNames": {
         "de": "Schlukwech",
         "fr": "Avaltout"
-      }
+      },
+      "evolutionLinePeerIds": ["053"]
     },
     {
       "id": "055",
@@ -1058,7 +1113,8 @@
       "localizedNames": {
         "de": "Tuska",
         "fr": "Cacnea"
-      }
+      },
+      "evolutionLinePeerIds": ["056"]
     },
     {
       "id": "056",
@@ -1077,7 +1133,8 @@
       "localizedNames": {
         "de": "Noktuska",
         "fr": "Cacturne"
-      }
+      },
+      "evolutionLinePeerIds": ["055"]
     },
     {
       "id": "057",
@@ -1096,7 +1153,8 @@
       "localizedNames": {
         "de": "Wadribie",
         "fr": "Apitrini"
-      }
+      },
+      "evolutionLinePeerIds": ["058"]
     },
     {
       "id": "058",
@@ -1115,7 +1173,8 @@
       "localizedNames": {
         "de": "Honweisel",
         "fr": "Apireine"
-      }
+      },
+      "evolutionLinePeerIds": ["057"]
     },
     {
       "id": "059a",
@@ -1134,7 +1193,8 @@
       "localizedNames": {
         "de": "Schalellos",
         "fr": "Sancoki"
-      }
+      },
+      "evolutionLinePeerIds": ["059b", "060a", "060b"]
     },
     {
       "id": "059b",
@@ -1153,7 +1213,8 @@
       "localizedNames": {
         "de": "Schalellos",
         "fr": "Sancoki"
-      }
+      },
+      "evolutionLinePeerIds": ["059a", "060a", "060b"]
     },
     {
       "id": "060a",
@@ -1172,7 +1233,8 @@
       "localizedNames": {
         "de": "Gastrodon",
         "fr": "Tritosor"
-      }
+      },
+      "evolutionLinePeerIds": ["059a", "059b", "060b"]
     },
     {
       "id": "060b",
@@ -1191,7 +1253,8 @@
       "localizedNames": {
         "de": "Gastrodon",
         "fr": "Tritosor"
-      }
+      },
+      "evolutionLinePeerIds": ["059a", "059b", "060a"]
     },
     {
       "id": "061",
@@ -1210,7 +1273,8 @@
       "localizedNames": {
         "de": "Driftlon",
         "fr": "Baudrive"
-      }
+      },
+      "evolutionLinePeerIds": ["062"]
     },
     {
       "id": "062",
@@ -1229,7 +1293,8 @@
       "localizedNames": {
         "de": "Drifzepeli",
         "fr": "Grodrive"
-      }
+      },
+      "evolutionLinePeerIds": ["061"]
     },
     {
       "id": "063",
@@ -1248,7 +1313,8 @@
       "localizedNames": {
         "de": "Rotomurf",
         "fr": "Rototaupe"
-      }
+      },
+      "evolutionLinePeerIds": ["064"]
     },
     {
       "id": "064",
@@ -1267,7 +1333,8 @@
       "localizedNames": {
         "de": "Stalobor",
         "fr": "Minotaupe"
-      }
+      },
+      "evolutionLinePeerIds": ["063"]
     },
     {
       "id": "065",
@@ -1286,7 +1353,8 @@
       "localizedNames": {
         "de": "Praktibalk",
         "fr": "Charpenti"
-      }
+      },
+      "evolutionLinePeerIds": ["066", "067"]
     },
     {
       "id": "066",
@@ -1305,7 +1373,8 @@
       "localizedNames": {
         "de": "Strepoli",
         "fr": "Ouvrifier"
-      }
+      },
+      "evolutionLinePeerIds": ["065", "067"]
     },
     {
       "id": "067",
@@ -1324,7 +1393,8 @@
       "localizedNames": {
         "de": "Meistagrif",
         "fr": "Bétochef"
-      }
+      },
+      "evolutionLinePeerIds": ["065", "066"]
     },
     {
       "id": "068",
@@ -1343,7 +1413,8 @@
       "localizedNames": {
         "de": "Lichtel",
         "fr": "Funécire"
-      }
+      },
+      "evolutionLinePeerIds": ["069", "070"]
     },
     {
       "id": "069",
@@ -1362,7 +1433,8 @@
       "localizedNames": {
         "de": "Laternecto",
         "fr": "Mélancolux"
-      }
+      },
+      "evolutionLinePeerIds": ["068", "070"]
     },
     {
       "id": "070",
@@ -1381,7 +1453,8 @@
       "localizedNames": {
         "de": "Skelabra",
         "fr": "Lugulabre"
-      }
+      },
+      "evolutionLinePeerIds": ["068", "069"]
     },
     {
       "id": "071",
@@ -1400,7 +1473,8 @@
       "localizedNames": {
         "de": "Milza",
         "fr": "Coupenotte"
-      }
+      },
+      "evolutionLinePeerIds": ["072", "073"]
     },
     {
       "id": "072",
@@ -1419,7 +1493,8 @@
       "localizedNames": {
         "de": "Sharfax",
         "fr": "Incisache"
-      }
+      },
+      "evolutionLinePeerIds": ["071", "073"]
     },
     {
       "id": "073",
@@ -1438,7 +1513,8 @@
       "localizedNames": {
         "de": "Maxax",
         "fr": "Tranchodon"
-      }
+      },
+      "evolutionLinePeerIds": ["071", "072"]
     },
     {
       "id": "074",
@@ -1457,7 +1533,8 @@
       "localizedNames": {
         "de": "Viscora",
         "fr": "Mucuscule"
-      }
+      },
+      "evolutionLinePeerIds": ["075", "076"]
     },
     {
       "id": "075",
@@ -1476,7 +1553,8 @@
       "localizedNames": {
         "de": "Viscargot",
         "fr": "Colimucus"
-      }
+      },
+      "evolutionLinePeerIds": ["074", "076"]
     },
     {
       "id": "076",
@@ -1495,7 +1573,8 @@
       "localizedNames": {
         "de": "Viscogon",
         "fr": "Muplodocus"
-      }
+      },
+      "evolutionLinePeerIds": ["074", "075"]
     },
     {
       "id": "077",
@@ -1514,7 +1593,8 @@
       "localizedNames": {
         "de": "Urgl",
         "fr": "Nigosier"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "078",
@@ -1533,7 +1613,8 @@
       "localizedNames": {
         "de": "Pichu",
         "fr": "Pichu"
-      }
+      },
+      "evolutionLinePeerIds": ["079a", "079b", "080"]
     },
     {
       "id": "079a",
@@ -1552,7 +1633,8 @@
       "localizedNames": {
         "de": "Pikachu",
         "fr": "Pikachu"
-      }
+      },
+      "evolutionLinePeerIds": ["078", "079b", "080"]
     },
     {
       "id": "079b",
@@ -1571,7 +1653,8 @@
       "localizedNames": {
         "de": "Pikachu",
         "fr": "Pikachu"
-      }
+      },
+      "evolutionLinePeerIds": ["078", "079a", "080"]
     },
     {
       "id": "080",
@@ -1590,7 +1673,8 @@
       "localizedNames": {
         "de": "Raichu",
         "fr": "Raichu"
-      }
+      },
+      "evolutionLinePeerIds": ["078", "079a", "079b"]
     },
     {
       "id": "081",
@@ -1609,7 +1693,8 @@
       "localizedNames": {
         "de": "Zubat",
         "fr": "Nosferapti"
-      }
+      },
+      "evolutionLinePeerIds": ["082", "083"]
     },
     {
       "id": "082",
@@ -1628,7 +1713,8 @@
       "localizedNames": {
         "de": "Golbat",
         "fr": "Nosferalto"
-      }
+      },
+      "evolutionLinePeerIds": ["081", "083"]
     },
     {
       "id": "083",
@@ -1647,7 +1733,8 @@
       "localizedNames": {
         "de": "Iksbat",
         "fr": "Nostenfer"
-      }
+      },
+      "evolutionLinePeerIds": ["081", "082"]
     },
     {
       "id": "084",
@@ -1666,7 +1753,8 @@
       "localizedNames": {
         "de": "Mauzi",
         "fr": "Miaouss"
-      }
+      },
+      "evolutionLinePeerIds": ["085"]
     },
     {
       "id": "085",
@@ -1685,7 +1773,8 @@
       "localizedNames": {
         "de": "Snobilikat",
         "fr": "Persian"
-      }
+      },
+      "evolutionLinePeerIds": ["084"]
     },
     {
       "id": "086",
@@ -1704,7 +1793,8 @@
       "localizedNames": {
         "de": "Enton",
         "fr": "Psykokwak"
-      }
+      },
+      "evolutionLinePeerIds": ["087"]
     },
     {
       "id": "087",
@@ -1723,7 +1813,8 @@
       "localizedNames": {
         "de": "Entoron",
         "fr": "Akwakwak"
-      }
+      },
+      "evolutionLinePeerIds": ["086"]
     },
     {
       "id": "088",
@@ -1742,7 +1833,8 @@
       "localizedNames": {
         "de": "Fukano",
         "fr": "Caninos"
-      }
+      },
+      "evolutionLinePeerIds": ["089"]
     },
     {
       "id": "089",
@@ -1761,7 +1853,8 @@
       "localizedNames": {
         "de": "Arkani",
         "fr": "Arcanin"
-      }
+      },
+      "evolutionLinePeerIds": ["088"]
     },
     {
       "id": "090",
@@ -1780,7 +1873,8 @@
       "localizedNames": {
         "de": "Porenta",
         "fr": "Canarticho"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "091",
@@ -1799,7 +1893,8 @@
       "localizedNames": {
         "de": "Sleima",
         "fr": "Tadmorv"
-      }
+      },
+      "evolutionLinePeerIds": ["092"]
     },
     {
       "id": "092",
@@ -1818,7 +1913,8 @@
       "localizedNames": {
         "de": "Sleimok",
         "fr": "Grotadmorv"
-      }
+      },
+      "evolutionLinePeerIds": ["091"]
     },
     {
       "id": "093",
@@ -1837,7 +1933,8 @@
       "localizedNames": {
         "de": "Nebulak",
         "fr": "Fantominus"
-      }
+      },
+      "evolutionLinePeerIds": ["094", "095"]
     },
     {
       "id": "094",
@@ -1856,7 +1953,8 @@
       "localizedNames": {
         "de": "Alpollo",
         "fr": "Spectrum"
-      }
+      },
+      "evolutionLinePeerIds": ["093", "095"]
     },
     {
       "id": "095",
@@ -1875,7 +1973,8 @@
       "localizedNames": {
         "de": "Gengar",
         "fr": "Ectoplasma"
-      }
+      },
+      "evolutionLinePeerIds": ["093", "094"]
     },
     {
       "id": "096",
@@ -1894,7 +1993,8 @@
       "localizedNames": {
         "de": "Voltobal",
         "fr": "Voltorbe"
-      }
+      },
+      "evolutionLinePeerIds": ["097"]
     },
     {
       "id": "097",
@@ -1913,7 +2013,8 @@
       "localizedNames": {
         "de": "Lektrobal",
         "fr": "Électrode"
-      }
+      },
+      "evolutionLinePeerIds": ["096"]
     },
     {
       "id": "098",
@@ -1932,7 +2033,8 @@
       "localizedNames": {
         "de": "Owei",
         "fr": "Noeunoeuf"
-      }
+      },
+      "evolutionLinePeerIds": ["099"]
     },
     {
       "id": "099",
@@ -1951,7 +2053,8 @@
       "localizedNames": {
         "de": "Kokowei",
         "fr": "Noadkoko"
-      }
+      },
+      "evolutionLinePeerIds": ["098"]
     },
     {
       "id": "100",
@@ -1970,7 +2073,8 @@
       "localizedNames": {
         "de": "Wonneira",
         "fr": "Ptiravi"
-      }
+      },
+      "evolutionLinePeerIds": ["101", "102"]
     },
     {
       "id": "101",
@@ -1989,7 +2093,8 @@
       "localizedNames": {
         "de": "Chaneira",
         "fr": "Leveinard"
-      }
+      },
+      "evolutionLinePeerIds": ["100", "102"]
     },
     {
       "id": "102",
@@ -2008,7 +2113,8 @@
       "localizedNames": {
         "de": "Heiteira",
         "fr": "Leuphorie"
-      }
+      },
+      "evolutionLinePeerIds": ["100", "101"]
     },
     {
       "id": "103",
@@ -2027,7 +2133,8 @@
       "localizedNames": {
         "de": "Elekid",
         "fr": "Élekid"
-      }
+      },
+      "evolutionLinePeerIds": ["104", "105"]
     },
     {
       "id": "104",
@@ -2046,7 +2153,8 @@
       "localizedNames": {
         "de": "Elektek",
         "fr": "Élektek"
-      }
+      },
+      "evolutionLinePeerIds": ["103", "105"]
     },
     {
       "id": "105",
@@ -2065,7 +2173,8 @@
       "localizedNames": {
         "de": "Elevoltek",
         "fr": "Élekable"
-      }
+      },
+      "evolutionLinePeerIds": ["103", "104"]
     },
     {
       "id": "106",
@@ -2084,7 +2193,8 @@
       "localizedNames": {
         "de": "Lapras",
         "fr": "Lokhlass"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "107",
@@ -2103,7 +2213,8 @@
       "localizedNames": {
         "de": "Mampfaxo",
         "fr": "Goinfrex"
-      }
+      },
+      "evolutionLinePeerIds": ["108a", "108b"]
     },
     {
       "id": "108a",
@@ -2122,7 +2233,8 @@
       "localizedNames": {
         "de": "Relaxo",
         "fr": "Ronflex"
-      }
+      },
+      "evolutionLinePeerIds": ["107", "108b"]
     },
     {
       "id": "108b",
@@ -2141,7 +2253,8 @@
       "localizedNames": {
         "de": "Relaxo",
         "fr": "Ronflex"
-      }
+      },
+      "evolutionLinePeerIds": ["107", "108a"]
     },
     {
       "id": "109",
@@ -2160,7 +2273,8 @@
       "localizedNames": {
         "de": "Webarak",
         "fr": "Mimigal"
-      }
+      },
+      "evolutionLinePeerIds": ["110"]
     },
     {
       "id": "110",
@@ -2179,7 +2293,8 @@
       "localizedNames": {
         "de": "Ariados",
         "fr": "Migalos"
-      }
+      },
+      "evolutionLinePeerIds": ["109"]
     },
     {
       "id": "111",
@@ -2198,7 +2313,8 @@
       "localizedNames": {
         "de": "Voltilamm",
         "fr": "Wattouat"
-      }
+      },
+      "evolutionLinePeerIds": ["112", "113"]
     },
     {
       "id": "112",
@@ -2217,7 +2333,8 @@
       "localizedNames": {
         "de": "Waaty",
         "fr": "Lainergie"
-      }
+      },
+      "evolutionLinePeerIds": ["111", "113"]
     },
     {
       "id": "113",
@@ -2236,7 +2353,8 @@
       "localizedNames": {
         "de": "Ampharos",
         "fr": "Pharamp"
-      }
+      },
+      "evolutionLinePeerIds": ["111", "112"]
     },
     {
       "id": "114",
@@ -2255,7 +2373,8 @@
       "localizedNames": {
         "de": "Azurill",
         "fr": "Azurill"
-      }
+      },
+      "evolutionLinePeerIds": ["115", "116"]
     },
     {
       "id": "115",
@@ -2274,7 +2393,8 @@
       "localizedNames": {
         "de": "Marill",
         "fr": "Marill"
-      }
+      },
+      "evolutionLinePeerIds": ["114", "116"]
     },
     {
       "id": "116",
@@ -2293,7 +2413,8 @@
       "localizedNames": {
         "de": "Azumarill",
         "fr": "Azumarill"
-      }
+      },
+      "evolutionLinePeerIds": ["114", "115"]
     },
     {
       "id": "117",
@@ -2312,7 +2433,8 @@
       "localizedNames": {
         "de": "Felino",
         "fr": "Axoloto"
-      }
+      },
+      "evolutionLinePeerIds": ["118"]
     },
     {
       "id": "118",
@@ -2331,7 +2453,8 @@
       "localizedNames": {
         "de": "Suelord",
         "fr": "Terraiste"
-      }
+      },
+      "evolutionLinePeerIds": ["117"]
     },
     {
       "id": "119",
@@ -2350,7 +2473,8 @@
       "localizedNames": {
         "de": "Farbeagle",
         "fr": "Queulorior"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "120",
@@ -2369,7 +2493,8 @@
       "localizedNames": {
         "de": "Flemmli",
         "fr": "Poussifeu"
-      }
+      },
+      "evolutionLinePeerIds": ["121", "122"]
     },
     {
       "id": "121",
@@ -2388,7 +2513,8 @@
       "localizedNames": {
         "de": "Jungglut",
         "fr": "Galifeu"
-      }
+      },
+      "evolutionLinePeerIds": ["120", "122"]
     },
     {
       "id": "122",
@@ -2407,7 +2533,8 @@
       "localizedNames": {
         "de": "Lohgock",
         "fr": "Braségali"
-      }
+      },
+      "evolutionLinePeerIds": ["120", "121"]
     },
     {
       "id": "123",
@@ -2426,7 +2553,8 @@
       "localizedNames": {
         "de": "Wingull",
         "fr": "Goélise"
-      }
+      },
+      "evolutionLinePeerIds": ["124"]
     },
     {
       "id": "124",
@@ -2445,7 +2573,8 @@
       "localizedNames": {
         "de": "Pelipper",
         "fr": "Bekipan"
-      }
+      },
+      "evolutionLinePeerIds": ["123"]
     },
     {
       "id": "125",
@@ -2464,7 +2593,8 @@
       "localizedNames": {
         "de": "Makuhita",
         "fr": "Makuhita"
-      }
+      },
+      "evolutionLinePeerIds": ["126"]
     },
     {
       "id": "126",
@@ -2483,7 +2613,8 @@
       "localizedNames": {
         "de": "Hariyama",
         "fr": "Hariyama"
-      }
+      },
+      "evolutionLinePeerIds": ["125"]
     },
     {
       "id": "127",
@@ -2502,7 +2633,8 @@
       "localizedNames": {
         "de": "Absol",
         "fr": "Absol"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "128",
@@ -2521,7 +2653,8 @@
       "localizedNames": {
         "de": "Plinfa",
         "fr": "Tiplouf"
-      }
+      },
+      "evolutionLinePeerIds": ["129", "130"]
     },
     {
       "id": "129",
@@ -2540,7 +2673,8 @@
       "localizedNames": {
         "de": "Pliprin",
         "fr": "Prinplouf"
-      }
+      },
+      "evolutionLinePeerIds": ["128", "130"]
     },
     {
       "id": "130",
@@ -2559,7 +2693,8 @@
       "localizedNames": {
         "de": "Impoleon",
         "fr": "Pingoléon"
-      }
+      },
+      "evolutionLinePeerIds": ["128", "129"]
     },
     {
       "id": "131",
@@ -2578,7 +2713,8 @@
       "localizedNames": {
         "de": "Ohrdoch",
         "fr": "Nanméouïe"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "132",
@@ -2597,7 +2733,8 @@
       "localizedNames": {
         "de": "Unratütox",
         "fr": "Miamiasme"
-      }
+      },
+      "evolutionLinePeerIds": ["133"]
     },
     {
       "id": "133",
@@ -2616,7 +2753,8 @@
       "localizedNames": {
         "de": "Deponitox",
         "fr": "Miasmax"
-      }
+      },
+      "evolutionLinePeerIds": ["132"]
     },
     {
       "id": "134",
@@ -2635,7 +2773,8 @@
       "localizedNames": {
         "de": "Zorua",
         "fr": "Zorua"
-      }
+      },
+      "evolutionLinePeerIds": ["135"]
     },
     {
       "id": "135",
@@ -2654,7 +2793,8 @@
       "localizedNames": {
         "de": "Zoroark",
         "fr": "Zoroark"
-      }
+      },
+      "evolutionLinePeerIds": ["134"]
     },
     {
       "id": "136",
@@ -2673,7 +2813,8 @@
       "localizedNames": {
         "de": "Picochilla",
         "fr": "Chinchidou"
-      }
+      },
+      "evolutionLinePeerIds": ["137"]
     },
     {
       "id": "137",
@@ -2692,7 +2833,8 @@
       "localizedNames": {
         "de": "Chillabell",
         "fr": "Pashmilla"
-      }
+      },
+      "evolutionLinePeerIds": ["136"]
     },
     {
       "id": "138",
@@ -2711,7 +2853,8 @@
       "localizedNames": {
         "de": "Mabula",
         "fr": "Larvibule"
-      }
+      },
+      "evolutionLinePeerIds": ["139", "140"]
     },
     {
       "id": "139",
@@ -2730,7 +2873,8 @@
       "localizedNames": {
         "de": "Akkup",
         "fr": "Chrysapile"
-      }
+      },
+      "evolutionLinePeerIds": ["138", "140"]
     },
     {
       "id": "140",
@@ -2749,7 +2893,8 @@
       "localizedNames": {
         "de": "Donarion",
         "fr": "Lucanon"
-      }
+      },
+      "evolutionLinePeerIds": ["138", "139"]
     },
     {
       "id": "141",
@@ -2768,7 +2913,8 @@
       "localizedNames": {
         "de": "Mimigma",
         "fr": "Mimiqui"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "142",
@@ -2787,7 +2933,8 @@
       "localizedNames": {
         "de": "Pamo",
         "fr": "Pohm"
-      }
+      },
+      "evolutionLinePeerIds": ["143", "144"]
     },
     {
       "id": "143",
@@ -2806,7 +2953,8 @@
       "localizedNames": {
         "de": "Pamamo",
         "fr": "Pohmotte"
-      }
+      },
+      "evolutionLinePeerIds": ["142", "144"]
     },
     {
       "id": "144",
@@ -2825,7 +2973,8 @@
       "localizedNames": {
         "de": "Pamomamo",
         "fr": "Pohmarmotte"
-      }
+      },
+      "evolutionLinePeerIds": ["142", "143"]
     },
     {
       "id": "145a",
@@ -2844,7 +2993,8 @@
       "localizedNames": {
         "de": "Nigiragi",
         "fr": "Nigirigon"
-      }
+      },
+      "evolutionLinePeerIds": ["145b", "145c"]
     },
     {
       "id": "145b",
@@ -2863,7 +3013,8 @@
       "localizedNames": {
         "de": "Nigiragi",
         "fr": "Nigirigon"
-      }
+      },
+      "evolutionLinePeerIds": ["145a", "145c"]
     },
     {
       "id": "145c",
@@ -2882,7 +3033,8 @@
       "localizedNames": {
         "de": "Nigiragi",
         "fr": "Nigirigon"
-      }
+      },
+      "evolutionLinePeerIds": ["145a", "145b"]
     },
     {
       "id": "146",
@@ -2901,7 +3053,8 @@
       "localizedNames": {
         "de": "Rettan",
         "fr": "Abo"
-      }
+      },
+      "evolutionLinePeerIds": ["147"]
     },
     {
       "id": "147",
@@ -2920,7 +3073,8 @@
       "localizedNames": {
         "de": "Arbok",
         "fr": "Arbok"
-      }
+      },
+      "evolutionLinePeerIds": ["146"]
     },
     {
       "id": "148",
@@ -2939,7 +3093,8 @@
       "localizedNames": {
         "de": "Pii",
         "fr": "Mélo"
-      }
+      },
+      "evolutionLinePeerIds": ["149", "150"]
     },
     {
       "id": "149",
@@ -2958,7 +3113,8 @@
       "localizedNames": {
         "de": "Piepi",
         "fr": "Mélofée"
-      }
+      },
+      "evolutionLinePeerIds": ["148", "150"]
     },
     {
       "id": "150",
@@ -2977,7 +3133,8 @@
       "localizedNames": {
         "de": "Pixi",
         "fr": "Mélodelfe"
-      }
+      },
+      "evolutionLinePeerIds": ["148", "149"]
     },
     {
       "id": "151",
@@ -2996,7 +3153,8 @@
       "localizedNames": {
         "de": "Fluffeluff",
         "fr": "Toudoudou"
-      }
+      },
+      "evolutionLinePeerIds": ["152", "153"]
     },
     {
       "id": "152",
@@ -3015,7 +3173,8 @@
       "localizedNames": {
         "de": "Pummeluff",
         "fr": "Rondoudou"
-      }
+      },
+      "evolutionLinePeerIds": ["151", "153"]
     },
     {
       "id": "153",
@@ -3034,7 +3193,8 @@
       "localizedNames": {
         "de": "Knuddeluff",
         "fr": "Grodoudou"
-      }
+      },
+      "evolutionLinePeerIds": ["151", "152"]
     },
     {
       "id": "154",
@@ -3053,7 +3213,8 @@
       "localizedNames": {
         "de": "Digda",
         "fr": "Taupiqueur"
-      }
+      },
+      "evolutionLinePeerIds": ["155"]
     },
     {
       "id": "155",
@@ -3072,7 +3233,8 @@
       "localizedNames": {
         "de": "Digdri",
         "fr": "Triopikeur"
-      }
+      },
+      "evolutionLinePeerIds": ["154"]
     },
     {
       "id": "156",
@@ -3091,7 +3253,8 @@
       "localizedNames": {
         "de": "Machollo",
         "fr": "Machoc"
-      }
+      },
+      "evolutionLinePeerIds": ["157", "158"]
     },
     {
       "id": "157",
@@ -3110,7 +3273,8 @@
       "localizedNames": {
         "de": "Maschock",
         "fr": "Machopeur"
-      }
+      },
+      "evolutionLinePeerIds": ["156", "158"]
     },
     {
       "id": "158",
@@ -3129,7 +3293,8 @@
       "localizedNames": {
         "de": "Machomei",
         "fr": "Mackogneur"
-      }
+      },
+      "evolutionLinePeerIds": ["156", "157"]
     },
     {
       "id": "159",
@@ -3148,7 +3313,8 @@
       "localizedNames": {
         "de": "Kleinstein",
         "fr": "Racaillou"
-      }
+      },
+      "evolutionLinePeerIds": ["160", "161"]
     },
     {
       "id": "160",
@@ -3167,7 +3333,8 @@
       "localizedNames": {
         "de": "Georok",
         "fr": "Gravalanch"
-      }
+      },
+      "evolutionLinePeerIds": ["159", "161"]
     },
     {
       "id": "161",
@@ -3186,7 +3353,8 @@
       "localizedNames": {
         "de": "Geowaz",
         "fr": "Grolem"
-      }
+      },
+      "evolutionLinePeerIds": ["159", "160"]
     },
     {
       "id": "162",
@@ -3205,7 +3373,8 @@
       "localizedNames": {
         "de": "Magby",
         "fr": "Magby"
-      }
+      },
+      "evolutionLinePeerIds": ["163", "164"]
     },
     {
       "id": "163",
@@ -3224,7 +3393,8 @@
       "localizedNames": {
         "de": "Magmar",
         "fr": "Magmar"
-      }
+      },
+      "evolutionLinePeerIds": ["162", "164"]
     },
     {
       "id": "164",
@@ -3243,7 +3413,8 @@
       "localizedNames": {
         "de": "Magbrant",
         "fr": "Maganon"
-      }
+      },
+      "evolutionLinePeerIds": ["162", "163"]
     },
     {
       "id": "165",
@@ -3262,7 +3433,8 @@
       "localizedNames": {
         "de": "Mobai",
         "fr": "Manzaï"
-      }
+      },
+      "evolutionLinePeerIds": ["166"]
     },
     {
       "id": "166",
@@ -3281,7 +3453,8 @@
       "localizedNames": {
         "de": "Mogelbaum",
         "fr": "Simularbre"
-      }
+      },
+      "evolutionLinePeerIds": ["165"]
     },
     {
       "id": "167",
@@ -3300,7 +3473,8 @@
       "localizedNames": {
         "de": "Kramurx",
         "fr": "Cornèbre"
-      }
+      },
+      "evolutionLinePeerIds": ["168"]
     },
     {
       "id": "168",
@@ -3319,7 +3493,8 @@
       "localizedNames": {
         "de": "Kramshef",
         "fr": "Corboss"
-      }
+      },
+      "evolutionLinePeerIds": ["167"]
     },
     {
       "id": "169",
@@ -3338,7 +3513,8 @@
       "localizedNames": {
         "de": "Larvitar",
         "fr": "Embrylex"
-      }
+      },
+      "evolutionLinePeerIds": ["170", "171"]
     },
     {
       "id": "170",
@@ -3357,7 +3533,8 @@
       "localizedNames": {
         "de": "Pupitar",
         "fr": "Ymphect"
-      }
+      },
+      "evolutionLinePeerIds": ["169", "171"]
     },
     {
       "id": "171",
@@ -3376,7 +3553,8 @@
       "localizedNames": {
         "de": "Despotar",
         "fr": "Tyranocif"
-      }
+      },
+      "evolutionLinePeerIds": ["169", "170"]
     },
     {
       "id": "172",
@@ -3395,7 +3573,8 @@
       "localizedNames": {
         "de": "Loturzel",
         "fr": "Nénupiot"
-      }
+      },
+      "evolutionLinePeerIds": ["173", "174"]
     },
     {
       "id": "173",
@@ -3414,7 +3593,8 @@
       "localizedNames": {
         "de": "Lombrero",
         "fr": "Lombre"
-      }
+      },
+      "evolutionLinePeerIds": ["172", "174"]
     },
     {
       "id": "174",
@@ -3433,7 +3613,8 @@
       "localizedNames": {
         "de": "Kappalores",
         "fr": "Ludicolo"
-      }
+      },
+      "evolutionLinePeerIds": ["172", "173"]
     },
     {
       "id": "175",
@@ -3452,7 +3633,8 @@
       "localizedNames": {
         "de": "Flunkifer",
         "fr": "Mysdibule"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "176",
@@ -3471,7 +3653,8 @@
       "localizedNames": {
         "de": "Qurtel",
         "fr": "Chartor"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "177",
@@ -3490,7 +3673,8 @@
       "localizedNames": {
         "de": "Zirpurze",
         "fr": "Crikzik"
-      }
+      },
+      "evolutionLinePeerIds": ["178"]
     },
     {
       "id": "178",
@@ -3509,7 +3693,8 @@
       "localizedNames": {
         "de": "Zirpeise",
         "fr": "Mélokrik"
-      }
+      },
+      "evolutionLinePeerIds": ["177"]
     },
     {
       "id": "179",
@@ -3528,7 +3713,8 @@
       "localizedNames": {
         "de": "Plaudagei",
         "fr": "Pijako"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "180",
@@ -3547,7 +3733,8 @@
       "localizedNames": {
         "de": "Riolu",
         "fr": "Riolu"
-      }
+      },
+      "evolutionLinePeerIds": ["181"]
     },
     {
       "id": "181",
@@ -3566,7 +3753,8 @@
       "localizedNames": {
         "de": "Lucario",
         "fr": "Lucario"
-      }
+      },
+      "evolutionLinePeerIds": ["180"]
     },
     {
       "id": "182",
@@ -3585,7 +3773,8 @@
       "localizedNames": {
         "de": "Rotom",
         "fr": "Motisma"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "183",
@@ -3604,7 +3793,8 @@
       "localizedNames": {
         "de": "Ignivor",
         "fr": "Pyronille"
-      }
+      },
+      "evolutionLinePeerIds": ["184"]
     },
     {
       "id": "184",
@@ -3623,7 +3813,8 @@
       "localizedNames": {
         "de": "Ramoth",
         "fr": "Pyrax"
-      }
+      },
+      "evolutionLinePeerIds": ["183"]
     },
     {
       "id": "185",
@@ -3642,7 +3833,8 @@
       "localizedNames": {
         "de": "Bauz",
         "fr": "Brindibou"
-      }
+      },
+      "evolutionLinePeerIds": ["186", "187"]
     },
     {
       "id": "186",
@@ -3661,7 +3853,8 @@
       "localizedNames": {
         "de": "Arboretoss",
         "fr": "Efflèche"
-      }
+      },
+      "evolutionLinePeerIds": ["185", "187"]
     },
     {
       "id": "187",
@@ -3680,7 +3873,8 @@
       "localizedNames": {
         "de": "Silvarro",
         "fr": "Archéduc"
-      }
+      },
+      "evolutionLinePeerIds": ["185", "186"]
     },
     {
       "id": "188",
@@ -3699,7 +3893,8 @@
       "localizedNames": {
         "de": "Hopplo",
         "fr": "Flambino"
-      }
+      },
+      "evolutionLinePeerIds": ["189", "190"]
     },
     {
       "id": "189",
@@ -3718,7 +3913,8 @@
       "localizedNames": {
         "de": "Kickerlo",
         "fr": "Lapyro"
-      }
+      },
+      "evolutionLinePeerIds": ["188", "190"]
     },
     {
       "id": "190",
@@ -3737,7 +3933,8 @@
       "localizedNames": {
         "de": "Liberlo",
         "fr": "Pyrobut"
-      }
+      },
+      "evolutionLinePeerIds": ["188", "189"]
     },
     {
       "id": "191",
@@ -3756,7 +3953,8 @@
       "localizedNames": {
         "de": "Raffel",
         "fr": "Rongourmand"
-      }
+      },
+      "evolutionLinePeerIds": ["192"]
     },
     {
       "id": "192",
@@ -3775,7 +3973,8 @@
       "localizedNames": {
         "de": "Schlaraffel",
         "fr": "Rongrigou"
-      }
+      },
+      "evolutionLinePeerIds": ["191"]
     },
     {
       "id": "193",
@@ -3794,7 +3993,8 @@
       "localizedNames": {
         "de": "Klonkett",
         "fr": "Charbi"
-      }
+      },
+      "evolutionLinePeerIds": ["194", "195"]
     },
     {
       "id": "194",
@@ -3813,7 +4013,8 @@
       "localizedNames": {
         "de": "Wagong",
         "fr": "Wagomine"
-      }
+      },
+      "evolutionLinePeerIds": ["193", "195"]
     },
     {
       "id": "195",
@@ -3832,7 +4033,8 @@
       "localizedNames": {
         "de": "Montecarbo",
         "fr": "Monthracite"
-      }
+      },
+      "evolutionLinePeerIds": ["193", "194"]
     },
     {
       "id": "196",
@@ -3851,7 +4053,8 @@
       "localizedNames": {
         "de": "Toxel",
         "fr": "Toxizap"
-      }
+      },
+      "evolutionLinePeerIds": ["197a", "197b"]
     },
     {
       "id": "197a",
@@ -3870,7 +4073,8 @@
       "localizedNames": {
         "de": "Riffex",
         "fr": "Salarsen"
-      }
+      },
+      "evolutionLinePeerIds": ["196", "197b"]
     },
     {
       "id": "197b",
@@ -3889,7 +4093,8 @@
       "localizedNames": {
         "de": "Riffex",
         "fr": "Salarsen"
-      }
+      },
+      "evolutionLinePeerIds": ["196", "197a"]
     },
     {
       "id": "198",
@@ -3908,7 +4113,8 @@
       "localizedNames": {
         "de": "Hefel",
         "fr": "Pâtachiot"
-      }
+      },
+      "evolutionLinePeerIds": ["199"]
     },
     {
       "id": "199",
@@ -3927,7 +4133,8 @@
       "localizedNames": {
         "de": "Backel",
         "fr": "Briochien"
-      }
+      },
+      "evolutionLinePeerIds": ["198"]
     },
     {
       "id": "200",
@@ -3946,7 +4153,8 @@
       "localizedNames": {
         "de": "Knarbon",
         "fr": "Charbambin"
-      }
+      },
+      "evolutionLinePeerIds": ["201", "202"]
     },
     {
       "id": "201",
@@ -3965,7 +4173,8 @@
       "localizedNames": {
         "de": "Crimanzo",
         "fr": "Carmadura"
-      }
+      },
+      "evolutionLinePeerIds": ["200", "202"]
     },
     {
       "id": "202",
@@ -3984,7 +4193,8 @@
       "localizedNames": {
         "de": "Azugladis",
         "fr": "Malvalame"
-      }
+      },
+      "evolutionLinePeerIds": ["200", "201"]
     },
     {
       "id": "203",
@@ -4003,7 +4213,8 @@
       "localizedNames": {
         "de": "Lumispross",
         "fr": "Germéclat"
-      }
+      },
+      "evolutionLinePeerIds": ["204"]
     },
     {
       "id": "204",
@@ -4022,7 +4233,8 @@
       "localizedNames": {
         "de": "Lumiflora",
         "fr": "Floréclat"
-      }
+      },
+      "evolutionLinePeerIds": ["203"]
     },
     {
       "id": "205",
@@ -4041,7 +4253,8 @@
       "localizedNames": {
         "de": "Gierspenst",
         "fr": "Mordudor"
-      }
+      },
+      "evolutionLinePeerIds": ["206"]
     },
     {
       "id": "206",
@@ -4060,7 +4273,8 @@
       "localizedNames": {
         "de": "Monetigo",
         "fr": "Gromago"
-      }
+      },
+      "evolutionLinePeerIds": ["205"]
     },
     {
       "id": "207",
@@ -4079,7 +4293,8 @@
       "localizedNames": {
         "de": "Vulpix",
         "fr": "Goupix"
-      }
+      },
+      "evolutionLinePeerIds": ["208"]
     },
     {
       "id": "208",
@@ -4098,7 +4313,8 @@
       "localizedNames": {
         "de": "Vulnona",
         "fr": "Feunard"
-      }
+      },
+      "evolutionLinePeerIds": ["207"]
     },
     {
       "id": "209",
@@ -4117,7 +4333,8 @@
       "localizedNames": {
         "de": "Quapsel",
         "fr": "Ptitard"
-      }
+      },
+      "evolutionLinePeerIds": ["210", "211", "212"]
     },
     {
       "id": "210",
@@ -4136,7 +4353,8 @@
       "localizedNames": {
         "de": "Quaputzi",
         "fr": "Têtarte"
-      }
+      },
+      "evolutionLinePeerIds": ["209", "211", "212"]
     },
     {
       "id": "211",
@@ -4155,7 +4373,8 @@
       "localizedNames": {
         "de": "Quappo",
         "fr": "Tartard"
-      }
+      },
+      "evolutionLinePeerIds": ["209", "210", "212"]
     },
     {
       "id": "212",
@@ -4174,7 +4393,8 @@
       "localizedNames": {
         "de": "Quaxo",
         "fr": "Tarpaud"
-      }
+      },
+      "evolutionLinePeerIds": ["209", "210", "211"]
     },
     {
       "id": "213",
@@ -4193,7 +4413,8 @@
       "localizedNames": {
         "de": "Abra",
         "fr": "Abra"
-      }
+      },
+      "evolutionLinePeerIds": ["214", "215"]
     },
     {
       "id": "214",
@@ -4212,7 +4433,8 @@
       "localizedNames": {
         "de": "Kadabra",
         "fr": "Kadabra"
-      }
+      },
+      "evolutionLinePeerIds": ["213", "215"]
     },
     {
       "id": "215",
@@ -4231,7 +4453,8 @@
       "localizedNames": {
         "de": "Simsala",
         "fr": "Alakazam"
-      }
+      },
+      "evolutionLinePeerIds": ["213", "214"]
     },
     {
       "id": "216",
@@ -4250,7 +4473,8 @@
       "localizedNames": {
         "de": "Pantimimi",
         "fr": "Mime Jr."
-      }
+      },
+      "evolutionLinePeerIds": ["217"]
     },
     {
       "id": "217",
@@ -4269,7 +4493,8 @@
       "localizedNames": {
         "de": "Pantimos",
         "fr": "M. Mime"
-      }
+      },
+      "evolutionLinePeerIds": ["216"]
     },
     {
       "id": "218",
@@ -4288,7 +4513,8 @@
       "localizedNames": {
         "de": "Porygon",
         "fr": "Porygon"
-      }
+      },
+      "evolutionLinePeerIds": ["219", "220"]
     },
     {
       "id": "219",
@@ -4307,7 +4533,8 @@
       "localizedNames": {
         "de": "Porygon2",
         "fr": "Porygon2"
-      }
+      },
+      "evolutionLinePeerIds": ["218", "220"]
     },
     {
       "id": "220",
@@ -4326,7 +4553,8 @@
       "localizedNames": {
         "de": "Porygon-Z",
         "fr": "Porygon-Z"
-      }
+      },
+      "evolutionLinePeerIds": ["218", "219"]
     },
     {
       "id": "221",
@@ -4345,7 +4573,8 @@
       "localizedNames": {
         "de": "Dratini",
         "fr": "Minidraco"
-      }
+      },
+      "evolutionLinePeerIds": ["222", "223"]
     },
     {
       "id": "222",
@@ -4364,7 +4593,8 @@
       "localizedNames": {
         "de": "Dragonir",
         "fr": "Draco"
-      }
+      },
+      "evolutionLinePeerIds": ["221", "223"]
     },
     {
       "id": "223",
@@ -4383,7 +4613,8 @@
       "localizedNames": {
         "de": "Dragoran",
         "fr": "Dracolosse"
-      }
+      },
+      "evolutionLinePeerIds": ["221", "222"]
     },
     {
       "id": "224",
@@ -4402,7 +4633,8 @@
       "localizedNames": {
         "de": "Feurigel",
         "fr": "Héricendre"
-      }
+      },
+      "evolutionLinePeerIds": ["225", "226"]
     },
     {
       "id": "225",
@@ -4421,7 +4653,8 @@
       "localizedNames": {
         "de": "Igelavar",
         "fr": "Feurisson"
-      }
+      },
+      "evolutionLinePeerIds": ["224", "226"]
     },
     {
       "id": "226",
@@ -4440,7 +4673,8 @@
       "localizedNames": {
         "de": "Tornupto",
         "fr": "Typhlosion"
-      }
+      },
+      "evolutionLinePeerIds": ["224", "225"]
     },
     {
       "id": "227",
@@ -4459,7 +4693,8 @@
       "localizedNames": {
         "de": "Traunfugil",
         "fr": "Feuforêve"
-      }
+      },
+      "evolutionLinePeerIds": ["228"]
     },
     {
       "id": "228",
@@ -4478,7 +4713,8 @@
       "localizedNames": {
         "de": "Traunmagil",
         "fr": "Magirêve"
-      }
+      },
+      "evolutionLinePeerIds": ["227"]
     },
     {
       "id": "229",
@@ -4497,7 +4733,8 @@
       "localizedNames": {
         "de": "Girafarig",
         "fr": "Girafarig"
-      }
+      },
+      "evolutionLinePeerIds": ["230"]
     },
     {
       "id": "230",
@@ -4516,7 +4753,8 @@
       "localizedNames": {
         "de": "Farigiraf",
         "fr": "Farigiraf"
-      }
+      },
+      "evolutionLinePeerIds": ["229"]
     },
     {
       "id": "231",
@@ -4535,7 +4773,8 @@
       "localizedNames": {
         "de": "Trasla",
         "fr": "Tarsal"
-      }
+      },
+      "evolutionLinePeerIds": ["232", "233", "234"]
     },
     {
       "id": "232",
@@ -4554,7 +4793,8 @@
       "localizedNames": {
         "de": "Kirlia",
         "fr": "Kirlia"
-      }
+      },
+      "evolutionLinePeerIds": ["231", "233", "234"]
     },
     {
       "id": "233",
@@ -4573,7 +4813,8 @@
       "localizedNames": {
         "de": "Guardevoir",
         "fr": "Gardevoir"
-      }
+      },
+      "evolutionLinePeerIds": ["231", "232", "234"]
     },
     {
       "id": "234",
@@ -4592,7 +4833,8 @@
       "localizedNames": {
         "de": "Galagladi",
         "fr": "Gallame"
-      }
+      },
+      "evolutionLinePeerIds": ["231", "232", "233"]
     },
     {
       "id": "235",
@@ -4611,7 +4853,8 @@
       "localizedNames": {
         "de": "Plusle",
         "fr": "Posipi"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "236",
@@ -4630,7 +4873,8 @@
       "localizedNames": {
         "de": "Minun",
         "fr": "Négapi"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "237",
@@ -4649,7 +4893,8 @@
       "localizedNames": {
         "de": "Knacklion",
         "fr": "Kraknoix"
-      }
+      },
+      "evolutionLinePeerIds": ["238", "239"]
     },
     {
       "id": "238",
@@ -4668,7 +4913,8 @@
       "localizedNames": {
         "de": "Vibrava",
         "fr": "Vibraninf"
-      }
+      },
+      "evolutionLinePeerIds": ["237", "239"]
     },
     {
       "id": "239",
@@ -4687,7 +4933,8 @@
       "localizedNames": {
         "de": "Libelldra",
         "fr": "Libégon"
-      }
+      },
+      "evolutionLinePeerIds": ["237", "238"]
     },
     {
       "id": "240",
@@ -4706,7 +4953,8 @@
       "localizedNames": {
         "de": "Wablu",
         "fr": "Tylton"
-      }
+      },
+      "evolutionLinePeerIds": ["241"]
     },
     {
       "id": "241",
@@ -4725,7 +4973,8 @@
       "localizedNames": {
         "de": "Altaria",
         "fr": "Altaria"
-      }
+      },
+      "evolutionLinePeerIds": ["240"]
     },
     {
       "id": "242",
@@ -4744,7 +4993,8 @@
       "localizedNames": {
         "de": "Zwirrlicht",
         "fr": "Skelénox"
-      }
+      },
+      "evolutionLinePeerIds": ["243", "244"]
     },
     {
       "id": "243",
@@ -4763,7 +5013,8 @@
       "localizedNames": {
         "de": "Zwirrklop",
         "fr": "Téraclope"
-      }
+      },
+      "evolutionLinePeerIds": ["242", "244"]
     },
     {
       "id": "244",
@@ -4782,7 +5033,8 @@
       "localizedNames": {
         "de": "Zwirrfinst",
         "fr": "Noctunoir"
-      }
+      },
+      "evolutionLinePeerIds": ["242", "243"]
     },
     {
       "id": "245",
@@ -4801,7 +5053,8 @@
       "localizedNames": {
         "de": "Tanhel",
         "fr": "Terhal"
-      }
+      },
+      "evolutionLinePeerIds": ["246", "247"]
     },
     {
       "id": "246",
@@ -4820,7 +5073,8 @@
       "localizedNames": {
         "de": "Metang",
         "fr": "Métang"
-      }
+      },
+      "evolutionLinePeerIds": ["245", "247"]
     },
     {
       "id": "247",
@@ -4839,7 +5093,8 @@
       "localizedNames": {
         "de": "Metagross",
         "fr": "Métalosse"
-      }
+      },
+      "evolutionLinePeerIds": ["245", "246"]
     },
     {
       "id": "248",
@@ -4858,7 +5113,8 @@
       "localizedNames": {
         "de": "Serpifeu",
         "fr": "Vipélierre"
-      }
+      },
+      "evolutionLinePeerIds": ["249", "250"]
     },
     {
       "id": "249",
@@ -4877,7 +5133,8 @@
       "localizedNames": {
         "de": "Efoserp",
         "fr": "Lianaja"
-      }
+      },
+      "evolutionLinePeerIds": ["248", "250"]
     },
     {
       "id": "250",
@@ -4896,7 +5153,8 @@
       "localizedNames": {
         "de": "Serpiroyal",
         "fr": "Majaspic"
-      }
+      },
+      "evolutionLinePeerIds": ["248", "249"]
     },
     {
       "id": "251",
@@ -4915,7 +5173,8 @@
       "localizedNames": {
         "de": "Froxy",
         "fr": "Grenousse"
-      }
+      },
+      "evolutionLinePeerIds": ["252", "253"]
     },
     {
       "id": "252",
@@ -4934,7 +5193,8 @@
       "localizedNames": {
         "de": "Amphizel",
         "fr": "Croâporal"
-      }
+      },
+      "evolutionLinePeerIds": ["251", "253"]
     },
     {
       "id": "253",
@@ -4953,7 +5213,8 @@
       "localizedNames": {
         "de": "Quajutsu",
         "fr": "Amphinobi"
-      }
+      },
+      "evolutionLinePeerIds": ["251", "252"]
     },
     {
       "id": "254",
@@ -4972,7 +5233,8 @@
       "localizedNames": {
         "de": "Dedenne",
         "fr": "Dedenne"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "255",
@@ -4991,7 +5253,8 @@
       "localizedNames": {
         "de": "eF-eM",
         "fr": "Sonistrelle"
-      }
+      },
+      "evolutionLinePeerIds": ["256"]
     },
     {
       "id": "256",
@@ -5010,7 +5273,8 @@
       "localizedNames": {
         "de": "UHaFnir",
         "fr": "Bruyverne"
-      }
+      },
+      "evolutionLinePeerIds": ["255"]
     },
     {
       "id": "257",
@@ -5029,7 +5293,8 @@
       "localizedNames": {
         "de": "Meikro",
         "fr": "Minisange"
-      }
+      },
+      "evolutionLinePeerIds": ["258", "259"]
     },
     {
       "id": "258",
@@ -5048,7 +5313,8 @@
       "localizedNames": {
         "de": "Kranoviz",
         "fr": "Bleuseille"
-      }
+      },
+      "evolutionLinePeerIds": ["257", "259"]
     },
     {
       "id": "259",
@@ -5067,7 +5333,8 @@
       "localizedNames": {
         "de": "Krarmor",
         "fr": "Corvaillus"
-      }
+      },
+      "evolutionLinePeerIds": ["257", "258"]
     },
     {
       "id": "260",
@@ -5086,7 +5353,8 @@
       "localizedNames": {
         "de": "Grolldra",
         "fr": "Fantyrm"
-      }
+      },
+      "evolutionLinePeerIds": ["261", "262"]
     },
     {
       "id": "261",
@@ -5105,7 +5373,8 @@
       "localizedNames": {
         "de": "Phandra",
         "fr": "Dispareptil"
-      }
+      },
+      "evolutionLinePeerIds": ["260", "262"]
     },
     {
       "id": "262",
@@ -5124,7 +5393,8 @@
       "localizedNames": {
         "de": "Katapuldra",
         "fr": "Lanssorien"
-      }
+      },
+      "evolutionLinePeerIds": ["260", "261"]
     },
     {
       "id": "263",
@@ -5143,7 +5413,8 @@
       "localizedNames": {
         "de": "Felori",
         "fr": "Poussacha"
-      }
+      },
+      "evolutionLinePeerIds": ["264", "265"]
     },
     {
       "id": "264",
@@ -5162,7 +5433,8 @@
       "localizedNames": {
         "de": "Feliospa",
         "fr": "Matourgeon"
-      }
+      },
+      "evolutionLinePeerIds": ["263", "265"]
     },
     {
       "id": "265",
@@ -5181,7 +5453,8 @@
       "localizedNames": {
         "de": "Maskagato",
         "fr": "Miascarade"
-      }
+      },
+      "evolutionLinePeerIds": ["263", "264"]
     },
     {
       "id": "266",
@@ -5200,7 +5473,8 @@
       "localizedNames": {
         "de": "Voltrel",
         "fr": "Zapétrel"
-      }
+      },
+      "evolutionLinePeerIds": ["267"]
     },
     {
       "id": "267",
@@ -5219,7 +5493,8 @@
       "localizedNames": {
         "de": "Voltrean",
         "fr": "Fulgulairo"
-      }
+      },
+      "evolutionLinePeerIds": ["266"]
     },
     {
       "id": "268",
@@ -5238,7 +5513,8 @@
       "localizedNames": {
         "de": "Forgita",
         "fr": "Forgerette"
-      }
+      },
+      "evolutionLinePeerIds": ["269", "270"]
     },
     {
       "id": "269",
@@ -5257,7 +5533,8 @@
       "localizedNames": {
         "de": "Tafforgita",
         "fr": "Forgella"
-      }
+      },
+      "evolutionLinePeerIds": ["268", "270"]
     },
     {
       "id": "270",
@@ -5276,7 +5553,8 @@
       "localizedNames": {
         "de": "Granforgita",
         "fr": "Forgelina"
-      }
+      },
+      "evolutionLinePeerIds": ["268", "269"]
     },
     {
       "id": "271",
@@ -5295,7 +5573,8 @@
       "localizedNames": {
         "de": "Aerodactyl",
         "fr": "Ptéra"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "272",
@@ -5314,7 +5593,8 @@
       "localizedNames": {
         "de": "Koknodon",
         "fr": "Kranidos"
-      }
+      },
+      "evolutionLinePeerIds": ["273"]
     },
     {
       "id": "273",
@@ -5333,7 +5613,8 @@
       "localizedNames": {
         "de": "Rameidon",
         "fr": "Charkos"
-      }
+      },
+      "evolutionLinePeerIds": ["272"]
     },
     {
       "id": "274",
@@ -5352,7 +5633,8 @@
       "localizedNames": {
         "de": "Schilterus",
         "fr": "Dinoclier"
-      }
+      },
+      "evolutionLinePeerIds": ["275"]
     },
     {
       "id": "275",
@@ -5371,7 +5653,8 @@
       "localizedNames": {
         "de": "Bollterus",
         "fr": "Bastiodon"
-      }
+      },
+      "evolutionLinePeerIds": ["274"]
     },
     {
       "id": "276",
@@ -5390,7 +5673,8 @@
       "localizedNames": {
         "de": "Balgoras",
         "fr": "Ptyranidur"
-      }
+      },
+      "evolutionLinePeerIds": ["277"]
     },
     {
       "id": "277",
@@ -5409,7 +5693,8 @@
       "localizedNames": {
         "de": "Monargoras",
         "fr": "Rexillius"
-      }
+      },
+      "evolutionLinePeerIds": ["276"]
     },
     {
       "id": "278",
@@ -5428,7 +5713,8 @@
       "localizedNames": {
         "de": "Amarino",
         "fr": "Amagara"
-      }
+      },
+      "evolutionLinePeerIds": ["279"]
     },
     {
       "id": "279",
@@ -5447,7 +5733,8 @@
       "localizedNames": {
         "de": "Amagarga",
         "fr": "Dragmara"
-      }
+      },
+      "evolutionLinePeerIds": ["278"]
     },
     {
       "id": "280",
@@ -5466,7 +5753,17 @@
       "localizedNames": {
         "de": "Evoli",
         "fr": "Évoli"
-      }
+      },
+      "evolutionLinePeerIds": [
+        "281",
+        "282",
+        "283",
+        "284",
+        "285",
+        "286",
+        "287",
+        "288"
+      ]
     },
     {
       "id": "281",
@@ -5485,7 +5782,17 @@
       "localizedNames": {
         "de": "Aquana",
         "fr": "Aquali"
-      }
+      },
+      "evolutionLinePeerIds": [
+        "280",
+        "282",
+        "283",
+        "284",
+        "285",
+        "286",
+        "287",
+        "288"
+      ]
     },
     {
       "id": "282",
@@ -5504,7 +5811,17 @@
       "localizedNames": {
         "de": "Blitza",
         "fr": "Voltali"
-      }
+      },
+      "evolutionLinePeerIds": [
+        "280",
+        "281",
+        "283",
+        "284",
+        "285",
+        "286",
+        "287",
+        "288"
+      ]
     },
     {
       "id": "283",
@@ -5523,7 +5840,17 @@
       "localizedNames": {
         "de": "Flamara",
         "fr": "Pyroli"
-      }
+      },
+      "evolutionLinePeerIds": [
+        "280",
+        "281",
+        "282",
+        "284",
+        "285",
+        "286",
+        "287",
+        "288"
+      ]
     },
     {
       "id": "284",
@@ -5542,7 +5869,17 @@
       "localizedNames": {
         "de": "Psiana",
         "fr": "Mentali"
-      }
+      },
+      "evolutionLinePeerIds": [
+        "280",
+        "281",
+        "282",
+        "283",
+        "285",
+        "286",
+        "287",
+        "288"
+      ]
     },
     {
       "id": "285",
@@ -5561,7 +5898,17 @@
       "localizedNames": {
         "de": "Nachtara",
         "fr": "Noctali"
-      }
+      },
+      "evolutionLinePeerIds": [
+        "280",
+        "281",
+        "282",
+        "283",
+        "284",
+        "286",
+        "287",
+        "288"
+      ]
     },
     {
       "id": "286",
@@ -5580,7 +5927,17 @@
       "localizedNames": {
         "de": "Folipurba",
         "fr": "Phyllali"
-      }
+      },
+      "evolutionLinePeerIds": [
+        "280",
+        "281",
+        "282",
+        "283",
+        "284",
+        "285",
+        "287",
+        "288"
+      ]
     },
     {
       "id": "287",
@@ -5599,7 +5956,17 @@
       "localizedNames": {
         "de": "Glaziola",
         "fr": "Givrali"
-      }
+      },
+      "evolutionLinePeerIds": [
+        "280",
+        "281",
+        "282",
+        "283",
+        "284",
+        "285",
+        "286",
+        "288"
+      ]
     },
     {
       "id": "288",
@@ -5618,7 +5985,17 @@
       "localizedNames": {
         "de": "Feelinara",
         "fr": "Nymphali"
-      }
+      },
+      "evolutionLinePeerIds": [
+        "280",
+        "281",
+        "282",
+        "283",
+        "284",
+        "285",
+        "286",
+        "287"
+      ]
     },
     {
       "id": "289",
@@ -5638,7 +6015,8 @@
       "localizedNames": {
         "de": "Kyogre",
         "fr": "Kyogre"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "290",
@@ -5657,7 +6035,8 @@
       "localizedNames": {
         "de": "Raikou",
         "fr": "Raikou"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "291",
@@ -5676,7 +6055,8 @@
       "localizedNames": {
         "de": "Entei",
         "fr": "Entei"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "292",
@@ -5695,7 +6075,8 @@
       "localizedNames": {
         "de": "Suicune",
         "fr": "Suicune"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "293",
@@ -5714,7 +6095,8 @@
       "localizedNames": {
         "de": "Volcanion",
         "fr": "Volcanion"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "294",
@@ -5733,7 +6115,8 @@
       "localizedNames": {
         "de": "Arktos",
         "fr": "Artikodin"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "295",
@@ -5752,7 +6135,8 @@
       "localizedNames": {
         "de": "Zapdos",
         "fr": "Électhor"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "296",
@@ -5771,7 +6155,8 @@
       "localizedNames": {
         "de": "Lavados",
         "fr": "Sulfura"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "297",
@@ -5791,7 +6176,8 @@
       "localizedNames": {
         "de": "Lugia",
         "fr": "Lugia"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "298",
@@ -5811,7 +6197,8 @@
       "localizedNames": {
         "de": "Ho-Oh",
         "fr": "Ho-Oh"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "299",
@@ -5830,7 +6217,8 @@
       "localizedNames": {
         "de": "Mewtu",
         "fr": "Mewtwo"
-      }
+      },
+      "evolutionLinePeerIds": []
     },
     {
       "id": "300",
@@ -5849,7 +6237,8 @@
       "localizedNames": {
         "de": "Mew",
         "fr": "Mew"
-      }
+      },
+      "evolutionLinePeerIds": []
     }
   ],
   "event": [
@@ -5870,7 +6259,8 @@
       "localizedNames": {
         "de": "Hoppspross",
         "fr": "Granivol"
-      }
+      },
+      "evolutionLinePeerIds": ["e002", "e003"]
     },
     {
       "id": "e002",
@@ -5889,7 +6279,8 @@
       "localizedNames": {
         "de": "Hubelupf",
         "fr": "Floravol"
-      }
+      },
+      "evolutionLinePeerIds": ["e001", "e003"]
     },
     {
       "id": "e003",
@@ -5908,7 +6299,8 @@
       "localizedNames": {
         "de": "Papungha",
         "fr": "Cotovol"
-      }
+      },
+      "evolutionLinePeerIds": ["e001", "e002"]
     }
   ]
 }

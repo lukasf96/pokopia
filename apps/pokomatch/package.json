@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "vendor:sprites": "node ./scripts/vendor-pokemon-sprites.mjs",
-    "enrich:pokedex:localizations": "node ./scripts/enrich-pokedex-localizations.mjs"
+    "enrich:pokedex:localizations": "node ./scripts/enrich-pokedex-localizations.mjs",
+    "enrich:pokedex:evolution-lines": "node ./scripts/enrich-pokedex-evolution-lines.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

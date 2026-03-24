@@ -40,12 +40,14 @@ const allIds = allPokemon.map((pokemon) => pokemon.id);
 interface AppState {
   nameLanguage: "en" | "de" | "fr";
   themeMode: "system" | "light" | "dark";
+  preferEvolutionLinesInMatching: boolean;
   // Set of Pokemon IDs currently selected by the user
   unlockedIds: Set<string>;
   customGroups: string[][];
 
   setNameLanguage: (language: "en" | "de" | "fr") => void;
   setThemeMode: (mode: "system" | "light" | "dark") => void;
+  setPreferEvolutionLinesInMatching: (value: boolean) => void;
   togglePokemon: (id: string) => void;
   unlockAll: () => void;
   lockAll: () => void;
@@ -60,6 +62,7 @@ interface AppState {
 interface PersistedState {
   nameLanguage?: "en" | "de" | "fr";
   themeMode?: "system" | "light" | "dark";
+  preferEvolutionLinesInMatching?: boolean;
   unlockedIds: string[];
   customGroups?: string[][];
 }
@@ -69,11 +72,14 @@ export const useStore = create<AppState>()(
     (set) => ({
       nameLanguage: "en",
       themeMode: "system",
+      preferEvolutionLinesInMatching: false,
       unlockedIds: new Set(allIds),
       customGroups: [],
 
       setNameLanguage: (language) => set({ nameLanguage: language }),
       setThemeMode: (mode) => set({ themeMode: mode }),
+      setPreferEvolutionLinesInMatching: (value) =>
+        set({ preferEvolutionLinesInMatching: value }),
       togglePokemon: (id) =>
         set((state) => {
           const next = new Set(state.unlockedIds);
@@ -146,6 +152,8 @@ export const useStore = create<AppState>()(
               ...parsed.state,
               nameLanguage: parsed.state.nameLanguage ?? "en",
               themeMode: parsed.state.themeMode ?? "system",
+              preferEvolutionLinesInMatching:
+                parsed.state.preferEvolutionLinesInMatching ?? false,
               unlockedIds: new Set(parsed.state.unlockedIds ?? allIds),
               customGroups: parsed.state.customGroups ?? [],
             },

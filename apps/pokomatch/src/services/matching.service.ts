@@ -113,15 +113,70 @@ function buildAffinityMatrix(n: number): Int32Array {
 
 interface Ctx {
   n: number;
+  /** Raw shared-favorites count per pair. */
   aff: Int32Array;
+  /** Matrix used to rank groups (favorites plus optional evolution-line tie-break). */
+  scoreAff: Int32Array;
   compat: Uint8Array;
   affSum: Int32Array;
 }
 
-function buildCtx(pokemon: Pokemon[]): Ctx {
+/** Per unordered pair: 1 if both are in the same evolution line (symmetric). */
+function buildEvolutionPairFlags(pokemon: Pokemon[]): Uint8Array {
+  const n = pokemon.length;
+  const peerSets = pokemon.map((p) => new Set(p.evolutionLinePeerIds ?? []));
+  const evo = new Uint8Array(n * n);
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      const same = peerSets[i].has(pokemon[j].id) ? 1 : 0;
+      evo[i * n + j] = same;
+      evo[j * n + i] = same;
+    }
+  }
+  return evo;
+}
+
+/**
+ * Small additive bonus so evolution ties break toward grouping lines together without
+ * routinely beating a much stronger favorite overlap (typical pair scores are larger).
+ */
+const EVOLUTION_LINE_PAIR_BONUS = 2;
+
+function buildScoreAffinity(
+  n: number,
+  aff: Int32Array,
+  evoFlags: Uint8Array | null,
+  evolutionBonus: number,
+): Int32Array {
+  if (evolutionBonus === 0 || evoFlags === null) return aff;
+  const out = new Int32Array(n * n);
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      const base = aff[i * n + j];
+      out[i * n + j] =
+        i === j ? base : base + (evoFlags[i * n + j] ? evolutionBonus : 0);
+    }
+  }
+  return out;
+}
+
+function buildCtx(
+  pokemon: Pokemon[],
+  preferEvolutionLines: boolean,
+): Ctx {
   const n = pokemon.length;
   initBitmasks(pokemon);
   const aff = buildAffinityMatrix(n);
+  const hasEvolutionData = pokemon.some(
+    (p) => (p.evolutionLinePeerIds?.length ?? 0) > 0,
+  );
+  const evoFlags =
+    preferEvolutionLines && hasEvolutionData
+      ? buildEvolutionPairFlags(pokemon)
+      : null;
+  const evoBonus =
+    preferEvolutionLines && hasEvolutionData ? EVOLUTION_LINE_PAIR_BONUS : 0;
+  const scoreAff = buildScoreAffinity(n, aff, evoFlags, evoBonus);
   const compat = new Uint8Array(n * n);
   const affSum = new Int32Array(n);
 
@@ -135,25 +190,30 @@ function buildCtx(pokemon: Pokemon[]): Ctx {
       compat[i * n + j] = ok;
       compat[j * n + i] = ok;
       if (ok) {
-        affSum[i] += aff[i * n + j];
-        affSum[j] += aff[i * n + j];
+        affSum[i] += scoreAff[i * n + j];
+        affSum[j] += scoreAff[i * n + j];
       }
     }
   }
 
-  return { n, aff, compat, affSum };
+  return { n, aff, scoreAff, compat, affSum };
 }
 
-function totalScore(groups: Int32Array[], aff: Int32Array, n: number): number {
+function totalScore(
+  groups: Int32Array[],
+  scoreAff: Int32Array,
+  n: number,
+): number {
   let total = 0;
   for (const g of groups)
     for (let i = 0; i < g.length; i++)
-      for (let j = i + 1; j < g.length; j++) total += aff[g[i] * n + g[j]];
+      for (let j = i + 1; j < g.length; j++)
+        total += scoreAff[g[i] * n + g[j]];
   return total;
 }
 
 function computeGreedy(order: Int32Array, ctx: Ctx): Int32Array[] {
-  const { n, aff } = ctx;
+  const { n, scoreAff } = ctx;
   const assigned = new Uint8Array(n);
   const groups: Int32Array[] = [];
 
@@ -175,7 +235,7 @@ function computeGreedy(order: Int32Array, ctx: Ctx): Int32Array[] {
         if (gc & _habitatBits[c]) continue;
         if (_conflictBits[c] & gh) continue;
         let score = 0;
-        for (let k = 0; k < g.length; k++) score += aff[c * n + g[k]];
+        for (let k = 0; k < g.length; k++) score += scoreAff[c * n + g[k]];
         if (score > bestScore) {
           bestScore = score;
           bestIdx = oj;
@@ -200,7 +260,7 @@ function improve(
   ctx: Ctx,
   deadlineMs: number,
 ): Int32Array[] {
-  const { n, aff, compat } = ctx;
+  const { n, scoreAff, compat } = ctx;
   const gs = groups.map((g) => Array.from(g));
   const MAX_PASSES = 20;
 
@@ -241,10 +301,14 @@ function improve(
             let dA = 0,
               dB = 0;
             for (let k = 0; k < gA.length; k++) {
-              if (k !== a) dA += aff[right * n + gA[k]] - aff[left * n + gA[k]];
+              if (k !== a)
+                dA +=
+                  scoreAff[right * n + gA[k]] - scoreAff[left * n + gA[k]];
             }
             for (let k = 0; k < gB.length; k++) {
-              if (k !== b) dB += aff[left * n + gB[k]] - aff[right * n + gB[k]];
+              if (k !== b)
+                dB +=
+                  scoreAff[left * n + gB[k]] - scoreAff[right * n + gB[k]];
             }
             if (dA + dB <= 0) continue;
             gA[a] = right;
@@ -266,9 +330,9 @@ function improve(
             }
             if (!ok) continue;
             let delta = 0;
-            for (let k = 0; k < gB.length; k++) delta += aff[c * n + gB[k]];
+            for (let k = 0; k < gB.length; k++) delta += scoreAff[c * n + gB[k]];
             for (let k = 0; k < gA.length; k++) {
-              if (k !== a) delta -= aff[c * n + gA[k]];
+              if (k !== a) delta -= scoreAff[c * n + gA[k]];
             }
             if (delta <= 0) continue;
             gA.splice(a, 1);
@@ -292,9 +356,9 @@ function improve(
             }
             if (!ok) continue;
             let delta = 0;
-            for (let k = 0; k < gA.length; k++) delta += aff[c * n + gA[k]];
+            for (let k = 0; k < gA.length; k++) delta += scoreAff[c * n + gA[k]];
             for (let k = 0; k < gB.length; k++) {
-              if (k !== b) delta -= aff[c * n + gB[k]];
+              if (k !== b) delta -= scoreAff[c * n + gB[k]];
             }
             if (delta <= 0) continue;
             gB.splice(b, 1);
@@ -331,16 +395,24 @@ function seededShuffle(n: number, seed: number): Int32Array {
 // Public API
 // ---------------------------------------------------------------------------
 
+export interface ComputeAutoGroupsOptions {
+  /** Slight preference to place evolution-line relatives together when habitat-compatible. */
+  preferEvolutionLines?: boolean;
+}
+
 /**
  * Partition pokemon into groups of up to 4, maximising shared favorites
  * while respecting habitat conflicts.
  */
-export function computeAutoGroups(pokemon: Pokemon[]): Pokemon[][] {
+export function computeAutoGroups(
+  pokemon: Pokemon[],
+  options: ComputeAutoGroupsOptions = {},
+): Pokemon[][] {
   if (pokemon.length === 0) return [];
 
   const n = pokemon.length;
   buildHabitatArrays(pokemon);
-  const ctx = buildCtx(pokemon);
+  const ctx = buildCtx(pokemon, Boolean(options.preferEvolutionLines));
 
   const natural = new Int32Array(n).map((_, i) => i);
   const byAffDesc = Int32Array.from(natural).sort(
@@ -357,7 +429,7 @@ export function computeAutoGroups(pokemon: Pokemon[]): Pokemon[][] {
   type Candidate = { groups: Int32Array[]; score: number };
   const allGreedy: Candidate[] = seeds.map((seed) => {
     const groups = computeGreedy(seed, ctx);
-    return { groups, score: totalScore(groups, ctx.aff, n) };
+    return { groups, score: totalScore(groups, ctx.scoreAff, n) };
   });
   allGreedy.sort((a, b) => b.score - a.score);
 
@@ -368,7 +440,7 @@ export function computeAutoGroups(pokemon: Pokemon[]): Pokemon[][] {
   for (const candidate of allGreedy) {
     if (Date.now() >= deadline) break;
     const improved = improve(candidate.groups, ctx, deadline);
-    const score = totalScore(improved, ctx.aff, n);
+    const score = totalScore(improved, ctx.scoreAff, n);
     if (score > bestScore) {
       bestScore = score;
       best = improved;

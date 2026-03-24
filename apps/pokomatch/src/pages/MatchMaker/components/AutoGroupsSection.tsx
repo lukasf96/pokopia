@@ -1,10 +1,16 @@
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Box,
   Chip,
+  FormControlLabel,
+  IconButton,
   Stack,
+  Switch,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import type { Habitat, Pokemon } from "../../../types/types";
@@ -12,6 +18,8 @@ import GroupCard from "./GroupCard";
 
 interface AutoGroupsSectionProps {
   groups: Pokemon[][];
+  preferEvolutionLines: boolean;
+  onPreferEvolutionLinesChange: (value: boolean) => void;
   onQuickAddGroup: (group: Pokemon[]) => void;
 }
 
@@ -45,6 +53,8 @@ function getDisplayHabitat(group: Pokemon[]): Habitat {
 
 export function AutoGroupsSection({
   groups,
+  preferEvolutionLines,
+  onPreferEvolutionLinesChange,
   onQuickAddGroup,
 }: AutoGroupsSectionProps) {
   return (
@@ -60,11 +70,62 @@ export function AutoGroupsSection({
           alignItems="center"
           flexWrap="wrap"
           useFlexGap
+          sx={{ flex: 1, minWidth: 0, pr: 1 }}
         >
           <Typography component="span" fontWeight={700}>
             Suggested groups
           </Typography>
           <Chip label={`${groups.length} groups`} size="small" />
+          <Box sx={{ flexGrow: 1, minWidth: 8 }} aria-hidden />
+          <Box
+            component="span"
+            onClick={(event) => event.stopPropagation()}
+            onFocus={(event) => event.stopPropagation()}
+          >
+            <FormControlLabel
+              control={
+                <Switch
+                  size="small"
+                  checked={preferEvolutionLines}
+                  onChange={(_, checked) =>
+                    onPreferEvolutionLinesChange(checked)
+                  }
+                  inputProps={{
+                    "aria-label":
+                      "Prefer grouping evolution lines when scores are close",
+                  }}
+                />
+              }
+              label={
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  spacing={0.5}
+                  component="span"
+                >
+                  <Typography
+                    component="span"
+                    variant="body2"
+                    color="text.secondary"
+                  >
+                    Prefer grouping Evolution lines together
+                  </Typography>
+                  <Tooltip title="When this is on, suggested groups slightly favor keeping evolution families together wherever habitat rules still allow it. Total shared-favorite overlap can dip a little, but the trade-off is usually very small.">
+                    <IconButton
+                      size="small"
+                      aria-label="How evolution line grouping works"
+                      onClick={(event) => event.stopPropagation()}
+                      onFocus={(event) => event.stopPropagation()}
+                      sx={{ p: 0.25, color: "text.secondary" }}
+                    >
+                      <InfoOutlined sx={{ fontSize: 18 }} aria-hidden />
+                    </IconButton>
+                  </Tooltip>
+                </Stack>
+              }
+              sx={{ mr: 0 }}
+            />
+          </Box>
         </Stack>
       </AccordionSummary>
       <AccordionDetails sx={{ p: 2 }}>
