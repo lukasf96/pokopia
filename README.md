@@ -43,6 +43,6 @@ For a partial group, candidates are **filtered** by the same habitat rules, then
 The **sum of pairwise shared favorites** within one group — the same quantity the auto-grouper tries to maximize across all groups.
 
 ## Credits
-
+- Pokopia specific Pokemon data: [Serebii](https://www.serebii.net/)
 - Pokémon data and localized species names: [PokeAPI](https://pokeapi.co/)
 - Sprite repository source: [PokeAPI/sprites](https://github.com/PokeAPI/sprites)
