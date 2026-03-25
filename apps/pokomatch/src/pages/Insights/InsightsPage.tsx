@@ -143,7 +143,8 @@ export default function InsightsPage() {
     <Container maxWidth="lg" sx={{ py: 3 }}>
       <Box sx={{ mb: 3 }}>
         <Typography
-          variant="h4"
+          component="h1"
+          variant="h6"
           sx={{
             fontWeight: 950,
             lineHeight: 1.1,
