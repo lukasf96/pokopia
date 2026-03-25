@@ -169,7 +169,7 @@ export default function InsightsPage() {
             <StatCard
               label="Unique favorites"
               value={`${uniqueFavoritesCount}`}
-              subvalue="Favorites + tastes"
+              subvalue="Favorites including flavors"
             />
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
@@ -194,6 +194,7 @@ export default function InsightsPage() {
             title="Favorites Distribution"
             items={favorites}
             totalPokemon={allPokemon.length}
+            maxVisibleItems={10}
           />
         </Grid>
 
