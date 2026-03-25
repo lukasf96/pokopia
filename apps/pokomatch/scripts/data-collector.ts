@@ -10,15 +10,14 @@ const SEREBII_ROBOTS_URL = `${SEREBII_BASE}/robots.txt`;
 
 const POKEAPI_BASE = "https://pokeapi.co";
 
-const DEFAULT_REQUEST_GAP_MS = 50;
+const DEFAULT_REQUEST_GAP_MS = 10;
 const DEFAULT_POKEAPI_GAP_MS = 10;
 
 const APP_ROOT = process.cwd();
 const DEFAULT_OUT_PATH = path.join(APP_ROOT, "src", "assets", "pokedex.json");
 
 /**
- * We identify as a data collector/enricher and honor robots.txt for Serebii.
- * (PokéAPI is a public API; still keep request rates modest.)
+ * We identify as a data collector and honor robots.txt for Serebii.
  */
 const USER_AGENT = "Pokopia Data Collector/1.0";
 
@@ -34,6 +33,7 @@ interface DetailRow extends ListRow {
   favoritesRaw: string[];
 }
 
+// Correct inconsistent data -> DELETE if this is no longer needed
 function normalizeSerebiiValue(raw: string): string {
   const v = raw.trim();
   const lower = v.toLowerCase();
