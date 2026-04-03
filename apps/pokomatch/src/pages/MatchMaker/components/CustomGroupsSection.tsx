@@ -4,11 +4,9 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Autocomplete,
   Button,
   Chip,
   Stack,
-  TextField,
   Typography,
 } from "@mui/material";
 import type { SuggestedPokemon } from "../../../services/matching.service";
@@ -16,6 +14,7 @@ import { getPokemonDisplayName } from "../../../services/pokemon-localization";
 import { useStore } from "../../../store/store";
 import type { Pokemon } from "../../../types/types";
 import { getDisplayHabitat, groupStableKey } from "../group-helpers";
+import { AddPokemonToGroupAutocomplete } from "./AddPokemonToGroupAutocomplete";
 import GroupCard from "./GroupCard";
 
 interface CustomGroupsSectionProps {
@@ -79,10 +78,6 @@ export function CustomGroupsSection({
 
           {customGroups.map((group, gi) => {
             const groupNumber = gi + 1;
-            const groupIds = new Set(group.map((member) => member.id));
-            const groupAvailablePokemon = availablePokemon.filter(
-              (candidate) => !groupIds.has(candidate.id),
-            );
             const groupSuggestions = suggestions[gi] ?? [];
             return (
               <Stack key={`custom-${groupStableKey(group) || gi}`} spacing={1}>
@@ -100,22 +95,11 @@ export function CustomGroupsSection({
                           Add Pokémon to Group {groupNumber}
                         </Typography>
 
-                        <Autocomplete
-                          options={groupAvailablePokemon}
-                          disabled={groupAvailablePokemon.length === 0}
-                          getOptionLabel={(option) =>
-                            `${getPokemonDisplayName(option, nameLanguage)} (#${option.dexNumber})`
-                          }
-                          renderInput={(params) => (
-                            <TextField
-                              {...params}
-                              size="small"
-                              label="Choose Pokémon"
-                            />
-                          )}
-                          onChange={(_, value) => {
-                            if (value) onAddPokemon(gi, value.id);
-                          }}
+                        <AddPokemonToGroupAutocomplete
+                          group={group}
+                          availablePokemon={availablePokemon}
+                          nameLanguage={nameLanguage}
+                          onSelect={(pokemonId) => onAddPokemon(gi, pokemonId)}
                         />
 
                         {group.length > 0 && groupSuggestions.length > 0 && (

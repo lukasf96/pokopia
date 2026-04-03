@@ -291,7 +291,7 @@ function GroupCardComponent({
   );
 }
 
-function HabitatChip({
+export function HabitatChip({
   habitat,
   variant,
 }: {
