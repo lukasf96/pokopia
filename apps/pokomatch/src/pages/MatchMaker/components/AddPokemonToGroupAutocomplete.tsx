@@ -9,7 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { alpha } from "@mui/material/styles";
-import { useCallback, useMemo, type HTMLAttributes, type Key } from "react";
+import { memo, useCallback, useMemo, type HTMLAttributes, type Key } from "react";
 import {
   getHabitatColors,
   habitatIcons,
@@ -28,7 +28,7 @@ interface AddPokemonToGroupAutocompleteProps {
   onSelect: (pokemonId: string) => void;
 }
 
-export function AddPokemonToGroupAutocomplete({
+export const AddPokemonToGroupAutocomplete = memo(function AddPokemonToGroupAutocomplete({
   group,
   availablePokemon,
   nameLanguage,
@@ -132,7 +132,7 @@ export function AddPokemonToGroupAutocomplete({
         </Box>
       );
     },
-    [getOptionLabel, habitatColors, specialtyChipSx],
+    [nameLanguage, habitatColors, specialtyChipSx],
   );
 
   return (
@@ -161,4 +161,4 @@ export function AddPokemonToGroupAutocomplete({
       }}
     />
   );
-}
+});

@@ -2,7 +2,7 @@ import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import StarsIcon from "@mui/icons-material/Stars";
 import { Box, Button, Chip, Stack, Typography, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
-import { useMemo } from "react";
+import { memo, useMemo } from "react";
 import { PokemonSpriteAvatar } from "../../../components/PokemonSpriteAvatar";
 import {
   getHabitatColors,
@@ -21,7 +21,7 @@ interface SuggestedNextPokemonControlsProps {
   onPick: (pokemonId: string) => void;
 }
 
-export function SuggestedNextPokemonControls({
+export const SuggestedNextPokemonControls = memo(function SuggestedNextPokemonControls({
   suggestions,
   nameLanguage,
   onPick,
@@ -195,4 +195,4 @@ export function SuggestedNextPokemonControls({
       </Box>
     </Box>
   );
-}
+});
