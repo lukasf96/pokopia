@@ -19,12 +19,7 @@ import {
   type PokemonNameLanguage,
 } from "../../../services/pokemon-localization";
 import type { Pokemon } from "../../../types/types";
-
-function formatDexSegment(dexNumber: string): string {
-  const trimmed = dexNumber.trim();
-  if (/^\d+$/.test(trimmed)) return trimmed.padStart(3, "0");
-  return trimmed;
-}
+import { formatDexSegment } from "../group-helpers";
 
 interface AddPokemonToGroupAutocompleteProps {
   group: Pokemon[];
@@ -67,7 +62,7 @@ export function AddPokemonToGroupAutocomplete({
 
   const getOptionLabel = useCallback(
     (option: Pokemon) =>
-      `#${formatDexSegment(option.dexNumber)} - ${getPokemonDisplayName(option, nameLanguage)}`,
+      `#${formatDexSegment(option.dexNumber)} ${getPokemonDisplayName(option, nameLanguage)}`,
     [nameLanguage],
   );
 
@@ -91,7 +86,16 @@ export function AddPokemonToGroupAutocomplete({
         >
           <Stack spacing={0.75} width="100%">
             <Typography variant="body2" fontWeight={700}>
-              {getOptionLabel(option)}
+              <Box
+                component="span"
+                sx={{ color: "text.secondary", fontWeight: 600 }}
+              >
+                #{formatDexSegment(option.dexNumber)}
+              </Box>
+              <Box component="span">
+                {" "}
+                {getPokemonDisplayName(option, nameLanguage)}
+              </Box>
             </Typography>
             <Stack direction="row" flexWrap="wrap" useFlexGap gap={0.75}>
               <Chip

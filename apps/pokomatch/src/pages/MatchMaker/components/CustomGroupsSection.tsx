@@ -10,12 +10,12 @@ import {
   Typography,
 } from "@mui/material";
 import type { SuggestedPokemon } from "../../../services/matching.service";
-import { getPokemonDisplayName } from "../../../services/pokemon-localization";
 import { useStore } from "../../../store/store";
 import type { Pokemon } from "../../../types/types";
 import { getDisplayHabitat, groupStableKey } from "../group-helpers";
 import { AddPokemonToGroupAutocomplete } from "./AddPokemonToGroupAutocomplete";
 import GroupCard from "./GroupCard";
+import { SuggestedNextPokemonControls } from "./SuggestedNextPokemonControls";
 
 interface CustomGroupsSectionProps {
   customGroups: Pokemon[][];
@@ -103,34 +103,11 @@ export function CustomGroupsSection({
                         />
 
                         {group.length > 0 && groupSuggestions.length > 0 && (
-                          <Stack spacing={0.5}>
-                            <Typography
-                              variant="caption"
-                              color="text.secondary"
-                            >
-                              Suggested next:
-                            </Typography>
-                            <Stack
-                              direction="row"
-                              spacing={0.75}
-                              flexWrap="wrap"
-                              useFlexGap
-                            >
-                              {groupSuggestions.map((suggestion) => (
-                                <Chip
-                                  key={`suggest-${gi}-${suggestion.pokemon.id}`}
-                                  label={`${getPokemonDisplayName(
-                                    suggestion.pokemon,
-                                    nameLanguage,
-                                  )} (+${suggestion.score})`}
-                                  size="small"
-                                  onClick={() =>
-                                    onAddPokemon(gi, suggestion.pokemon.id)
-                                  }
-                                />
-                              ))}
-                            </Stack>
-                          </Stack>
+                          <SuggestedNextPokemonControls
+                            suggestions={groupSuggestions}
+                            nameLanguage={nameLanguage}
+                            onPick={(pokemonId) => onAddPokemon(gi, pokemonId)}
+                          />
                         )}
                       </Stack>
                     ) : null
