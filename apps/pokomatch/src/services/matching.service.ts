@@ -389,7 +389,7 @@ function seededShuffle(n: number, seed: number): Int32Array {
 // Public API
 // ---------------------------------------------------------------------------
 
-export interface ComputeAutoGroupsOptions {
+interface ComputeAutoGroupsOptions {
   /** Slight preference to place evolution-line relatives together when habitat-compatible. */
   preferEvolutionLines?: boolean;
 }

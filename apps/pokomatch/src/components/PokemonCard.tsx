@@ -29,7 +29,7 @@ import type { Habitat, Pokemon } from "../types/types";
 import { PokemonSpriteAvatar } from "./PokemonSpriteAvatar";
 import { SpecialtyChip } from "./SpecialtyChip";
 
-export interface PokemonCardProps {
+interface PokemonCardProps {
   pokemon: Pokemon;
   unlocked?: boolean;
   interactive?: boolean;

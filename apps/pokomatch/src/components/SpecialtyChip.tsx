@@ -11,7 +11,7 @@ interface SpecialtyChipBaseProps {
   sx?: SxProps<Theme>;
 }
 
-export type SpecialtyChipProps =
+type SpecialtyChipProps =
   | (SpecialtyChipBaseProps & {
       surface?: "neutral";
     })

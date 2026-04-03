@@ -26,9 +26,8 @@ export function isEventDexPokemon(pokemon: Pokemon): boolean {
   return pokemon.dexKind === "event";
 }
 
-export const habitableStandardPokemon =
-  standardPokemon.filter(isPokemonHabitable);
-export const habitableEventPokemon = eventPokemon.filter(isPokemonHabitable);
+const habitableStandardPokemon = standardPokemon.filter(isPokemonHabitable);
+const habitableEventPokemon = eventPokemon.filter(isPokemonHabitable);
 export const habitablePokemon = [
   ...habitableStandardPokemon,
   ...habitableEventPokemon,
