@@ -115,7 +115,7 @@ export const PokemonCard = memo(function PokemonCard({
       variant="outlined"
       onClick={interactive ? handleToggle : undefined}
       sx={{
-        borderRadius: 2,
+        borderRadius: 1,
         overflow: "hidden",
         position: "relative",
         cursor: interactive ? "pointer" : "default",
