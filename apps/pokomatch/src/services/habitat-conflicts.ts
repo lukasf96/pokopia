@@ -9,16 +9,6 @@ export const habitatConflictMap: Record<Habitat, Habitat> = {
   Cool: "Warm",
 };
 
-export function habitatsConflict(left: Habitat, right: Habitat): boolean {
-  return habitatConflictMap[left] === right;
-}
-
-export function canJoinGroup(group: Pokemon[], candidate: Pokemon): boolean {
-  return group.every(
-    (member) => !habitatsConflict(member.idealHabitat, candidate.idealHabitat),
-  );
-}
-
 export function getGroupHabitats(group: Pokemon[]): Habitat[] {
   return [...new Set(group.map((pokemon) => pokemon.idealHabitat))].sort(
     (a, b) => a.localeCompare(b),

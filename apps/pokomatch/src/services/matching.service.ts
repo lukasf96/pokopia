@@ -25,12 +25,6 @@ function habitatBit(p: Pokemon): number {
   return HABITAT_BIT[p.idealHabitat] ?? 0;
 }
 
-export function canJoinGroup(group: Pokemon[], candidate: Pokemon): boolean {
-  const cb = habitatBit(candidate);
-  for (const m of group) if (habitatConflictBit(m) & cb) return false;
-  return true;
-}
-
 // ---------------------------------------------------------------------------
 // Favorites affinity — 64-bit bitmask split across two 32-bit ints (lo/hi).
 // Supports up to 64 distinct favorites (dataset has 43).
@@ -395,7 +389,7 @@ function seededShuffle(n: number, seed: number): Int32Array {
 // Public API
 // ---------------------------------------------------------------------------
 
-export interface ComputeAutoGroupsOptions {
+interface ComputeAutoGroupsOptions {
   /** Slight preference to place evolution-line relatives together when habitat-compatible. */
   preferEvolutionLines?: boolean;
 }
