@@ -102,13 +102,7 @@ function compareItems(
   return cmp * sign;
 }
 
-function CellDash({
-  children,
-  query,
-}: {
-  children: string;
-  query: string;
-}) {
+function CellDash({ children, query }: { children: string; query: string }) {
   const empty = children.trim() === "";
   if (empty) {
     return (
@@ -198,28 +192,33 @@ export function ItemsCatalogSection({ items }: ItemsCatalogSectionProps) {
 
   const deferredSearchQuery = useDeferredValue(searchQuery);
 
-  const { categoryOptions, tagOptions, hasUntagged, favoriteOptions, hasNoFav } =
-    useMemo(() => {
-      const categories = new Set<string>();
-      const tags = new Set<string>();
-      const favorites = new Set<string>();
-      let untagged = false;
-      let noFav = false;
-      for (const item of items) {
-        categories.add(item.category);
-        if (item.tag.trim() === "") untagged = true;
-        else tags.add(item.tag);
-        if (item.favoriteCategories.length === 0) noFav = true;
-        else for (const f of item.favoriteCategories) favorites.add(f);
-      }
-      return {
-        categoryOptions: [...categories].sort((a, b) => a.localeCompare(b)),
-        tagOptions: [...tags].sort((a, b) => a.localeCompare(b)),
-        hasUntagged: untagged,
-        favoriteOptions: [...favorites].sort((a, b) => a.localeCompare(b)),
-        hasNoFav: noFav,
-      };
-    }, [items]);
+  const {
+    categoryOptions,
+    tagOptions,
+    hasUntagged,
+    favoriteOptions,
+    hasNoFav,
+  } = useMemo(() => {
+    const categories = new Set<string>();
+    const tags = new Set<string>();
+    const favorites = new Set<string>();
+    let untagged = false;
+    let noFav = false;
+    for (const item of items) {
+      categories.add(item.category);
+      if (item.tag.trim() === "") untagged = true;
+      else tags.add(item.tag);
+      if (item.favoriteCategories.length === 0) noFav = true;
+      else for (const f of item.favoriteCategories) favorites.add(f);
+    }
+    return {
+      categoryOptions: [...categories].sort((a, b) => a.localeCompare(b)),
+      tagOptions: [...tags].sort((a, b) => a.localeCompare(b)),
+      hasUntagged: untagged,
+      favoriteOptions: [...favorites].sort((a, b) => a.localeCompare(b)),
+      hasNoFav: noFav,
+    };
+  }, [items]);
 
   const dropdownFilteredItems = useMemo(
     () =>
@@ -264,8 +263,8 @@ export function ItemsCatalogSection({ items }: ItemsCatalogSectionProps) {
         Items
       </Typography>
       <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-        Search across name, category, tag, and favorite categories. Narrow with
-        the filters, then click column headers to sort.
+        Item data is work in progress, the list may be incomplete and is subject
+        to change.
       </Typography>
 
       <Stack spacing={2} sx={{ mb: 2 }}>
@@ -305,9 +304,7 @@ export function ItemsCatalogSection({ items }: ItemsCatalogSectionProps) {
               labelId="items-filter-category"
               label="Category"
               value={filterCategory}
-              onChange={(e) =>
-                setFilterCategory(e.target.value as string)
-              }
+              onChange={(e) => setFilterCategory(e.target.value as string)}
               displayEmpty
             >
               <MenuItem value={FILTER_ALL}>All categories</MenuItem>
@@ -350,14 +347,14 @@ export function ItemsCatalogSection({ items }: ItemsCatalogSectionProps) {
               labelId="items-filter-favorite"
               label="Favorite category"
               value={filterFavorite}
-              onChange={(e) =>
-                setFilterFavorite(e.target.value as string)
-              }
+              onChange={(e) => setFilterFavorite(e.target.value as string)}
               displayEmpty
             >
               <MenuItem value={FILTER_ALL}>All favorite categories</MenuItem>
               {hasNoFav ? (
-                <MenuItem value={FILTER_NO_FAV}>No favorite categories</MenuItem>
+                <MenuItem value={FILTER_NO_FAV}>
+                  No favorite categories
+                </MenuItem>
               ) : null}
               {favoriteOptions.map((f) => (
                 <MenuItem key={f} value={f}>
