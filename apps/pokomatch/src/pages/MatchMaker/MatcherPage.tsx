@@ -1,5 +1,5 @@
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
-import { Container, Stack, Typography } from "@mui/material";
+import { Alert, Container, Snackbar, Stack, Typography } from "@mui/material";
 import { useCallback, useDeferredValue, useMemo, useState } from "react";
 import { suggestItemsForGroup } from "../../services/items";
 import {
@@ -92,6 +92,9 @@ export default function MatcherPage() {
   const [adoptedSuggestedGroupKeys, setAdoptedSuggestedGroupKeys] = useState<
     Set<string>
   >(() => new Set());
+  const [groupToastMessage, setGroupToastMessage] = useState<string | null>(
+    null,
+  );
 
   const availablePokemon = useMemo(
     () => activePokemon.filter((p) => !customAssignedIds.has(p.id)),
@@ -121,12 +124,14 @@ export default function MatcherPage() {
   const handleAddGroup = useCallback(() => {
     resetSuggestedFreeze();
     addCustomGroup();
+    setGroupToastMessage("Group added");
   }, [resetSuggestedFreeze, addCustomGroup]);
 
   const handleDeleteGroup = useCallback(
     (groupIndex: number) => {
       resetSuggestedFreeze();
       deleteCustomGroup(groupIndex);
+      setGroupToastMessage("Group removed");
     },
     [resetSuggestedFreeze, deleteCustomGroup],
   );
@@ -167,6 +172,7 @@ export default function MatcherPage() {
         return next;
       });
       addSuggestedGroupToCustomGroups(group.map((pokemon) => pokemon.id));
+      setGroupToastMessage("Suggested group added");
     },
     [
       hasActiveSuggestedFreeze,
@@ -200,7 +206,14 @@ export default function MatcherPage() {
 
   if (activePokemon.length === 0) {
     return (
-      <Container maxWidth="lg" sx={{ py: 8, textAlign: "center" }}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          py: 8,
+          px: { xs: 1.5, sm: 3 },
+          textAlign: "center",
+        }}
+      >
         <GroupsOutlinedIcon
           sx={{ fontSize: 48, color: "text.disabled", mb: 1 }}
           aria-hidden
@@ -216,16 +229,23 @@ export default function MatcherPage() {
   }
 
   return (
-    <Container maxWidth="lg" sx={{ py: { xs: 2, sm: 3 } }}>
-      <Stack spacing={2}>
+    <Container
+      maxWidth="lg"
+      sx={{ py: { xs: 2, sm: 3 }, px: { xs: 1.5, sm: 3 } }}
+    >
+      <Stack spacing={0}>
         <Typography
           component="h1"
-          variant="h5"
-          sx={{ fontWeight: 800, lineHeight: 1.2 }}
+          variant="h6"
+          sx={{
+            fontWeight: 950,
+            lineHeight: 1.1,
+            mb: 2,
+          }}
         >
           Pokopia Habitat Planner & Match‑Maker
         </Typography>
-        <Stack spacing={1.5}>
+        <Stack spacing={3}>
           <CustomGroupsSection
             customGroups={resolvedCustomGroups}
             suggestions={suggestions}
@@ -246,6 +266,21 @@ export default function MatcherPage() {
           />
         </Stack>
       </Stack>
+      <Snackbar
+        open={groupToastMessage != null}
+        autoHideDuration={4000}
+        onClose={() => setGroupToastMessage(null)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setGroupToastMessage(null)}
+          severity="success"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          {groupToastMessage}
+        </Alert>
+      </Snackbar>
     </Container>
   );
 }
