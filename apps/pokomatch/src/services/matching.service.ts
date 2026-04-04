@@ -1,5 +1,6 @@
 import type { Pokemon } from "../types/types";
 import { habitatConflictMap } from "./habitat-conflicts";
+import { comparePokemonByDex } from "./pokemon";
 
 // ---------------------------------------------------------------------------
 // Habitat compatibility — bitmask per pokemon.
@@ -449,6 +450,80 @@ export interface SuggestedPokemon {
   score: number;
 }
 
+/** Marginal favorite-overlap score if this Pokémon joins the group, and habitat legality. */
+export interface CandidateAddToGroupInfo {
+  score: number;
+  habitatCompatible: boolean;
+}
+
+function enumerateCandidateAddScores(
+  group: Pokemon[],
+  candidates: Pokemon[],
+): { pokemon: Pokemon; score: number; habitatCompatible: boolean }[] {
+  const all = [...group, ...candidates];
+  buildHabitatArrays(all);
+  initBitmasks(all);
+  const gLen = group.length;
+  const out: { pokemon: Pokemon; score: number; habitatCompatible: boolean }[] =
+    [];
+
+  for (let candidateIndex = 0; candidateIndex < candidates.length; candidateIndex++) {
+    const pokemon = candidates[candidateIndex];
+    const idx = gLen + candidateIndex;
+    const cb = _habitatBits[idx];
+    const candidateConflictBit = _conflictBits[idx];
+    let habitatCompatible = true;
+    for (let k = 0; k < gLen; k++) {
+      if (_conflictBits[k] & cb) {
+        habitatCompatible = false;
+        break;
+      }
+      if (candidateConflictBit & _habitatBits[k]) {
+        habitatCompatible = false;
+        break;
+      }
+    }
+    let score = 0;
+    if (habitatCompatible) {
+      for (let k = 0; k < gLen; k++) {
+        score += sharedFav(
+          _favLo![k],
+          _favHi![k],
+          _favLo![idx],
+          _favHi![idx],
+        );
+      }
+    }
+    out.push({ pokemon, score, habitatCompatible });
+  }
+  return out;
+}
+
+/**
+ * Same scoring and habitat rules as {@link suggestNextPokemon}: `score` is the sum of shared
+ * favorite counts with each current group member; incompatible candidates get `score` 0 and
+ * `habitatCompatible` false.
+ */
+export function candidateAddInfoByPokemonId(
+  group: Pokemon[],
+  candidates: Pokemon[],
+): Map<string, CandidateAddToGroupInfo> {
+  const map = new Map<string, CandidateAddToGroupInfo>();
+  if (group.length === 0) {
+    for (const p of candidates) {
+      map.set(p.id, { score: 0, habitatCompatible: true });
+    }
+    return map;
+  }
+  for (const row of enumerateCandidateAddScores(group, candidates)) {
+    map.set(row.pokemon.id, {
+      score: row.score,
+      habitatCompatible: row.habitatCompatible,
+    });
+  }
+  return map;
+}
+
 export function suggestNextPokemon(
   group: Pokemon[],
   candidates: Pokemon[],
@@ -456,47 +531,16 @@ export function suggestNextPokemon(
 ): SuggestedPokemon[] {
   if (group.length === 0) return [];
 
-  const all = [...group, ...candidates];
-  buildHabitatArrays(all);
-  initBitmasks(all);
-  const gLen = group.length;
-
-  return candidates
-    .map((pokemon, candidateIndex) => ({
-      pokemon,
-      allIndex: gLen + candidateIndex,
-    }))
-    .filter((entry) => {
-      const idx = entry.allIndex;
-      const cb = _habitatBits[idx];
-      const candidateConflictBit = _conflictBits[idx];
-      for (let k = 0; k < gLen; k++) {
-        if (_conflictBits[k] & cb) return false;
-        if (candidateConflictBit & _habitatBits[k]) return false;
-      }
-      return true;
-    })
-    .map((entry) => {
-      const idx = entry.allIndex;
-      let addedScore = 0;
-      for (let k = 0; k < gLen; k++)
-        addedScore += sharedFav(
-          _favLo![k],
-          _favHi![k],
-          _favLo![idx],
-          _favHi![idx],
-        );
-      return {
-        pokemon: entry.pokemon,
-        score: addedScore,
-      };
-    })
-    .filter((entry) => entry.score > 0)
+  return enumerateCandidateAddScores(group, candidates)
+    .filter((e) => e.habitatCompatible && e.score > 0)
     .sort((a, b) => {
       const d = b.score - a.score;
-      return d !== 0 ? d : a.pokemon.name.localeCompare(b.pokemon.name);
+      if (d !== 0) return d;
+      const dex = comparePokemonByDex(a.pokemon, b.pokemon);
+      return dex !== 0 ? dex : a.pokemon.name.localeCompare(b.pokemon.name);
     })
-    .slice(0, limit);
+    .slice(0, limit)
+    .map(({ pokemon, score }) => ({ pokemon, score }));
 }
 
 /**

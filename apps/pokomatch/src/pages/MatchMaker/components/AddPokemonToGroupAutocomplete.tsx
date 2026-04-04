@@ -18,7 +18,10 @@ import {
   type HTMLAttributes,
   type Key,
 } from "react";
+import { PokemonSpriteAvatar } from "../../../components/PokemonSpriteAvatar";
 import { SpecialtyChip } from "../../../components/SpecialtyChip";
+import { candidateAddInfoByPokemonId } from "../../../services/matching.service";
+import { comparePokemonByDex } from "../../../services/pokemon";
 import {
   getHabitatColors,
   habitatIcons,
@@ -207,9 +210,25 @@ export const AddPokemonToGroupAutocomplete = memo(
     const theme = useTheme();
     const [inputValue, setInputValue] = useState("");
 
-    const options = useMemo(() => {
+    const { options, addInfoById } = useMemo(() => {
       const ids = new Set(group.map((m) => m.id));
-      return availablePokemon.filter((p) => !ids.has(p.id));
+      const base = availablePokemon.filter((p) => !ids.has(p.id));
+      const addInfoById = candidateAddInfoByPokemonId(group, base);
+      if (group.length === 0) {
+        return { options: base, addInfoById };
+      }
+      const sorted = [...base].sort((a, b) => {
+        const ia = addInfoById.get(a.id)!;
+        const ib = addInfoById.get(b.id)!;
+        if (ia.habitatCompatible !== ib.habitatCompatible) {
+          return ia.habitatCompatible ? -1 : 1;
+        }
+        if (ia.score !== ib.score) return ib.score - ia.score;
+        const dexCmp = comparePokemonByDex(a, b);
+        if (dexCmp !== 0) return dexCmp;
+        return a.name.localeCompare(b.name);
+      });
+      return { options: sorted, addInfoById };
     }, [group, availablePokemon]);
 
     const habitatColors = useMemo(() => getHabitatColors(theme), [theme]);
@@ -255,6 +274,10 @@ export const AddPokemonToGroupAutocomplete = memo(
         const HabitatIcon = habitatIcons[option.idealHabitat];
         const dexLabel = `#${formatDexSegment(option.dexNumber)}`;
         const displayName = getPokemonDisplayName(option, nameLanguage);
+        const titleText = `${dexLabel} ${displayName}`;
+        const add = addInfoById.get(option.id);
+        const showScoreChip =
+          group.length > 0 && add?.habitatCompatible === true;
 
         return (
           <Box
@@ -262,28 +285,51 @@ export const AddPokemonToGroupAutocomplete = memo(
             key={key}
             {...optionProps}
             sx={{
-              py: 0.75,
-              alignItems: "flex-start !important",
+              display: "flex !important",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              gap: 1.25,
+              py: 1,
+              px: 0.5,
               contentVisibility: "auto",
-              containIntrinsicSize: "auto 72px",
+              containIntrinsicSize: "auto 96px",
             }}
           >
-            <Stack spacing={0.75} width="100%">
-              <Typography variant="body2" fontWeight={700} component="div">
+            <PokemonSpriteAvatar
+              pokemon={option}
+              size={40}
+              padding={0.5}
+            />
+            <Stack spacing={0.5} flex={1} minWidth={0} alignItems="flex-start">
+              <Typography
+                variant="body2"
+                lineHeight={1.25}
+                noWrap
+                title={titleText}
+                sx={{ width: "100%" }}
+              >
                 <Box
                   component="span"
                   sx={{ color: "text.secondary", fontWeight: 600 }}
                 >
                   <MatchHighlight text={dexLabel} query={inputValue} />
                 </Box>
-                <Box component="span">
+                <Box component="span" sx={{ fontWeight: 800 }}>
                   {" "}
                   <MatchHighlight text={displayName} query={inputValue} />
                 </Box>
               </Typography>
-              <Stack direction="row" flexWrap="wrap" useFlexGap gap={0.75}>
+              <Stack
+                direction="row"
+                flexWrap="wrap"
+                useFlexGap
+                gap={0.5}
+                alignItems="center"
+              >
                 <Chip
-                  icon={<HabitatIcon />}
+                  icon={
+                    <HabitatIcon sx={{ fontSize: "14px !important" }} />
+                  }
                   label={
                     <MatchHighlight
                       text={option.idealHabitat}
@@ -293,15 +339,20 @@ export const AddPokemonToGroupAutocomplete = memo(
                   size="small"
                   variant="outlined"
                   sx={{
-                    height: 18,
-                    fontSize: 10,
-                    bgcolor: "background.paper",
+                    height: 20,
+                    fontSize: 9,
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.02em",
+                    bgcolor: alpha(
+                      hc.bg,
+                      theme.palette.mode === "dark" ? 0.35 : 0.65,
+                    ),
                     color: hc.text,
-                    borderColor: hc.border,
+                    borderColor: alpha(hc.border, 0.65),
                     "& .MuiChip-icon": {
                       color: hc.text,
-                      ml: 0.5,
-                      fontSize: 14,
+                      ml: 0.35,
                     },
                   }}
                 />
@@ -313,12 +364,32 @@ export const AddPokemonToGroupAutocomplete = memo(
                     }
                   />
                 ))}
+                {showScoreChip ? (
+                  <Chip
+                    label={`+${add!.score} Score`}
+                    size="small"
+                    sx={{
+                      height: 20,
+                      fontSize: 10,
+                      fontWeight: 700,
+                      bgcolor: "action.selected",
+                      color: "text.secondary",
+                    }}
+                  />
+                ) : null}
               </Stack>
             </Stack>
           </Box>
         );
       },
-      [nameLanguage, habitatColors, inputValue],
+      [
+        addInfoById,
+        group.length,
+        habitatColors,
+        inputValue,
+        nameLanguage,
+        theme,
+      ],
     );
 
     return (
@@ -372,6 +443,12 @@ export const AddPokemonToGroupAutocomplete = memo(
           setInputValue("");
         }}
         slotProps={{
+          paper: {
+            sx: {
+              minWidth: 320,
+              transition: "none",
+            },
+          },
           popper: {
             sx: {
               "& .MuiPaper-root": {
@@ -380,7 +457,7 @@ export const AddPokemonToGroupAutocomplete = memo(
             },
           },
           listbox: {
-            sx: { maxHeight: 360 },
+            sx: { maxHeight: 360, py: 0.5 },
           },
         }}
       />
