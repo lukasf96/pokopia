@@ -1,3 +1,4 @@
+import SearchOffOutlinedIcon from "@mui/icons-material/SearchOffOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   Box,
@@ -17,6 +18,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { alpha, type Theme } from "@mui/material/styles";
 import { memo, useDeferredValue, useMemo, useState } from "react";
 import type { Item } from "../../../types/types";
 import { MatchHighlight } from "../../../utils/MatchHighlight";
@@ -35,6 +37,71 @@ const FILTER_NO_FAV = "__no_fav__";
 
 type SortKey = "name" | "category" | "tag" | "favorites";
 type SortDir = "asc" | "desc";
+
+/** Keeps columns readable on narrow screens (horizontal scroll). */
+const TABLE_MIN_WIDTH_PX = 540;
+
+/** Fixed viewport so the block does not jump when search narrows to few or zero rows. */
+const TABLE_VIEWPORT_HEIGHT = {
+  xs: "min(52vh, 360px)",
+  sm: 400,
+} as const;
+
+/** Approximate sticky thead height; subtract from viewport for empty-state body min-height. */
+const TABLE_STICKY_HEAD_OFFSET_PX = 52;
+
+const TABLE_EMPTY_STATE_MIN_HEIGHT = {
+  xs: `calc(${TABLE_VIEWPORT_HEIGHT.xs} - ${TABLE_STICKY_HEAD_OFFSET_PX}px)`,
+  sm: `calc(${TABLE_VIEWPORT_HEIGHT.sm}px - ${TABLE_STICKY_HEAD_OFFSET_PX}px)`,
+} as const;
+
+const ITEM_TABLE_COLUMN_COUNT = 4;
+
+const cellFont = {
+  fontSize: { xs: "0.8125rem", sm: "0.875rem" },
+  lineHeight: 1.45,
+} as const;
+
+const headCellSx = {
+  py: 0.7,
+  px: { xs: 1, sm: 1.25 },
+  fontSize: "0.75rem",
+  fontWeight: 700,
+  letterSpacing: "0.055em",
+  textTransform: "uppercase" as const,
+  color: "text.secondary",
+  bgcolor: "background.paper",
+  borderBottom: 1,
+  borderColor: "divider",
+  whiteSpace: "nowrap" as const,
+  verticalAlign: "bottom" as const,
+  lineHeight: 1.3,
+};
+
+const bodyCellSx = {
+  py: 0.5,
+  px: { xs: 1, sm: 1.25 },
+  borderBottom: 1,
+  borderColor: "divider",
+  verticalAlign: "top" as const,
+};
+
+const sortLabelSx = {
+  fontWeight: "inherit",
+  fontSize: "inherit",
+  letterSpacing: "inherit",
+  textTransform: "inherit",
+  color: "inherit",
+  "& .MuiTableSortLabel-icon": { opacity: 0.45, fontSize: "1.05rem" },
+  "&.Mui-active": { color: "primary.main" },
+  "&.Mui-active .MuiTableSortLabel-icon": { opacity: 1, color: "primary.main" },
+};
+
+function zebraRowBg(theme: Theme): string {
+  return theme.palette.mode === "dark"
+    ? alpha(theme.palette.common.white, 0.035)
+    : alpha(theme.palette.common.black, 0.028);
+}
 
 function buildItemNormalizedHaystack(item: Item): string {
   return normalizeForSearch(
@@ -109,14 +176,22 @@ function CellDash({ children, query }: { children: string; query: string }) {
       <Typography
         variant="body2"
         component="span"
-        sx={{ color: "text.disabled", fontStyle: "italic" }}
+        sx={{
+          ...cellFont,
+          color: "text.disabled",
+          fontStyle: "italic",
+        }}
       >
         —
       </Typography>
     );
   }
   return (
-    <Typography variant="body2" component="span" color="text.secondary">
+    <Typography
+      variant="body2"
+      component="span"
+      sx={{ ...cellFont, color: "text.secondary" }}
+    >
       <MatchHighlight text={children} query={query} />
     </Typography>
   );
@@ -131,32 +206,61 @@ const ItemCatalogRow = memo(function ItemCatalogRow({
 }) {
   const favText = item.favoriteCategories.join(" · ");
   return (
-    <TableRow hover>
+    <TableRow
+      sx={{
+        "&:nth-of-type(even)": (theme) => ({
+          bgcolor: zebraRowBg(theme),
+        }),
+      }}
+    >
       <TableCell
         sx={{
-          fontWeight: 600,
-          verticalAlign: "top",
-          borderRight: 1,
-          borderColor: "divider",
+          ...bodyCellSx,
+          maxWidth: { xs: 160, sm: 240 },
         }}
       >
-        <Typography variant="body2" component="span">
+        <Typography
+          variant="body2"
+          component="span"
+          sx={{
+            ...cellFont,
+            color: "text.primary",
+            fontWeight: 600,
+            display: "block",
+            wordBreak: "break-word",
+          }}
+        >
           <MatchHighlight text={item.name} query={highlightQuery} />
         </Typography>
       </TableCell>
-      <TableCell sx={{ verticalAlign: "top" }}>
+      <TableCell
+        sx={{
+          ...bodyCellSx,
+          whiteSpace: { xs: "normal", sm: "nowrap" },
+          maxWidth: { sm: 140 },
+        }}
+      >
         <CellDash query={highlightQuery}>{item.category}</CellDash>
       </TableCell>
-      <TableCell sx={{ verticalAlign: "top" }}>
+      <TableCell
+        sx={{
+          ...bodyCellSx,
+          whiteSpace: { xs: "normal", sm: "nowrap" },
+          maxWidth: { sm: 120 },
+        }}
+      >
         <CellDash query={highlightQuery}>{item.tag}</CellDash>
       </TableCell>
-      <TableCell sx={{ verticalAlign: "top", py: 1.25 }}>
+      <TableCell sx={{ ...bodyCellSx, minWidth: { xs: 140, sm: 180 } }}>
         {item.favoriteCategories.length === 0 ? (
           <Typography
             variant="body2"
-            color="text.disabled"
-            fontStyle="italic"
             component="span"
+            sx={{
+              ...cellFont,
+              color: "text.disabled",
+              fontStyle: "italic",
+            }}
           >
             —
           </Typography>
@@ -164,7 +268,12 @@ const ItemCatalogRow = memo(function ItemCatalogRow({
           <Typography
             variant="body2"
             component="p"
-            sx={{ m: 0, lineHeight: 1.6 }}
+            sx={{
+              ...cellFont,
+              m: 0,
+              color: "text.secondary",
+              wordBreak: "break-word",
+            }}
           >
             <MatchHighlight text={favText} query={highlightQuery} />
           </Typography>
@@ -371,87 +480,163 @@ export function ItemsCatalogSection({ items }: ItemsCatalogSectionProps) {
       </Stack>
 
       <TableContainer
-        component="div"
         sx={{
-          maxHeight: { xs: 360, sm: 520 },
+          minHeight: TABLE_VIEWPORT_HEIGHT,
+          maxHeight: TABLE_VIEWPORT_HEIGHT,
           overflow: "auto",
+          WebkitOverflowScrolling: "touch",
+          border: 1,
+          borderColor: "divider",
+          borderRadius: 1.5,
+          bgcolor: "background.paper",
         }}
       >
-        <Table size="small" stickyHeader>
+        <Table
+          size="small"
+          stickyHeader
+          sx={{
+            minWidth: TABLE_MIN_WIDTH_PX,
+            tableLayout: "fixed",
+          }}
+        >
           <TableHead>
             <TableRow>
               <TableCell
                 sortDirection={orderBy === "name" ? order : false}
-                sx={{ minWidth: 120 }}
+                sx={{
+                  ...headCellSx,
+                  minWidth: 108,
+                  width: "22%",
+                }}
               >
                 <TableSortLabel
                   active={orderBy === "name"}
                   direction={orderBy === "name" ? order : "asc"}
                   onClick={() => handleSort("name")}
-                  sx={{ fontWeight: 800 }}
+                  sx={sortLabelSx}
                 >
                   Name
                 </TableSortLabel>
               </TableCell>
               <TableCell
                 sortDirection={orderBy === "category" ? order : false}
-                sx={{ minWidth: 88 }}
+                sx={{
+                  ...headCellSx,
+                  minWidth: 88,
+                  width: "18%",
+                }}
               >
                 <TableSortLabel
                   active={orderBy === "category"}
                   direction={orderBy === "category" ? order : "asc"}
                   onClick={() => handleSort("category")}
-                  sx={{ fontWeight: 800 }}
+                  sx={sortLabelSx}
                 >
                   Category
                 </TableSortLabel>
               </TableCell>
               <TableCell
                 sortDirection={orderBy === "tag" ? order : false}
-                sx={{ minWidth: 72 }}
+                sx={{
+                  ...headCellSx,
+                  minWidth: 72,
+                  width: "14%",
+                }}
               >
                 <TableSortLabel
                   active={orderBy === "tag"}
                   direction={orderBy === "tag" ? order : "asc"}
                   onClick={() => handleSort("tag")}
-                  sx={{ fontWeight: 800 }}
+                  sx={sortLabelSx}
                 >
                   Tag
                 </TableSortLabel>
               </TableCell>
               <TableCell
                 sortDirection={orderBy === "favorites" ? order : false}
+                sx={{
+                  ...headCellSx,
+                  minWidth: 160,
+                  width: "46%",
+                  whiteSpace: { xs: "normal", sm: "nowrap" },
+                }}
               >
                 <TableSortLabel
                   active={orderBy === "favorites"}
                   direction={orderBy === "favorites" ? order : "asc"}
                   onClick={() => handleSort("favorites")}
-                  sx={{ fontWeight: 800 }}
+                  sx={sortLabelSx}
                 >
-                  Favorite categories
+                  <Box
+                    component="span"
+                    sx={{ display: { xs: "none", sm: "inline" } }}
+                  >
+                    Favorite categories
+                  </Box>
+                  <Box
+                    component="span"
+                    sx={{ display: { xs: "inline", sm: "none" } }}
+                  >
+                    Favorites
+                  </Box>
                 </TableSortLabel>
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {visibleRows.map((item) => (
-              <ItemCatalogRow
-                key={item.id}
-                item={item}
-                highlightQuery={deferredSearchQuery}
-              />
-            ))}
+            {shown === 0 ? (
+              <TableRow>
+                <TableCell
+                  colSpan={ITEM_TABLE_COLUMN_COUNT}
+                  sx={{
+                    ...bodyCellSx,
+                    p: 0,
+                    borderBottom: 0,
+                    verticalAlign: "middle",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      minHeight: TABLE_EMPTY_STATE_MIN_HEIGHT,
+                      gap: 1.5,
+                      px: 2,
+                      py: 2,
+                    }}
+                  >
+                    <SearchOffOutlinedIcon
+                      sx={{
+                        fontSize: 40,
+                        color: "text.disabled",
+                      }}
+                      aria-hidden
+                    />
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      textAlign="center"
+                      sx={{ maxWidth: 320 }}
+                    >
+                      No items match the current search and filters.
+                    </Typography>
+                  </Box>
+                </TableCell>
+              </TableRow>
+            ) : (
+              visibleRows.map((item) => (
+                <ItemCatalogRow
+                  key={item.id}
+                  item={item}
+                  highlightQuery={deferredSearchQuery}
+                />
+              ))
+            )}
           </TableBody>
         </Table>
       </TableContainer>
-
-      {shown === 0 ? (
-        <Box sx={{ py: 2 }}>
-          <Typography variant="body2" color="text.secondary">
-            No items match the current search and filters.
-          </Typography>
-        </Box>
-      ) : null}
     </>
   );
 }
