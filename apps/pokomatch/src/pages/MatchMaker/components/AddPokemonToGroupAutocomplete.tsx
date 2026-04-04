@@ -303,70 +303,98 @@ export const AddPokemonToGroupAutocomplete = memo(
               size={40}
               padding={0.5}
             />
-            <Stack spacing={0.5} flex={1} minWidth={0} alignItems="flex-start">
-              <Typography
-                variant="body2"
-                lineHeight={1.25}
-                noWrap
-                title={titleText}
-                sx={{ width: "100%" }}
-              >
-                <Box
-                  component="span"
-                  sx={{ color: "text.secondary", fontWeight: 600 }}
-                >
-                  <MatchHighlight text={dexLabel} query={inputValue} />
-                </Box>
-                <Box component="span" sx={{ fontWeight: 800 }}>
-                  {" "}
-                  <MatchHighlight text={displayName} query={inputValue} />
-                </Box>
-              </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "stretch",
+                gap: 0.5,
+                flex: 1,
+                minWidth: 0,
+              }}
+            >
               <Stack
-                direction="row"
-                flexWrap="wrap"
-                useFlexGap
-                gap={0.5}
-                alignItems="center"
+                spacing={0.5}
+                flex={1}
+                minWidth={0}
+                alignItems="flex-start"
               >
-                <Chip
-                  icon={
-                    <HabitatIcon sx={{ fontSize: "14px !important" }} />
-                  }
-                  label={
-                    <MatchHighlight
-                      text={option.idealHabitat}
-                      query={inputValue}
-                    />
-                  }
-                  size="small"
-                  variant="outlined"
+                <Typography
+                  variant="body2"
+                  lineHeight={1.25}
+                  noWrap
+                  title={titleText}
+                  sx={{ width: "100%" }}
+                >
+                  <Box
+                    component="span"
+                    sx={{ color: "text.secondary", fontWeight: 600 }}
+                  >
+                    <MatchHighlight text={dexLabel} query={inputValue} />
+                  </Box>
+                  <Box component="span" sx={{ fontWeight: 800 }}>
+                    {" "}
+                    <MatchHighlight text={displayName} query={inputValue} />
+                  </Box>
+                </Typography>
+                <Box
                   sx={{
-                    height: 20,
-                    fontSize: 9,
-                    fontWeight: 700,
-                    letterSpacing: "0.02em",
-                    bgcolor: alpha(
-                      hc.bg,
-                      theme.palette.mode === "dark" ? 0.35 : 0.65,
-                    ),
-                    color: hc.text,
-                    borderColor: alpha(hc.border, 0.65),
-                    "& .MuiChip-icon": {
-                      color: hc.text,
-                      ml: 0.35,
-                    },
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 0.5,
+                    alignItems: "center",
+                    alignContent: "flex-start",
+                    width: "100%",
                   }}
-                />
-                {option.specialties.map((specialty) => (
-                  <SpecialtyChip
-                    key={specialty}
-                    label={
-                      <MatchHighlight text={specialty} query={inputValue} />
+                >
+                  <Chip
+                    icon={
+                      <HabitatIcon sx={{ fontSize: "14px !important" }} />
                     }
+                    label={
+                      <MatchHighlight
+                        text={option.idealHabitat}
+                        query={inputValue}
+                      />
+                    }
+                    size="small"
+                    variant="outlined"
+                    sx={{
+                      height: 20,
+                      fontSize: 9,
+                      fontWeight: 700,
+                      letterSpacing: "0.02em",
+                      bgcolor: alpha(
+                        hc.bg,
+                        theme.palette.mode === "dark" ? 0.35 : 0.65,
+                      ),
+                      color: hc.text,
+                      borderColor: alpha(hc.border, 0.65),
+                      "& .MuiChip-icon": {
+                        color: hc.text,
+                        ml: 0.35,
+                      },
+                    }}
                   />
-                ))}
-                {showScoreChip ? (
+                  {option.specialties.map((specialty) => (
+                    <SpecialtyChip
+                      key={specialty}
+                      label={
+                        <MatchHighlight text={specialty} query={inputValue} />
+                      }
+                    />
+                  ))}
+                </Box>
+              </Stack>
+              {showScoreChip ? (
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-end",
+                    flexShrink: 0,
+                  }}
+                >
                   <Chip
                     label={`+${add!.score} Score`}
                     size="small"
@@ -378,9 +406,9 @@ export const AddPokemonToGroupAutocomplete = memo(
                       color: "text.secondary",
                     }}
                   />
-                ) : null}
-              </Stack>
-            </Stack>
+                </Box>
+              ) : null}
+            </Box>
           </Box>
         );
       },
