@@ -27,7 +27,9 @@ export default function MatcherPage() {
   const unlockedIds = useStore((s) => s.unlockedIds);
   const customGroups = useStore((s) => s.customGroups);
   const addCustomGroup = useStore((s) => s.addCustomGroup);
-  const addSuggestedGroupToCustomGroups = useStore((s) => s.addSuggestedGroupToCustomGroups);
+  const addSuggestedGroupToCustomGroups = useStore(
+    (s) => s.addSuggestedGroupToCustomGroups,
+  );
   const deleteCustomGroup = useStore((s) => s.deleteCustomGroup);
   const addPokemonToCustomGroup = useStore((s) => s.addPokemonToCustomGroup);
   const removePokemonFromCustomGroup = useStore(
@@ -218,7 +220,7 @@ export default function MatcherPage() {
             mb: 1,
           }}
         >
-          Pokopia Match-Maker
+          Pokopia Habitat Planner & Match‑Maker
         </Typography>
         <Paper
           variant="outlined"
@@ -231,13 +233,12 @@ export default function MatcherPage() {
         >
           <Stack spacing={1.5}>
             <Typography variant="subtitle1" fontWeight={700} component="p">
-              Roommates who actually click - in Pokopia
+              Plan Pokopia habitats with roommates who actually click
             </Typography>
             <Typography variant="body2" color="text.secondary" component="p">
-              Building a thriving world in Pokopia means finding the right
-              roommates. With a growing Pokédex and specific habitat needs,
-              spotting the perfect fit for a full house of four can be a
-              challenge.
+              Habitat planning in Pokopia means finding the right roommates.
+              With a growing Pokédex and specific habitat needs, spotting the
+              perfect fit for a full house of four can be a challenge.
             </Typography>
             <Typography variant="body2" color="text.secondary" component="p">
               PokoMatch is your shortcut: we find the Pokémon that love living
