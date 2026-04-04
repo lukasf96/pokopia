@@ -121,7 +121,10 @@ export const SuggestedNextPokemonControls = memo(
                     >
                       {dexLabel}
                     </Box>
-                    <Box component="span" sx={{ fontWeight: 800 }}>
+                    <Box
+                      component="span"
+                      sx={{ color: "text.primary", fontWeight: 800 }}
+                    >
                       {" "}
                       {displayName}
                     </Box>
