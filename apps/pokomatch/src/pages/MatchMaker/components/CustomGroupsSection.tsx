@@ -1,14 +1,19 @@
 import AddIcon from "@mui/icons-material/Add";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import GroupAddOutlinedIcon from "@mui/icons-material/GroupAddOutlined";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Box,
   Button,
   Chip,
+  Divider,
   Stack,
   Typography,
+  useTheme,
 } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import { memo, useCallback } from "react";
 import type { SuggestedPokemon } from "../../../services/matching.service";
 import type { PokemonNameLanguage } from "../../../services/pokemon-localization";
@@ -40,6 +45,8 @@ const CustomGroupRow = memo(function CustomGroupRow({
   onAddPokemon,
   onRemovePokemon,
 }: CustomGroupRowProps) {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
   const groupNumber = groupIndex + 1;
 
   const handleRemovePokemon = useCallback(
@@ -64,25 +71,76 @@ const CustomGroupRow = memo(function CustomGroupRow({
         onRemovePokemon={handleRemovePokemon}
         footerContent={
           group.length < 4 ? (
-            <Stack spacing={1}>
-              <Typography variant="caption" color="text.secondary">
-                Add Pokémon to Group {groupNumber}
-              </Typography>
+            <Stack spacing={2}>
+              <Stack
+                direction="row"
+                spacing={1.5}
+                alignItems="stretch"
+                useFlexGap
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                  aria-hidden
+                >
+                  <Box
+                    sx={{
+                      width: 44,
+                      height: 44,
+                      borderRadius: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      bgcolor: isDark
+                        ? alpha(theme.palette.common.white, 0.08)
+                        : alpha(theme.palette.primary.main, 0.14),
+                      color: isDark
+                        ? "text.secondary"
+                        : "primary.main",
+                    }}
+                  >
+                    <GroupAddOutlinedIcon sx={{ fontSize: 26 }} />
+                  </Box>
+                </Box>
+                <Stack spacing={1.25} flex={1} minWidth={0}>
+                  <Typography
+                    variant="subtitle2"
+                    fontWeight={800}
+                    sx={{ letterSpacing: "0.01em" }}
+                  >
+                    Add Pokémon · Group {groupNumber}
+                  </Typography>
 
-              <AddPokemonToGroupAutocomplete
-                group={group}
-                availablePokemon={availablePokemon}
-                nameLanguage={nameLanguage}
-                onSelect={handleSelect}
-              />
+                  <AddPokemonToGroupAutocomplete
+                    embedded
+                    group={group}
+                    availablePokemon={availablePokemon}
+                    nameLanguage={nameLanguage}
+                    onSelect={handleSelect}
+                  />
+                </Stack>
+              </Stack>
 
-              {group.length > 0 && suggestions.length > 0 && (
-                <SuggestedNextPokemonControls
-                  suggestions={suggestions}
-                  nameLanguage={nameLanguage}
-                  onPick={handleSelect}
-                />
-              )}
+              {group.length > 0 && suggestions.length > 0 ? (
+                <>
+                  <Divider
+                    flexItem
+                    sx={{
+                      borderStyle: "dashed",
+                      borderColor: alpha(theme.palette.divider, 0.3),
+                    }}
+                  />
+                  <SuggestedNextPokemonControls
+                    suggestions={suggestions}
+                    nameLanguage={nameLanguage}
+                    onPick={handleSelect}
+                  />
+                </>
+              ) : null}
             </Stack>
           ) : null
         }

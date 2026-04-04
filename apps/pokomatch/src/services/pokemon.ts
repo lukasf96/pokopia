@@ -26,6 +26,25 @@ export function isEventDexPokemon(pokemon: Pokemon): boolean {
   return pokemon.dexKind === "event";
 }
 
+/** Lower national-style dex first; other dex strings use numeric-aware locale order; ties use `id`. */
+export function comparePokemonByDex(a: Pokemon, b: Pokemon): number {
+  const da = a.dexNumber.trim();
+  const db = b.dexNumber.trim();
+  const aNum = /^\d+$/.test(da);
+  const bNum = /^\d+$/.test(db);
+  if (aNum && bNum) {
+    const diff = Number.parseInt(da, 10) - Number.parseInt(db, 10);
+    if (diff !== 0) return diff;
+  } else {
+    const c = da.localeCompare(db, undefined, {
+      numeric: true,
+      sensitivity: "base",
+    });
+    if (c !== 0) return c;
+  }
+  return a.id.localeCompare(b.id);
+}
+
 const habitableStandardPokemon = standardPokemon.filter(isPokemonHabitable);
 const habitableEventPokemon = eventPokemon.filter(isPokemonHabitable);
 export const habitablePokemon = [

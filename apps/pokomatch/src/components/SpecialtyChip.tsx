@@ -1,11 +1,11 @@
 import StarsIcon from "@mui/icons-material/Stars";
 import { Chip, useTheme, type SxProps, type Theme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
-import { memo } from "react";
+import { memo, type ReactNode } from "react";
 import type { HabitatColorSet } from "../services/habitatColors";
 
 interface SpecialtyChipBaseProps {
-  label: string;
+  label: ReactNode;
   /** `compact`: smaller type used in the group card header row. */
   density?: "default" | "compact";
   sx?: SxProps<Theme>;
