@@ -1,9 +1,11 @@
 import { Box, Container, Grid, Paper, Stack, Typography } from "@mui/material";
 import { useMemo } from "react";
+import { allItems } from "../../services/items";
 import { allPokemon, isEventDexPokemon } from "../../services/pokemon";
 import type { Habitat, Pokemon } from "../../types/types";
 import { DistributionSection } from "./components/DistributionSection";
 import { IdealHabitats } from "./components/IdealHabitats";
+import { ItemsCatalogSection } from "./components/ItemsCatalogSection";
 
 function getDexSortValue(dexNumber: string): number {
   const matchedNumber = dexNumber.match(/\d+/);
@@ -154,26 +156,29 @@ export default function InsightsPage() {
           Pokopia Insights
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          A quick look at the dataset behind Pokomatch: habitats, favorites and
-          more.
+          A quick look at the dataset behind Pokomatch: habitats, favorites,
+          items, and more.
         </Typography>
 
         <Grid container spacing={3} sx={{ mt: 2 }}>
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <StatCard
               label="Total Pokémon"
               value={`${allPokemon.length}`}
               subvalue={`Standard: ${dexKindCounts.standardCount} • Event: ${dexKindCounts.eventCount}`}
             />
           </Grid>
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+            <StatCard label="Total items" value={`${allItems.length}`} />
+          </Grid>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <StatCard
               label="Unique favorites"
               value={`${uniqueFavoritesCount}`}
               subvalue="Favorites including flavors"
             />
           </Grid>
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <StatCard
               label="Unique Specialties"
               value={`${uniqueSpecialtiesCount}`}
@@ -205,6 +210,12 @@ export default function InsightsPage() {
             items={flavors}
             totalPokemon={allPokemon.length}
           />
+        </Grid>
+
+        <Grid size={{ xs: 12 }}>
+          <Paper variant="outlined" sx={{ p: 2, borderRadius: 2 }}>
+            <ItemsCatalogSection items={allItems} />
+          </Paper>
         </Grid>
       </Grid>
     </Container>

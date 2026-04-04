@@ -19,6 +19,11 @@ import {
   type HTMLAttributes,
   type Key,
 } from "react";
+import { MatchHighlight } from "../../../utils/MatchHighlight";
+import {
+  normalizeForSearch,
+  normalizedHaystackMatchesQuery,
+} from "../../../utils/search-text";
 import { PokemonSpriteAvatar } from "../../../components/PokemonSpriteAvatar";
 import { SpecialtyChip } from "../../../components/SpecialtyChip";
 import {
@@ -33,10 +38,6 @@ import {
 } from "../../../services/pokemon-localization";
 import type { Pokemon } from "../../../types/types";
 import { formatDexSegment } from "../group-helpers";
-
-function normalizeForSearch(value: string): string {
-  return value.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
-}
 
 /** All substrings we match against (accent-insensitive, lowercased). */
 function buildPokemonSearchHaystack(pokemon: Pokemon): string {
@@ -62,129 +63,6 @@ function buildPokemonSearchHaystack(pokemon: Pokemon): string {
   ];
 
   return normalizeForSearch(pieces.join(" "));
-}
-
-function pokemonMatchesInput(haystack: string, inputValue: string): boolean {
-  const normalizedQuery = normalizeForSearch(inputValue.trim());
-  if (!normalizedQuery) return true;
-  const tokens = normalizedQuery.split(/\s+/).filter(Boolean);
-  return tokens.every((token) => haystack.includes(token));
-}
-
-function escapeRegExp(value: string): string {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function mergeIntervals(intervals: [number, number][]): [number, number][] {
-  if (intervals.length === 0) return [];
-  const sorted = [...intervals].sort((a, b) => a[0] - b[0]);
-  const out: [number, number][] = [];
-  let [curStart, curEnd] = sorted[0];
-  for (let i = 1; i < sorted.length; i++) {
-    const [s, e] = sorted[i];
-    if (s <= curEnd) curEnd = Math.max(curEnd, e);
-    else {
-      out.push([curStart, curEnd]);
-      curStart = s;
-      curEnd = e;
-    }
-  }
-  out.push([curStart, curEnd]);
-  return out;
-}
-
-function searchTokensFromInput(inputValue: string): string[] {
-  return inputValue
-    .trim()
-    .split(/\s+/)
-    .filter((t) => t.length > 0);
-}
-
-function matchRangesInPlainText(
-  text: string,
-  tokens: string[],
-): [number, number][] {
-  const ranges: [number, number][] = [];
-  for (const token of tokens) {
-    let re: RegExp;
-    try {
-      re = new RegExp(escapeRegExp(token), "gi");
-    } catch {
-      continue;
-    }
-    for (const m of text.matchAll(re)) {
-      if (m.index !== undefined) ranges.push([m.index, m.index + m[0].length]);
-    }
-  }
-  return mergeIntervals(ranges);
-}
-
-interface TextSegment {
-  highlight: boolean;
-  text: string;
-}
-
-function segmentsFromMatchRanges(
-  text: string,
-  ranges: [number, number][],
-): TextSegment[] {
-  if (!text) return [];
-  if (ranges.length === 0) return [{ highlight: false, text }];
-  const segments: TextSegment[] = [];
-  let cursor = 0;
-  for (const [start, end] of ranges) {
-    if (start > cursor) {
-      segments.push({ highlight: false, text: text.slice(cursor, start) });
-    }
-    if (end > start) {
-      segments.push({ highlight: true, text: text.slice(start, end) });
-    }
-    cursor = Math.max(cursor, end);
-  }
-  if (cursor < text.length) {
-    segments.push({ highlight: false, text: text.slice(cursor) });
-  }
-  return segments;
-}
-
-function MatchHighlight({ text, query }: { text: string; query: string }) {
-  const theme = useTheme();
-  const segments = useMemo(() => {
-    const tokens = searchTokensFromInput(query);
-    const ranges = matchRangesInPlainText(text, tokens);
-    return segmentsFromMatchRanges(text, ranges);
-  }, [text, query]);
-
-  return (
-    <>
-      {segments.map((seg, i) =>
-        seg.highlight ? (
-          <Box
-            key={i}
-            component="mark"
-            sx={{
-              background: `linear-gradient(
-                110deg,
-                ${alpha(theme.palette.primary.main, theme.palette.mode === "dark" ? 0.42 : 0.2)} 0%,
-                ${alpha(theme.palette.secondary.main, theme.palette.mode === "dark" ? 0.35 : 0.16)} 100%
-              )`,
-              color: "inherit",
-              borderRadius: "4px",
-              px: 0.125,
-              fontWeight: 800,
-              boxDecorationBreak: "clone",
-              WebkitBoxDecorationBreak: "clone",
-              boxShadow: `0 0 0 1px ${alpha(theme.palette.primary.main, 0.25)}`,
-            }}
-          >
-            {seg.text}
-          </Box>
-        ) : (
-          <span key={i}>{seg.text}</span>
-        ),
-      )}
-    </>
-  );
 }
 
 interface AddPokemonToGroupAutocompleteProps {
@@ -243,7 +121,10 @@ export const AddPokemonToGroupAutocomplete = memo(
         const trimmed = state.inputValue.trim();
         if (!trimmed) return opts;
         return opts.filter((p) =>
-          pokemonMatchesInput(searchHaystackById.get(p.id) ?? "", trimmed),
+          normalizedHaystackMatchesQuery(
+            searchHaystackById.get(p.id) ?? "",
+            trimmed,
+          ),
         );
       },
       [searchHaystackById],

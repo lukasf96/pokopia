@@ -14,12 +14,14 @@ import {
   Typography,
 } from "@mui/material";
 import { memo } from "react";
-import type { Pokemon } from "../../../types/types";
+import type { Pokemon, SuggestedItem } from "../../../types/types";
 import { getDisplayHabitat, groupStableKey } from "../group-helpers";
 import GroupCard from "./GroupCard";
+import { SuggestedItemsPanel } from "./SuggestedItemsPanel";
 
 interface AutoGroupsSectionProps {
   groups: Pokemon[][];
+  itemSuggestions: SuggestedItem[][];
   preferEvolutionLines: boolean;
   onPreferEvolutionLinesChange: (value: boolean) => void;
   onQuickAddGroup: (group: Pokemon[]) => void;
@@ -27,6 +29,7 @@ interface AutoGroupsSectionProps {
 
 function AutoGroupsSectionComponent({
   groups,
+  itemSuggestions,
   preferEvolutionLines,
   onPreferEvolutionLinesChange,
   onQuickAddGroup,
@@ -105,12 +108,20 @@ function AutoGroupsSectionComponent({
       </AccordionSummary>
       <AccordionDetails sx={{ p: 2 }}>
         <Stack spacing={2}>
-          {groups.map((group, index) => (
+          {groups.map((group, index) => {
+            const suggestions = itemSuggestions[index] ?? [];
+            const groupFavorites = new Set(group.flatMap((p) => p.favorites));
+            return (
             <Stack key={groupStableKey(group)} spacing={1}>
               <GroupCard
                 group={group}
                 groupNumber={index + 1}
                 habitat={getDisplayHabitat(group)}
+                footerContent={
+                  suggestions.length > 0 ? (
+                    <SuggestedItemsPanel suggestions={suggestions} groupFavorites={groupFavorites} groupSize={group.length} />
+                  ) : undefined
+                }
                 groupAction={{
                   ariaLabel: `Quick add suggested group ${index + 1}`,
                   onClick: () => onQuickAddGroup(group),
@@ -118,7 +129,8 @@ function AutoGroupsSectionComponent({
                 }}
               />
             </Stack>
-          ))}
+            );
+          })}
           {groups.length === 0 && (
             <Typography variant="body2" color="text.secondary">
               No suggested groups left from the remaining pool.
