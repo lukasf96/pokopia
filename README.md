@@ -1,4 +1,4 @@
-# Pokopia — Pokomatch
+# PokoMatch - Pokopia Habitat Planner
 
 **[pokomatch.com](https://pokomatch.com)** — Web companion for planning Pokémon habitats in _Pokémon Pokopia_: it groups Pokémon that can live together without clashing habitats, while pushing shared favorites so cohabiting groups are as aligned as possible.
 
