@@ -240,7 +240,6 @@ async function collectSerebiiDex(
   robotsGroup: RobotsGroup | null,
   serebiiGapMs: number,
   idPrefix: string,
-  limit: number | undefined,
 ): Promise<PokemonEntry[]> {
   console.error(`Reading ${label} list: ${listUrl}`);
   await sleep(serebiiGapMs);
@@ -248,17 +247,16 @@ async function collectSerebiiDex(
   const listRows = parseSerebiiList(listHtml);
   console.error(`Found ${String(listRows.length)} Pokémon (${label}).`);
 
-  const toCollect = limit ? listRows.slice(0, limit) : listRows;
   const details: DetailRow[] = [];
 
-  for (let i = 0; i < toCollect.length; i++) {
-    const row = toCollect[i]!;
+  for (let i = 0; i < listRows.length; i++) {
+    const row = listRows[i]!;
     const url = absolutizeSerebiiHrefFromSite(row.detailPath);
     const urlObj = new URL(url);
 
     writeTerminalProgressLine(
       process.stderr,
-      `[${label} ${String(i + 1)}/${String(toCollect.length)}] ${row.name}…`,
+      `[${label} ${String(i + 1)}/${String(listRows.length)}] ${row.name}…`,
     );
     await sleep(serebiiGapMs);
 
@@ -526,7 +524,6 @@ async function main(): Promise<void> {
     robotsGroup,
     serebiiGapMs,
     "",
-    undefined,
   );
   const event = await collectSerebiiDex(
     SEREBII_URLS.eventPokedex,
@@ -534,7 +531,6 @@ async function main(): Promise<void> {
     robotsGroup,
     serebiiGapMs,
     "e",
-    undefined,
   );
 
   let standardEnriched = standard;
