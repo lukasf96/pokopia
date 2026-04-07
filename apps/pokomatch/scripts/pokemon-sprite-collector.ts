@@ -6,7 +6,7 @@ import process from "node:process";
 import sharp from "sharp";
 import {
   APP_ROOT,
-  fetchPokemonResourceIdByApiName,
+  fetchPokemonSpriteRepoStemByApiName,
   toPokemonApiName,
   writeTerminalProgressLine,
 } from "./script-utils";
@@ -73,11 +73,11 @@ async function ensureSpritesRepo(): Promise<void> {
   console.error("Sprites repository ready.");
 }
 
-async function resolveSourceSpritePath(pokemonResourceId: number): Promise<{
+async function resolveSourceSpritePath(spriteRepoStem: string): Promise<{
   fullPath: string;
   variantDir: string;
 }> {
-  const fileName = `${String(pokemonResourceId)}.png`;
+  const fileName = `${spriteRepoStem}.png`;
   for (const dir of sourceSpriteVariantDirs) {
     const fullPath = path.join(dir, fileName);
     const exists = await stat(fullPath)
@@ -164,9 +164,9 @@ async function main(): Promise<void> {
   const allPokemon = [...pokedexJson.standard, ...pokedexJson.event];
   console.error(`Entries to process: ${String(allPokemon.length)}.`);
 
-  const cachedResourceIdByApiName = new Map<string, number>();
+  const cachedSpriteStemByApiName = new Map<string, string>();
 
-  console.error("Resolving PokéAPI Pokémon ids…");
+  console.error("Resolving PokéAPI sprite stems…");
   for (let i = 0; i < allPokemon.length; i++) {
     const pokemon = allPokemon[i]!;
     writeTerminalProgressLine(
@@ -174,12 +174,12 @@ async function main(): Promise<void> {
       `[pokeapi ${String(i + 1)}/${String(allPokemon.length)}] ${pokemon.name}…`,
     );
     const pokemonApiName = toPokemonApiName(pokemon.name);
-    if (!cachedResourceIdByApiName.has(pokemonApiName)) {
-      const resourceId = await fetchPokemonResourceIdByApiName(pokemonApiName);
-      if (resourceId === null) {
-        throw new Error(`No PokéAPI id found for "${pokemon.name}" (${pokemonApiName}).`);
+    if (!cachedSpriteStemByApiName.has(pokemonApiName)) {
+      const stem = await fetchPokemonSpriteRepoStemByApiName(pokemonApiName);
+      if (stem === null) {
+        throw new Error(`No PokéAPI sprite stem found for "${pokemon.name}" (${pokemonApiName}).`);
       }
-      cachedResourceIdByApiName.set(pokemonApiName, resourceId);
+      cachedSpriteStemByApiName.set(pokemonApiName, stem);
     }
   }
   process.stderr.write("\n");
@@ -194,12 +194,12 @@ async function main(): Promise<void> {
       `[webp ${String(i + 1)}/${String(allPokemon.length)}] ${pokemon.name}…`,
     );
     const pokemonApiName = toPokemonApiName(pokemon.name);
-    const pokemonResourceId = cachedResourceIdByApiName.get(pokemonApiName);
-    if (pokemonResourceId === undefined) {
-      throw new Error(`Missing cached id for ${pokemonApiName}`);
+    const spriteRepoStem = cachedSpriteStemByApiName.get(pokemonApiName);
+    if (spriteRepoStem === undefined) {
+      throw new Error(`Missing cached sprite stem for ${pokemonApiName}`);
     }
     const { fullPath: sourcePath, variantDir } =
-      await resolveSourceSpritePath(pokemonResourceId);
+      await resolveSourceSpritePath(spriteRepoStem);
     const targetPath = path.join(
       outputSpritesDir,
       `${pokemon.id}${SPRITE_OUTPUT_EXT}`,

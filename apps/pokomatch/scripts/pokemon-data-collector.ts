@@ -15,6 +15,7 @@ import {
   isPathAllowedByRobots,
   parseOutPathCli,
   readNumberEnv,
+  resolvePokeApiPokemonByApiName,
   sleep,
   toPokemonApiName,
   type RobotsGroup,
@@ -332,10 +333,6 @@ async function enrichWithLocalizations(
   });
 }
 
-interface PokeApiPokemonData {
-  species?: { name?: string };
-}
-
 interface PokeApiPokemonSpeciesData {
   names?: Array<{ language?: { name?: string }; name?: string }>;
   evolution_chain?: { url?: string };
@@ -384,10 +381,10 @@ function createPokeApiContext(pokeApiGapMs: number): PokeApiContext {
     }
 
     await sleep(pokeApiGapMs);
-    const data = await fetchJson<PokeApiPokemonData>(
-      `${POKEAPI_BASE}/api/v2/pokemon/${apiName}`,
-    );
-    const speciesName = data?.species?.name ?? null;
+    const resolved = await resolvePokeApiPokemonByApiName(apiName, {
+      gapMsBetweenSequentialPokeApiCalls: pokeApiGapMs,
+    });
+    const speciesName = resolved?.speciesName ?? null;
     speciesNameByApiName.set(apiName, speciesName);
     return speciesName;
   }

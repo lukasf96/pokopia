@@ -31,8 +31,8 @@ const POKEMON_NAME_ALIAS_ENTRIES: readonly (readonly [string, string])[] = [
   ["paldean wooper", "wooper-paldea"],
   ["stereo rotom", "rotom"],
   ["mimikyu", "mimikyu-disguised"],
-  ["shellos east sea", "shellos"],
-  ["gastrodon east sea", "gastrodon"],
+  ["shellos east sea", "shellos-east"],
+  ["gastrodon east sea", "gastrodon-east"],
   ["tatsugiri curly form", "tatsugiri-curly"],
   ["tatsugiri droopy form", "tatsugiri-droopy"],
   ["tatsugiri stretchy form", "tatsugiri-stretchy"],
@@ -106,22 +106,96 @@ export async function fetchJson<T>(url: string): Promise<T | null> {
   return (await response.json()) as T;
 }
 
-/** PokeAPI `pokemon` resource id (matches sprite filenames in PokeAPI/sprites). */
+export interface PokeApiPokemonResolve {
+  /** National dex style id from the linked `pokemon` resource. */
+  id: number;
+  /**
+   * Base filename stem in PokeAPI/sprites (e.g. `422` or `422-east` for regional forms
+   * that only exist as `pokemon-form` slugs).
+   */
+  spriteRepoStem: string;
+  /** Absolute URL to the `pokemon` JSON (species chain, etc.). */
+  pokemonJsonUrl: string;
+  speciesName: string | null;
+}
+
+/**
+ * Resolves a name from {@link toPokemonApiName} to the underlying `pokemon` resource.
+ * Form-only slugs (e.g. `shellos-east`) are accepted via `/pokemon-form/{name}`.
+ */
+export async function resolvePokeApiPokemonByApiName(
+  pokemonApiName: string,
+  options?: { gapMsBetweenSequentialPokeApiCalls?: number },
+): Promise<PokeApiPokemonResolve | null> {
+  const seqGap = options?.gapMsBetweenSequentialPokeApiCalls ?? 0;
+
+  const pokemonUrl = `${POKEAPI_BASE}/api/v2/pokemon/${pokemonApiName}`;
+  const pokemonJson = await fetchJson<{
+    id?: unknown;
+    species?: { name?: string };
+  }>(pokemonUrl);
+  if (pokemonJson && typeof pokemonJson.id === "number") {
+    const id = pokemonJson.id;
+    return {
+      id,
+      spriteRepoStem: String(id),
+      pokemonJsonUrl: pokemonUrl,
+      speciesName: pokemonJson.species?.name ?? null,
+    };
+  }
+
+  interface PokeApiPokemonFormJson {
+    pokemon?: { url?: string };
+    sprites?: { front_default?: string | null };
+  }
+  if (seqGap > 0) await sleep(seqGap);
+  const formUrl = `${POKEAPI_BASE}/api/v2/pokemon-form/${pokemonApiName}`;
+  const formJson = await fetchJson<PokeApiPokemonFormJson>(formUrl);
+  const linkedPokemonUrl = formJson?.pokemon?.url;
+  if (!linkedPokemonUrl) return null;
+
+  if (seqGap > 0) await sleep(seqGap);
+  const linkedPokemon = await fetchJson<{
+    id?: unknown;
+    species?: { name?: string };
+  }>(linkedPokemonUrl);
+  if (!linkedPokemon || typeof linkedPokemon.id !== "number") return null;
+
+  const id = linkedPokemon.id;
+  let spriteRepoStem = String(id);
+  const front = formJson.sprites?.front_default;
+  if (typeof front === "string") {
+    const stemMatch = /\/(\d+(?:-[\w-]+)?)\.png(?:\?|$)/i.exec(front);
+    if (stemMatch) spriteRepoStem = stemMatch[1]!;
+  }
+
+  return {
+    id,
+    spriteRepoStem,
+    pokemonJsonUrl: linkedPokemonUrl,
+    speciesName: linkedPokemon.species?.name ?? null,
+  };
+}
+
+/** PokeAPI `pokemon` resource id (national dex number of the resolved species entry). */
 export async function fetchPokemonResourceIdByApiName(
   pokemonApiName: string,
 ): Promise<number | null> {
-  const response = await fetch(`${POKEAPI_BASE}/api/v2/pokemon/${pokemonApiName}`, {
-    headers: {
-      "User-Agent": USER_AGENT,
-      Accept: "application/json",
-    },
-  });
-  if (!response.ok) return null;
-  const data: unknown = await response.json();
-  if (typeof data !== "object" || data === null) return null;
-  const id = (data as { id?: unknown }).id;
-  return typeof id === "number" ? id : null;
+  const resolved = await resolvePokeApiPokemonByApiName(pokemonApiName);
+  return resolved?.id ?? null;
 }
+
+/**
+ * Sprite filename stem under PokeAPI/sprites (e.g. `422-east` for `shellos-east`;
+ * plain `422` when the api name is the default `pokemon` slug).
+ */
+export async function fetchPokemonSpriteRepoStemByApiName(
+  pokemonApiName: string,
+): Promise<string | null> {
+  const resolved = await resolvePokeApiPokemonByApiName(pokemonApiName);
+  return resolved?.spriteRepoStem ?? null;
+}
+
 
 export interface RobotsGroup {
   userAgents: string[];
