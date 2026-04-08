@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pokomatch.com/sitemap.xml
+User-agent: *
+Allow: /
+
+Sitemap: https://pokomatch.com/sitemap.xml
