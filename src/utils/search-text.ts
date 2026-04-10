@@ -16,7 +16,7 @@ export function normalizedHaystackMatchesQuery(
   return tokens.every((token) => normalizedHaystack.includes(token));
 }
 
-export function escapeRegExp(value: string): string {
+function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
@@ -64,7 +64,7 @@ function matchRangesInPlainText(
   return mergeIntervals(ranges);
 }
 
-export interface HighlightSegment {
+interface HighlightSegment {
   highlight: boolean;
   text: string;
 }

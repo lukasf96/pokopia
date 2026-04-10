@@ -4,7 +4,7 @@ import type { WriteStream } from "node:tty";
 
 export const APP_ROOT = process.cwd();
 
-export const SEREBII_BASE = "https://www.serebii.net";
+const SEREBII_BASE = "https://www.serebii.net";
 export const SEREBII_ROBOTS_URL = `${SEREBII_BASE}/robots.txt`;
 
 /** First-party Pokopia pages we fetch on Serebii (for robots.txt checks / URLs). */
@@ -17,9 +17,9 @@ export const SEREBII_URLS = {
 /**
  * We identify as a data collector and honor robots.txt for Serebii.
  */
-export const USER_AGENT = "Pokopia Data Collector/1.0";
+const USER_AGENT = "Pokopia Data Collector/1.0";
 
-export const DEFAULT_SEREBII_REQUEST_GAP_MS = 10;
+const DEFAULT_SEREBII_REQUEST_GAP_MS = 10;
 export const DEFAULT_POKEAPI_GAP_MS = 10;
 
 export const POKEAPI_BASE = "https://pokeapi.co";
@@ -42,7 +42,7 @@ const POKEMON_NAME_ALIAS_ENTRIES: readonly (readonly [string, string])[] = [
 
 const pokemonNameAliasMap = new Map<string, string>(POKEMON_NAME_ALIAS_ENTRIES);
 
-export function normalizePokemonName(name: string): string {
+function normalizePokemonName(name: string): string {
   return name
     .toLowerCase()
     .replaceAll(".", "")
@@ -106,7 +106,7 @@ export async function fetchJson<T>(url: string): Promise<T | null> {
   return (await response.json()) as T;
 }
 
-export interface PokeApiPokemonResolve {
+interface PokeApiPokemonResolve {
   /** National dex style id from the linked `pokemon` resource. */
   id: number;
   /**
@@ -177,14 +177,6 @@ export async function resolvePokeApiPokemonByApiName(
   };
 }
 
-/** PokeAPI `pokemon` resource id (national dex number of the resolved species entry). */
-export async function fetchPokemonResourceIdByApiName(
-  pokemonApiName: string,
-): Promise<number | null> {
-  const resolved = await resolvePokeApiPokemonByApiName(pokemonApiName);
-  return resolved?.id ?? null;
-}
-
 /**
  * Sprite filename stem under PokeAPI/sprites (e.g. `422-east` for `shellos-east`;
  * plain `422` when the api name is the default `pokemon` slug).
@@ -204,7 +196,7 @@ export interface RobotsGroup {
   crawlDelaySeconds?: number;
 }
 
-export function parseRobotsTxt(content: string): RobotsGroup[] {
+function parseRobotsTxt(content: string): RobotsGroup[] {
   const lines = content
     .split(/\r?\n/g)
     .map((l) => l.replace(/#.*$/, "").trim())
@@ -245,7 +237,7 @@ export function parseRobotsTxt(content: string): RobotsGroup[] {
   return groups.filter((g) => g.userAgents.length > 0);
 }
 
-export function pickRobotsGroup(
+function pickRobotsGroup(
   groups: RobotsGroup[],
   userAgent: string,
 ): RobotsGroup | null {

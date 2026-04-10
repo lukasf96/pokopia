@@ -456,7 +456,7 @@ export interface SuggestedPokemon {
 }
 
 /** Marginal favorite-overlap score if this Pokémon joins the group, and habitat legality. */
-export interface CandidateAddToGroupInfo {
+interface CandidateAddToGroupInfo {
   score: number;
   habitatCompatible: boolean;
 }
