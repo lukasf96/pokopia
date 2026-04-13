@@ -31,7 +31,12 @@ export default function HomePage() {
           >
             Pokopia Habitat Planner & Match‑Maker
           </Typography>
-          <Typography variant="body1" color="text.secondary" maxWidth="sm">
+          <Typography
+            variant="body1"
+            sx={{
+              color: "text.secondary",
+              maxWidth: "sm"
+            }}>
             Plan Pokopia habitats with roommates who actually click.
           </Typography>
           <Box sx={{ pt: 0.5 }}>
@@ -58,16 +63,24 @@ export default function HomePage() {
           }}
         >
           <Stack spacing={1.5}>
-            <Typography variant="subtitle1" fontWeight={700} component="h2">
+            <Typography
+              variant="subtitle1"
+              component="h2"
+              sx={{ fontWeight: 700 }}
+            >
               What PokoMatch offers
             </Typography>
-            <Typography variant="body2" color="text.secondary" component="p">
+            <Typography variant="body2" component="p" sx={{
+              color: "text.secondary"
+            }}>
               Habitat planning in Pokopia means finding the right roommates.
               With a growing Pokédex and specific habitat needs, spotting the
               perfect fit for a full house of four can be a challenge.
             </Typography>
 
-            <Typography variant="body2" color="text.secondary" component="p">
+            <Typography variant="body2" component="p" sx={{
+              color: "text.secondary"
+            }}>
               PokoMatch is your shortcut: we find the Pokémon that love living
               together so you can spend less time guessing and more time
               building.
@@ -91,16 +104,22 @@ export default function HomePage() {
                   borderColor: "divider",
                 }}
               >
-                <Stack direction="row" spacing={1} alignItems="center">
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  sx={{ alignItems: "center" }}
+                >
                   <AutoFixHighOutlinedIcon
                     fontSize="small"
                     sx={{ color: "primary.main", flexShrink: 0 }}
                   />
                   <Stack spacing={0.25}>
-                    <Typography variant="body2" fontWeight={700}>
+                    <Typography variant="body2" sx={{ fontWeight: 700 }}>
                       Automated matching
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant="caption" sx={{
+                      color: "text.secondary"
+                    }}>
                       Find perfectly-fitting habitat groups from shared
                       favorites and habitat fit.
                     </Typography>
@@ -116,16 +135,22 @@ export default function HomePage() {
                   borderColor: "divider",
                 }}
               >
-                <Stack direction="row" spacing={1} alignItems="center">
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  sx={{ alignItems: "center" }}
+                >
                   <SaveOutlinedIcon
                     fontSize="small"
                     sx={{ color: "primary.main", flexShrink: 0 }}
                   />
                   <Stack spacing={0.25}>
-                    <Typography variant="body2" fontWeight={700}>
+                    <Typography variant="body2" sx={{ fontWeight: 700 }}>
                       Always saved
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant="caption" sx={{
+                      color: "text.secondary"
+                    }}>
                       Your groups and choices stay on this device — no account
                       needed.
                     </Typography>
@@ -141,16 +166,22 @@ export default function HomePage() {
                   borderColor: "divider",
                 }}
               >
-                <Stack direction="row" spacing={1} alignItems="center">
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  sx={{ alignItems: "center" }}
+                >
                   <TipsAndUpdatesOutlinedIcon
                     fontSize="small"
                     sx={{ color: "primary.main", flexShrink: 0 }}
                   />
                   <Stack spacing={0.25}>
-                    <Typography variant="body2" fontWeight={700}>
+                    <Typography variant="body2" sx={{ fontWeight: 700 }}>
                       Smart suggestions
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant="caption" sx={{
+                      color: "text.secondary"
+                    }}>
                       See who to add next, plus automated picks for habitat
                       items that keep everyone happy.
                     </Typography>
@@ -166,16 +197,22 @@ export default function HomePage() {
                   borderColor: "divider",
                 }}
               >
-                <Stack direction="row" spacing={1} alignItems="center">
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  sx={{ alignItems: "center" }}
+                >
                   <TuneOutlinedIcon
                     fontSize="small"
                     sx={{ color: "primary.main", flexShrink: 0 }}
                   />
                   <Stack spacing={0.25}>
-                    <Typography variant="body2" fontWeight={700}>
+                    <Typography variant="body2" sx={{ fontWeight: 700 }}>
                       Have it your way
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant="caption" sx={{
+                      color: "text.secondary"
+                    }}>
                       Choose the language for Pokémon names and set theme mode
                       from the settings menu.
                     </Typography>
@@ -193,25 +230,25 @@ export default function HomePage() {
               >
                 <Stack
                   direction={{ xs: "column", sm: "row" }}
-                  alignItems={{ xs: "stretch", sm: "center" }}
                   spacing={{ xs: 1.25, sm: 1.5 }}
-                  sx={{ width: "100%" }}
+                  sx={{ width: "100%", alignItems: { xs: "stretch", sm: "center" } }}
                 >
                   <Stack
                     direction="row"
                     spacing={1}
-                    alignItems="center"
-                    sx={{ flex: 1, minWidth: 0 }}
+                    sx={{ flex: 1, minWidth: 0, alignItems: "center" }}
                   >
                     <DashboardOutlinedIcon
                       fontSize="small"
                       sx={{ color: "primary.main", flexShrink: 0 }}
                     />
                     <Stack spacing={0.25} sx={{ minWidth: 0 }}>
-                      <Typography variant="body2" fontWeight={700}>
+                      <Typography variant="body2" sx={{ fontWeight: 700 }}>
                         Insights
                       </Typography>
-                      <Typography variant="caption" color="text.secondary">
+                      <Typography variant="caption" sx={{
+                        color: "text.secondary"
+                      }}>
                         Explore Pokémon and item data and how they connect.
                       </Typography>
                     </Stack>
@@ -242,25 +279,25 @@ export default function HomePage() {
               >
                 <Stack
                   direction={{ xs: "column", sm: "row" }}
-                  alignItems={{ xs: "stretch", sm: "center" }}
                   spacing={{ xs: 1.25, sm: 1.5 }}
-                  sx={{ width: "100%" }}
+                  sx={{ width: "100%", alignItems: { xs: "stretch", sm: "center" } }}
                 >
                   <Stack
                     direction="row"
                     spacing={1}
-                    alignItems="center"
-                    sx={{ flex: 1, minWidth: 0 }}
+                    sx={{ flex: 1, minWidth: 0, alignItems: "center" }}
                   >
                     <CatchingPokemonOutlinedIcon
                       fontSize="small"
                       sx={{ color: "primary.main", flexShrink: 0 }}
                     />
                     <Stack spacing={0.25} sx={{ minWidth: 0 }}>
-                      <Typography variant="body2" fontWeight={700}>
+                      <Typography variant="body2" sx={{ fontWeight: 700 }}>
                         Your collection
                       </Typography>
-                      <Typography variant="caption" color="text.secondary">
+                      <Typography variant="caption" sx={{
+                        color: "text.secondary"
+                      }}>
                         Only matches with Pokémon you've unlocked in your
                         Pokédex.
                       </Typography>

@@ -77,7 +77,9 @@ function NavRootItem({
         <Box>
           <Typography variant="body2">{title}</Typography>
           {detail ? (
-            <Typography variant="caption" color="text.secondary">
+            <Typography variant="caption" sx={{
+              color: "text.secondary"
+            }}>
               {detail}
             </Typography>
           ) : null}

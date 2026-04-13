@@ -174,12 +174,17 @@ export function createAppTheme(mode: PaletteMode) {
           fontWeight: 600,
           textTransform: 'none',
           boxShadow: 'none',
-        },
-        containedPrimary: {
-          boxShadow: '0 1px 2px 0 rgb(15 23 42 / 0.06)',
-          '&:hover': {
-            boxShadow: '0 2px 4px -1px rgb(15 23 42 / 0.1)',
-          },
+          variants: [
+            {
+              props: { variant: 'contained', color: 'primary' },
+              style: {
+                boxShadow: '0 1px 2px 0 rgb(15 23 42 / 0.06)',
+                '&:hover': {
+                  boxShadow: '0 2px 4px -1px rgb(15 23 42 / 0.1)',
+                },
+              },
+            },
+          ],
         },
       },
     },

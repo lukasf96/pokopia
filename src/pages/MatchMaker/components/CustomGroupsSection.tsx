@@ -85,8 +85,10 @@ const CustomGroupRow = memo(function CustomGroupRow({
                   <Stack
                     direction="row"
                     spacing={1.5}
-                    alignItems="stretch"
                     useFlexGap
+                    sx={{
+                      alignItems: "stretch"
+                    }}
                   >
                     <Box
                       sx={{
@@ -114,12 +116,18 @@ const CustomGroupRow = memo(function CustomGroupRow({
                         <GroupAddOutlinedIcon sx={{ fontSize: 26 }} />
                       </Box>
                     </Box>
-                    <Stack spacing={1.25} flex={1} minWidth={0}>
+                    <Stack
+                      spacing={1.25}
+                      sx={{
+                        flex: 1,
+                        minWidth: 0
+                      }}>
                       <Typography
                         variant="subtitle2"
-                        fontWeight={800}
-                        sx={{ letterSpacing: "0.01em" }}
-                      >
+                        sx={{
+                          fontWeight: 800,
+                          letterSpacing: "0.01em"
+                        }}>
                         Add Pokémon · Group {groupNumber}
                       </Typography>
 
@@ -212,11 +220,14 @@ function CustomGroupsSectionComponent({
         <Stack
           direction="row"
           spacing={1.5}
-          alignItems="center"
-          flexWrap="wrap"
           useFlexGap
-        >
-          <Typography component="span" fontWeight={700}>
+          sx={{
+            alignItems: "center",
+            flexWrap: "wrap"
+          }}>
+          <Typography component="span" sx={{
+            fontWeight: 700
+          }}>
             My Groups
           </Typography>
           <Chip label={`${customGroups.length} groups`} size="small" />
@@ -235,7 +246,9 @@ function CustomGroupsSectionComponent({
           </Button>
 
           {customGroups.length === 0 && (
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" sx={{
+              color: "text.secondary"
+            }}>
               Add your habitats you have already setup in-game.
             </Typography>
           )}

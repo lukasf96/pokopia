@@ -44,12 +44,17 @@ function AutoGroupsSectionComponent({
         <Stack
           direction="row"
           spacing={1.5}
-          alignItems="center"
-          flexWrap="wrap"
           useFlexGap
-          sx={{ flex: 1, minWidth: 0, pr: 1 }}
-        >
-          <Typography component="span" fontWeight={700}>
+          sx={{
+            alignItems: "center",
+            flexWrap: "wrap",
+            flex: 1,
+            minWidth: 0,
+            pr: 1
+          }}>
+          <Typography component="span" sx={{
+            fontWeight: 700
+          }}>
             Suggested groups
           </Typography>
           <Chip label={`${groups.length} groups`} size="small" />
@@ -67,23 +72,29 @@ function AutoGroupsSectionComponent({
                   onChange={(_, checked) =>
                     onPreferEvolutionLinesChange(checked)
                   }
-                  inputProps={{
-                    "aria-label":
-                      "Prefer grouping evolution lines when scores are close",
+                  slotProps={{
+                    input: {
+                      "aria-label":
+                        "Prefer grouping evolution lines when scores are close",
+                    },
                   }}
                 />
               }
               label={
                 <Stack
                   direction="row"
-                  alignItems="center"
                   spacing={0.5}
                   component="span"
+                  sx={{
+                    alignItems: "center"
+                  }}
                 >
                   <Typography
                     component="span"
                     variant="body2"
-                    color="text.secondary"
+                    sx={{
+                      color: "text.secondary"
+                    }}
                   >
                     Prefer grouping Evolution lines together
                   </Typography>
@@ -132,7 +143,9 @@ function AutoGroupsSectionComponent({
             );
           })}
           {groups.length === 0 && (
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" sx={{
+              color: "text.secondary"
+            }}>
               No suggested groups left from the remaining pool.
             </Typography>
           )}

@@ -103,15 +103,16 @@ export default function PokedexPage() {
       >
         Pokopia Pokédex
       </Typography>
-
       {/* Toolbar */}
       <Stack
         direction={{ xs: "column", sm: "row" }}
         spacing={{ xs: 1, sm: 2 }}
-        alignItems={{ xs: "stretch", sm: "center" }}
-        mb={2}
-        flexWrap={{ xs: "nowrap", sm: "wrap" }}
         useFlexGap
+        sx={{
+          alignItems: { xs: "stretch", sm: "center" },
+          mb: 2,
+          flexWrap: { xs: "nowrap", sm: "wrap" },
+        }}
       >
         <TextField
           size="small"
@@ -205,9 +206,11 @@ export default function PokedexPage() {
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={1}
-          ml={{ sm: "auto" }}
-          width={{ xs: "100%", sm: "auto" }}
-          sx={{ flexShrink: 0 }}
+          sx={{
+            ml: { sm: "auto" },
+            width: { xs: "100%", sm: "auto" },
+            flexShrink: 0,
+          }}
         >
           <Button
             size="small"
@@ -228,15 +231,16 @@ export default function PokedexPage() {
           </Button>
         </Stack>
       </Stack>
-
       {/* Count summary */}
       <Stack
         direction="row"
         spacing={1}
-        alignItems="center"
-        mb={2}
-        flexWrap="wrap"
         useFlexGap
+        sx={{
+          alignItems: "center",
+          mb: 2,
+          flexWrap: "wrap",
+        }}
       >
         <PokedexShowingCount
           totalCount={totalCount}
@@ -246,7 +250,6 @@ export default function PokedexPage() {
           unlockedIds={unlockedIds}
         />
       </Stack>
-
       {effectiveStatusFilter === "all" ? (
         <PokedexSections
           baseFilteredStandard={baseFilteredStandard}
@@ -285,8 +288,13 @@ function PokedexShowingCount({
   if (effectiveStatusFilter === "all") {
     const n = baseFilteredStandard.length + baseFilteredEvent.length;
     return (
-      <Typography variant="body2" color="text.secondary">
-        Showing {n} of {totalCount} Pokémon
+      <Typography
+        variant="body2"
+        sx={{
+          color: "text.secondary",
+        }}
+      >
+        Showing {n}of {totalCount}Pokémon
       </Typography>
     );
   }
@@ -327,8 +335,13 @@ function PokedexShowingCountWithStatus({
   }
 
   return (
-    <Typography variant="body2" color="text.secondary">
-      Showing {showing} of {totalCount} Pokémon
+    <Typography
+      variant="body2"
+      sx={{
+        color: "text.secondary",
+      }}
+    >
+      Showing {showing}of {totalCount}Pokémon
     </Typography>
   );
 }
@@ -438,16 +451,28 @@ function PokedexSectionHeader({
   subtitle: string;
 }) {
   return (
-    <Stack spacing={0.25} mb={{ xs: 1, sm: 1.5 }}>
+    <Stack
+      spacing={0.25}
+      sx={{
+        mb: { xs: 1, sm: 1.5 },
+      }}
+    >
       <Typography
         variant="h6"
         component="h2"
-        fontWeight={700}
-        sx={{ fontSize: { xs: "1rem", sm: "1.25rem" } }}
+        sx={{
+          fontWeight: 700,
+          fontSize: { xs: "1rem", sm: "1.25rem" },
+        }}
       >
         {title}
       </Typography>
-      <Typography variant="caption" color="text.secondary">
+      <Typography
+        variant="caption"
+        sx={{
+          color: "text.secondary",
+        }}
+      >
         {subtitle}
       </Typography>
     </Stack>
@@ -504,10 +529,13 @@ function PokedexGrid({
           />
         ))}
       </Box>
-
       {pokemon.length === 0 && (
         <Box sx={{ py: 6, textAlign: "center" }}>
-          <Typography color="text.secondary">
+          <Typography
+            sx={{
+              color: "text.secondary",
+            }}
+          >
             No Pokémon match your filters.
           </Typography>
         </Box>

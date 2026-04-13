@@ -64,17 +64,27 @@ function HabitatRow({ habitat, pokemon }: HabitatRowProps) {
         <Stack
           direction="row"
           spacing={1}
-          alignItems="center"
-          justifyContent="space-between"
-          sx={{ width: "100%", pr: 1 }}
-        >
-          <Stack direction="row" spacing={1} alignItems="center" minWidth={0}>
+          sx={{
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
+            pr: 1
+          }}>
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{
+              alignItems: "center",
+              minWidth: 0
+            }}>
             <HabitatIcon sx={{ fontSize: 18, color: colors.text }} />
             <Typography
               variant="body2"
-              fontWeight={600}
               color={colors.text}
               noWrap
+              sx={{
+                fontWeight: 600
+              }}
             >
               {habitat}
             </Typography>
@@ -109,7 +119,12 @@ function HabitatRow({ habitat, pokemon }: HabitatRowProps) {
 export function IdealHabitats({ habitats }: IdealHabitatsProps) {
   return (
     <>
-      <Typography variant="subtitle1" fontWeight={700} mb={1.5}>
+      <Typography
+        variant="subtitle1"
+        sx={{
+          fontWeight: 700,
+          mb: 1.5
+        }}>
         Ideal Habitats
       </Typography>
       <Stack spacing={1}>

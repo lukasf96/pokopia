@@ -26,7 +26,9 @@ export function LayoutInfoDialog({ isOpen, onClose }: LayoutInfoDialogProps) {
       <DialogTitle>Info</DialogTitle>
       <DialogContent dividers>
         <Stack spacing={1.25}>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" sx={{
+            color: "text.secondary"
+          }}>
             Pokomatch.com
           </Typography>
           <Link
@@ -67,7 +69,9 @@ export function LayoutInfoDialog({ isOpen, onClose }: LayoutInfoDialogProps) {
             </Link>
           </Typography>
           <br></br>
-          <Typography variant="caption" color="text.secondary">
+          <Typography variant="caption" sx={{
+            color: "text.secondary"
+          }}>
             PokoMatch is a fan-made project and is not affiliated with,
             endorsed, sponsored, or specifically approved by Nintendo, GAME
             FREAK or The Pokémon Company.

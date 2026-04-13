@@ -251,10 +251,16 @@ export default function MatcherPage() {
           sx={{ fontSize: 48, color: "text.disabled", mb: 1 }}
           aria-hidden
         />
-        <Typography color="text.secondary" mb={1}>
+        <Typography
+          sx={{
+            color: "text.secondary",
+            mb: 1
+          }}>
           No Pokémon available with current settings.
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" sx={{
+          color: "text.secondary"
+        }}>
           Go to Pokédex and unlock some Pokémon first.
         </Typography>
       </Container>

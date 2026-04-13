@@ -1,5 +1,5 @@
 import AddIcon from "@mui/icons-material/Add";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import ReportProblemOutlinedIcon from "@mui/icons-material/ReportProblemOutlined";
 import {
   Alert,
@@ -184,12 +184,18 @@ function GroupCardComponent({
           gap: 1.5,
         }}
       >
-        <Stack direction="row" spacing={1.5} alignItems="center">
-          <Typography variant="subtitle2" fontWeight={700} color={colors.text}>
+        <Stack direction="row" spacing={1.5} sx={{
+          alignItems: "center"
+        }}>
+          <Typography variant="subtitle2" color={colors.text} sx={{
+            fontWeight: 700
+          }}>
             Group {groupNumber}
           </Typography>
 
-          <Stack direction="row" spacing={0.5} flexWrap="wrap" useFlexGap>
+          <Stack direction="row" spacing={0.5} useFlexGap sx={{
+            flexWrap: "wrap"
+          }}>
             {specialties.map((s) => (
               <SpecialtyChip
                 key={`group-spec-${s}`}
@@ -205,10 +211,11 @@ function GroupCardComponent({
         <Stack
           direction="row"
           spacing={1}
-          alignItems="center"
-          flexWrap="wrap"
           useFlexGap
-        >
+          sx={{
+            alignItems: "center",
+            flexWrap: "wrap"
+          }}>
           {habitats.map((groupHabitat) => (
             <HabitatChip
               key={`habitat-${groupHabitat}`}
@@ -244,7 +251,7 @@ function GroupCardComponent({
               {groupAction.kind === "add" ? (
                 <AddIcon fontSize="small" />
               ) : (
-                <DeleteOutlineIcon fontSize="small" />
+                <DeleteOutlinedIcon fontSize="small" />
               )}
             </IconButton>
           )}
@@ -274,11 +281,22 @@ function GroupCardComponent({
           <AlertTitle sx={{ fontWeight: 800, mb: 0.25, fontSize: "0.95rem" }}>
             Habitat conflict
           </AlertTitle>
-          <Typography variant="body2" color="text.primary" sx={{ mb: 0.5 }}>
+          <Typography
+            variant="body2"
+            sx={{
+              color: "text.primary",
+              mb: 0.5
+            }}>
             Opposite habitat needs are mixed in this group. Someone will not be
             happy here.
           </Typography>
-          <Stack direction="row" flexWrap="wrap" useFlexGap gap={0.75}>
+          <Stack
+            direction="row"
+            useFlexGap
+            sx={{
+              flexWrap: "wrap",
+              gap: 0.75
+            }}>
             {conflicts.map(([left, right]) => (
               <Chip
                 key={`${left}-${right}`}
@@ -293,7 +311,6 @@ function GroupCardComponent({
         </Alert>
       ) : null}
       <Divider sx={{ borderColor: memberDividerColor }} />
-
       <Box sx={groupMembersGridSx(group.length)}>
         {group.map((pokemon, pi) => (
           <Box

@@ -151,7 +151,13 @@ export const PokemonCard = memo(function PokemonCard({
       >
         <PokemonSpriteAvatar pokemon={pokemon} size={56} padding={0.75} />
 
-        <Stack direction="column" spacing={0.25} minWidth={0} sx={{ flex: 1 }}>
+        <Stack
+          direction="column"
+          spacing={0.25}
+          sx={{
+            minWidth: 0,
+            flex: 1
+          }}>
           <Typography
             variant="caption"
             sx={{
@@ -167,18 +173,18 @@ export const PokemonCard = memo(function PokemonCard({
           <Stack
             direction="row"
             spacing={0.75}
-            alignItems="center"
-            flexWrap="wrap"
-          >
+            sx={{
+              alignItems: "center",
+              flexWrap: "wrap"
+            }}>
             <Typography
               variant="body2"
-              fontWeight={800}
               sx={{
+                fontWeight: 800,
                 fontSize: 14,
                 lineHeight: 1.2,
-                color: unlocked ? colors.text : "text.secondary",
-              }}
-            >
+                color: unlocked ? colors.text : "text.secondary"
+              }}>
               {pokemonDisplayName}
             </Typography>
 
@@ -222,15 +228,15 @@ export const PokemonCard = memo(function PokemonCard({
           </IconButton>
         )}
       </Box>
-
       <Divider />
-
       {/* Body section with attributes and favorites */}
       <Box sx={{ px: 1.5, py: 1.5 }}>
         {/* Core Attributes: Habitat, Flavor, Specialties */}
         <Stack
           spacing={1.25}
-          mb={showFavorites && pokemon.favorites.length > 0 ? 1.5 : 0}
+          sx={{
+            mb: showFavorites && pokemon.favorites.length > 0 ? 1.5 : 0
+          }}
         >
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5 }}>
             {showHabitat && (
@@ -309,7 +315,9 @@ function AttributeItem({
   color: string;
 }) {
   return (
-    <Stack direction="row" spacing={0.5} alignItems="center">
+    <Stack direction="row" spacing={0.5} sx={{
+      alignItems: "center"
+    }}>
       <Box sx={{ display: "flex", color }}>{icon}</Box>
       <Typography variant="body2" sx={{ fontSize: 12, fontWeight: 500, color }}>
         {label}

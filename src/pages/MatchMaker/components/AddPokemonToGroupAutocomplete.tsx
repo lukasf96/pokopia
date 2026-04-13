@@ -1,4 +1,4 @@
-import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import ErrorOutlinedIcon from "@mui/icons-material/ErrorOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   Autocomplete,
@@ -190,17 +190,19 @@ export const AddPokemonToGroupAutocomplete = memo(
             >
               <Stack
                 spacing={0.5}
-                flex={1}
-                minWidth={0}
-                alignItems="flex-start"
-              >
+                sx={{
+                  flex: 1,
+                  minWidth: 0,
+                  alignItems: "flex-start"
+                }}>
                 <Typography
                   variant="body2"
-                  lineHeight={1.25}
                   noWrap
                   title={titleText}
-                  sx={{ width: "100%" }}
-                >
+                  sx={{
+                    lineHeight: 1.25,
+                    width: "100%"
+                  }}>
                   <Box
                     component="span"
                     sx={{ color: "text.secondary", fontWeight: 600 }}
@@ -292,10 +294,11 @@ export const AddPokemonToGroupAutocomplete = memo(
                   <Stack
                     direction="row"
                     spacing={0.5}
-                    alignItems="center"
-                    justifyContent="flex-end"
-                  >
-                    <ErrorOutlineIcon
+                    sx={{
+                      alignItems: "center",
+                      justifyContent: "flex-end"
+                    }}>
+                    <ErrorOutlinedIcon
                       sx={{ fontSize: 18, color: "error.main" }}
                       aria-hidden
                     />
@@ -356,20 +359,23 @@ export const AddPokemonToGroupAutocomplete = memo(
             aria-label={
               embedded ? "Search for a Pokémon to add to this group" : undefined
             }
-            InputProps={{
-              ...params.InputProps,
-              startAdornment: (
-                <>
-                  <InputAdornment position="start" sx={{ ml: 0.25, mr: -0.5 }}>
-                    <SearchIcon
-                      fontSize="small"
-                      sx={{ color: "text.secondary" }}
-                      aria-hidden
-                    />
-                  </InputAdornment>
-                  {params.InputProps.startAdornment}
-                </>
-              ),
+            slotProps={{
+              ...params.slotProps,
+              input: {
+                ...params.slotProps.input,
+                startAdornment: (
+                  <>
+                    <InputAdornment position="start" sx={{ ml: 0.25, mr: -0.5 }}>
+                      <SearchIcon
+                        fontSize="small"
+                        sx={{ color: "text.secondary" }}
+                        aria-hidden
+                      />
+                    </InputAdornment>
+                    {params.slotProps.input?.startAdornment}
+                  </>
+                ),
+              },
             }}
           />
         )}

@@ -69,12 +69,20 @@ function ItemRow({
         alignItems: "start",
       }}
     >
-      <Stack spacing={0.4} minWidth={0}>
-        <Stack direction="row" spacing={0.75} alignItems="baseline">
-          <Typography variant="body2" fontWeight={700} noWrap>
+      <Stack spacing={0.4} sx={{
+        minWidth: 0
+      }}>
+        <Stack direction="row" spacing={0.75} sx={{
+          alignItems: "baseline"
+        }}>
+          <Typography variant="body2" noWrap sx={{
+            fontWeight: 700
+          }}>
             {item.name}
           </Typography>
-          <Typography variant="caption" color="text.secondary" noWrap>
+          <Typography variant="caption" noWrap sx={{
+            color: "text.secondary"
+          }}>
             {item.category}
             {item.tag ? ` · ${item.tag}` : ""}
           </Typography>
@@ -89,7 +97,9 @@ function ItemRow({
           ))}
         </Box>
       </Stack>
-      <Stack alignItems="flex-end" spacing={0.5}>
+      <Stack spacing={0.5} sx={{
+        alignItems: "flex-end"
+      }}>
         <Chip
           label={`${pokemonCoverage}/${groupSize} Pokémon`}
           size="small"
@@ -105,7 +115,12 @@ function ItemRow({
             border: "none",
           }}
         />
-        <Typography variant="caption" color="text.disabled" sx={{ fontSize: 10 }}>
+        <Typography
+          variant="caption"
+          sx={{
+            color: "text.disabled",
+            fontSize: 10
+          }}>
           {score} favorite{score !== 1 ? "s" : ""}
         </Typography>
       </Stack>
@@ -145,12 +160,16 @@ export const SuggestedItemsDialog = memo(function SuggestedItemsDialog({
           px: 2,
         }}
       >
-        <Stack direction="row" spacing={1} alignItems="center">
+        <Stack direction="row" spacing={1} sx={{
+          alignItems: "center"
+        }}>
           <CategoryOutlinedIcon
             sx={{ fontSize: 18, color: "primary.main" }}
             aria-hidden
           />
-          <Typography variant="subtitle1" fontWeight={700} component="span">
+          <Typography variant="subtitle1" component="span" sx={{
+            fontWeight: 700
+          }}>
             Suggested items
           </Typography>
           <Chip label={`${suggestions.length}`} size="small" />
@@ -159,7 +178,6 @@ export const SuggestedItemsDialog = memo(function SuggestedItemsDialog({
           <CloseIcon fontSize="small" />
         </IconButton>
       </DialogTitle>
-
       <DialogContent sx={{ p: 0 }}>
         <Box sx={{ px: 2 }}>
           {suggestions.map((s, i) => (

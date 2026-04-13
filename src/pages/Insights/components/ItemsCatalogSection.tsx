@@ -379,20 +379,32 @@ export function ItemsCatalogSection({ items }: ItemsCatalogSectionProps) {
 
   return (
     <>
-      <Typography variant="subtitle1" fontWeight={700} mb={0.5}>
+      <Typography
+        variant="subtitle1"
+        sx={{
+          fontWeight: 700,
+          mb: 0.5
+        }}>
         Items
       </Typography>
       <Stack spacing={0.5} sx={{ mb: 2 }}>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" sx={{
+          color: "text.secondary"
+        }}>
           Item data is work in progress, the list may be incomplete and is
           subject to change.
         </Typography>
-        <Typography variant="caption" color="text.secondary" component="p" sx={{ m: 0 }}>
+        <Typography
+          variant="caption"
+          component="p"
+          sx={{
+            color: "text.secondary",
+            m: 0
+          }}>
           Data last refreshed on:{" "}
           {formatItemsCatalogDateOnly(itemsCatalogGeneratedAt)}
         </Typography>
       </Stack>
-
       <Stack spacing={2} sx={{ mb: 2 }}>
         <TextField
           size="small"
@@ -420,7 +432,9 @@ export function ItemsCatalogSection({ items }: ItemsCatalogSectionProps) {
           direction={{ xs: "column", sm: "row" }}
           spacing={2}
           useFlexGap
-          flexWrap="wrap"
+          sx={{
+            flexWrap: "wrap"
+          }}
         >
           <FormControl size="small" sx={{ minWidth: { xs: "100%", sm: 160 } }}>
             <InputLabel id="items-filter-category" shrink>
@@ -491,11 +505,12 @@ export function ItemsCatalogSection({ items }: ItemsCatalogSectionProps) {
           </FormControl>
         </Stack>
 
-        <Typography variant="caption" color="text.secondary">
+        <Typography variant="caption" sx={{
+          color: "text.secondary"
+        }}>
           Showing {shown} of {total}
         </Typography>
       </Stack>
-
       <TableContainer
         sx={{
           minHeight: TABLE_VIEWPORT_HEIGHT,
@@ -633,10 +648,11 @@ export function ItemsCatalogSection({ items }: ItemsCatalogSectionProps) {
                     />
                     <Typography
                       variant="body2"
-                      color="text.secondary"
-                      textAlign="center"
-                      sx={{ maxWidth: 320 }}
-                    >
+                      sx={{
+                        color: "text.secondary",
+                        textAlign: "center",
+                        maxWidth: 320
+                      }}>
                       No items match the current search and filters.
                     </Typography>
                   </Box>

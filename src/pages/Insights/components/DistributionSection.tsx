@@ -72,7 +72,9 @@ function DistributionRow({
           <Typography variant="body2" sx={{ flex: 1, fontWeight: 500 }} noWrap>
             {label}
           </Typography>
-          <Stack direction="row" spacing={1} alignItems="center">
+          <Stack direction="row" spacing={1} sx={{
+            alignItems: "center"
+          }}>
             <Box
               sx={{
                 width: 80,
@@ -93,9 +95,12 @@ function DistributionRow({
             </Box>
             <Typography
               variant="body2"
-              color="text.secondary"
-              sx={{ fontSize: 12, minWidth: 24, textAlign: "right" }}
-            >
+              sx={{
+                color: "text.secondary",
+                fontSize: 12,
+                minWidth: 24,
+                textAlign: "right"
+              }}>
               {pokemon.length}
             </Typography>
           </Stack>
@@ -133,7 +138,12 @@ export function DistributionSection({
 
   return (
     <>
-      <Typography variant="subtitle1" fontWeight={700} mb={1.5}>
+      <Typography
+        variant="subtitle1"
+        sx={{
+          fontWeight: 700,
+          mb: 1.5
+        }}>
         {title}
       </Typography>
       <Stack spacing={0.75}>
@@ -146,7 +156,6 @@ export function DistributionSection({
           />
         ))}
       </Stack>
-
       {hasMore ? (
         <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 1 }}>
           <Button

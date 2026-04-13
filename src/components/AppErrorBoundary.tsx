@@ -45,7 +45,9 @@ export class AppErrorBoundary extends Component<
         <Paper sx={{ p: 3, width: '100%', maxWidth: 480 }}>
           <Stack spacing={1.25}>
             <Typography variant="h6">Something went wrong</Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" sx={{
+              color: "text.secondary"
+            }}>
               PokoMatch hit an unexpected error. Reload to continue.
             </Typography>
             <Button variant="contained" onClick={this.handleReload}>
@@ -54,6 +56,6 @@ export class AppErrorBoundary extends Component<
           </Stack>
         </Paper>
       </Stack>
-    )
+    );
   }
 }

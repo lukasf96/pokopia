@@ -31,11 +31,20 @@ function ItemTooltipContent({
   const isDark = theme.palette.mode === "dark";
   return (
     <Stack spacing={0.75} sx={{ py: 0.25 }}>
-      <Stack direction="row" spacing={0.75} alignItems="baseline">
-        <Typography variant="caption" fontWeight={700} color="text.primary">
+      <Stack direction="row" spacing={0.75} sx={{
+        alignItems: "baseline"
+      }}>
+        <Typography
+          variant="caption"
+          sx={{
+            fontWeight: 700,
+            color: "text.primary"
+          }}>
           {item.name}
         </Typography>
-        <Typography variant="caption" color="text.secondary">
+        <Typography variant="caption" sx={{
+          color: "text.secondary"
+        }}>
           {item.category}
           {item.tag ? ` · ${item.tag}` : ""}
         </Typography>
@@ -135,7 +144,9 @@ function ItemChip({
         >
           <Chip
             label={
-              <Stack direction="row" spacing={0.75} alignItems="center">
+              <Stack direction="row" spacing={0.75} sx={{
+                alignItems: "center"
+              }}>
                 <span>{item.name}</span>
                 <Box
                   component="span"
@@ -209,11 +220,12 @@ export const SuggestedItemsPanel = memo(function SuggestedItemsPanel({
       <Stack
         direction="row"
         spacing={1}
-        alignItems="center"
-        flexWrap="wrap"
         useFlexGap
-        sx={{ mb: 1 }}
-      >
+        sx={{
+          alignItems: "center",
+          flexWrap: "wrap",
+          mb: 1
+        }}>
         <CategoryOutlinedIcon
           sx={{
             fontSize: 16,
@@ -258,14 +270,12 @@ export const SuggestedItemsPanel = memo(function SuggestedItemsPanel({
           </Button>
         )}
       </Stack>
-
       {/* Preview chips — tap to reveal favorites breakdown */}
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75 }}>
         {preview.map((s) => (
           <ItemChip key={s.item.id} {...s} groupFavorites={groupFavorites} />
         ))}
       </Box>
-
       <SuggestedItemsDialog
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}

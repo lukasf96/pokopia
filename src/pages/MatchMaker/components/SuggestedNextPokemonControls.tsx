@@ -34,7 +34,13 @@ export const SuggestedNextPokemonControls = memo(
 
     return (
       <Box>
-        <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+        <Stack
+          direction="row"
+          spacing={1}
+          sx={{
+            alignItems: "center",
+            mb: 1
+          }}>
           <LightbulbOutlinedIcon
             sx={{ fontSize: 16, color: "primary.main" }}
             aria-hidden
@@ -52,7 +58,6 @@ export const SuggestedNextPokemonControls = memo(
             Suggested next
           </Typography>
         </Stack>
-
         <Box
           sx={{
             display: "flex",
@@ -114,17 +119,19 @@ export const SuggestedNextPokemonControls = memo(
                 >
                   <Stack
                     spacing={0.5}
-                    flex={1}
-                    minWidth={0}
-                    alignItems="flex-start"
-                  >
+                    sx={{
+                      flex: 1,
+                      minWidth: 0,
+                      alignItems: "flex-start"
+                    }}>
                     <Typography
                       variant="body2"
-                      lineHeight={1.25}
                       noWrap
                       title={titleText}
-                      sx={{ width: "100%" }}
-                    >
+                      sx={{
+                        lineHeight: 1.25,
+                        width: "100%"
+                      }}>
                       <Box
                         component="span"
                         sx={{ color: "text.secondary", fontWeight: 600 }}
