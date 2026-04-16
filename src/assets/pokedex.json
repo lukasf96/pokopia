@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-25T09:56:46.287Z",
+  "generatedAt": "2026-04-16T11:32:53.393Z",
   "standard": [
     {
       "id": "001",
@@ -6259,7 +6259,7 @@
         "de": "Hoppspross",
         "fr": "Granivol"
       },
-      "evolutionLinePeerIds": ["e002", "e003"]
+      "evolutionLinePeerIds": ["e002", "e003a"]
     },
     {
       "id": "e002",
@@ -6279,10 +6279,10 @@
         "de": "Hubelupf",
         "fr": "Floravol"
       },
-      "evolutionLinePeerIds": ["e001", "e003"]
+      "evolutionLinePeerIds": ["e001", "e003a"]
     },
     {
-      "id": "e003",
+      "id": "e003a",
       "dexNumber": "003",
       "name": "Jumpluff",
       "specialties": ["Grow", "Litter"],
@@ -6300,6 +6300,26 @@
         "fr": "Cotovol"
       },
       "evolutionLinePeerIds": ["e001", "e002"]
+    },
+    {
+      "id": "e003b",
+      "dexNumber": "003",
+      "name": "Sableye",
+      "specialties": ["Search"],
+      "idealHabitat": "Dark",
+      "favorites": [
+        "Spooky stuff",
+        "Shiny stuff",
+        "Luxury",
+        "Looks like food",
+        "Watching stuff"
+      ],
+      "favoriteFlavor": "Sour flavors",
+      "localizedNames": {
+        "de": "Zobiris",
+        "fr": "Ténéfix"
+      },
+      "evolutionLinePeerIds": []
     }
   ]
 }
