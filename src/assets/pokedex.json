@@ -6302,8 +6302,8 @@
       "evolutionLinePeerIds": ["e001", "e002"]
     },
     {
-      "id": "e003b",
-      "dexNumber": "003",
+      "id": "e004",
+      "dexNumber": "004",
       "name": "Sableye",
       "specialties": ["Search"],
       "idealHabitat": "Dark",
