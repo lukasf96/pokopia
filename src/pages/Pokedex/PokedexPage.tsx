@@ -294,7 +294,7 @@ function PokedexShowingCount({
           color: "text.secondary",
         }}
       >
-        Showing {n}of {totalCount}Pokémon
+        Showing {n} of {totalCount} Pokémon
       </Typography>
     );
   }
