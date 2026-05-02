@@ -5,9 +5,7 @@
       "id": "001",
       "dexNumber": "001",
       "name": "Bulbasaur",
-      "specialties": [
-        "Grow"
-      ],
+      "specialties": ["Grow"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -21,18 +19,13 @@
         "de": "Bisasam",
         "fr": "Bulbizarre"
       },
-      "evolutionLinePeerIds": [
-        "002",
-        "003"
-      ]
+      "evolutionLinePeerIds": ["002", "003"]
     },
     {
       "id": "002",
       "dexNumber": "002",
       "name": "Ivysaur",
-      "specialties": [
-        "Grow"
-      ],
+      "specialties": ["Grow"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -46,19 +39,13 @@
         "de": "Bisaknosp",
         "fr": "Herbizarre"
       },
-      "evolutionLinePeerIds": [
-        "001",
-        "003"
-      ]
+      "evolutionLinePeerIds": ["001", "003"]
     },
     {
       "id": "003",
       "dexNumber": "003",
       "name": "Venusaur",
-      "specialties": [
-        "Grow",
-        "Litter"
-      ],
+      "specialties": ["Grow", "Litter"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -72,18 +59,13 @@
         "de": "Bisaflor",
         "fr": "Florizarre"
       },
-      "evolutionLinePeerIds": [
-        "001",
-        "002"
-      ]
+      "evolutionLinePeerIds": ["001", "002"]
     },
     {
       "id": "004",
       "dexNumber": "004",
       "name": "Charmander",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -97,18 +79,13 @@
         "de": "Glumanda",
         "fr": "Salamèche"
       },
-      "evolutionLinePeerIds": [
-        "005",
-        "006"
-      ]
+      "evolutionLinePeerIds": ["005", "006"]
     },
     {
       "id": "005",
       "dexNumber": "005",
       "name": "Charmeleon",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -122,19 +99,13 @@
         "de": "Glutexo",
         "fr": "Reptincel"
       },
-      "evolutionLinePeerIds": [
-        "004",
-        "006"
-      ]
+      "evolutionLinePeerIds": ["004", "006"]
     },
     {
       "id": "006",
       "dexNumber": "006",
       "name": "Charizard",
-      "specialties": [
-        "Burn",
-        "Fly"
-      ],
+      "specialties": ["Burn", "Fly"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -148,18 +119,13 @@
         "de": "Glurak",
         "fr": "Dracaufeu"
       },
-      "evolutionLinePeerIds": [
-        "004",
-        "005"
-      ]
+      "evolutionLinePeerIds": ["004", "005"]
     },
     {
       "id": "007",
       "dexNumber": "007",
       "name": "Squirtle",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -173,18 +139,13 @@
         "de": "Schiggy",
         "fr": "Carapuce"
       },
-      "evolutionLinePeerIds": [
-        "008",
-        "009"
-      ]
+      "evolutionLinePeerIds": ["008", "009"]
     },
     {
       "id": "008",
       "dexNumber": "008",
       "name": "Wartortle",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -198,19 +159,13 @@
         "de": "Schillok",
         "fr": "Carabaffe"
       },
-      "evolutionLinePeerIds": [
-        "007",
-        "009"
-      ]
+      "evolutionLinePeerIds": ["007", "009"]
     },
     {
       "id": "009",
       "dexNumber": "009",
       "name": "Blastoise",
-      "specialties": [
-        "Water",
-        "Trade"
-      ],
+      "specialties": ["Water", "Trade"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -224,19 +179,13 @@
         "de": "Turtok",
         "fr": "Tortank"
       },
-      "evolutionLinePeerIds": [
-        "007",
-        "008"
-      ]
+      "evolutionLinePeerIds": ["007", "008"]
     },
     {
       "id": "010",
       "dexNumber": "010",
       "name": "Pidgey",
-      "specialties": [
-        "Fly",
-        "Search"
-      ],
+      "specialties": ["Fly", "Search"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -250,19 +199,13 @@
         "de": "Taubsi",
         "fr": "Roucool"
       },
-      "evolutionLinePeerIds": [
-        "011",
-        "012"
-      ]
+      "evolutionLinePeerIds": ["011", "012"]
     },
     {
       "id": "011",
       "dexNumber": "011",
       "name": "Pidgeotto",
-      "specialties": [
-        "Fly",
-        "Search"
-      ],
+      "specialties": ["Fly", "Search"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -276,19 +219,13 @@
         "de": "Tauboga",
         "fr": "Roucoups"
       },
-      "evolutionLinePeerIds": [
-        "010",
-        "012"
-      ]
+      "evolutionLinePeerIds": ["010", "012"]
     },
     {
       "id": "012",
       "dexNumber": "012",
       "name": "Pidgeot",
-      "specialties": [
-        "Fly",
-        "Chop"
-      ],
+      "specialties": ["Fly", "Chop"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -302,18 +239,13 @@
         "de": "Tauboss",
         "fr": "Roucarnage"
       },
-      "evolutionLinePeerIds": [
-        "010",
-        "011"
-      ]
+      "evolutionLinePeerIds": ["010", "011"]
     },
     {
       "id": "013",
       "dexNumber": "013",
       "name": "Oddish",
-      "specialties": [
-        "Grow"
-      ],
+      "specialties": ["Grow"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -327,19 +259,13 @@
         "de": "Myrapla",
         "fr": "Mystherbe"
       },
-      "evolutionLinePeerIds": [
-        "014",
-        "015",
-        "016"
-      ]
+      "evolutionLinePeerIds": ["014", "015", "016"]
     },
     {
       "id": "014",
       "dexNumber": "014",
       "name": "Gloom",
-      "specialties": [
-        "Grow"
-      ],
+      "specialties": ["Grow"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -353,20 +279,13 @@
         "de": "Duflor",
         "fr": "Ortide"
       },
-      "evolutionLinePeerIds": [
-        "013",
-        "015",
-        "016"
-      ]
+      "evolutionLinePeerIds": ["013", "015", "016"]
     },
     {
       "id": "015",
       "dexNumber": "015",
       "name": "Vileplume",
-      "specialties": [
-        "Grow",
-        "Litter"
-      ],
+      "specialties": ["Grow", "Litter"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -380,20 +299,13 @@
         "de": "Giflor",
         "fr": "Rafflesia"
       },
-      "evolutionLinePeerIds": [
-        "013",
-        "014",
-        "016"
-      ]
+      "evolutionLinePeerIds": ["013", "014", "016"]
     },
     {
       "id": "016",
       "dexNumber": "016",
       "name": "Bellossom",
-      "specialties": [
-        "Grow",
-        "Hype"
-      ],
+      "specialties": ["Grow", "Hype"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -407,19 +319,13 @@
         "de": "Blubella",
         "fr": "Joliflor"
       },
-      "evolutionLinePeerIds": [
-        "013",
-        "014",
-        "015"
-      ]
+      "evolutionLinePeerIds": ["013", "014", "015"]
     },
     {
       "id": "017",
       "dexNumber": "017",
       "name": "Paras",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -433,17 +339,13 @@
         "de": "Paras",
         "fr": "Paras"
       },
-      "evolutionLinePeerIds": [
-        "018"
-      ]
+      "evolutionLinePeerIds": ["018"]
     },
     {
       "id": "018",
       "dexNumber": "018",
       "name": "Parasect",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -457,17 +359,13 @@
         "de": "Parasek",
         "fr": "Parasect"
       },
-      "evolutionLinePeerIds": [
-        "017"
-      ]
+      "evolutionLinePeerIds": ["017"]
     },
     {
       "id": "019",
       "dexNumber": "019",
       "name": "Venonat",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -481,17 +379,13 @@
         "de": "Bluzuk",
         "fr": "Mimitoss"
       },
-      "evolutionLinePeerIds": [
-        "020"
-      ]
+      "evolutionLinePeerIds": ["020"]
     },
     {
       "id": "020",
       "dexNumber": "020",
       "name": "Venomoth",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -505,18 +399,13 @@
         "de": "Omot",
         "fr": "Aéromite"
       },
-      "evolutionLinePeerIds": [
-        "019"
-      ]
+      "evolutionLinePeerIds": ["019"]
     },
     {
       "id": "021",
       "dexNumber": "021",
       "name": "Bellsprout",
-      "specialties": [
-        "Grow",
-        "Litter"
-      ],
+      "specialties": ["Grow", "Litter"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -530,19 +419,13 @@
         "de": "Knofensa",
         "fr": "Chétiflor"
       },
-      "evolutionLinePeerIds": [
-        "022",
-        "023"
-      ]
+      "evolutionLinePeerIds": ["022", "023"]
     },
     {
       "id": "022",
       "dexNumber": "022",
       "name": "Weepinbell",
-      "specialties": [
-        "Grow",
-        "Litter"
-      ],
+      "specialties": ["Grow", "Litter"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -556,19 +439,13 @@
         "de": "Ultrigaria",
         "fr": "Boustiflor"
       },
-      "evolutionLinePeerIds": [
-        "021",
-        "023"
-      ]
+      "evolutionLinePeerIds": ["021", "023"]
     },
     {
       "id": "023",
       "dexNumber": "023",
       "name": "Victreebel",
-      "specialties": [
-        "Grow",
-        "Chop"
-      ],
+      "specialties": ["Grow", "Chop"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -582,19 +459,13 @@
         "de": "Sarzenia",
         "fr": "Empiflor"
       },
-      "evolutionLinePeerIds": [
-        "021",
-        "022"
-      ]
+      "evolutionLinePeerIds": ["021", "022"]
     },
     {
       "id": "024",
       "dexNumber": "024",
       "name": "Slowpoke",
-      "specialties": [
-        "Water",
-        "Yawn"
-      ],
+      "specialties": ["Water", "Yawn"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -608,19 +479,13 @@
         "de": "Flegmon",
         "fr": "Ramoloss"
       },
-      "evolutionLinePeerIds": [
-        "025",
-        "026"
-      ]
+      "evolutionLinePeerIds": ["025", "026"]
     },
     {
       "id": "025",
       "dexNumber": "025",
       "name": "Slowbro",
-      "specialties": [
-        "Water",
-        "Trade"
-      ],
+      "specialties": ["Water", "Trade"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -634,19 +499,13 @@
         "de": "Lahmus",
         "fr": "Flagadoss"
       },
-      "evolutionLinePeerIds": [
-        "024",
-        "026"
-      ]
+      "evolutionLinePeerIds": ["024", "026"]
     },
     {
       "id": "026",
       "dexNumber": "026",
       "name": "Slowking",
-      "specialties": [
-        "Water",
-        "Teleport"
-      ],
+      "specialties": ["Water", "Teleport"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -660,18 +519,13 @@
         "de": "Laschoking",
         "fr": "Roigada"
       },
-      "evolutionLinePeerIds": [
-        "024",
-        "025"
-      ]
+      "evolutionLinePeerIds": ["024", "025"]
     },
     {
       "id": "027",
       "dexNumber": "027",
       "name": "Magnemite",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -685,18 +539,13 @@
         "de": "Magnetilo",
         "fr": "Magnéti"
       },
-      "evolutionLinePeerIds": [
-        "028",
-        "029"
-      ]
+      "evolutionLinePeerIds": ["028", "029"]
     },
     {
       "id": "028",
       "dexNumber": "028",
       "name": "Magneton",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -710,19 +559,13 @@
         "de": "Magneton",
         "fr": "Magnéton"
       },
-      "evolutionLinePeerIds": [
-        "027",
-        "029"
-      ]
+      "evolutionLinePeerIds": ["027", "029"]
     },
     {
       "id": "029",
       "dexNumber": "029",
       "name": "Magnezone",
-      "specialties": [
-        "Generate",
-        "Recycle"
-      ],
+      "specialties": ["Generate", "Recycle"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -736,19 +579,13 @@
         "de": "Magnezone",
         "fr": "Magnézone"
       },
-      "evolutionLinePeerIds": [
-        "027",
-        "028"
-      ]
+      "evolutionLinePeerIds": ["027", "028"]
     },
     {
       "id": "030",
       "dexNumber": "030",
       "name": "Onix",
-      "specialties": [
-        "Crush",
-        "Bulldoze"
-      ],
+      "specialties": ["Crush", "Bulldoze"],
       "idealHabitat": "Dry",
       "favorites": [
         "Stone stuff",
@@ -762,18 +599,13 @@
         "de": "Onix",
         "fr": "Onix"
       },
-      "evolutionLinePeerIds": [
-        "031"
-      ]
+      "evolutionLinePeerIds": ["031"]
     },
     {
       "id": "031",
       "dexNumber": "031",
       "name": "Steelix",
-      "specialties": [
-        "Crush",
-        "Bulldoze"
-      ],
+      "specialties": ["Crush", "Bulldoze"],
       "idealHabitat": "Dry",
       "favorites": [
         "Metal stuff",
@@ -787,17 +619,13 @@
         "de": "Stahlos",
         "fr": "Steelix"
       },
-      "evolutionLinePeerIds": [
-        "030"
-      ]
+      "evolutionLinePeerIds": ["030"]
     },
     {
       "id": "032",
       "dexNumber": "032",
       "name": "Cubone",
-      "specialties": [
-        "Build"
-      ],
+      "specialties": ["Build"],
       "idealHabitat": "Dry",
       "favorites": [
         "Lots of dirt",
@@ -811,17 +639,13 @@
         "de": "Tragosso",
         "fr": "Osselait"
       },
-      "evolutionLinePeerIds": [
-        "033"
-      ]
+      "evolutionLinePeerIds": ["033"]
     },
     {
       "id": "033",
       "dexNumber": "033",
       "name": "Marowak",
-      "specialties": [
-        "Build"
-      ],
+      "specialties": ["Build"],
       "idealHabitat": "Dry",
       "favorites": [
         "Lots of dirt",
@@ -835,17 +659,13 @@
         "de": "Knogga",
         "fr": "Ossatueur"
       },
-      "evolutionLinePeerIds": [
-        "032"
-      ]
+      "evolutionLinePeerIds": ["032"]
     },
     {
       "id": "034",
       "dexNumber": "034",
       "name": "Tyrogue",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -859,19 +679,13 @@
         "de": "Rabauz",
         "fr": "Debugant"
       },
-      "evolutionLinePeerIds": [
-        "035",
-        "036",
-        "037"
-      ]
+      "evolutionLinePeerIds": ["035", "036", "037"]
     },
     {
       "id": "035",
       "dexNumber": "035",
       "name": "Hitmonlee",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -885,19 +699,13 @@
         "de": "Kicklee",
         "fr": "Kicklee"
       },
-      "evolutionLinePeerIds": [
-        "034",
-        "036",
-        "037"
-      ]
+      "evolutionLinePeerIds": ["034", "036", "037"]
     },
     {
       "id": "036",
       "dexNumber": "036",
       "name": "Hitmonchan",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -911,19 +719,13 @@
         "de": "Nockchan",
         "fr": "Tygnon"
       },
-      "evolutionLinePeerIds": [
-        "034",
-        "035",
-        "037"
-      ]
+      "evolutionLinePeerIds": ["034", "035", "037"]
     },
     {
       "id": "037",
       "dexNumber": "037",
       "name": "Hitmontop",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -937,19 +739,13 @@
         "de": "Kapoera",
         "fr": "Kapoera"
       },
-      "evolutionLinePeerIds": [
-        "034",
-        "035",
-        "036"
-      ]
+      "evolutionLinePeerIds": ["034", "035", "036"]
     },
     {
       "id": "038",
       "dexNumber": "038",
       "name": "Koffing",
-      "specialties": [
-        "Recycle"
-      ],
+      "specialties": ["Recycle"],
       "idealHabitat": "Dark",
       "favorites": [
         "Garbage",
@@ -963,17 +759,13 @@
         "de": "Smogon",
         "fr": "Smogo"
       },
-      "evolutionLinePeerIds": [
-        "039"
-      ]
+      "evolutionLinePeerIds": ["039"]
     },
     {
       "id": "039",
       "dexNumber": "039",
       "name": "Weezing",
-      "specialties": [
-        "Recycle"
-      ],
+      "specialties": ["Recycle"],
       "idealHabitat": "Dark",
       "favorites": [
         "Garbage",
@@ -987,18 +779,13 @@
         "de": "Smogmog",
         "fr": "Smogogo"
       },
-      "evolutionLinePeerIds": [
-        "038"
-      ]
+      "evolutionLinePeerIds": ["038"]
     },
     {
       "id": "040",
       "dexNumber": "040",
       "name": "Tangela",
-      "specialties": [
-        "Grow",
-        "Litter"
-      ],
+      "specialties": ["Grow", "Litter"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -1012,18 +799,13 @@
         "de": "Tangela",
         "fr": "Saquedeneu"
       },
-      "evolutionLinePeerIds": [
-        "041a",
-        "041b"
-      ]
+      "evolutionLinePeerIds": ["041a", "041b"]
     },
     {
       "id": "041a",
       "dexNumber": "041",
       "name": "Professor Tangrowth",
-      "specialties": [
-        "Appraise"
-      ],
+      "specialties": ["Appraise"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -1038,19 +820,13 @@
         "de": "Tangoloss",
         "fr": "Bouldeneu"
       },
-      "evolutionLinePeerIds": [
-        "040",
-        "041b"
-      ]
+      "evolutionLinePeerIds": ["040", "041b"]
     },
     {
       "id": "041b",
       "dexNumber": "041",
       "name": "Tangrowth",
-      "specialties": [
-        "Grow",
-        "Litter"
-      ],
+      "specialties": ["Grow", "Litter"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -1064,18 +840,13 @@
         "de": "Tangoloss",
         "fr": "Bouldeneu"
       },
-      "evolutionLinePeerIds": [
-        "040",
-        "041a"
-      ]
+      "evolutionLinePeerIds": ["040", "041a"]
     },
     {
       "id": "042",
       "dexNumber": "042",
       "name": "Scyther",
-      "specialties": [
-        "Chop"
-      ],
+      "specialties": ["Chop"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -1089,17 +860,13 @@
         "de": "Sichlor",
         "fr": "Insécateur"
       },
-      "evolutionLinePeerIds": [
-        "043"
-      ]
+      "evolutionLinePeerIds": ["043"]
     },
     {
       "id": "043",
       "dexNumber": "043",
       "name": "Scizor",
-      "specialties": [
-        "Chop"
-      ],
+      "specialties": ["Chop"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -1113,18 +880,13 @@
         "de": "Scherox",
         "fr": "Cizayox"
       },
-      "evolutionLinePeerIds": [
-        "042"
-      ]
+      "evolutionLinePeerIds": ["042"]
     },
     {
       "id": "044",
       "dexNumber": "044",
       "name": "Pinsir",
-      "specialties": [
-        "Chop",
-        "Build"
-      ],
+      "specialties": ["Chop", "Build"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -1144,9 +906,7 @@
       "id": "045",
       "dexNumber": "045",
       "name": "Magikarp",
-      "specialties": [
-        "???"
-      ],
+      "specialties": ["???"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -1160,17 +920,13 @@
         "de": "Karpador",
         "fr": "Magicarpe"
       },
-      "evolutionLinePeerIds": [
-        "046"
-      ]
+      "evolutionLinePeerIds": ["046"]
     },
     {
       "id": "046",
       "dexNumber": "046",
       "name": "Gyarados",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -1184,17 +940,13 @@
         "de": "Garados",
         "fr": "Léviator"
       },
-      "evolutionLinePeerIds": [
-        "045"
-      ]
+      "evolutionLinePeerIds": ["045"]
     },
     {
       "id": "047",
       "dexNumber": "047",
       "name": "Ditto",
-      "specialties": [
-        "Transform"
-      ],
+      "specialties": ["Transform"],
       "idealHabitat": "Bright",
       "favorites": [],
       "favoriteFlavor": null,
@@ -1208,10 +960,7 @@
       "id": "048",
       "dexNumber": "048",
       "name": "Hoothoot",
-      "specialties": [
-        "Trade",
-        "Fly"
-      ],
+      "specialties": ["Trade", "Fly"],
       "idealHabitat": "Dark",
       "favorites": [
         "Soft stuff",
@@ -1225,18 +974,13 @@
         "de": "Hoothoot",
         "fr": "Hoothoot"
       },
-      "evolutionLinePeerIds": [
-        "049"
-      ]
+      "evolutionLinePeerIds": ["049"]
     },
     {
       "id": "049",
       "dexNumber": "049",
       "name": "Noctowl",
-      "specialties": [
-        "Trade",
-        "Fly"
-      ],
+      "specialties": ["Trade", "Fly"],
       "idealHabitat": "Dark",
       "favorites": [
         "Soft stuff",
@@ -1250,18 +994,13 @@
         "de": "Noctuh",
         "fr": "Noarfang"
       },
-      "evolutionLinePeerIds": [
-        "048"
-      ]
+      "evolutionLinePeerIds": ["048"]
     },
     {
       "id": "050",
       "dexNumber": "050",
       "name": "Heracross",
-      "specialties": [
-        "Chop",
-        "Build"
-      ],
+      "specialties": ["Chop", "Build"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -1281,9 +1020,7 @@
       "id": "051",
       "dexNumber": "051",
       "name": "Volbeat",
-      "specialties": [
-        "Hype"
-      ],
+      "specialties": ["Hype"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of nature",
@@ -1303,9 +1040,7 @@
       "id": "052",
       "dexNumber": "052",
       "name": "Illumise",
-      "specialties": [
-        "Hype"
-      ],
+      "specialties": ["Hype"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of nature",
@@ -1325,9 +1060,7 @@
       "id": "053",
       "dexNumber": "053",
       "name": "Gulpin",
-      "specialties": [
-        "Storage"
-      ],
+      "specialties": ["Storage"],
       "idealHabitat": "Humid",
       "favorites": [
         "Cute stuff",
@@ -1341,17 +1074,13 @@
         "de": "Schluppuck",
         "fr": "Gloupti"
       },
-      "evolutionLinePeerIds": [
-        "054"
-      ]
+      "evolutionLinePeerIds": ["054"]
     },
     {
       "id": "054",
       "dexNumber": "054",
       "name": "Swalot",
-      "specialties": [
-        "Storage"
-      ],
+      "specialties": ["Storage"],
       "idealHabitat": "Humid",
       "favorites": [
         "Garbage",
@@ -1365,17 +1094,13 @@
         "de": "Schlukwech",
         "fr": "Avaltout"
       },
-      "evolutionLinePeerIds": [
-        "053"
-      ]
+      "evolutionLinePeerIds": ["053"]
     },
     {
       "id": "055",
       "dexNumber": "055",
       "name": "Cacnea",
-      "specialties": [
-        "Grow"
-      ],
+      "specialties": ["Grow"],
       "idealHabitat": "Dry",
       "favorites": [
         "Lots of nature",
@@ -1389,18 +1114,13 @@
         "de": "Tuska",
         "fr": "Cacnea"
       },
-      "evolutionLinePeerIds": [
-        "056"
-      ]
+      "evolutionLinePeerIds": ["056"]
     },
     {
       "id": "056",
       "dexNumber": "056",
       "name": "Cacturne",
-      "specialties": [
-        "Grow",
-        "Litter"
-      ],
+      "specialties": ["Grow", "Litter"],
       "idealHabitat": "Dry",
       "favorites": [
         "Lots of nature",
@@ -1414,17 +1134,13 @@
         "de": "Noktuska",
         "fr": "Cacturne"
       },
-      "evolutionLinePeerIds": [
-        "055"
-      ]
+      "evolutionLinePeerIds": ["055"]
     },
     {
       "id": "057",
       "dexNumber": "057",
       "name": "Combee",
-      "specialties": [
-        "Litter"
-      ],
+      "specialties": ["Litter"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -1438,18 +1154,13 @@
         "de": "Wadribie",
         "fr": "Apitrini"
       },
-      "evolutionLinePeerIds": [
-        "058"
-      ]
+      "evolutionLinePeerIds": ["058"]
     },
     {
       "id": "058",
       "dexNumber": "058",
       "name": "Vespiquen",
-      "specialties": [
-        "Gather Honey",
-        "Search"
-      ],
+      "specialties": ["Gather Honey", "Search"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -1463,17 +1174,13 @@
         "de": "Honweisel",
         "fr": "Apireine"
       },
-      "evolutionLinePeerIds": [
-        "057"
-      ]
+      "evolutionLinePeerIds": ["057"]
     },
     {
       "id": "059a",
       "dexNumber": "059",
       "name": "Shellos",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -1487,19 +1194,13 @@
         "de": "Schalellos",
         "fr": "Sancoki"
       },
-      "evolutionLinePeerIds": [
-        "059b",
-        "060a",
-        "060b"
-      ]
+      "evolutionLinePeerIds": ["059b", "060a", "060b"]
     },
     {
       "id": "059b",
       "dexNumber": "059",
       "name": "Shellos East Sea",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -1513,20 +1214,13 @@
         "de": "Schalellos",
         "fr": "Sancoki"
       },
-      "evolutionLinePeerIds": [
-        "059a",
-        "060a",
-        "060b"
-      ]
+      "evolutionLinePeerIds": ["059a", "060a", "060b"]
     },
     {
       "id": "060a",
       "dexNumber": "060",
       "name": "Gastrodon",
-      "specialties": [
-        "Water",
-        "Trade"
-      ],
+      "specialties": ["Water", "Trade"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -1540,20 +1234,13 @@
         "de": "Gastrodon",
         "fr": "Tritosor"
       },
-      "evolutionLinePeerIds": [
-        "059a",
-        "059b",
-        "060b"
-      ]
+      "evolutionLinePeerIds": ["059a", "059b", "060b"]
     },
     {
       "id": "060b",
       "dexNumber": "060",
       "name": "Gastrodon East Sea",
-      "specialties": [
-        "Water",
-        "Trade"
-      ],
+      "specialties": ["Water", "Trade"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -1567,19 +1254,13 @@
         "de": "Gastrodon",
         "fr": "Tritosor"
       },
-      "evolutionLinePeerIds": [
-        "059a",
-        "059b",
-        "060a"
-      ]
+      "evolutionLinePeerIds": ["059a", "059b", "060a"]
     },
     {
       "id": "061",
       "dexNumber": "061",
       "name": "Drifloon",
-      "specialties": [
-        "Dream Island"
-      ],
+      "specialties": ["Dream Island"],
       "idealHabitat": "Warm",
       "favorites": [
         "Spooky stuff",
@@ -1593,18 +1274,13 @@
         "de": "Driftlon",
         "fr": "Baudrive"
       },
-      "evolutionLinePeerIds": [
-        "062"
-      ]
+      "evolutionLinePeerIds": ["062"]
     },
     {
       "id": "062",
       "dexNumber": "062",
       "name": "Drifblim",
-      "specialties": [
-        "Fly",
-        "Gather"
-      ],
+      "specialties": ["Fly", "Gather"],
       "idealHabitat": "Warm",
       "favorites": [
         "Spooky stuff",
@@ -1618,17 +1294,13 @@
         "de": "Drifzepeli",
         "fr": "Grodrive"
       },
-      "evolutionLinePeerIds": [
-        "061"
-      ]
+      "evolutionLinePeerIds": ["061"]
     },
     {
       "id": "063",
       "dexNumber": "063",
       "name": "Drilbur",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of dirt",
@@ -1642,18 +1314,13 @@
         "de": "Rotomurf",
         "fr": "Rototaupe"
       },
-      "evolutionLinePeerIds": [
-        "064"
-      ]
+      "evolutionLinePeerIds": ["064"]
     },
     {
       "id": "064",
       "dexNumber": "064",
       "name": "Excadrill",
-      "specialties": [
-        "Search",
-        "Chop"
-      ],
+      "specialties": ["Search", "Chop"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of dirt",
@@ -1667,17 +1334,13 @@
         "de": "Stalobor",
         "fr": "Minotaupe"
       },
-      "evolutionLinePeerIds": [
-        "063"
-      ]
+      "evolutionLinePeerIds": ["063"]
     },
     {
       "id": "065",
       "dexNumber": "065",
       "name": "Timburr",
-      "specialties": [
-        "Build"
-      ],
+      "specialties": ["Build"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -1691,18 +1354,13 @@
         "de": "Praktibalk",
         "fr": "Charpenti"
       },
-      "evolutionLinePeerIds": [
-        "066",
-        "067"
-      ]
+      "evolutionLinePeerIds": ["066", "067"]
     },
     {
       "id": "066",
       "dexNumber": "066",
       "name": "Gurdurr",
-      "specialties": [
-        "Build"
-      ],
+      "specialties": ["Build"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -1716,19 +1374,13 @@
         "de": "Strepoli",
         "fr": "Ouvrifier"
       },
-      "evolutionLinePeerIds": [
-        "065",
-        "067"
-      ]
+      "evolutionLinePeerIds": ["065", "067"]
     },
     {
       "id": "067",
       "dexNumber": "067",
       "name": "Conkeldurr",
-      "specialties": [
-        "Build",
-        "Crush"
-      ],
+      "specialties": ["Build", "Crush"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -1742,18 +1394,13 @@
         "de": "Meistagrif",
         "fr": "Bétochef"
       },
-      "evolutionLinePeerIds": [
-        "065",
-        "066"
-      ]
+      "evolutionLinePeerIds": ["065", "066"]
     },
     {
       "id": "068",
       "dexNumber": "068",
       "name": "Litwick",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Spooky stuff",
@@ -1767,18 +1414,13 @@
         "de": "Lichtel",
         "fr": "Funécire"
       },
-      "evolutionLinePeerIds": [
-        "069",
-        "070"
-      ]
+      "evolutionLinePeerIds": ["069", "070"]
     },
     {
       "id": "069",
       "dexNumber": "069",
       "name": "Lampent",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Spooky stuff",
@@ -1792,18 +1434,13 @@
         "de": "Laternecto",
         "fr": "Mélancolux"
       },
-      "evolutionLinePeerIds": [
-        "068",
-        "070"
-      ]
+      "evolutionLinePeerIds": ["068", "070"]
     },
     {
       "id": "070",
       "dexNumber": "070",
       "name": "Chandelure",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Spooky stuff",
@@ -1817,18 +1454,13 @@
         "de": "Skelabra",
         "fr": "Lugulabre"
       },
-      "evolutionLinePeerIds": [
-        "068",
-        "069"
-      ]
+      "evolutionLinePeerIds": ["068", "069"]
     },
     {
       "id": "071",
       "dexNumber": "071",
       "name": "Axew",
-      "specialties": [
-        "Chop"
-      ],
+      "specialties": ["Chop"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of fire",
@@ -1842,18 +1474,13 @@
         "de": "Milza",
         "fr": "Coupenotte"
       },
-      "evolutionLinePeerIds": [
-        "072",
-        "073"
-      ]
+      "evolutionLinePeerIds": ["072", "073"]
     },
     {
       "id": "072",
       "dexNumber": "072",
       "name": "Fraxure",
-      "specialties": [
-        "Chop"
-      ],
+      "specialties": ["Chop"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of fire",
@@ -1867,19 +1494,13 @@
         "de": "Sharfax",
         "fr": "Incisache"
       },
-      "evolutionLinePeerIds": [
-        "071",
-        "073"
-      ]
+      "evolutionLinePeerIds": ["071", "073"]
     },
     {
       "id": "073",
       "dexNumber": "073",
       "name": "Haxorus",
-      "specialties": [
-        "Chop",
-        "Litter"
-      ],
+      "specialties": ["Chop", "Litter"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of fire",
@@ -1893,18 +1514,13 @@
         "de": "Maxax",
         "fr": "Tranchodon"
       },
-      "evolutionLinePeerIds": [
-        "071",
-        "072"
-      ]
+      "evolutionLinePeerIds": ["071", "072"]
     },
     {
       "id": "074",
       "dexNumber": "074",
       "name": "Goomy",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -1918,18 +1534,13 @@
         "de": "Viscora",
         "fr": "Mucuscule"
       },
-      "evolutionLinePeerIds": [
-        "075",
-        "076"
-      ]
+      "evolutionLinePeerIds": ["075", "076"]
     },
     {
       "id": "075",
       "dexNumber": "075",
       "name": "Sliggoo",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -1943,19 +1554,13 @@
         "de": "Viscargot",
         "fr": "Colimucus"
       },
-      "evolutionLinePeerIds": [
-        "074",
-        "076"
-      ]
+      "evolutionLinePeerIds": ["074", "076"]
     },
     {
       "id": "076",
       "dexNumber": "076",
       "name": "Goodra",
-      "specialties": [
-        "Water",
-        "Trade"
-      ],
+      "specialties": ["Water", "Trade"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -1969,19 +1574,13 @@
         "de": "Viscogon",
         "fr": "Muplodocus"
       },
-      "evolutionLinePeerIds": [
-        "074",
-        "075"
-      ]
+      "evolutionLinePeerIds": ["074", "075"]
     },
     {
       "id": "077",
       "dexNumber": "077",
       "name": "Cramorant",
-      "specialties": [
-        "Fly",
-        "Water"
-      ],
+      "specialties": ["Fly", "Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Nice breezes",
@@ -2001,9 +1600,7 @@
       "id": "078",
       "dexNumber": "078",
       "name": "Pichu",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2017,19 +1614,13 @@
         "de": "Pichu",
         "fr": "Pichu"
       },
-      "evolutionLinePeerIds": [
-        "079a",
-        "079b",
-        "080"
-      ]
+      "evolutionLinePeerIds": ["079a", "079b", "080"]
     },
     {
       "id": "079a",
       "dexNumber": "079",
       "name": "Peakychu",
-      "specialties": [
-        "Illuminate"
-      ],
+      "specialties": ["Illuminate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2043,19 +1634,13 @@
         "de": "Pikachu",
         "fr": "Pikachu"
       },
-      "evolutionLinePeerIds": [
-        "078",
-        "079b",
-        "080"
-      ]
+      "evolutionLinePeerIds": ["078", "079b", "080"]
     },
     {
       "id": "079b",
       "dexNumber": "079",
       "name": "Pikachu",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2069,20 +1654,13 @@
         "de": "Pikachu",
         "fr": "Pikachu"
       },
-      "evolutionLinePeerIds": [
-        "078",
-        "079a",
-        "080"
-      ]
+      "evolutionLinePeerIds": ["078", "079a", "080"]
     },
     {
       "id": "080",
       "dexNumber": "080",
       "name": "Raichu",
-      "specialties": [
-        "Generate",
-        "Hype"
-      ],
+      "specialties": ["Generate", "Hype"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2096,19 +1674,13 @@
         "de": "Raichu",
         "fr": "Raichu"
       },
-      "evolutionLinePeerIds": [
-        "078",
-        "079a",
-        "079b"
-      ]
+      "evolutionLinePeerIds": ["078", "079a", "079b"]
     },
     {
       "id": "081",
       "dexNumber": "081",
       "name": "Zubat",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -2122,18 +1694,13 @@
         "de": "Zubat",
         "fr": "Nosferapti"
       },
-      "evolutionLinePeerIds": [
-        "082",
-        "083"
-      ]
+      "evolutionLinePeerIds": ["082", "083"]
     },
     {
       "id": "082",
       "dexNumber": "082",
       "name": "Golbat",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -2147,19 +1714,13 @@
         "de": "Golbat",
         "fr": "Nosferalto"
       },
-      "evolutionLinePeerIds": [
-        "081",
-        "083"
-      ]
+      "evolutionLinePeerIds": ["081", "083"]
     },
     {
       "id": "083",
       "dexNumber": "083",
       "name": "Crobat",
-      "specialties": [
-        "Search",
-        "Chop"
-      ],
+      "specialties": ["Search", "Chop"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -2173,18 +1734,13 @@
         "de": "Iksbat",
         "fr": "Nostenfer"
       },
-      "evolutionLinePeerIds": [
-        "081",
-        "082"
-      ]
+      "evolutionLinePeerIds": ["081", "082"]
     },
     {
       "id": "084",
       "dexNumber": "084",
       "name": "Meowth",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Cool",
       "favorites": [
         "Containers",
@@ -2198,18 +1754,13 @@
         "de": "Mauzi",
         "fr": "Miaouss"
       },
-      "evolutionLinePeerIds": [
-        "085"
-      ]
+      "evolutionLinePeerIds": ["085"]
     },
     {
       "id": "085",
       "dexNumber": "085",
       "name": "Persian",
-      "specialties": [
-        "Trade",
-        "Search"
-      ],
+      "specialties": ["Trade", "Search"],
       "idealHabitat": "Cool",
       "favorites": [
         "Containers",
@@ -2223,17 +1774,13 @@
         "de": "Snobilikat",
         "fr": "Persian"
       },
-      "evolutionLinePeerIds": [
-        "084"
-      ]
+      "evolutionLinePeerIds": ["084"]
     },
     {
       "id": "086",
       "dexNumber": "086",
       "name": "Psyduck",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -2247,17 +1794,13 @@
         "de": "Enton",
         "fr": "Psykokwak"
       },
-      "evolutionLinePeerIds": [
-        "087"
-      ]
+      "evolutionLinePeerIds": ["087"]
     },
     {
       "id": "087",
       "dexNumber": "087",
       "name": "Golduck",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -2271,18 +1814,13 @@
         "de": "Entoron",
         "fr": "Akwakwak"
       },
-      "evolutionLinePeerIds": [
-        "086"
-      ]
+      "evolutionLinePeerIds": ["086"]
     },
     {
       "id": "088",
       "dexNumber": "088",
       "name": "Growlithe",
-      "specialties": [
-        "Burn",
-        "Search"
-      ],
+      "specialties": ["Burn", "Search"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -2296,18 +1834,13 @@
         "de": "Fukano",
         "fr": "Caninos"
       },
-      "evolutionLinePeerIds": [
-        "089"
-      ]
+      "evolutionLinePeerIds": ["089"]
     },
     {
       "id": "089",
       "dexNumber": "089",
       "name": "Arcanine",
-      "specialties": [
-        "Burn",
-        "Search"
-      ],
+      "specialties": ["Burn", "Search"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -2321,18 +1854,13 @@
         "de": "Arkani",
         "fr": "Arcanin"
       },
-      "evolutionLinePeerIds": [
-        "088"
-      ]
+      "evolutionLinePeerIds": ["088"]
     },
     {
       "id": "090",
       "dexNumber": "090",
       "name": "Farfetch'd",
-      "specialties": [
-        "Chop",
-        "Build"
-      ],
+      "specialties": ["Chop", "Build"],
       "idealHabitat": "Warm",
       "favorites": [
         "Soft stuff",
@@ -2352,9 +1880,7 @@
       "id": "091",
       "dexNumber": "091",
       "name": "Grimer",
-      "specialties": [
-        "Litter"
-      ],
+      "specialties": ["Litter"],
       "idealHabitat": "Dark",
       "favorites": [
         "Garbage",
@@ -2368,17 +1894,13 @@
         "de": "Sleima",
         "fr": "Tadmorv"
       },
-      "evolutionLinePeerIds": [
-        "092"
-      ]
+      "evolutionLinePeerIds": ["092"]
     },
     {
       "id": "092",
       "dexNumber": "092",
       "name": "Muk",
-      "specialties": [
-        "Litter"
-      ],
+      "specialties": ["Litter"],
       "idealHabitat": "Dark",
       "favorites": [
         "Garbage",
@@ -2392,18 +1914,13 @@
         "de": "Sleimok",
         "fr": "Grotadmorv"
       },
-      "evolutionLinePeerIds": [
-        "091"
-      ]
+      "evolutionLinePeerIds": ["091"]
     },
     {
       "id": "093",
       "dexNumber": "093",
       "name": "Gastly",
-      "specialties": [
-        "Gather",
-        "Trade"
-      ],
+      "specialties": ["Gather", "Trade"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -2417,19 +1934,13 @@
         "de": "Nebulak",
         "fr": "Fantominus"
       },
-      "evolutionLinePeerIds": [
-        "094",
-        "095"
-      ]
+      "evolutionLinePeerIds": ["094", "095"]
     },
     {
       "id": "094",
       "dexNumber": "094",
       "name": "Haunter",
-      "specialties": [
-        "Gather",
-        "Trade"
-      ],
+      "specialties": ["Gather", "Trade"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -2443,19 +1954,13 @@
         "de": "Alpollo",
         "fr": "Spectrum"
       },
-      "evolutionLinePeerIds": [
-        "093",
-        "095"
-      ]
+      "evolutionLinePeerIds": ["093", "095"]
     },
     {
       "id": "095",
       "dexNumber": "095",
       "name": "Gengar",
-      "specialties": [
-        "Gather",
-        "Trade"
-      ],
+      "specialties": ["Gather", "Trade"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -2469,19 +1974,13 @@
         "de": "Gengar",
         "fr": "Ectoplasma"
       },
-      "evolutionLinePeerIds": [
-        "093",
-        "094"
-      ]
+      "evolutionLinePeerIds": ["093", "094"]
     },
     {
       "id": "096",
       "dexNumber": "096",
       "name": "Voltorb",
-      "specialties": [
-        "Generate",
-        "Explode"
-      ],
+      "specialties": ["Generate", "Explode"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2495,18 +1994,13 @@
         "de": "Voltobal",
         "fr": "Voltorbe"
       },
-      "evolutionLinePeerIds": [
-        "097"
-      ]
+      "evolutionLinePeerIds": ["097"]
     },
     {
       "id": "097",
       "dexNumber": "097",
       "name": "Electrode",
-      "specialties": [
-        "Generate",
-        "Explode"
-      ],
+      "specialties": ["Generate", "Explode"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2520,18 +2014,13 @@
         "de": "Lektrobal",
         "fr": "Électrode"
       },
-      "evolutionLinePeerIds": [
-        "096"
-      ]
+      "evolutionLinePeerIds": ["096"]
     },
     {
       "id": "098",
       "dexNumber": "098",
       "name": "Exeggcute",
-      "specialties": [
-        "Grow",
-        "Teleport"
-      ],
+      "specialties": ["Grow", "Teleport"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -2545,18 +2034,13 @@
         "de": "Owei",
         "fr": "Noeunoeuf"
       },
-      "evolutionLinePeerIds": [
-        "099"
-      ]
+      "evolutionLinePeerIds": ["099"]
     },
     {
       "id": "099",
       "dexNumber": "099",
       "name": "Exeggutor",
-      "specialties": [
-        "Grow",
-        "Teleport"
-      ],
+      "specialties": ["Grow", "Teleport"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -2570,17 +2054,13 @@
         "de": "Kokowei",
         "fr": "Noadkoko"
       },
-      "evolutionLinePeerIds": [
-        "098"
-      ]
+      "evolutionLinePeerIds": ["098"]
     },
     {
       "id": "100",
       "dexNumber": "100",
       "name": "Happiny",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -2594,18 +2074,13 @@
         "de": "Wonneira",
         "fr": "Ptiravi"
       },
-      "evolutionLinePeerIds": [
-        "101",
-        "102"
-      ]
+      "evolutionLinePeerIds": ["101", "102"]
     },
     {
       "id": "101",
       "dexNumber": "101",
       "name": "Chansey",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -2619,19 +2094,13 @@
         "de": "Chaneira",
         "fr": "Leveinard"
       },
-      "evolutionLinePeerIds": [
-        "100",
-        "102"
-      ]
+      "evolutionLinePeerIds": ["100", "102"]
     },
     {
       "id": "102",
       "dexNumber": "102",
       "name": "Blissey",
-      "specialties": [
-        "Trade",
-        "Litter"
-      ],
+      "specialties": ["Trade", "Litter"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -2645,18 +2114,13 @@
         "de": "Heiteira",
         "fr": "Leuphorie"
       },
-      "evolutionLinePeerIds": [
-        "100",
-        "101"
-      ]
+      "evolutionLinePeerIds": ["100", "101"]
     },
     {
       "id": "103",
       "dexNumber": "103",
       "name": "Elekid",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2670,18 +2134,13 @@
         "de": "Elekid",
         "fr": "Élekid"
       },
-      "evolutionLinePeerIds": [
-        "104",
-        "105"
-      ]
+      "evolutionLinePeerIds": ["104", "105"]
     },
     {
       "id": "104",
       "dexNumber": "104",
       "name": "Electabuzz",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2695,19 +2154,13 @@
         "de": "Elektek",
         "fr": "Élektek"
       },
-      "evolutionLinePeerIds": [
-        "103",
-        "105"
-      ]
+      "evolutionLinePeerIds": ["103", "105"]
     },
     {
       "id": "105",
       "dexNumber": "105",
       "name": "Electivire",
-      "specialties": [
-        "Generate",
-        "Crush"
-      ],
+      "specialties": ["Generate", "Crush"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2721,18 +2174,13 @@
         "de": "Elevoltek",
         "fr": "Élekable"
       },
-      "evolutionLinePeerIds": [
-        "103",
-        "104"
-      ]
+      "evolutionLinePeerIds": ["103", "104"]
     },
     {
       "id": "106",
       "dexNumber": "106",
       "name": "Lapras",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -2752,9 +2200,7 @@
       "id": "107",
       "dexNumber": "107",
       "name": "Munchlax",
-      "specialties": [
-        "Bulldoze"
-      ],
+      "specialties": ["Bulldoze"],
       "idealHabitat": "Warm",
       "favorites": [
         "Soft stuff",
@@ -2768,18 +2214,13 @@
         "de": "Mampfaxo",
         "fr": "Goinfrex"
       },
-      "evolutionLinePeerIds": [
-        "108a",
-        "108b"
-      ]
+      "evolutionLinePeerIds": ["108a", "108b"]
     },
     {
       "id": "108a",
       "dexNumber": "108",
       "name": "Mosslax",
-      "specialties": [
-        "Eat"
-      ],
+      "specialties": ["Eat"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -2793,19 +2234,13 @@
         "de": "Relaxo",
         "fr": "Ronflex"
       },
-      "evolutionLinePeerIds": [
-        "107",
-        "108b"
-      ]
+      "evolutionLinePeerIds": ["107", "108b"]
     },
     {
       "id": "108b",
       "dexNumber": "108",
       "name": "Snorlax",
-      "specialties": [
-        "Trade",
-        "Bulldoze"
-      ],
+      "specialties": ["Trade", "Bulldoze"],
       "idealHabitat": "Warm",
       "favorites": [
         "Soft stuff",
@@ -2819,18 +2254,13 @@
         "de": "Relaxo",
         "fr": "Ronflex"
       },
-      "evolutionLinePeerIds": [
-        "107",
-        "108a"
-      ]
+      "evolutionLinePeerIds": ["107", "108a"]
     },
     {
       "id": "109",
       "dexNumber": "109",
       "name": "Spinarak",
-      "specialties": [
-        "Litter"
-      ],
+      "specialties": ["Litter"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -2844,17 +2274,13 @@
         "de": "Webarak",
         "fr": "Mimigal"
       },
-      "evolutionLinePeerIds": [
-        "110"
-      ]
+      "evolutionLinePeerIds": ["110"]
     },
     {
       "id": "110",
       "dexNumber": "110",
       "name": "Ariados",
-      "specialties": [
-        "Litter"
-      ],
+      "specialties": ["Litter"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -2868,18 +2294,13 @@
         "de": "Ariados",
         "fr": "Migalos"
       },
-      "evolutionLinePeerIds": [
-        "109"
-      ]
+      "evolutionLinePeerIds": ["109"]
     },
     {
       "id": "111",
       "dexNumber": "111",
       "name": "Mareep",
-      "specialties": [
-        "Generate",
-        "Litter"
-      ],
+      "specialties": ["Generate", "Litter"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2893,19 +2314,13 @@
         "de": "Voltilamm",
         "fr": "Wattouat"
       },
-      "evolutionLinePeerIds": [
-        "112",
-        "113"
-      ]
+      "evolutionLinePeerIds": ["112", "113"]
     },
     {
       "id": "112",
       "dexNumber": "112",
       "name": "Flaaffy",
-      "specialties": [
-        "Generate",
-        "Litter"
-      ],
+      "specialties": ["Generate", "Litter"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2919,19 +2334,13 @@
         "de": "Waaty",
         "fr": "Lainergie"
       },
-      "evolutionLinePeerIds": [
-        "111",
-        "113"
-      ]
+      "evolutionLinePeerIds": ["111", "113"]
     },
     {
       "id": "113",
       "dexNumber": "113",
       "name": "Ampharos",
-      "specialties": [
-        "Generate",
-        "Trade"
-      ],
+      "specialties": ["Generate", "Trade"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -2945,19 +2354,13 @@
         "de": "Ampharos",
         "fr": "Pharamp"
       },
-      "evolutionLinePeerIds": [
-        "111",
-        "112"
-      ]
+      "evolutionLinePeerIds": ["111", "112"]
     },
     {
       "id": "114",
       "dexNumber": "114",
       "name": "Azurill",
-      "specialties": [
-        "Water",
-        "Hype"
-      ],
+      "specialties": ["Water", "Hype"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -2971,19 +2374,13 @@
         "de": "Azurill",
         "fr": "Azurill"
       },
-      "evolutionLinePeerIds": [
-        "115",
-        "116"
-      ]
+      "evolutionLinePeerIds": ["115", "116"]
     },
     {
       "id": "115",
       "dexNumber": "115",
       "name": "Marill",
-      "specialties": [
-        "Water",
-        "Hype"
-      ],
+      "specialties": ["Water", "Hype"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -2997,19 +2394,13 @@
         "de": "Marill",
         "fr": "Marill"
       },
-      "evolutionLinePeerIds": [
-        "114",
-        "116"
-      ]
+      "evolutionLinePeerIds": ["114", "116"]
     },
     {
       "id": "116",
       "dexNumber": "116",
       "name": "Azumarill",
-      "specialties": [
-        "Water",
-        "Build"
-      ],
+      "specialties": ["Water", "Build"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -3023,18 +2414,13 @@
         "de": "Azumarill",
         "fr": "Azumarill"
       },
-      "evolutionLinePeerIds": [
-        "114",
-        "115"
-      ]
+      "evolutionLinePeerIds": ["114", "115"]
     },
     {
       "id": "117",
       "dexNumber": "117",
       "name": "Paldean Wooper",
-      "specialties": [
-        "Litter"
-      ],
+      "specialties": ["Litter"],
       "idealHabitat": "Humid",
       "favorites": [
         "Garbage",
@@ -3048,18 +2434,13 @@
         "de": "Felino",
         "fr": "Axoloto"
       },
-      "evolutionLinePeerIds": [
-        "118"
-      ]
+      "evolutionLinePeerIds": ["118"]
     },
     {
       "id": "118",
       "dexNumber": "118",
       "name": "Clodsire",
-      "specialties": [
-        "Litter",
-        "Bulldoze"
-      ],
+      "specialties": ["Litter", "Bulldoze"],
       "idealHabitat": "Humid",
       "favorites": [
         "Garbage",
@@ -3073,17 +2454,13 @@
         "de": "Suelord",
         "fr": "Terraiste"
       },
-      "evolutionLinePeerIds": [
-        "117"
-      ]
+      "evolutionLinePeerIds": ["117"]
     },
     {
       "id": "119",
       "dexNumber": "119",
       "name": "Smeargle",
-      "specialties": [
-        "Paint"
-      ],
+      "specialties": ["Paint"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -3103,9 +2480,7 @@
       "id": "120",
       "dexNumber": "120",
       "name": "Torchic",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -3119,19 +2494,13 @@
         "de": "Flemmli",
         "fr": "Poussifeu"
       },
-      "evolutionLinePeerIds": [
-        "121",
-        "122"
-      ]
+      "evolutionLinePeerIds": ["121", "122"]
     },
     {
       "id": "121",
       "dexNumber": "121",
       "name": "Combusken",
-      "specialties": [
-        "Burn",
-        "Build"
-      ],
+      "specialties": ["Burn", "Build"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -3145,19 +2514,13 @@
         "de": "Jungglut",
         "fr": "Galifeu"
       },
-      "evolutionLinePeerIds": [
-        "120",
-        "122"
-      ]
+      "evolutionLinePeerIds": ["120", "122"]
     },
     {
       "id": "122",
       "dexNumber": "122",
       "name": "Blaziken",
-      "specialties": [
-        "Burn",
-        "Build"
-      ],
+      "specialties": ["Burn", "Build"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -3171,19 +2534,13 @@
         "de": "Lohgock",
         "fr": "Braségali"
       },
-      "evolutionLinePeerIds": [
-        "120",
-        "121"
-      ]
+      "evolutionLinePeerIds": ["120", "121"]
     },
     {
       "id": "123",
       "dexNumber": "123",
       "name": "Wingull",
-      "specialties": [
-        "Water",
-        "Fly"
-      ],
+      "specialties": ["Water", "Fly"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -3197,18 +2554,13 @@
         "de": "Wingull",
         "fr": "Goélise"
       },
-      "evolutionLinePeerIds": [
-        "124"
-      ]
+      "evolutionLinePeerIds": ["124"]
     },
     {
       "id": "124",
       "dexNumber": "124",
       "name": "Pelipper",
-      "specialties": [
-        "Water",
-        "Fly"
-      ],
+      "specialties": ["Water", "Fly"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -3222,18 +2574,13 @@
         "de": "Pelipper",
         "fr": "Bekipan"
       },
-      "evolutionLinePeerIds": [
-        "123"
-      ]
+      "evolutionLinePeerIds": ["123"]
     },
     {
       "id": "125",
       "dexNumber": "125",
       "name": "Makuhita",
-      "specialties": [
-        "Build",
-        "Bulldoze"
-      ],
+      "specialties": ["Build", "Bulldoze"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -3247,18 +2594,13 @@
         "de": "Makuhita",
         "fr": "Makuhita"
       },
-      "evolutionLinePeerIds": [
-        "126"
-      ]
+      "evolutionLinePeerIds": ["126"]
     },
     {
       "id": "126",
       "dexNumber": "126",
       "name": "Hariyama",
-      "specialties": [
-        "Build",
-        "Bulldoze"
-      ],
+      "specialties": ["Build", "Bulldoze"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -3272,17 +2614,13 @@
         "de": "Hariyama",
         "fr": "Hariyama"
       },
-      "evolutionLinePeerIds": [
-        "125"
-      ]
+      "evolutionLinePeerIds": ["125"]
     },
     {
       "id": "127",
       "dexNumber": "127",
       "name": "Absol",
-      "specialties": [
-        "Chop"
-      ],
+      "specialties": ["Chop"],
       "idealHabitat": "Dark",
       "favorites": [
         "Soft stuff",
@@ -3302,9 +2640,7 @@
       "id": "128",
       "dexNumber": "128",
       "name": "Piplup",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -3318,19 +2654,13 @@
         "de": "Plinfa",
         "fr": "Tiplouf"
       },
-      "evolutionLinePeerIds": [
-        "129",
-        "130"
-      ]
+      "evolutionLinePeerIds": ["129", "130"]
     },
     {
       "id": "129",
       "dexNumber": "129",
       "name": "Prinplup",
-      "specialties": [
-        "Water",
-        "Trade"
-      ],
+      "specialties": ["Water", "Trade"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -3344,19 +2674,13 @@
         "de": "Pliprin",
         "fr": "Prinplouf"
       },
-      "evolutionLinePeerIds": [
-        "128",
-        "130"
-      ]
+      "evolutionLinePeerIds": ["128", "130"]
     },
     {
       "id": "130",
       "dexNumber": "130",
       "name": "Empoleon",
-      "specialties": [
-        "Water",
-        "Trade"
-      ],
+      "specialties": ["Water", "Trade"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -3370,18 +2694,13 @@
         "de": "Impoleon",
         "fr": "Pingoléon"
       },
-      "evolutionLinePeerIds": [
-        "128",
-        "129"
-      ]
+      "evolutionLinePeerIds": ["128", "129"]
     },
     {
       "id": "131",
       "dexNumber": "131",
       "name": "Audino",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -3401,9 +2720,7 @@
       "id": "132",
       "dexNumber": "132",
       "name": "Trubbish",
-      "specialties": [
-        "Recycle"
-      ],
+      "specialties": ["Recycle"],
       "idealHabitat": "Humid",
       "favorites": [
         "Garbage",
@@ -3417,18 +2734,13 @@
         "de": "Unratütox",
         "fr": "Miamiasme"
       },
-      "evolutionLinePeerIds": [
-        "133"
-      ]
+      "evolutionLinePeerIds": ["133"]
     },
     {
       "id": "133",
       "dexNumber": "133",
       "name": "Garbodor",
-      "specialties": [
-        "Recycle",
-        "Litter"
-      ],
+      "specialties": ["Recycle", "Litter"],
       "idealHabitat": "Humid",
       "favorites": [
         "Garbage",
@@ -3442,17 +2754,13 @@
         "de": "Deponitox",
         "fr": "Miasmax"
       },
-      "evolutionLinePeerIds": [
-        "132"
-      ]
+      "evolutionLinePeerIds": ["132"]
     },
     {
       "id": "134",
       "dexNumber": "134",
       "name": "Zorua",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Dark",
       "favorites": [
         "Shiny stuff",
@@ -3466,18 +2774,13 @@
         "de": "Zorua",
         "fr": "Zorua"
       },
-      "evolutionLinePeerIds": [
-        "135"
-      ]
+      "evolutionLinePeerIds": ["135"]
     },
     {
       "id": "135",
       "dexNumber": "135",
       "name": "Zoroark",
-      "specialties": [
-        "Trade",
-        "Chop"
-      ],
+      "specialties": ["Trade", "Chop"],
       "idealHabitat": "Dark",
       "favorites": [
         "Shiny stuff",
@@ -3491,17 +2794,13 @@
         "de": "Zoroark",
         "fr": "Zoroark"
       },
-      "evolutionLinePeerIds": [
-        "134"
-      ]
+      "evolutionLinePeerIds": ["134"]
     },
     {
       "id": "136",
       "dexNumber": "136",
       "name": "Minccino",
-      "specialties": [
-        "Gather"
-      ],
+      "specialties": ["Gather"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -3515,18 +2814,13 @@
         "de": "Picochilla",
         "fr": "Chinchidou"
       },
-      "evolutionLinePeerIds": [
-        "137"
-      ]
+      "evolutionLinePeerIds": ["137"]
     },
     {
       "id": "137",
       "dexNumber": "137",
       "name": "Cinccino",
-      "specialties": [
-        "Gather",
-        "Recycle"
-      ],
+      "specialties": ["Gather", "Recycle"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -3540,17 +2834,13 @@
         "de": "Chillabell",
         "fr": "Pashmilla"
       },
-      "evolutionLinePeerIds": [
-        "136"
-      ]
+      "evolutionLinePeerIds": ["136"]
     },
     {
       "id": "138",
       "dexNumber": "138",
       "name": "Grubbin",
-      "specialties": [
-        "Chop"
-      ],
+      "specialties": ["Chop"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -3564,19 +2854,13 @@
         "de": "Mabula",
         "fr": "Larvibule"
       },
-      "evolutionLinePeerIds": [
-        "139",
-        "140"
-      ]
+      "evolutionLinePeerIds": ["139", "140"]
     },
     {
       "id": "139",
       "dexNumber": "139",
       "name": "Charjabug",
-      "specialties": [
-        "Generate",
-        "Chop"
-      ],
+      "specialties": ["Generate", "Chop"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -3590,19 +2874,13 @@
         "de": "Akkup",
         "fr": "Chrysapile"
       },
-      "evolutionLinePeerIds": [
-        "138",
-        "140"
-      ]
+      "evolutionLinePeerIds": ["138", "140"]
     },
     {
       "id": "140",
       "dexNumber": "140",
       "name": "Vikavolt",
-      "specialties": [
-        "Generate",
-        "Chop"
-      ],
+      "specialties": ["Generate", "Chop"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -3616,18 +2894,13 @@
         "de": "Donarion",
         "fr": "Lucanon"
       },
-      "evolutionLinePeerIds": [
-        "138",
-        "139"
-      ]
+      "evolutionLinePeerIds": ["138", "139"]
     },
     {
       "id": "141",
       "dexNumber": "141",
       "name": "Mimikyu",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -3647,9 +2920,7 @@
       "id": "142",
       "dexNumber": "142",
       "name": "Pawmi",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -3663,19 +2934,13 @@
         "de": "Pamo",
         "fr": "Pohm"
       },
-      "evolutionLinePeerIds": [
-        "143",
-        "144"
-      ]
+      "evolutionLinePeerIds": ["143", "144"]
     },
     {
       "id": "143",
       "dexNumber": "143",
       "name": "Pawmo",
-      "specialties": [
-        "Generate",
-        "Crush"
-      ],
+      "specialties": ["Generate", "Crush"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -3689,19 +2954,13 @@
         "de": "Pamamo",
         "fr": "Pohmotte"
       },
-      "evolutionLinePeerIds": [
-        "142",
-        "144"
-      ]
+      "evolutionLinePeerIds": ["142", "144"]
     },
     {
       "id": "144",
       "dexNumber": "144",
       "name": "Pawmot",
-      "specialties": [
-        "Generate",
-        "Crush"
-      ],
+      "specialties": ["Generate", "Crush"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -3715,18 +2974,13 @@
         "de": "Pamomamo",
         "fr": "Pohmarmotte"
       },
-      "evolutionLinePeerIds": [
-        "142",
-        "143"
-      ]
+      "evolutionLinePeerIds": ["142", "143"]
     },
     {
       "id": "145a",
       "dexNumber": "145",
       "name": "Tatsugiri Curly Form",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -3740,18 +2994,13 @@
         "de": "Nigiragi",
         "fr": "Nigirigon"
       },
-      "evolutionLinePeerIds": [
-        "145b",
-        "145c"
-      ]
+      "evolutionLinePeerIds": ["145b", "145c"]
     },
     {
       "id": "145b",
       "dexNumber": "145",
       "name": "Tatsugiri Droopy Form",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -3765,18 +3014,13 @@
         "de": "Nigiragi",
         "fr": "Nigirigon"
       },
-      "evolutionLinePeerIds": [
-        "145a",
-        "145c"
-      ]
+      "evolutionLinePeerIds": ["145a", "145c"]
     },
     {
       "id": "145c",
       "dexNumber": "145",
       "name": "Tatsugiri Stretchy Form",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -3790,18 +3034,13 @@
         "de": "Nigiragi",
         "fr": "Nigirigon"
       },
-      "evolutionLinePeerIds": [
-        "145a",
-        "145b"
-      ]
+      "evolutionLinePeerIds": ["145a", "145b"]
     },
     {
       "id": "146",
       "dexNumber": "146",
       "name": "Ekans",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Dark",
       "favorites": [
         "Garbage",
@@ -3815,17 +3054,13 @@
         "de": "Rettan",
         "fr": "Abo"
       },
-      "evolutionLinePeerIds": [
-        "147"
-      ]
+      "evolutionLinePeerIds": ["147"]
     },
     {
       "id": "147",
       "dexNumber": "147",
       "name": "Arbok",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Dark",
       "favorites": [
         "Garbage",
@@ -3839,17 +3074,13 @@
         "de": "Arbok",
         "fr": "Arbok"
       },
-      "evolutionLinePeerIds": [
-        "146"
-      ]
+      "evolutionLinePeerIds": ["146"]
     },
     {
       "id": "148",
       "dexNumber": "148",
       "name": "Cleffa",
-      "specialties": [
-        "Hype"
-      ],
+      "specialties": ["Hype"],
       "idealHabitat": "Dark",
       "favorites": [
         "Cute stuff",
@@ -3863,18 +3094,13 @@
         "de": "Pii",
         "fr": "Mélo"
       },
-      "evolutionLinePeerIds": [
-        "149",
-        "150"
-      ]
+      "evolutionLinePeerIds": ["149", "150"]
     },
     {
       "id": "149",
       "dexNumber": "149",
       "name": "Clefairy",
-      "specialties": [
-        "Hype"
-      ],
+      "specialties": ["Hype"],
       "idealHabitat": "Dark",
       "favorites": [
         "Cute stuff",
@@ -3888,19 +3114,13 @@
         "de": "Piepi",
         "fr": "Mélofée"
       },
-      "evolutionLinePeerIds": [
-        "148",
-        "150"
-      ]
+      "evolutionLinePeerIds": ["148", "150"]
     },
     {
       "id": "150",
       "dexNumber": "150",
       "name": "Clefable",
-      "specialties": [
-        "Hype",
-        "Trade"
-      ],
+      "specialties": ["Hype", "Trade"],
       "idealHabitat": "Dark",
       "favorites": [
         "Cute stuff",
@@ -3914,18 +3134,13 @@
         "de": "Pixi",
         "fr": "Mélodelfe"
       },
-      "evolutionLinePeerIds": [
-        "148",
-        "149"
-      ]
+      "evolutionLinePeerIds": ["148", "149"]
     },
     {
       "id": "151",
       "dexNumber": "151",
       "name": "Igglybuff",
-      "specialties": [
-        "Hype"
-      ],
+      "specialties": ["Hype"],
       "idealHabitat": "Warm",
       "favorites": [
         "Soft stuff",
@@ -3939,18 +3154,13 @@
         "de": "Fluffeluff",
         "fr": "Toudoudou"
       },
-      "evolutionLinePeerIds": [
-        "152",
-        "153"
-      ]
+      "evolutionLinePeerIds": ["152", "153"]
     },
     {
       "id": "152",
       "dexNumber": "152",
       "name": "Jigglypuff",
-      "specialties": [
-        "Hype"
-      ],
+      "specialties": ["Hype"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -3964,19 +3174,13 @@
         "de": "Pummeluff",
         "fr": "Rondoudou"
       },
-      "evolutionLinePeerIds": [
-        "151",
-        "153"
-      ]
+      "evolutionLinePeerIds": ["151", "153"]
     },
     {
       "id": "153",
       "dexNumber": "153",
       "name": "Wigglytuff",
-      "specialties": [
-        "Hype",
-        "Trade"
-      ],
+      "specialties": ["Hype", "Trade"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -3990,18 +3194,13 @@
         "de": "Knuddeluff",
         "fr": "Grodoudou"
       },
-      "evolutionLinePeerIds": [
-        "151",
-        "152"
-      ]
+      "evolutionLinePeerIds": ["151", "152"]
     },
     {
       "id": "154",
       "dexNumber": "154",
       "name": "Diglett",
-      "specialties": [
-        "Hype"
-      ],
+      "specialties": ["Hype"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of dirt",
@@ -4015,18 +3214,13 @@
         "de": "Digda",
         "fr": "Taupiqueur"
       },
-      "evolutionLinePeerIds": [
-        "155"
-      ]
+      "evolutionLinePeerIds": ["155"]
     },
     {
       "id": "155",
       "dexNumber": "155",
       "name": "Dugtrio",
-      "specialties": [
-        "Hype",
-        "Crush"
-      ],
+      "specialties": ["Hype", "Crush"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of dirt",
@@ -4040,18 +3234,13 @@
         "de": "Digdri",
         "fr": "Triopikeur"
       },
-      "evolutionLinePeerIds": [
-        "154"
-      ]
+      "evolutionLinePeerIds": ["154"]
     },
     {
       "id": "156",
       "dexNumber": "156",
       "name": "Machop",
-      "specialties": [
-        "Build",
-        "Gather"
-      ],
+      "specialties": ["Build", "Gather"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -4065,19 +3254,13 @@
         "de": "Machollo",
         "fr": "Machoc"
       },
-      "evolutionLinePeerIds": [
-        "157",
-        "158"
-      ]
+      "evolutionLinePeerIds": ["157", "158"]
     },
     {
       "id": "157",
       "dexNumber": "157",
       "name": "Machoke",
-      "specialties": [
-        "Build",
-        "Gather"
-      ],
+      "specialties": ["Build", "Gather"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -4091,19 +3274,13 @@
         "de": "Maschock",
         "fr": "Machopeur"
       },
-      "evolutionLinePeerIds": [
-        "156",
-        "158"
-      ]
+      "evolutionLinePeerIds": ["156", "158"]
     },
     {
       "id": "158",
       "dexNumber": "158",
       "name": "Machamp",
-      "specialties": [
-        "Build",
-        "Gather"
-      ],
+      "specialties": ["Build", "Gather"],
       "idealHabitat": "Bright",
       "favorites": [
         "Exercise",
@@ -4117,18 +3294,13 @@
         "de": "Machomei",
         "fr": "Mackogneur"
       },
-      "evolutionLinePeerIds": [
-        "156",
-        "157"
-      ]
+      "evolutionLinePeerIds": ["156", "157"]
     },
     {
       "id": "159",
       "dexNumber": "159",
       "name": "Geodude",
-      "specialties": [
-        "Crush"
-      ],
+      "specialties": ["Crush"],
       "idealHabitat": "Dark",
       "favorites": [
         "Stone stuff",
@@ -4142,18 +3314,13 @@
         "de": "Kleinstein",
         "fr": "Racaillou"
       },
-      "evolutionLinePeerIds": [
-        "160",
-        "161"
-      ]
+      "evolutionLinePeerIds": ["160", "161"]
     },
     {
       "id": "160",
       "dexNumber": "160",
       "name": "Graveler",
-      "specialties": [
-        "Crush"
-      ],
+      "specialties": ["Crush"],
       "idealHabitat": "Dark",
       "favorites": [
         "Stone stuff",
@@ -4167,19 +3334,13 @@
         "de": "Georok",
         "fr": "Gravalanch"
       },
-      "evolutionLinePeerIds": [
-        "159",
-        "161"
-      ]
+      "evolutionLinePeerIds": ["159", "161"]
     },
     {
       "id": "161",
       "dexNumber": "161",
       "name": "Golem",
-      "specialties": [
-        "Crush",
-        "Trade"
-      ],
+      "specialties": ["Crush", "Trade"],
       "idealHabitat": "Dark",
       "favorites": [
         "Stone stuff",
@@ -4193,18 +3354,13 @@
         "de": "Geowaz",
         "fr": "Grolem"
       },
-      "evolutionLinePeerIds": [
-        "159",
-        "160"
-      ]
+      "evolutionLinePeerIds": ["159", "160"]
     },
     {
       "id": "162",
       "dexNumber": "162",
       "name": "Magby",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -4218,18 +3374,13 @@
         "de": "Magby",
         "fr": "Magby"
       },
-      "evolutionLinePeerIds": [
-        "163",
-        "164"
-      ]
+      "evolutionLinePeerIds": ["163", "164"]
     },
     {
       "id": "163",
       "dexNumber": "163",
       "name": "Magmar",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -4243,19 +3394,13 @@
         "de": "Magmar",
         "fr": "Magmar"
       },
-      "evolutionLinePeerIds": [
-        "162",
-        "164"
-      ]
+      "evolutionLinePeerIds": ["162", "164"]
     },
     {
       "id": "164",
       "dexNumber": "164",
       "name": "Magmortar",
-      "specialties": [
-        "Burn",
-        "Crush"
-      ],
+      "specialties": ["Burn", "Crush"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -4269,18 +3414,13 @@
         "de": "Magbrant",
         "fr": "Maganon"
       },
-      "evolutionLinePeerIds": [
-        "162",
-        "163"
-      ]
+      "evolutionLinePeerIds": ["162", "163"]
     },
     {
       "id": "165",
       "dexNumber": "165",
       "name": "Bonsly",
-      "specialties": [
-        "Bulldoze"
-      ],
+      "specialties": ["Bulldoze"],
       "idealHabitat": "Dry",
       "favorites": [
         "Stone stuff",
@@ -4294,17 +3434,13 @@
         "de": "Mobai",
         "fr": "Manzaï"
       },
-      "evolutionLinePeerIds": [
-        "166"
-      ]
+      "evolutionLinePeerIds": ["166"]
     },
     {
       "id": "166",
       "dexNumber": "166",
       "name": "Sudowoodo",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Dry",
       "favorites": [
         "Stone stuff",
@@ -4318,18 +3454,13 @@
         "de": "Mogelbaum",
         "fr": "Simularbre"
       },
-      "evolutionLinePeerIds": [
-        "165"
-      ]
+      "evolutionLinePeerIds": ["165"]
     },
     {
       "id": "167",
       "dexNumber": "167",
       "name": "Murkrow",
-      "specialties": [
-        "Trade",
-        "Fly"
-      ],
+      "specialties": ["Trade", "Fly"],
       "idealHabitat": "Dark",
       "favorites": [
         "Shiny stuff",
@@ -4343,18 +3474,13 @@
         "de": "Kramurx",
         "fr": "Cornèbre"
       },
-      "evolutionLinePeerIds": [
-        "168"
-      ]
+      "evolutionLinePeerIds": ["168"]
     },
     {
       "id": "168",
       "dexNumber": "168",
       "name": "Honchkrow",
-      "specialties": [
-        "Trade",
-        "Fly"
-      ],
+      "specialties": ["Trade", "Fly"],
       "idealHabitat": "Dark",
       "favorites": [
         "Shiny stuff",
@@ -4368,18 +3494,13 @@
         "de": "Kramshef",
         "fr": "Corboss"
       },
-      "evolutionLinePeerIds": [
-        "167"
-      ]
+      "evolutionLinePeerIds": ["167"]
     },
     {
       "id": "169",
       "dexNumber": "169",
       "name": "Larvitar",
-      "specialties": [
-        "Crush",
-        "Bulldoze"
-      ],
+      "specialties": ["Crush", "Bulldoze"],
       "idealHabitat": "Dark",
       "favorites": [
         "Stone stuff",
@@ -4393,19 +3514,13 @@
         "de": "Larvitar",
         "fr": "Embrylex"
       },
-      "evolutionLinePeerIds": [
-        "170",
-        "171"
-      ]
+      "evolutionLinePeerIds": ["170", "171"]
     },
     {
       "id": "170",
       "dexNumber": "170",
       "name": "Pupitar",
-      "specialties": [
-        "Crush",
-        "Bulldoze"
-      ],
+      "specialties": ["Crush", "Bulldoze"],
       "idealHabitat": "Dark",
       "favorites": [
         "Stone stuff",
@@ -4419,19 +3534,13 @@
         "de": "Pupitar",
         "fr": "Ymphect"
       },
-      "evolutionLinePeerIds": [
-        "169",
-        "171"
-      ]
+      "evolutionLinePeerIds": ["169", "171"]
     },
     {
       "id": "171",
       "dexNumber": "171",
       "name": "Tyranitar",
-      "specialties": [
-        "Crush",
-        "Bulldoze"
-      ],
+      "specialties": ["Crush", "Bulldoze"],
       "idealHabitat": "Dark",
       "favorites": [
         "Stone stuff",
@@ -4445,18 +3554,13 @@
         "de": "Despotar",
         "fr": "Tyranocif"
       },
-      "evolutionLinePeerIds": [
-        "169",
-        "170"
-      ]
+      "evolutionLinePeerIds": ["169", "170"]
     },
     {
       "id": "172",
       "dexNumber": "172",
       "name": "Lotad",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -4470,18 +3574,13 @@
         "de": "Loturzel",
         "fr": "Nénupiot"
       },
-      "evolutionLinePeerIds": [
-        "173",
-        "174"
-      ]
+      "evolutionLinePeerIds": ["173", "174"]
     },
     {
       "id": "173",
       "dexNumber": "173",
       "name": "Lombre",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -4495,19 +3594,13 @@
         "de": "Lombrero",
         "fr": "Lombre"
       },
-      "evolutionLinePeerIds": [
-        "172",
-        "174"
-      ]
+      "evolutionLinePeerIds": ["172", "174"]
     },
     {
       "id": "174",
       "dexNumber": "174",
       "name": "Ludicolo",
-      "specialties": [
-        "Water",
-        "Hype"
-      ],
+      "specialties": ["Water", "Hype"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -4521,19 +3614,13 @@
         "de": "Kappalores",
         "fr": "Ludicolo"
       },
-      "evolutionLinePeerIds": [
-        "172",
-        "173"
-      ]
+      "evolutionLinePeerIds": ["172", "173"]
     },
     {
       "id": "175",
       "dexNumber": "175",
       "name": "Mawile",
-      "specialties": [
-        "Trade",
-        "Build"
-      ],
+      "specialties": ["Trade", "Build"],
       "idealHabitat": "Bright",
       "favorites": [
         "Metal stuff",
@@ -4553,9 +3640,7 @@
       "id": "176",
       "dexNumber": "176",
       "name": "Torkoal",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -4575,9 +3660,7 @@
       "id": "177",
       "dexNumber": "177",
       "name": "Kricketot",
-      "specialties": [
-        "Hype"
-      ],
+      "specialties": ["Hype"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of nature",
@@ -4591,17 +3674,13 @@
         "de": "Zirpurze",
         "fr": "Crikzik"
       },
-      "evolutionLinePeerIds": [
-        "178"
-      ]
+      "evolutionLinePeerIds": ["178"]
     },
     {
       "id": "178",
       "dexNumber": "178",
       "name": "Kricketune",
-      "specialties": [
-        "Hype"
-      ],
+      "specialties": ["Hype"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of nature",
@@ -4615,18 +3694,13 @@
         "de": "Zirpeise",
         "fr": "Mélokrik"
       },
-      "evolutionLinePeerIds": [
-        "177"
-      ]
+      "evolutionLinePeerIds": ["177"]
     },
     {
       "id": "179",
       "dexNumber": "179",
       "name": "Chatot",
-      "specialties": [
-        "Hype",
-        "Fly"
-      ],
+      "specialties": ["Hype", "Fly"],
       "idealHabitat": "Warm",
       "favorites": [
         "Nice breezes",
@@ -4646,9 +3720,7 @@
       "id": "180",
       "dexNumber": "180",
       "name": "Riolu",
-      "specialties": [
-        "Build"
-      ],
+      "specialties": ["Build"],
       "idealHabitat": "Dark",
       "favorites": [
         "Exercise",
@@ -4662,17 +3734,13 @@
         "de": "Riolu",
         "fr": "Riolu"
       },
-      "evolutionLinePeerIds": [
-        "181"
-      ]
+      "evolutionLinePeerIds": ["181"]
     },
     {
       "id": "181",
       "dexNumber": "181",
       "name": "Lucario",
-      "specialties": [
-        "Build"
-      ],
+      "specialties": ["Build"],
       "idealHabitat": "Dark",
       "favorites": [
         "Exercise",
@@ -4686,17 +3754,13 @@
         "de": "Lucario",
         "fr": "Lucario"
       },
-      "evolutionLinePeerIds": [
-        "180"
-      ]
+      "evolutionLinePeerIds": ["180"]
     },
     {
       "id": "182",
       "dexNumber": "182",
       "name": "Stereo Rotom",
-      "specialties": [
-        "DJ"
-      ],
+      "specialties": ["DJ"],
       "idealHabitat": "Bright",
       "favorites": [
         "Shiny stuff",
@@ -4716,10 +3780,7 @@
       "id": "183",
       "dexNumber": "183",
       "name": "Larvesta",
-      "specialties": [
-        "Burn",
-        "Litter"
-      ],
+      "specialties": ["Burn", "Litter"],
       "idealHabitat": "Dry",
       "favorites": [
         "Lots of nature",
@@ -4733,18 +3794,13 @@
         "de": "Ignivor",
         "fr": "Pyronille"
       },
-      "evolutionLinePeerIds": [
-        "184"
-      ]
+      "evolutionLinePeerIds": ["184"]
     },
     {
       "id": "184",
       "dexNumber": "184",
       "name": "Volcarona",
-      "specialties": [
-        "Burn",
-        "Litter"
-      ],
+      "specialties": ["Burn", "Litter"],
       "idealHabitat": "Dry",
       "favorites": [
         "Lots of nature",
@@ -4758,17 +3814,13 @@
         "de": "Ramoth",
         "fr": "Pyrax"
       },
-      "evolutionLinePeerIds": [
-        "183"
-      ]
+      "evolutionLinePeerIds": ["183"]
     },
     {
       "id": "185",
       "dexNumber": "185",
       "name": "Rowlet",
-      "specialties": [
-        "Grow"
-      ],
+      "specialties": ["Grow"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of nature",
@@ -4782,19 +3834,13 @@
         "de": "Bauz",
         "fr": "Brindibou"
       },
-      "evolutionLinePeerIds": [
-        "186",
-        "187"
-      ]
+      "evolutionLinePeerIds": ["186", "187"]
     },
     {
       "id": "186",
       "dexNumber": "186",
       "name": "Dartrix",
-      "specialties": [
-        "Grow",
-        "Chop"
-      ],
+      "specialties": ["Grow", "Chop"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of nature",
@@ -4808,19 +3854,13 @@
         "de": "Arboretoss",
         "fr": "Efflèche"
       },
-      "evolutionLinePeerIds": [
-        "185",
-        "187"
-      ]
+      "evolutionLinePeerIds": ["185", "187"]
     },
     {
       "id": "187",
       "dexNumber": "187",
       "name": "Decidueye",
-      "specialties": [
-        "Grow",
-        "Chop"
-      ],
+      "specialties": ["Grow", "Chop"],
       "idealHabitat": "Dark",
       "favorites": [
         "Lots of nature",
@@ -4834,18 +3874,13 @@
         "de": "Silvarro",
         "fr": "Archéduc"
       },
-      "evolutionLinePeerIds": [
-        "185",
-        "186"
-      ]
+      "evolutionLinePeerIds": ["185", "186"]
     },
     {
       "id": "188",
       "dexNumber": "188",
       "name": "Scorbunny",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -4859,18 +3894,13 @@
         "de": "Hopplo",
         "fr": "Flambino"
       },
-      "evolutionLinePeerIds": [
-        "189",
-        "190"
-      ]
+      "evolutionLinePeerIds": ["189", "190"]
     },
     {
       "id": "189",
       "dexNumber": "189",
       "name": "Raboot",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -4884,19 +3914,13 @@
         "de": "Kickerlo",
         "fr": "Lapyro"
       },
-      "evolutionLinePeerIds": [
-        "188",
-        "190"
-      ]
+      "evolutionLinePeerIds": ["188", "190"]
     },
     {
       "id": "190",
       "dexNumber": "190",
       "name": "Cinderace",
-      "specialties": [
-        "Burn",
-        "Hype"
-      ],
+      "specialties": ["Burn", "Hype"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -4910,19 +3934,13 @@
         "de": "Liberlo",
         "fr": "Pyrobut"
       },
-      "evolutionLinePeerIds": [
-        "188",
-        "189"
-      ]
+      "evolutionLinePeerIds": ["188", "189"]
     },
     {
       "id": "191",
       "dexNumber": "191",
       "name": "Skwovet",
-      "specialties": [
-        "Search",
-        "Hype"
-      ],
+      "specialties": ["Search", "Hype"],
       "idealHabitat": "Warm",
       "favorites": [
         "Soft stuff",
@@ -4936,17 +3954,13 @@
         "de": "Raffel",
         "fr": "Rongourmand"
       },
-      "evolutionLinePeerIds": [
-        "192"
-      ]
+      "evolutionLinePeerIds": ["192"]
     },
     {
       "id": "192",
       "dexNumber": "192",
       "name": "Greedent",
-      "specialties": [
-        "Party"
-      ],
+      "specialties": ["Party"],
       "idealHabitat": "Warm",
       "favorites": [
         "Soft stuff",
@@ -4960,18 +3974,13 @@
         "de": "Schlaraffel",
         "fr": "Rongrigou"
       },
-      "evolutionLinePeerIds": [
-        "191"
-      ]
+      "evolutionLinePeerIds": ["191"]
     },
     {
       "id": "193",
       "dexNumber": "193",
       "name": "Rolycoly",
-      "specialties": [
-        "Burn",
-        "Gather"
-      ],
+      "specialties": ["Burn", "Gather"],
       "idealHabitat": "Warm",
       "favorites": [
         "Stone stuff",
@@ -4985,19 +3994,13 @@
         "de": "Klonkett",
         "fr": "Charbi"
       },
-      "evolutionLinePeerIds": [
-        "194",
-        "195"
-      ]
+      "evolutionLinePeerIds": ["194", "195"]
     },
     {
       "id": "194",
       "dexNumber": "194",
       "name": "Carkol",
-      "specialties": [
-        "Burn",
-        "Gather"
-      ],
+      "specialties": ["Burn", "Gather"],
       "idealHabitat": "Warm",
       "favorites": [
         "Stone stuff",
@@ -5011,19 +4014,13 @@
         "de": "Wagong",
         "fr": "Wagomine"
       },
-      "evolutionLinePeerIds": [
-        "193",
-        "195"
-      ]
+      "evolutionLinePeerIds": ["193", "195"]
     },
     {
       "id": "195",
       "dexNumber": "195",
       "name": "Coalossal",
-      "specialties": [
-        "Burn",
-        "Gather"
-      ],
+      "specialties": ["Burn", "Gather"],
       "idealHabitat": "Warm",
       "favorites": [
         "Stone stuff",
@@ -5037,18 +4034,13 @@
         "de": "Montecarbo",
         "fr": "Monthracite"
       },
-      "evolutionLinePeerIds": [
-        "193",
-        "194"
-      ]
+      "evolutionLinePeerIds": ["193", "194"]
     },
     {
       "id": "196",
       "dexNumber": "196",
       "name": "Toxel",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Humid",
       "favorites": [
         "Electronics",
@@ -5062,19 +4054,13 @@
         "de": "Toxel",
         "fr": "Toxizap"
       },
-      "evolutionLinePeerIds": [
-        "197a",
-        "197b"
-      ]
+      "evolutionLinePeerIds": ["197a", "197b"]
     },
     {
       "id": "197a",
       "dexNumber": "197",
       "name": "Toxtricity Amped Form",
-      "specialties": [
-        "Generate",
-        "Hype"
-      ],
+      "specialties": ["Generate", "Hype"],
       "idealHabitat": "Humid",
       "favorites": [
         "Electronics",
@@ -5088,19 +4074,13 @@
         "de": "Riffex",
         "fr": "Salarsen"
       },
-      "evolutionLinePeerIds": [
-        "196",
-        "197b"
-      ]
+      "evolutionLinePeerIds": ["196", "197b"]
     },
     {
       "id": "197b",
       "dexNumber": "197",
       "name": "Toxtricity Low Key Form",
-      "specialties": [
-        "Generate",
-        "Hype"
-      ],
+      "specialties": ["Generate", "Hype"],
       "idealHabitat": "Humid",
       "favorites": [
         "Electronics",
@@ -5114,18 +4094,13 @@
         "de": "Riffex",
         "fr": "Salarsen"
       },
-      "evolutionLinePeerIds": [
-        "196",
-        "197a"
-      ]
+      "evolutionLinePeerIds": ["196", "197a"]
     },
     {
       "id": "198",
       "dexNumber": "198",
       "name": "Fidough",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Warm",
       "favorites": [
         "Cute stuff",
@@ -5139,18 +4114,13 @@
         "de": "Hefel",
         "fr": "Pâtachiot"
       },
-      "evolutionLinePeerIds": [
-        "199"
-      ]
+      "evolutionLinePeerIds": ["199"]
     },
     {
       "id": "199",
       "dexNumber": "199",
       "name": "Dachsbun",
-      "specialties": [
-        "Search",
-        "Trade"
-      ],
+      "specialties": ["Search", "Trade"],
       "idealHabitat": "Warm",
       "favorites": [
         "Cute stuff",
@@ -5164,17 +4134,13 @@
         "de": "Backel",
         "fr": "Briochien"
       },
-      "evolutionLinePeerIds": [
-        "198"
-      ]
+      "evolutionLinePeerIds": ["198"]
     },
     {
       "id": "200",
       "dexNumber": "200",
       "name": "Charcadet",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -5188,19 +4154,13 @@
         "de": "Knarbon",
         "fr": "Charbambin"
       },
-      "evolutionLinePeerIds": [
-        "201",
-        "202"
-      ]
+      "evolutionLinePeerIds": ["201", "202"]
     },
     {
       "id": "201",
       "dexNumber": "201",
       "name": "Armarouge",
-      "specialties": [
-        "Burn",
-        "Trade"
-      ],
+      "specialties": ["Burn", "Trade"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -5214,19 +4174,13 @@
         "de": "Crimanzo",
         "fr": "Carmadura"
       },
-      "evolutionLinePeerIds": [
-        "200",
-        "202"
-      ]
+      "evolutionLinePeerIds": ["200", "202"]
     },
     {
       "id": "202",
       "dexNumber": "202",
       "name": "Ceruledge",
-      "specialties": [
-        "Burn",
-        "Trade"
-      ],
+      "specialties": ["Burn", "Trade"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -5240,18 +4194,13 @@
         "de": "Azugladis",
         "fr": "Malvalame"
       },
-      "evolutionLinePeerIds": [
-        "200",
-        "201"
-      ]
+      "evolutionLinePeerIds": ["200", "201"]
     },
     {
       "id": "203",
       "dexNumber": "203",
       "name": "Glimmet",
-      "specialties": [
-        "Litter"
-      ],
+      "specialties": ["Litter"],
       "idealHabitat": "Dark",
       "favorites": [
         "Stone stuff",
@@ -5265,17 +4214,13 @@
         "de": "Lumispross",
         "fr": "Germéclat"
       },
-      "evolutionLinePeerIds": [
-        "204"
-      ]
+      "evolutionLinePeerIds": ["204"]
     },
     {
       "id": "204",
       "dexNumber": "204",
       "name": "Glimmora",
-      "specialties": [
-        "Litter"
-      ],
+      "specialties": ["Litter"],
       "idealHabitat": "Dark",
       "favorites": [
         "Stone stuff",
@@ -5289,17 +4234,13 @@
         "de": "Lumiflora",
         "fr": "Floréclat"
       },
-      "evolutionLinePeerIds": [
-        "203"
-      ]
+      "evolutionLinePeerIds": ["203"]
     },
     {
       "id": "205",
       "dexNumber": "205",
       "name": "Gimmighoul",
-      "specialties": [
-        "Collect"
-      ],
+      "specialties": ["Collect"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -5313,17 +4254,13 @@
         "de": "Gierspenst",
         "fr": "Mordudor"
       },
-      "evolutionLinePeerIds": [
-        "206"
-      ]
+      "evolutionLinePeerIds": ["206"]
     },
     {
       "id": "206",
       "dexNumber": "206",
       "name": "Gholdengo",
-      "specialties": [
-        "Collect"
-      ],
+      "specialties": ["Collect"],
       "idealHabitat": "Bright",
       "favorites": [
         "Spooky stuff",
@@ -5337,17 +4274,13 @@
         "de": "Monetigo",
         "fr": "Gromago"
       },
-      "evolutionLinePeerIds": [
-        "205"
-      ]
+      "evolutionLinePeerIds": ["205"]
     },
     {
       "id": "207",
       "dexNumber": "207",
       "name": "Vulpix",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -5361,17 +4294,13 @@
         "de": "Vulpix",
         "fr": "Goupix"
       },
-      "evolutionLinePeerIds": [
-        "208"
-      ]
+      "evolutionLinePeerIds": ["208"]
     },
     {
       "id": "208",
       "dexNumber": "208",
       "name": "Ninetales",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -5385,17 +4314,13 @@
         "de": "Vulnona",
         "fr": "Feunard"
       },
-      "evolutionLinePeerIds": [
-        "207"
-      ]
+      "evolutionLinePeerIds": ["207"]
     },
     {
       "id": "209",
       "dexNumber": "209",
       "name": "Poliwag",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -5409,19 +4334,13 @@
         "de": "Quapsel",
         "fr": "Ptitard"
       },
-      "evolutionLinePeerIds": [
-        "210",
-        "211",
-        "212"
-      ]
+      "evolutionLinePeerIds": ["210", "211", "212"]
     },
     {
       "id": "210",
       "dexNumber": "210",
       "name": "Poliwhirl",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -5435,20 +4354,13 @@
         "de": "Quaputzi",
         "fr": "Têtarte"
       },
-      "evolutionLinePeerIds": [
-        "209",
-        "211",
-        "212"
-      ]
+      "evolutionLinePeerIds": ["209", "211", "212"]
     },
     {
       "id": "211",
       "dexNumber": "211",
       "name": "Poliwrath",
-      "specialties": [
-        "Water",
-        "Build"
-      ],
+      "specialties": ["Water", "Build"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -5462,20 +4374,13 @@
         "de": "Quappo",
         "fr": "Tartard"
       },
-      "evolutionLinePeerIds": [
-        "209",
-        "210",
-        "212"
-      ]
+      "evolutionLinePeerIds": ["209", "210", "212"]
     },
     {
       "id": "212",
       "dexNumber": "212",
       "name": "Politoed",
-      "specialties": [
-        "Water",
-        "Hype"
-      ],
+      "specialties": ["Water", "Hype"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -5489,19 +4394,13 @@
         "de": "Quaxo",
         "fr": "Tarpaud"
       },
-      "evolutionLinePeerIds": [
-        "209",
-        "210",
-        "211"
-      ]
+      "evolutionLinePeerIds": ["209", "210", "211"]
     },
     {
       "id": "213",
       "dexNumber": "213",
       "name": "Abra",
-      "specialties": [
-        "Teleport"
-      ],
+      "specialties": ["Teleport"],
       "idealHabitat": "Dark",
       "favorites": [
         "Strange stuff",
@@ -5515,18 +4414,13 @@
         "de": "Abra",
         "fr": "Abra"
       },
-      "evolutionLinePeerIds": [
-        "214",
-        "215"
-      ]
+      "evolutionLinePeerIds": ["214", "215"]
     },
     {
       "id": "214",
       "dexNumber": "214",
       "name": "Kadabra",
-      "specialties": [
-        "Teleport"
-      ],
+      "specialties": ["Teleport"],
       "idealHabitat": "Dark",
       "favorites": [
         "Strange stuff",
@@ -5540,19 +4434,13 @@
         "de": "Kadabra",
         "fr": "Kadabra"
       },
-      "evolutionLinePeerIds": [
-        "213",
-        "215"
-      ]
+      "evolutionLinePeerIds": ["213", "215"]
     },
     {
       "id": "215",
       "dexNumber": "215",
       "name": "Alakazam",
-      "specialties": [
-        "Teleport",
-        "Trade"
-      ],
+      "specialties": ["Teleport", "Trade"],
       "idealHabitat": "Dark",
       "favorites": [
         "Strange stuff",
@@ -5566,18 +4454,13 @@
         "de": "Simsala",
         "fr": "Alakazam"
       },
-      "evolutionLinePeerIds": [
-        "213",
-        "214"
-      ]
+      "evolutionLinePeerIds": ["213", "214"]
     },
     {
       "id": "216",
       "dexNumber": "216",
       "name": "Mime Jr.",
-      "specialties": [
-        "Gather"
-      ],
+      "specialties": ["Gather"],
       "idealHabitat": "Bright",
       "favorites": [
         "Strange stuff",
@@ -5591,18 +4474,13 @@
         "de": "Pantimimi",
         "fr": "Mime Jr."
       },
-      "evolutionLinePeerIds": [
-        "217"
-      ]
+      "evolutionLinePeerIds": ["217"]
     },
     {
       "id": "217",
       "dexNumber": "217",
       "name": "Mr. Mime",
-      "specialties": [
-        "Gather",
-        "Build"
-      ],
+      "specialties": ["Gather", "Build"],
       "idealHabitat": "Bright",
       "favorites": [
         "Strange stuff",
@@ -5616,17 +4494,13 @@
         "de": "Pantimos",
         "fr": "M. Mime"
       },
-      "evolutionLinePeerIds": [
-        "216"
-      ]
+      "evolutionLinePeerIds": ["216"]
     },
     {
       "id": "218",
       "dexNumber": "218",
       "name": "Porygon",
-      "specialties": [
-        "Recycle"
-      ],
+      "specialties": ["Recycle"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -5640,18 +4514,13 @@
         "de": "Porygon",
         "fr": "Porygon"
       },
-      "evolutionLinePeerIds": [
-        "219",
-        "220"
-      ]
+      "evolutionLinePeerIds": ["219", "220"]
     },
     {
       "id": "219",
       "dexNumber": "219",
       "name": "Porygon2",
-      "specialties": [
-        "Recycle"
-      ],
+      "specialties": ["Recycle"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -5665,18 +4534,13 @@
         "de": "Porygon2",
         "fr": "Porygon2"
       },
-      "evolutionLinePeerIds": [
-        "218",
-        "220"
-      ]
+      "evolutionLinePeerIds": ["218", "220"]
     },
     {
       "id": "220",
       "dexNumber": "220",
       "name": "Porygon-Z",
-      "specialties": [
-        "Rarify"
-      ],
+      "specialties": ["Rarify"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -5690,18 +4554,13 @@
         "de": "Porygon-Z",
         "fr": "Porygon-Z"
       },
-      "evolutionLinePeerIds": [
-        "218",
-        "219"
-      ]
+      "evolutionLinePeerIds": ["218", "219"]
     },
     {
       "id": "221",
       "dexNumber": "221",
       "name": "Dratini",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -5715,18 +4574,13 @@
         "de": "Dratini",
         "fr": "Minidraco"
       },
-      "evolutionLinePeerIds": [
-        "222",
-        "223"
-      ]
+      "evolutionLinePeerIds": ["222", "223"]
     },
     {
       "id": "222",
       "dexNumber": "222",
       "name": "Dragonair",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -5740,19 +4594,13 @@
         "de": "Dragonir",
         "fr": "Draco"
       },
-      "evolutionLinePeerIds": [
-        "221",
-        "223"
-      ]
+      "evolutionLinePeerIds": ["221", "223"]
     },
     {
       "id": "223",
       "dexNumber": "223",
       "name": "Dragonite",
-      "specialties": [
-        "Water",
-        "Fly"
-      ],
+      "specialties": ["Water", "Fly"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of fire",
@@ -5766,18 +4614,13 @@
         "de": "Dragoran",
         "fr": "Dracolosse"
       },
-      "evolutionLinePeerIds": [
-        "221",
-        "222"
-      ]
+      "evolutionLinePeerIds": ["221", "222"]
     },
     {
       "id": "224",
       "dexNumber": "224",
       "name": "Cyndaquil",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -5791,18 +4634,13 @@
         "de": "Feurigel",
         "fr": "Héricendre"
       },
-      "evolutionLinePeerIds": [
-        "225",
-        "226"
-      ]
+      "evolutionLinePeerIds": ["225", "226"]
     },
     {
       "id": "225",
       "dexNumber": "225",
       "name": "Quilava",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -5816,19 +4654,13 @@
         "de": "Igelavar",
         "fr": "Feurisson"
       },
-      "evolutionLinePeerIds": [
-        "224",
-        "226"
-      ]
+      "evolutionLinePeerIds": ["224", "226"]
     },
     {
       "id": "226",
       "dexNumber": "226",
       "name": "Typhlosion",
-      "specialties": [
-        "Burn",
-        "Trade"
-      ],
+      "specialties": ["Burn", "Trade"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -5842,18 +4674,13 @@
         "de": "Tornupto",
         "fr": "Typhlosion"
       },
-      "evolutionLinePeerIds": [
-        "224",
-        "225"
-      ]
+      "evolutionLinePeerIds": ["224", "225"]
     },
     {
       "id": "227",
       "dexNumber": "227",
       "name": "Misdreavus",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -5867,18 +4694,13 @@
         "de": "Traunfugil",
         "fr": "Feuforêve"
       },
-      "evolutionLinePeerIds": [
-        "228"
-      ]
+      "evolutionLinePeerIds": ["228"]
     },
     {
       "id": "228",
       "dexNumber": "228",
       "name": "Mismagius",
-      "specialties": [
-        "Gather",
-        "Trade"
-      ],
+      "specialties": ["Gather", "Trade"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -5892,17 +4714,13 @@
         "de": "Traunmagil",
         "fr": "Magirêve"
       },
-      "evolutionLinePeerIds": [
-        "227"
-      ]
+      "evolutionLinePeerIds": ["227"]
     },
     {
       "id": "229",
       "dexNumber": "229",
       "name": "Girafarig",
-      "specialties": [
-        "Gather"
-      ],
+      "specialties": ["Gather"],
       "idealHabitat": "Warm",
       "favorites": [
         "Soft stuff",
@@ -5916,18 +4734,13 @@
         "de": "Girafarig",
         "fr": "Girafarig"
       },
-      "evolutionLinePeerIds": [
-        "230"
-      ]
+      "evolutionLinePeerIds": ["230"]
     },
     {
       "id": "230",
       "dexNumber": "230",
       "name": "Farigiraf",
-      "specialties": [
-        "Gather",
-        "Search"
-      ],
+      "specialties": ["Gather", "Search"],
       "idealHabitat": "Warm",
       "favorites": [
         "Soft stuff",
@@ -5941,17 +4754,13 @@
         "de": "Farigiraf",
         "fr": "Farigiraf"
       },
-      "evolutionLinePeerIds": [
-        "229"
-      ]
+      "evolutionLinePeerIds": ["229"]
     },
     {
       "id": "231",
       "dexNumber": "231",
       "name": "Ralts",
-      "specialties": [
-        "Teleport"
-      ],
+      "specialties": ["Teleport"],
       "idealHabitat": "Bright",
       "favorites": [
         "Strange stuff",
@@ -5965,19 +4774,13 @@
         "de": "Trasla",
         "fr": "Tarsal"
       },
-      "evolutionLinePeerIds": [
-        "232",
-        "233",
-        "234"
-      ]
+      "evolutionLinePeerIds": ["232", "233", "234"]
     },
     {
       "id": "232",
       "dexNumber": "232",
       "name": "Kirlia",
-      "specialties": [
-        "Teleport"
-      ],
+      "specialties": ["Teleport"],
       "idealHabitat": "Bright",
       "favorites": [
         "Strange stuff",
@@ -5991,20 +4794,13 @@
         "de": "Kirlia",
         "fr": "Kirlia"
       },
-      "evolutionLinePeerIds": [
-        "231",
-        "233",
-        "234"
-      ]
+      "evolutionLinePeerIds": ["231", "233", "234"]
     },
     {
       "id": "233",
       "dexNumber": "233",
       "name": "Gardevoir",
-      "specialties": [
-        "Teleport",
-        "Trade"
-      ],
+      "specialties": ["Teleport", "Trade"],
       "idealHabitat": "Bright",
       "favorites": [
         "Strange stuff",
@@ -6018,20 +4814,13 @@
         "de": "Guardevoir",
         "fr": "Gardevoir"
       },
-      "evolutionLinePeerIds": [
-        "231",
-        "232",
-        "234"
-      ]
+      "evolutionLinePeerIds": ["231", "232", "234"]
     },
     {
       "id": "234",
       "dexNumber": "234",
       "name": "Gallade",
-      "specialties": [
-        "Teleport",
-        "Build"
-      ],
+      "specialties": ["Teleport", "Build"],
       "idealHabitat": "Bright",
       "favorites": [
         "Strange stuff",
@@ -6045,19 +4834,13 @@
         "de": "Galagladi",
         "fr": "Gallame"
       },
-      "evolutionLinePeerIds": [
-        "231",
-        "232",
-        "233"
-      ]
+      "evolutionLinePeerIds": ["231", "232", "233"]
     },
     {
       "id": "235",
       "dexNumber": "235",
       "name": "Plusle",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -6077,9 +4860,7 @@
       "id": "236",
       "dexNumber": "236",
       "name": "Minun",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -6099,10 +4880,7 @@
       "id": "237",
       "dexNumber": "237",
       "name": "Trapinch",
-      "specialties": [
-        "Bulldoze",
-        "Litter"
-      ],
+      "specialties": ["Bulldoze", "Litter"],
       "idealHabitat": "Dry",
       "favorites": [
         "Lots of dirt",
@@ -6116,19 +4894,13 @@
         "de": "Knacklion",
         "fr": "Kraknoix"
       },
-      "evolutionLinePeerIds": [
-        "238",
-        "239"
-      ]
+      "evolutionLinePeerIds": ["238", "239"]
     },
     {
       "id": "238",
       "dexNumber": "238",
       "name": "Vibrava",
-      "specialties": [
-        "Bulldoze",
-        "Fly"
-      ],
+      "specialties": ["Bulldoze", "Fly"],
       "idealHabitat": "Dry",
       "favorites": [
         "Lots of dirt",
@@ -6142,19 +4914,13 @@
         "de": "Vibrava",
         "fr": "Vibraninf"
       },
-      "evolutionLinePeerIds": [
-        "237",
-        "239"
-      ]
+      "evolutionLinePeerIds": ["237", "239"]
     },
     {
       "id": "239",
       "dexNumber": "239",
       "name": "Flygon",
-      "specialties": [
-        "Bulldoze",
-        "Fly"
-      ],
+      "specialties": ["Bulldoze", "Fly"],
       "idealHabitat": "Dry",
       "favorites": [
         "Lots of dirt",
@@ -6168,18 +4934,13 @@
         "de": "Libelldra",
         "fr": "Libégon"
       },
-      "evolutionLinePeerIds": [
-        "237",
-        "238"
-      ]
+      "evolutionLinePeerIds": ["237", "238"]
     },
     {
       "id": "240",
       "dexNumber": "240",
       "name": "Swablu",
-      "specialties": [
-        "Litter"
-      ],
+      "specialties": ["Litter"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -6193,18 +4954,13 @@
         "de": "Wablu",
         "fr": "Tylton"
       },
-      "evolutionLinePeerIds": [
-        "241"
-      ]
+      "evolutionLinePeerIds": ["241"]
     },
     {
       "id": "241",
       "dexNumber": "241",
       "name": "Altaria",
-      "specialties": [
-        "Litter",
-        "Fly"
-      ],
+      "specialties": ["Litter", "Fly"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -6218,17 +4974,13 @@
         "de": "Altaria",
         "fr": "Altaria"
       },
-      "evolutionLinePeerIds": [
-        "240"
-      ]
+      "evolutionLinePeerIds": ["240"]
     },
     {
       "id": "242",
       "dexNumber": "242",
       "name": "Duskull",
-      "specialties": [
-        "Gather"
-      ],
+      "specialties": ["Gather"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -6242,18 +4994,13 @@
         "de": "Zwirrlicht",
         "fr": "Skelénox"
       },
-      "evolutionLinePeerIds": [
-        "243",
-        "244"
-      ]
+      "evolutionLinePeerIds": ["243", "244"]
     },
     {
       "id": "243",
       "dexNumber": "243",
       "name": "Dusclops",
-      "specialties": [
-        "Gather"
-      ],
+      "specialties": ["Gather"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -6267,19 +5014,13 @@
         "de": "Zwirrklop",
         "fr": "Téraclope"
       },
-      "evolutionLinePeerIds": [
-        "242",
-        "244"
-      ]
+      "evolutionLinePeerIds": ["242", "244"]
     },
     {
       "id": "244",
       "dexNumber": "244",
       "name": "Dusknoir",
-      "specialties": [
-        "Gather",
-        "Trade"
-      ],
+      "specialties": ["Gather", "Trade"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
@@ -6293,18 +5034,13 @@
         "de": "Zwirrfinst",
         "fr": "Noctunoir"
       },
-      "evolutionLinePeerIds": [
-        "242",
-        "243"
-      ]
+      "evolutionLinePeerIds": ["242", "243"]
     },
     {
       "id": "245",
       "dexNumber": "245",
       "name": "Beldum",
-      "specialties": [
-        "Recycle"
-      ],
+      "specialties": ["Recycle"],
       "idealHabitat": "Cool",
       "favorites": [
         "Metal stuff",
@@ -6318,18 +5054,13 @@
         "de": "Tanhel",
         "fr": "Terhal"
       },
-      "evolutionLinePeerIds": [
-        "246",
-        "247"
-      ]
+      "evolutionLinePeerIds": ["246", "247"]
     },
     {
       "id": "246",
       "dexNumber": "246",
       "name": "Metang",
-      "specialties": [
-        "Recycle"
-      ],
+      "specialties": ["Recycle"],
       "idealHabitat": "Cool",
       "favorites": [
         "Metal stuff",
@@ -6343,19 +5074,13 @@
         "de": "Metang",
         "fr": "Métang"
       },
-      "evolutionLinePeerIds": [
-        "245",
-        "247"
-      ]
+      "evolutionLinePeerIds": ["245", "247"]
     },
     {
       "id": "247",
       "dexNumber": "247",
       "name": "Metagross",
-      "specialties": [
-        "Recycle",
-        "Crush"
-      ],
+      "specialties": ["Recycle", "Crush"],
       "idealHabitat": "Cool",
       "favorites": [
         "Metal stuff",
@@ -6369,19 +5094,13 @@
         "de": "Metagross",
         "fr": "Métalosse"
       },
-      "evolutionLinePeerIds": [
-        "245",
-        "246"
-      ]
+      "evolutionLinePeerIds": ["245", "246"]
     },
     {
       "id": "248",
       "dexNumber": "248",
       "name": "Snivy",
-      "specialties": [
-        "Grow",
-        "Litter"
-      ],
+      "specialties": ["Grow", "Litter"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -6395,19 +5114,13 @@
         "de": "Serpifeu",
         "fr": "Vipélierre"
       },
-      "evolutionLinePeerIds": [
-        "249",
-        "250"
-      ]
+      "evolutionLinePeerIds": ["249", "250"]
     },
     {
       "id": "249",
       "dexNumber": "249",
       "name": "Servine",
-      "specialties": [
-        "Grow",
-        "Litter"
-      ],
+      "specialties": ["Grow", "Litter"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -6421,19 +5134,13 @@
         "de": "Efoserp",
         "fr": "Lianaja"
       },
-      "evolutionLinePeerIds": [
-        "248",
-        "250"
-      ]
+      "evolutionLinePeerIds": ["248", "250"]
     },
     {
       "id": "250",
       "dexNumber": "250",
       "name": "Serperior",
-      "specialties": [
-        "Grow",
-        "Litter"
-      ],
+      "specialties": ["Grow", "Litter"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of nature",
@@ -6447,18 +5154,13 @@
         "de": "Serpiroyal",
         "fr": "Majaspic"
       },
-      "evolutionLinePeerIds": [
-        "248",
-        "249"
-      ]
+      "evolutionLinePeerIds": ["248", "249"]
     },
     {
       "id": "251",
       "dexNumber": "251",
       "name": "Froakie",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -6472,18 +5174,13 @@
         "de": "Froxy",
         "fr": "Grenousse"
       },
-      "evolutionLinePeerIds": [
-        "252",
-        "253"
-      ]
+      "evolutionLinePeerIds": ["252", "253"]
     },
     {
       "id": "252",
       "dexNumber": "252",
       "name": "Frogadier",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -6497,19 +5194,13 @@
         "de": "Amphizel",
         "fr": "Croâporal"
       },
-      "evolutionLinePeerIds": [
-        "251",
-        "253"
-      ]
+      "evolutionLinePeerIds": ["251", "253"]
     },
     {
       "id": "253",
       "dexNumber": "253",
       "name": "Greninja",
-      "specialties": [
-        "Water",
-        "Chop"
-      ],
+      "specialties": ["Water", "Chop"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -6523,18 +5214,13 @@
         "de": "Quajutsu",
         "fr": "Amphinobi"
       },
-      "evolutionLinePeerIds": [
-        "251",
-        "252"
-      ]
+      "evolutionLinePeerIds": ["251", "252"]
     },
     {
       "id": "254",
       "dexNumber": "254",
       "name": "Dedenne",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -6554,9 +5240,7 @@
       "id": "255",
       "dexNumber": "255",
       "name": "Noibat",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Dark",
       "favorites": [
         "Nice breezes",
@@ -6570,18 +5254,13 @@
         "de": "eF-eM",
         "fr": "Sonistrelle"
       },
-      "evolutionLinePeerIds": [
-        "256"
-      ]
+      "evolutionLinePeerIds": ["256"]
     },
     {
       "id": "256",
       "dexNumber": "256",
       "name": "Noivern",
-      "specialties": [
-        "Search",
-        "Fly"
-      ],
+      "specialties": ["Search", "Fly"],
       "idealHabitat": "Dark",
       "favorites": [
         "Nice breezes",
@@ -6595,17 +5274,13 @@
         "de": "UHaFnir",
         "fr": "Bruyverne"
       },
-      "evolutionLinePeerIds": [
-        "255"
-      ]
+      "evolutionLinePeerIds": ["255"]
     },
     {
       "id": "257",
       "dexNumber": "257",
       "name": "Rookidee",
-      "specialties": [
-        "Chop"
-      ],
+      "specialties": ["Chop"],
       "idealHabitat": "Bright",
       "favorites": [
         "Nice breezes",
@@ -6619,18 +5294,13 @@
         "de": "Meikro",
         "fr": "Minisange"
       },
-      "evolutionLinePeerIds": [
-        "258",
-        "259"
-      ]
+      "evolutionLinePeerIds": ["258", "259"]
     },
     {
       "id": "258",
       "dexNumber": "258",
       "name": "Corvisquire",
-      "specialties": [
-        "Chop"
-      ],
+      "specialties": ["Chop"],
       "idealHabitat": "Bright",
       "favorites": [
         "Nice breezes",
@@ -6644,19 +5314,13 @@
         "de": "Kranoviz",
         "fr": "Bleuseille"
       },
-      "evolutionLinePeerIds": [
-        "257",
-        "259"
-      ]
+      "evolutionLinePeerIds": ["257", "259"]
     },
     {
       "id": "259",
       "dexNumber": "259",
       "name": "Corviknight",
-      "specialties": [
-        "Chop",
-        "Fly"
-      ],
+      "specialties": ["Chop", "Fly"],
       "idealHabitat": "Bright",
       "favorites": [
         "Nice breezes",
@@ -6670,19 +5334,13 @@
         "de": "Krarmor",
         "fr": "Corvaillus"
       },
-      "evolutionLinePeerIds": [
-        "257",
-        "258"
-      ]
+      "evolutionLinePeerIds": ["257", "258"]
     },
     {
       "id": "260",
       "dexNumber": "260",
       "name": "Dreepy",
-      "specialties": [
-        "Gather",
-        "Search"
-      ],
+      "specialties": ["Gather", "Search"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of fire",
@@ -6696,19 +5354,13 @@
         "de": "Grolldra",
         "fr": "Fantyrm"
       },
-      "evolutionLinePeerIds": [
-        "261",
-        "262"
-      ]
+      "evolutionLinePeerIds": ["261", "262"]
     },
     {
       "id": "261",
       "dexNumber": "261",
       "name": "Drakloak",
-      "specialties": [
-        "Gather",
-        "Search"
-      ],
+      "specialties": ["Gather", "Search"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of fire",
@@ -6722,19 +5374,13 @@
         "de": "Phandra",
         "fr": "Dispareptil"
       },
-      "evolutionLinePeerIds": [
-        "260",
-        "262"
-      ]
+      "evolutionLinePeerIds": ["260", "262"]
     },
     {
       "id": "262",
       "dexNumber": "262",
       "name": "Dragapult",
-      "specialties": [
-        "Gather",
-        "Trade"
-      ],
+      "specialties": ["Gather", "Trade"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of fire",
@@ -6748,18 +5394,13 @@
         "de": "Katapuldra",
         "fr": "Lanssorien"
       },
-      "evolutionLinePeerIds": [
-        "260",
-        "261"
-      ]
+      "evolutionLinePeerIds": ["260", "261"]
     },
     {
       "id": "263",
       "dexNumber": "263",
       "name": "Sprigatito",
-      "specialties": [
-        "Grow"
-      ],
+      "specialties": ["Grow"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -6773,18 +5414,13 @@
         "de": "Felori",
         "fr": "Poussacha"
       },
-      "evolutionLinePeerIds": [
-        "264",
-        "265"
-      ]
+      "evolutionLinePeerIds": ["264", "265"]
     },
     {
       "id": "264",
       "dexNumber": "264",
       "name": "Floragato",
-      "specialties": [
-        "Grow"
-      ],
+      "specialties": ["Grow"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -6798,19 +5434,13 @@
         "de": "Feliospa",
         "fr": "Matourgeon"
       },
-      "evolutionLinePeerIds": [
-        "263",
-        "265"
-      ]
+      "evolutionLinePeerIds": ["263", "265"]
     },
     {
       "id": "265",
       "dexNumber": "265",
       "name": "Meowscarada",
-      "specialties": [
-        "Grow",
-        "Hype"
-      ],
+      "specialties": ["Grow", "Hype"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -6824,18 +5454,13 @@
         "de": "Maskagato",
         "fr": "Miascarade"
       },
-      "evolutionLinePeerIds": [
-        "263",
-        "264"
-      ]
+      "evolutionLinePeerIds": ["263", "264"]
     },
     {
       "id": "266",
       "dexNumber": "266",
       "name": "Wattrel",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -6849,18 +5474,13 @@
         "de": "Voltrel",
         "fr": "Zapétrel"
       },
-      "evolutionLinePeerIds": [
-        "267"
-      ]
+      "evolutionLinePeerIds": ["267"]
     },
     {
       "id": "267",
       "dexNumber": "267",
       "name": "Kilowattrel",
-      "specialties": [
-        "Generate",
-        "Fly"
-      ],
+      "specialties": ["Generate", "Fly"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -6874,17 +5494,13 @@
         "de": "Voltrean",
         "fr": "Fulgulairo"
       },
-      "evolutionLinePeerIds": [
-        "266"
-      ]
+      "evolutionLinePeerIds": ["266"]
     },
     {
       "id": "268",
       "dexNumber": "268",
       "name": "Tinkatink",
-      "specialties": [
-        "Build"
-      ],
+      "specialties": ["Build"],
       "idealHabitat": "Bright",
       "favorites": [
         "Cute stuff",
@@ -6898,18 +5514,13 @@
         "de": "Forgita",
         "fr": "Forgerette"
       },
-      "evolutionLinePeerIds": [
-        "269",
-        "270"
-      ]
+      "evolutionLinePeerIds": ["269", "270"]
     },
     {
       "id": "269",
       "dexNumber": "269",
       "name": "Tinkatuff",
-      "specialties": [
-        "Build"
-      ],
+      "specialties": ["Build"],
       "idealHabitat": "Bright",
       "favorites": [
         "Cute stuff",
@@ -6923,18 +5534,13 @@
         "de": "Tafforgita",
         "fr": "Forgella"
       },
-      "evolutionLinePeerIds": [
-        "268",
-        "270"
-      ]
+      "evolutionLinePeerIds": ["268", "270"]
     },
     {
       "id": "270",
       "dexNumber": "270",
       "name": "Tinkaton",
-      "specialties": [
-        "Engineer"
-      ],
+      "specialties": ["Engineer"],
       "idealHabitat": "Bright",
       "favorites": [
         "Cute stuff",
@@ -6948,18 +5554,13 @@
         "de": "Granforgita",
         "fr": "Forgelina"
       },
-      "evolutionLinePeerIds": [
-        "268",
-        "269"
-      ]
+      "evolutionLinePeerIds": ["268", "269"]
     },
     {
       "id": "271",
       "dexNumber": "271",
       "name": "Aerodactyl",
-      "specialties": [
-        "Fly"
-      ],
+      "specialties": ["Fly"],
       "idealHabitat": "Dry",
       "favorites": [
         "Stone stuff",
@@ -6979,9 +5580,7 @@
       "id": "272",
       "dexNumber": "272",
       "name": "Cranidos",
-      "specialties": [
-        "Crush"
-      ],
+      "specialties": ["Crush"],
       "idealHabitat": "Dry",
       "favorites": [
         "Stone stuff",
@@ -6995,18 +5594,13 @@
         "de": "Koknodon",
         "fr": "Kranidos"
       },
-      "evolutionLinePeerIds": [
-        "273"
-      ]
+      "evolutionLinePeerIds": ["273"]
     },
     {
       "id": "273",
       "dexNumber": "273",
       "name": "Rampardos",
-      "specialties": [
-        "Crush",
-        "Litter"
-      ],
+      "specialties": ["Crush", "Litter"],
       "idealHabitat": "Dry",
       "favorites": [
         "Stone stuff",
@@ -7020,17 +5614,13 @@
         "de": "Rameidon",
         "fr": "Charkos"
       },
-      "evolutionLinePeerIds": [
-        "272"
-      ]
+      "evolutionLinePeerIds": ["272"]
     },
     {
       "id": "274",
       "dexNumber": "274",
       "name": "Shieldon",
-      "specialties": [
-        "Crush"
-      ],
+      "specialties": ["Crush"],
       "idealHabitat": "Dry",
       "favorites": [
         "Stone stuff",
@@ -7044,18 +5634,13 @@
         "de": "Schilterus",
         "fr": "Dinoclier"
       },
-      "evolutionLinePeerIds": [
-        "275"
-      ]
+      "evolutionLinePeerIds": ["275"]
     },
     {
       "id": "275",
       "dexNumber": "275",
       "name": "Bastiodon",
-      "specialties": [
-        "Crush",
-        "Litter"
-      ],
+      "specialties": ["Crush", "Litter"],
       "idealHabitat": "Dry",
       "favorites": [
         "Stone stuff",
@@ -7069,17 +5654,13 @@
         "de": "Bollterus",
         "fr": "Bastiodon"
       },
-      "evolutionLinePeerIds": [
-        "274"
-      ]
+      "evolutionLinePeerIds": ["274"]
     },
     {
       "id": "276",
       "dexNumber": "276",
       "name": "Tyrunt",
-      "specialties": [
-        "Crush"
-      ],
+      "specialties": ["Crush"],
       "idealHabitat": "Dry",
       "favorites": [
         "Stone stuff",
@@ -7093,18 +5674,13 @@
         "de": "Balgoras",
         "fr": "Ptyranidur"
       },
-      "evolutionLinePeerIds": [
-        "277"
-      ]
+      "evolutionLinePeerIds": ["277"]
     },
     {
       "id": "277",
       "dexNumber": "277",
       "name": "Tyrantrum",
-      "specialties": [
-        "Crush",
-        "Litter"
-      ],
+      "specialties": ["Crush", "Litter"],
       "idealHabitat": "Dry",
       "favorites": [
         "Stone stuff",
@@ -7118,17 +5694,13 @@
         "de": "Monargoras",
         "fr": "Rexillius"
       },
-      "evolutionLinePeerIds": [
-        "276"
-      ]
+      "evolutionLinePeerIds": ["276"]
     },
     {
       "id": "278",
       "dexNumber": "278",
       "name": "Amaura",
-      "specialties": [
-        "Crush"
-      ],
+      "specialties": ["Crush"],
       "idealHabitat": "Cool",
       "favorites": [
         "Stone stuff",
@@ -7142,18 +5714,13 @@
         "de": "Amarino",
         "fr": "Amagara"
       },
-      "evolutionLinePeerIds": [
-        "279"
-      ]
+      "evolutionLinePeerIds": ["279"]
     },
     {
       "id": "279",
       "dexNumber": "279",
       "name": "Aurorus",
-      "specialties": [
-        "Crush",
-        "Litter"
-      ],
+      "specialties": ["Crush", "Litter"],
       "idealHabitat": "Cool",
       "favorites": [
         "Stone stuff",
@@ -7167,17 +5734,13 @@
         "de": "Amagarga",
         "fr": "Dragmara"
       },
-      "evolutionLinePeerIds": [
-        "278"
-      ]
+      "evolutionLinePeerIds": ["278"]
     },
     {
       "id": "280",
       "dexNumber": "280",
       "name": "Eevee",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Warm",
       "favorites": [
         "Soft stuff",
@@ -7206,9 +5769,7 @@
       "id": "281",
       "dexNumber": "281",
       "name": "Vaporeon",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -7237,9 +5798,7 @@
       "id": "282",
       "dexNumber": "282",
       "name": "Jolteon",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -7268,9 +5827,7 @@
       "id": "283",
       "dexNumber": "283",
       "name": "Flareon",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -7299,9 +5856,7 @@
       "id": "284",
       "dexNumber": "284",
       "name": "Espeon",
-      "specialties": [
-        "Gather"
-      ],
+      "specialties": ["Gather"],
       "idealHabitat": "Bright",
       "favorites": [
         "Strange stuff",
@@ -7330,9 +5885,7 @@
       "id": "285",
       "dexNumber": "285",
       "name": "Umbreon",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Dark",
       "favorites": [
         "Shiny stuff",
@@ -7361,9 +5914,7 @@
       "id": "286",
       "dexNumber": "286",
       "name": "Leafeon",
-      "specialties": [
-        "Grow"
-      ],
+      "specialties": ["Grow"],
       "idealHabitat": "Bright",
       "favorites": [
         "Lots of nature",
@@ -7392,9 +5943,7 @@
       "id": "287",
       "dexNumber": "287",
       "name": "Glaceon",
-      "specialties": [
-        "Trade"
-      ],
+      "specialties": ["Trade"],
       "idealHabitat": "Cool",
       "favorites": [
         "Lots of water",
@@ -7423,9 +5972,7 @@
       "id": "288",
       "dexNumber": "288",
       "name": "Sylveon",
-      "specialties": [
-        "Hype"
-      ],
+      "specialties": ["Hype"],
       "idealHabitat": "Warm",
       "favorites": [
         "Cute stuff",
@@ -7454,9 +6001,7 @@
       "id": "289",
       "dexNumber": "289",
       "name": "Kyogre",
-      "specialties": [
-        "???"
-      ],
+      "specialties": ["???"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -7476,9 +6021,7 @@
       "id": "290",
       "dexNumber": "290",
       "name": "Raikou",
-      "specialties": [
-        "Generate"
-      ],
+      "specialties": ["Generate"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -7498,9 +6041,7 @@
       "id": "291",
       "dexNumber": "291",
       "name": "Entei",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -7520,9 +6061,7 @@
       "id": "292",
       "dexNumber": "292",
       "name": "Suicune",
-      "specialties": [
-        "Water"
-      ],
+      "specialties": ["Water"],
       "idealHabitat": "Humid",
       "favorites": [
         "Lots of water",
@@ -7542,9 +6081,7 @@
       "id": "293",
       "dexNumber": "293",
       "name": "Volcanion",
-      "specialties": [
-        "Burn"
-      ],
+      "specialties": ["Burn"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -7564,9 +6101,7 @@
       "id": "294",
       "dexNumber": "294",
       "name": "Articuno",
-      "specialties": [
-        "Fly"
-      ],
+      "specialties": ["Fly"],
       "idealHabitat": "Cool",
       "favorites": [
         "Lots of water",
@@ -7586,9 +6121,7 @@
       "id": "295",
       "dexNumber": "295",
       "name": "Zapdos",
-      "specialties": [
-        "Fly"
-      ],
+      "specialties": ["Fly"],
       "idealHabitat": "Bright",
       "favorites": [
         "Electronics",
@@ -7608,9 +6141,7 @@
       "id": "296",
       "dexNumber": "296",
       "name": "Moltres",
-      "specialties": [
-        "Fly"
-      ],
+      "specialties": ["Fly"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -7630,9 +6161,7 @@
       "id": "297",
       "dexNumber": "297",
       "name": "Lugia",
-      "specialties": [
-        "???"
-      ],
+      "specialties": ["???"],
       "idealHabitat": "Humid",
       "favorites": [
         "Strange stuff",
@@ -7653,9 +6182,7 @@
       "id": "298",
       "dexNumber": "298",
       "name": "Ho-Oh",
-      "specialties": [
-        "???"
-      ],
+      "specialties": ["???"],
       "idealHabitat": "Warm",
       "favorites": [
         "Lots of fire",
@@ -7676,9 +6203,7 @@
       "id": "299",
       "dexNumber": "299",
       "name": "Mewtwo",
-      "specialties": [
-        "Teleport"
-      ],
+      "specialties": ["Teleport"],
       "idealHabitat": "Dark",
       "favorites": [
         "Strange stuff",
@@ -7698,9 +6223,7 @@
       "id": "300",
       "dexNumber": "300",
       "name": "Mew",
-      "specialties": [
-        "Teleport"
-      ],
+      "specialties": ["Teleport"],
       "idealHabitat": "Warm",
       "favorites": [
         "Strange stuff",
@@ -7722,9 +6245,7 @@
       "id": "e001",
       "dexNumber": "001",
       "name": "Hoppip",
-      "specialties": [
-        "Grow"
-      ],
+      "specialties": ["Grow"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -7738,18 +6259,13 @@
         "de": "Hoppspross",
         "fr": "Granivol"
       },
-      "evolutionLinePeerIds": [
-        "e002",
-        "e003"
-      ]
+      "evolutionLinePeerIds": ["e002", "e003"]
     },
     {
       "id": "e002",
       "dexNumber": "002",
       "name": "Skiploom",
-      "specialties": [
-        "Grow"
-      ],
+      "specialties": ["Grow"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -7763,19 +6279,13 @@
         "de": "Hubelupf",
         "fr": "Floravol"
       },
-      "evolutionLinePeerIds": [
-        "e001",
-        "e003"
-      ]
+      "evolutionLinePeerIds": ["e001", "e003"]
     },
     {
       "id": "e003",
       "dexNumber": "003",
       "name": "Jumpluff",
-      "specialties": [
-        "Grow",
-        "Litter"
-      ],
+      "specialties": ["Grow", "Litter"],
       "idealHabitat": "Bright",
       "favorites": [
         "Soft stuff",
@@ -7789,18 +6299,13 @@
         "de": "Papungha",
         "fr": "Cotovol"
       },
-      "evolutionLinePeerIds": [
-        "e001",
-        "e002"
-      ]
+      "evolutionLinePeerIds": ["e001", "e002"]
     },
     {
       "id": "e004",
       "dexNumber": "004",
       "name": "Sableye",
-      "specialties": [
-        "Search"
-      ],
+      "specialties": ["Search"],
       "idealHabitat": "Dark",
       "favorites": [
         "Spooky stuff",
